@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "last_updated": "2026-04-13",
   "description": "מאגר הידע המרכזי של AI Intelligence Hub — מקור האמת לכל הכלים, האקוסיסטמים, והקשרים ביניהם",
   "ecosystems": [
@@ -228,7 +228,13 @@
         "last_verified": "2026-04-01",
         "confidence": 90,
         "freshness_score": 90
-      }
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-10",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-002"
+      ]
     },
     {
       "id": "anthropic-api",
@@ -287,7 +293,13 @@
         "last_verified": "2026-04-01",
         "confidence": 92,
         "freshness_score": 92
-      }
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-10",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-003"
+      ]
     },
     {
       "id": "claude-code",
@@ -365,7 +377,13 @@
         "last_verified": "2026-04-01",
         "confidence": 95,
         "freshness_score": 95
-      }
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-10",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-001"
+      ]
     },
     {
       "id": "claude-agent-sdk",
@@ -422,7 +440,11 @@
         "last_verified": "2026-04-01",
         "confidence": 88,
         "freshness_score": 88
-      }
+      },
+      "research_status": "research_in_progress",
+      "last_research_date": "2026-04-01",
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "mcp-protocol",
@@ -482,7 +504,11 @@
         "last_verified": "2026-04-01",
         "confidence": 85,
         "freshness_score": 85
-      }
+      },
+      "research_status": "research_in_progress",
+      "last_research_date": "2026-04-01",
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "google-gemini-full",
@@ -562,7 +588,11 @@
         "last_verified": "2026-04-01",
         "confidence": 88,
         "freshness_score": 88
-      }
+      },
+      "research_status": "research_in_progress",
+      "last_research_date": "2026-04-01",
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "google-ai-studio",
@@ -623,7 +653,11 @@
         "last_verified": "2026-04-01",
         "confidence": 87,
         "freshness_score": 87
-      }
+      },
+      "research_status": "research_in_progress",
+      "last_research_date": "2026-04-01",
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "gemma4-local",
@@ -677,7 +711,11 @@
         "last_verified": "2026-04-01",
         "confidence": 82,
         "freshness_score": 82
-      }
+      },
+      "research_status": "research_in_progress",
+      "last_research_date": "2026-04-01",
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "chatgpt",
@@ -755,7 +793,11 @@
         "last_verified": "2026-04-01",
         "confidence": 90,
         "freshness_score": 90
-      }
+      },
+      "research_status": "needs_review",
+      "last_research_date": null,
+      "has_pending_updates": true,
+      "research_record_ids": []
     },
     {
       "id": "chatgpt-full",
@@ -810,7 +852,11 @@
         "last_verified": "2026-04-01",
         "confidence": 85,
         "freshness_score": 85
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "github-copilot",
@@ -891,7 +937,11 @@
         "last_verified": "2026-04-01",
         "confidence": 90,
         "freshness_score": 90
-      }
+      },
+      "research_status": "research_in_progress",
+      "last_research_date": "2026-04-01",
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "microsoft-copilot",
@@ -956,7 +1006,11 @@
         "last_verified": "2026-04-01",
         "confidence": 80,
         "freshness_score": 80
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "cursor-ide",
@@ -1038,7 +1092,11 @@
         "last_verified": "2026-04-01",
         "confidence": 92,
         "freshness_score": 92
-      }
+      },
+      "research_status": "update_pending",
+      "last_research_date": null,
+      "has_pending_updates": true,
+      "research_record_ids": []
     },
     {
       "id": "cursor-agents",
@@ -1097,7 +1155,11 @@
         "last_verified": "2026-04-01",
         "confidence": 85,
         "freshness_score": 85
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "windsurf-ide",
@@ -1161,7 +1223,11 @@
         "last_verified": "2026-04-01",
         "confidence": 83,
         "freshness_score": 83
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "aider-cline",
@@ -1232,7 +1298,11 @@
         "last_verified": "2026-04-01",
         "confidence": 80,
         "freshness_score": 80
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "devin-ai",
@@ -1287,7 +1357,11 @@
         "last_verified": "2026-04-01",
         "confidence": 75,
         "freshness_score": 75
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "lovable-dev",
@@ -1358,7 +1432,11 @@
         "last_verified": "2026-04-01",
         "confidence": 88,
         "freshness_score": 88
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "bolt-new",
@@ -1429,7 +1507,11 @@
         "last_verified": "2026-04-01",
         "confidence": 88,
         "freshness_score": 88
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "v0-vercel",
@@ -1496,7 +1578,11 @@
         "last_verified": "2026-04-01",
         "confidence": 85,
         "freshness_score": 85
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "replit-agent",
@@ -1560,7 +1646,11 @@
         "last_verified": "2026-04-01",
         "confidence": 80,
         "freshness_score": 80
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "n8n-automation",
@@ -1645,7 +1735,11 @@
         "last_verified": "2026-04-01",
         "confidence": 90,
         "freshness_score": 90
-      }
+      },
+      "research_status": "research_in_progress",
+      "last_research_date": "2026-04-01",
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "make-automation",
@@ -1711,7 +1805,11 @@
         "last_verified": "2026-04-01",
         "confidence": 85,
         "freshness_score": 85
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "zapier-ai-agents",
@@ -1775,7 +1873,11 @@
         "last_verified": "2026-04-01",
         "confidence": 82,
         "freshness_score": 82
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "gumloop-ai",
@@ -1834,7 +1936,11 @@
         "last_verified": "2026-04-01",
         "confidence": 72,
         "freshness_score": 72
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "perplexity-ai",
@@ -1901,7 +2007,11 @@
         "last_verified": "2026-04-01",
         "confidence": 87,
         "freshness_score": 87
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "notion-ai",
@@ -1956,7 +2066,11 @@
         "last_verified": "2026-04-01",
         "confidence": 80,
         "freshness_score": 80
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "jasper-copyai",
@@ -2012,7 +2126,11 @@
         "last_verified": "2026-04-01",
         "confidence": 70,
         "freshness_score": 70
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "runway-video",
@@ -2074,7 +2192,11 @@
         "last_verified": "2026-04-01",
         "confidence": 80,
         "freshness_score": 80
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "heygen-avatars",
@@ -2145,7 +2267,11 @@
         "last_verified": "2026-04-01",
         "confidence": 78,
         "freshness_score": 78
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "suno-music",
@@ -2202,7 +2328,11 @@
         "last_verified": "2026-04-01",
         "confidence": 78,
         "freshness_score": 78
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "elevenlabs-voice",
@@ -2268,7 +2398,11 @@
         "last_verified": "2026-04-01",
         "confidence": 85,
         "freshness_score": 85
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "base44-israeli",
@@ -2332,7 +2466,11 @@
         "last_verified": "2026-04-01",
         "confidence": 80,
         "freshness_score": 80
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "did-israeli",
@@ -2395,7 +2533,11 @@
         "last_verified": "2026-04-01",
         "confidence": 78,
         "freshness_score": 78
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "nemoclaw-openclaw",
@@ -2442,7 +2584,11 @@
         "last_verified": "2026-04-01",
         "confidence": 55,
         "freshness_score": 55
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     },
     {
       "id": "browser-use-oss",
@@ -2499,7 +2645,11 @@
         "last_verified": "2026-04-01",
         "confidence": 75,
         "freshness_score": 75
-      }
+      },
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": []
     }
   ],
   "backfill_queue": [
@@ -2583,6 +2733,197 @@
     "pending_backfill": 4,
     "last_wiki_sync": "2026-04-13",
     "total_ecosystems": 11,
-    "last_updated": "2026-04-13"
-  }
+    "last_updated": "2026-04-13",
+    "tools_researched": 3,
+    "tools_update_pending": 1,
+    "tools_needs_review": 2,
+    "tools_inventory_only": 24,
+    "open_review_items": 2,
+    "active_sources": 4
+  },
+  "deep_research_records": [
+    {
+      "id": "dr-001",
+      "tool_id": "claude-code",
+      "ecosystem_id": "anthropic",
+      "research_date": "2026-04-10",
+      "researcher": "manual",
+      "sources_used": [
+        "wiki/claude-code.md",
+        "youtube/claude-code-shorts.md",
+        "https://docs.anthropic.com/claude-code"
+      ],
+      "summary": "Claude Code הוא CLI agent מלא מבית Anthropic. תומך ב-MCP, hooks, sub-agents. פועל על claude-sonnet-4-6 כברירת מחדל.",
+      "key_findings": [
+        "תומך ב-hooks מסוגים: PreToolUse, PostToolUse, Stop, SessionStart",
+        "יש auto-compact כשהקונטקסט מתמלא",
+        "ה-SDK מאפשר בניית agents מותאמים אישית",
+        "תומך ב-MCP servers — מרחיב יכולות עם כלים חיצוניים",
+        "עלות: נגבה מ-Anthropic API — ממוצע $2-8 לשעה לפי שימוש"
+      ],
+      "confidence": 92,
+      "notebooklm_url": null,
+      "version": 1
+    },
+    {
+      "id": "dr-002",
+      "tool_id": "claude-ai-web",
+      "ecosystem_id": "anthropic",
+      "research_date": "2026-04-10",
+      "researcher": "manual",
+      "sources_used": [
+        "wiki/claude-ai.md",
+        "https://claude.ai"
+      ],
+      "summary": "ממשק ה-web של Claude. תוכנית Pro כוללת Projects, extended thinking ו-Claude 3.7 Sonnet. Free tier מוגבל.",
+      "key_findings": [
+        "Claude.ai Pro: $20/חודש — Projects, extended thinking, priority access",
+        "Claude for Work: $25/חודש/משתמש — shared Projects, admin controls",
+        "Free tier: Claude 3.5 Haiku, מוגבל בהודעות",
+        "Projects: זיכרון עקבי בתוך פרויקט אחד",
+        "תמיכה בעברית מצוינת"
+      ],
+      "confidence": 88,
+      "notebooklm_url": null,
+      "version": 1
+    },
+    {
+      "id": "dr-003",
+      "tool_id": "anthropic-api",
+      "ecosystem_id": "anthropic",
+      "research_date": "2026-04-08",
+      "researcher": "manual",
+      "sources_used": [
+        "wiki/anthropic-api.md",
+        "https://docs.anthropic.com/api"
+      ],
+      "summary": "Anthropic API — גישה ישירה למודלי Claude דרך REST API. תמחור לפי tokens. תומך ב-streaming, vision, tool use.",
+      "key_findings": [
+        "claude-sonnet-4-6: $3/M input tokens, $15/M output tokens",
+        "claude-haiku-3-5: $0.25/M input, $1.25/M output — הזול ביותר",
+        "תמיכה מלאה ב-tool use, computer use, vision",
+        "Prompt caching מוזיל עלויות עד 90% על prompts חוזרים",
+        "Rate limits: Tier 1 — 50K TPM"
+      ],
+      "confidence": 95,
+      "notebooklm_url": null,
+      "version": 1
+    }
+  ],
+  "update_records": [
+    {
+      "id": "upd-001",
+      "tool_id": "cursor",
+      "detected_at": "2026-04-12",
+      "source_url": "https://cursor.sh/changelog",
+      "source_type": "release_notes",
+      "title": "Cursor 0.45 — Background Agent + Max Mode",
+      "summary": "גרסה 0.45 מוסיפה Background Agent שרץ ברקע ומבצע משימות ארוכות. Max Mode מאפשר שימוש בקונטקסט גדול מאוד.",
+      "classification": "new_feature",
+      "recommended_action": "update_research",
+      "status": "pending_review",
+      "affects_deep_research": true
+    },
+    {
+      "id": "upd-002",
+      "tool_id": "chatgpt",
+      "detected_at": "2026-04-11",
+      "source_url": "https://openai.com/blog",
+      "source_type": "blog",
+      "title": "ChatGPT Plus price change — $20 → $22",
+      "summary": "OpenAI העלתה את מחיר ChatGPT Plus מ-$20 ל-$22 לחודש החל מ-מאי 2026.",
+      "classification": "pricing_change",
+      "recommended_action": "append_update",
+      "status": "pending_review",
+      "affects_deep_research": false
+    },
+    {
+      "id": "upd-003",
+      "tool_id": "google-gemini-full",
+      "detected_at": "2026-04-09",
+      "source_url": "https://blog.google/products/gemini",
+      "source_type": "blog",
+      "title": "Gemini 2.5 Pro — שיפורי reasoning ו-Deep Research",
+      "summary": "Gemini 2.5 Pro קיבל שדרוג ל-reasoning ולמצב Deep Research. ניסויים מראים שיפור של 15% ב-coding benchmarks.",
+      "classification": "model_update",
+      "recommended_action": "update_research",
+      "status": "applied",
+      "affects_deep_research": true,
+      "applied_at": "2026-04-09",
+      "applied_by": "manual",
+      "resolution_notes": "עדכנו את wiki/google-gemini.md עם הפרטים"
+    }
+  ],
+  "source_records": [
+    {
+      "id": "src-001",
+      "tool_id": "claude-ai-web",
+      "source_type": "web_page",
+      "url": "https://www.anthropic.com/news",
+      "label": "Anthropic News Blog",
+      "last_checked": "2026-04-13",
+      "check_frequency": "weekly",
+      "is_active": true,
+      "last_found_update": "2026-04-10",
+      "total_updates_found": 3
+    },
+    {
+      "id": "src-002",
+      "tool_id": "cursor",
+      "source_type": "web_page",
+      "url": "https://cursor.sh/changelog",
+      "label": "Cursor Changelog",
+      "last_checked": "2026-04-13",
+      "check_frequency": "weekly",
+      "is_active": true,
+      "last_found_update": "2026-04-12",
+      "total_updates_found": 5
+    },
+    {
+      "id": "src-003",
+      "tool_id": "chatgpt",
+      "source_type": "blog",
+      "url": "https://openai.com/blog",
+      "label": "OpenAI Blog",
+      "last_checked": "2026-04-13",
+      "check_frequency": "weekly",
+      "is_active": true,
+      "last_found_update": "2026-04-11",
+      "total_updates_found": 2
+    },
+    {
+      "id": "src-004",
+      "tool_id": "anthropic-api",
+      "source_type": "github_releases",
+      "url": "https://github.com/anthropics/anthropic-sdk-python/releases",
+      "label": "Anthropic Python SDK Releases",
+      "last_checked": "2026-04-12",
+      "check_frequency": "weekly",
+      "is_active": true,
+      "last_found_update": "2026-04-05",
+      "total_updates_found": 8
+    }
+  ],
+  "review_queue": [
+    {
+      "id": "rev-001",
+      "tool_id": "chatgpt",
+      "flagged_at": "2026-04-11",
+      "reason": "עדכון מחיר ממתין לאישור + freshness_score נמוך. יש לוודא שהתוכניות מעודכנות.",
+      "severity": "medium",
+      "category": "conflicting_update",
+      "status": "open",
+      "linked_update_id": "upd-002"
+    },
+    {
+      "id": "rev-002",
+      "tool_id": "cursor",
+      "flagged_at": "2026-04-12",
+      "reason": "גרסה חדשה (0.45) עם Background Agent — ייתכן שה-wiki וה-handoff_steps מיושנים.",
+      "severity": "high",
+      "category": "conflicting_update",
+      "status": "open",
+      "linked_update_id": "upd-001"
+    }
+  ]
 }
