@@ -30,7 +30,10 @@
       "Bash(curl -s http://localhost:3099/api/task-router -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"task\\\\\":\\\\\"test\\\\\",\\\\\"answers\\\\\":{\\\\\"type\\\\\":\\\\\"אחר\\\\\",\\\\\"experience\\\\\":\\\\\"מתחיל\\\\\",\\\\\"privacy\\\\\":\\\\\"ענן — בסדר\\\\\",\\\\\"priority\\\\\":\\\\\"עלות נמוכה\\\\\"},\\\\\"accessMap\\\\\":{\\\\\"web_sub\\\\\":\\\\\"no\\\\\",\\\\\"api_key\\\\\":\\\\\"no\\\\\",\\\\\"local_runtime\\\\\":\\\\\"no\\\\\",\\\\\"org_access\\\\\":\\\\\"no\\\\\",\\\\\"student_access\\\\\":\\\\\"no\\\\\",\\\\\"notes\\\\\":\\\\\"\\\\\"},\\\\\"knowledgeLevel\\\\\":\\\\\"מתחיל\\\\\"}\")",
       "Bash(curl -s http://localhost:3099/api/task-router -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"task\\\\\":\\\\\"רוצה לבנות אתר לעסק שלי שיציג את השירותים שלי ויהיה בו טופס יצירת קשר. אני לא יודע לתכנת בכלל.\\\\\",\\\\\"answers\\\\\":{\\\\\"type\\\\\":\\\\\"אתר / אפליקציה Web\\\\\",\\\\\"experience\\\\\":\\\\\"מתחיל\\\\\",\\\\\"privacy\\\\\":\\\\\"ענן — בסדר\\\\\",\\\\\"priority\\\\\":\\\\\"עלות נמוכה\\\\\"},\\\\\"accessMap\\\\\":{\\\\\"web_sub\\\\\":\\\\\"no\\\\\",\\\\\"api_key\\\\\":\\\\\"no\\\\\",\\\\\"local_runtime\\\\\":\\\\\"no\\\\\",\\\\\"org_access\\\\\":\\\\\"no\\\\\",\\\\\"student_access\\\\\":\\\\\"no\\\\\",\\\\\"notes\\\\\":\\\\\"\\\\\"},\\\\\"knowledgeLevel\\\\\":\\\\\"מתחיל\\\\\"}\")",
       "Bash(node -e ':*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(node -e \"const f=require\\('fs'\\);const j=JSON.parse\\(f.readFileSync\\('C:/Users/\\\\u05d0\\\\u05d9\\\\u05ea\\\\u05d9/.claude/settings.json','utf8'\\)\\);console.log\\('hook cmd:',j.hooks.Stop[0].hooks[0].command\\);console.log\\('✅ JSON valid'\\)\")"
     ]
   }
 }
