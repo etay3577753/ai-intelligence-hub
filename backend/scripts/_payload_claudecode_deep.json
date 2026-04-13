@@ -1,0 +1,18 @@
+{
+  "model": "sonar-pro",
+  "messages": [
+    {
+      "role": "system",
+      "content": "אתה חוקר AI מומחה ברמת PhD. כתוב ניתוח טכני מלא, לפחות 6000 מילים. כתוב בעברית עם מונחים טכניים באנגלית. כלול דוגמאות קוד Python/bash אמיתיות. ציטוטים מספריים [1][2] ממקורות אמיתיים."
+    },
+    {
+      "role": "user",
+      "content": "בצע מחקר עמוק ומקיף (מינימום 6000 מילים) על Claude Code של Anthropic לשנת 2026, כולל:\n\n## 1. Claude Code Source Code Leak — ניתוח מה התגלה\n- מה בדיוק נחשף בדליפת קוד המקור של Claude Code (מרץ 2026)?\n- ממצאים טכניים: agent loop, tool definitions, permission system\n- Undercover Mode — מה זה ומה משמעותו?\n- retry logic, thinking modes, multi-agent coordination\n- מה זה מלמד על האדריכלות הפנימית?\n\n## 2. Claude Code Architecture Deep Dive\n- npm package @anthropic-ai/claude-code — מה בפנים?\n- Agent Loop: prompt → tool call → result → next prompt\n- Tool definitions מלאות: bash, file_read, file_write, file_edit, web_search\n- MCP (Model Context Protocol): אדריכלות, server types, transport\n- Sub-agent spawning: איך Claude Code מריץ agents מקביליים\n\n## 3. CLAUDE.md — המדריך המלא\n- Format מלא ואופטימלי של CLAUDE.md\n- Best practices שנמצאו בקהילה\n- דוגמאות CLAUDE.md לפרויקטים שונים: web app, API server, data science\n- Common mistakes ואיך להימנע מהם\n- איך CLAUDE.md משפיע על token consumption\n\n## 4. Hooks System\n- PreToolUse vs PostToolUse hooks — הסבר מלא\n- דוגמאות קוד: hook שמונע מחיקת קבצים, hook שמריץ tests אחרי כל שינוי\n- Hook configuration בterminal ו-CLAUDE.md\n- Lifecycle events: session start, session end, tool approval\n\n## 5. MCP Integrations — קוד מלא\n- GitHub MCP: commit, PR, issues — דוגמת הגדרה\n- Slack MCP: שליחת הודעות אוטומטית\n- Database MCP: PostgreSQL, SQLite\n- Filesystem MCP: expanded file access\n- Browser MCP: web automation\n- Custom MCP server: כיצד לכתוב שלך\n\n## 6. Token Economics של Claude Code\n- כמה טוקנים צורך session ממוצע?\n- System prompt size: כמה טוקנים CLAUDE.md שוקל?\n- Tool results size: כמה גדול bash output אופייני?\n- Caching: האם Claude Code מנצל prompt caching?\n- עלות אמיתית: תרחישים מספריים (refactor 1000 שורות, build new feature)\n- /cost command output — מה הוא מראה?\n\n## 7. Multi-Agent Workflows\n- איך Claude Code מרכז sub-agents\n- דוגמה: orchestrator + 3 specialist agents\n- Communication בין agents\n- Error handling ב-multi-agent setup\n- עלות: multi-agent vs single agent\n\n## 8. Security ו-Privacy\n- מה נשלח לשרתי Anthropic?\n- local vs cloud execution\n- sensitive data protection\n- enterprise deployment options\n- Undercover Mode implications\n\n## 9. שימוש ב-Windows עם WSL\n- installation guide step by step\n- PowerShell vs WSL — הבדלים\n- RTL/עברית issues בterminal\n- path handling Windows vs Unix\n- common errors ו-fixes\n\n## 10. Best Prompts ו-Workflows\n- Prompts שעובדים הכי טוב לכל use case\n- workflow: feature development end-to-end\n- workflow: bug fixing\n- workflow: code review\n- workflow: refactoring legacy code\n- Best CLAUDE.md template לפרויקט Next.js + FastAPI"
+    }
+  ],
+  "max_tokens": 8000,
+  "temperature": 0.1,
+  "top_p": 0.95,
+  "return_citations": true,
+  "search_recency_filter": "month"
+}

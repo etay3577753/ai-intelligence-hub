@@ -1,0 +1,1096 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2026-04-13",
+  "description": "מאגר הידע המרכזי של AI Intelligence Hub — מקור האמת לכל הכלים, האקוסיסטמים, והקשרים ביניהם",
+  "ecosystems": [
+    {
+      "id": "anthropic",
+      "name": "Anthropic Ecosystem",
+      "description": "כל המוצרים, ה-API, הפרוטוקולים והסביבות שבנה Anthropic סביב מודלי Claude",
+      "color": "text-orange-400",
+      "vendor": "Anthropic",
+      "tool_ids": ["claude-ai-web", "anthropic-api", "claude-code", "claude-agent-sdk", "mcp-protocol", "claude-cowork", "claude-in-chrome"]
+    },
+    {
+      "id": "google",
+      "name": "Google AI Ecosystem",
+      "description": "Gemini, Google AI Studio, NotebookLM, Gemma — מוצרי AI של Google",
+      "color": "text-blue-400",
+      "vendor": "Google",
+      "tool_ids": ["google-gemini-full", "google-ai-studio", "gemma4-local"]
+    },
+    {
+      "id": "openai",
+      "name": "OpenAI Ecosystem",
+      "description": "ChatGPT, OpenAI API, DALL-E — מוצרי OpenAI",
+      "color": "text-green-400",
+      "vendor": "OpenAI",
+      "tool_ids": ["chatgpt", "chatgpt-full"]
+    },
+    {
+      "id": "microsoft",
+      "name": "Microsoft AI Ecosystem",
+      "description": "GitHub Copilot, Microsoft Copilot — AI משולב בחבילת Microsoft",
+      "color": "text-sky-400",
+      "vendor": "Microsoft",
+      "tool_ids": ["github-copilot", "microsoft-copilot"]
+    },
+    {
+      "id": "web-builders",
+      "name": "Web Builders / No-Code",
+      "description": "כלי בניית אתרים ואפליקציות עם AI ללא קוד",
+      "color": "text-violet-400",
+      "tool_ids": ["lovable-dev", "bolt-new", "v0-vercel", "replit-agent"]
+    },
+    {
+      "id": "ide-code",
+      "name": "IDE & Code Assistants",
+      "description": "עורכי קוד חכמים וסוכני קוד אוטונומיים",
+      "color": "text-emerald-400",
+      "tool_ids": ["cursor-ide", "cursor-agents", "windsurf-ide", "aider-cline", "devin-ai"]
+    },
+    {
+      "id": "automation",
+      "name": "Automation / Agents",
+      "description": "כלי אוטומציה, workflow ו-AI agents ללא קוד",
+      "color": "text-yellow-400",
+      "tool_ids": ["n8n-automation", "make-automation", "zapier-ai-agents", "gumloop-ai"]
+    },
+    {
+      "id": "research-writing",
+      "name": "Research & Writing",
+      "description": "כלי מחקר, כתיבה וניתוח מידע",
+      "color": "text-cyan-400",
+      "tool_ids": ["perplexity-ai", "notion-ai", "jasper-copyai"]
+    },
+    {
+      "id": "creative",
+      "name": "Creative AI",
+      "description": "כלי יצירה — וידאו, קול, מוזיקה, תמונות",
+      "color": "text-pink-400",
+      "tool_ids": ["runway-video", "heygen-avatars", "suno-music", "elevenlabs-voice"]
+    },
+    {
+      "id": "israeli",
+      "name": "Israeli AI Products",
+      "description": "כלים ישראליים — בנויים בישראל, ממשק עברי, תמיכה מקומית",
+      "color": "text-blue-300",
+      "tool_ids": ["base44-israeli", "did-israeli", "nemoclaw-openclaw"]
+    },
+    {
+      "id": "local",
+      "name": "Local / Open Source",
+      "description": "מודלים ורנרים שרצים מקומית על המחשב — פרטיות מלאה",
+      "color": "text-lime-400",
+      "tool_ids": ["gemma4-local", "browser-use-oss"]
+    }
+  ],
+  "tools": [
+    {
+      "id": "claude-ai-web",
+      "name": "Claude.ai",
+      "vendor": "Anthropic",
+      "category": "chat_assistant",
+      "ecosystem": "anthropic",
+      "description": "ממשק הצ'אט הראשי של Anthropic. גישה למודלי Claude Sonnet, Haiku ו-Opus דרך דפדפן.",
+      "surfaces": ["web", "mobile", "api"],
+      "relations": [
+        { "tool_id": "anthropic-api", "type": "child", "note": "claude.ai בנוי על גבי Anthropic API" },
+        { "tool_id": "chatgpt", "type": "competing", "note": "מתחרה ישיר בשוק צ'אט AI" },
+        { "tool_id": "google-gemini-full", "type": "competing" },
+        { "tool_id": "claude-code", "type": "related", "note": "Claude Code משתמש במודלי claude.ai" }
+      ],
+      "connectors": [
+        { "tool_id": "mcp-protocol", "connector_type": "mcp", "description": "Claude.ai תומך בחיבור MCP servers" }
+      ],
+      "subscription_tiers": [
+        { "level": "free",       "price": "חינמי",     "access_key": "free",    "features": ["Claude Haiku", "100 הודעות/יום", "Projects"], "model": "claude-haiku" },
+        { "level": "pro",        "price": "$20/חודש", "access_key": "web_sub", "features": ["Claude Sonnet", "Claude Opus", "Priority", "200K context"], "model": "claude-sonnet", "unlocks": ["claude-code"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["beginner-friendly", "hebrew-support", "free-tier-strong"],
+      "use_cases": ["כתיבה", "מחקר", "ניתוח מסמכים", "שיחה", "תכנות"],
+      "wiki_file": "claude-ai-web.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": ["Gau7FaY5qJo", "8j4FBfBjFcc"],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 90, "freshness_score": 90 }
+    },
+    {
+      "id": "anthropic-api",
+      "name": "Anthropic API",
+      "vendor": "Anthropic",
+      "category": "platform",
+      "ecosystem": "anthropic",
+      "description": "גישה תכנותית למודלי Claude. משמשת מפתחים לבניית אפליקציות, סוכנים ואינטגרציות.",
+      "surfaces": ["api"],
+      "relations": [
+        { "tool_id": "claude-ai-web", "type": "parent" },
+        { "tool_id": "claude-code",   "type": "parent" },
+        { "tool_id": "claude-agent-sdk", "type": "parent" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "api_payg", "price": "לפי שימוש (~$3/1M tokens)", "access_key": "api_key", "features": ["כל המודלים", "Batch API", "200K context"] }
+      ],
+      "primary_access_key": "api_key",
+      "tags": ["api-heavy", "production-ready", "code-required"],
+      "use_cases": ["בניית אפליקציות", "אינטגרציה", "automation", "סוכנים"],
+      "wiki_file": "anthropic-api.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 92, "freshness_score": 92 }
+    },
+    {
+      "id": "claude-code",
+      "name": "Claude Code",
+      "vendor": "Anthropic",
+      "category": "code_assistant",
+      "ecosystem": "anthropic",
+      "description": "CLI agent מבית Anthropic לפיתוח קוד אוטונומי ב-terminal. מריץ פקודות, כותב ומתקן קוד, מנהל Git.",
+      "surfaces": ["cli"],
+      "relations": [
+        { "tool_id": "anthropic-api", "type": "child", "note": "דורש Anthropic API key" },
+        { "tool_id": "cursor-ide",    "type": "parallel", "note": "שניהם agents לקוד — Claude Code בטרמינל, Cursor ב-IDE" },
+        { "tool_id": "aider-cline",   "type": "parallel" },
+        { "tool_id": "github-copilot","type": "competing" }
+      ],
+      "connectors": [
+        { "tool_id": "mcp-protocol", "connector_type": "mcp", "description": "Claude Code תומך MCP servers להרחבת יכולות" }
+      ],
+      "subscription_tiers": [
+        { "level": "api_payg", "price": "לפי שימוש (API)", "access_key": "api_key", "features": ["Autonomous coding", "Git integration", "MCP support", "Multi-file editing"] }
+      ],
+      "primary_access_key": "api_key",
+      "tags": ["code-required", "terminal-required", "production-ready", "fast-iteration"],
+      "use_cases": ["פיתוח קוד", "refactoring", "debugging", "automation", "Git workflow"],
+      "wiki_file": "claude-code.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": ["Gau7FaY5qJo", "lsyQ1rNcnRU", "kuGfQhDbAOQ"],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 95, "freshness_score": 95 }
+    },
+    {
+      "id": "claude-agent-sdk",
+      "name": "Claude Agent SDK",
+      "vendor": "Anthropic",
+      "category": "agent_framework",
+      "ecosystem": "anthropic",
+      "description": "SDK לבניית מערכות multi-agent מורכבות עם Claude — orchestration, subagents, tool use.",
+      "surfaces": ["api", "sdk"],
+      "relations": [
+        { "tool_id": "anthropic-api", "type": "child" },
+        { "tool_id": "mcp-protocol",  "type": "related" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "api_payg", "price": "לפי שימוש (API)", "access_key": "api_key", "features": ["Multi-agent orchestration", "Tool use", "Streaming", "Context management"] }
+      ],
+      "primary_access_key": "api_key",
+      "tags": ["code-required", "api-heavy", "production-ready", "experimental"],
+      "use_cases": ["multi-agent systems", "automation מורכבת", "בניית מוצרי AI"],
+      "wiki_file": "claude-agent-sdk.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 88, "freshness_score": 88 }
+    },
+    {
+      "id": "mcp-protocol",
+      "name": "MCP Protocol",
+      "vendor": "Anthropic",
+      "category": "protocol",
+      "ecosystem": "anthropic",
+      "description": "Model Context Protocol — פרוטוקול פתוח לחיבור LLMs לכלים חיצוניים (databases, APIs, filesystems).",
+      "surfaces": ["api", "mcp_server"],
+      "relations": [
+        { "tool_id": "claude-code",      "type": "related" },
+        { "tool_id": "cursor-ide",       "type": "related" },
+        { "tool_id": "claude-agent-sdk", "type": "related" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "פרוטוקול פתוח — חינמי", "access_key": "free", "features": ["Open standard", "Any LLM", "Community servers"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["code-required", "production-ready", "api-heavy"],
+      "use_cases": ["חיבור LLM לכלים", "database access", "API integration", "filesystem tools"],
+      "wiki_file": "mcp-protocol.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 85, "freshness_score": 85 }
+    },
+    {
+      "id": "google-gemini-full",
+      "name": "Gemini Advanced",
+      "vendor": "Google",
+      "category": "chat_assistant",
+      "ecosystem": "google",
+      "description": "ממשק הצ'אט של Google עם Gemini 2.5 Pro/Flash. כולל Deep Research, Document analysis, Google Workspace integration.",
+      "surfaces": ["web", "mobile", "api"],
+      "relations": [
+        { "tool_id": "claude-ai-web", "type": "competing" },
+        { "tool_id": "chatgpt",       "type": "competing" },
+        { "tool_id": "google-ai-studio", "type": "related", "note": "Gemini API מנוהל דרך AI Studio" }
+      ],
+      "connectors": [
+        { "tool_id": "notion-ai", "connector_type": "native", "description": "Google Workspace integration" }
+      ],
+      "subscription_tiers": [
+        { "level": "free",   "price": "חינמי",     "access_key": "free",    "features": ["Gemini 2.0 Flash", "1M context", "Google Search"] },
+        { "level": "pro",    "price": "$20/חודש", "access_key": "web_sub", "features": ["Gemini 2.5 Pro", "Deep Research", "Google One 2TB", "NotebookLM Plus"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["beginner-friendly", "free-tier-strong", "fast-iteration"],
+      "use_cases": ["מחקר", "כתיבה", "ניתוח", "שיחה", "Google Workspace"],
+      "wiki_file": "google-gemini-full.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 88, "freshness_score": 88 }
+    },
+    {
+      "id": "google-ai-studio",
+      "name": "Google AI Studio",
+      "vendor": "Google",
+      "category": "platform",
+      "ecosystem": "google",
+      "description": "סביבת פיתוח חינמית ל-Gemini API. לבניית prompts, בדיקת מודלים, וקבלת API key.",
+      "surfaces": ["web", "api"],
+      "relations": [
+        { "tool_id": "google-gemini-full", "type": "related" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free",     "price": "חינמי (עם מגבלות)", "access_key": "free",    "features": ["Gemini 2.5 Flash", "1M RPM Free", "Code execution"] },
+        { "level": "api_payg", "price": "לפי שימוש",         "access_key": "api_key", "features": ["Gemini 2.5 Pro", "Batch API", "Grounding"] }
+      ],
+      "primary_access_key": "api_key",
+      "tags": ["code-required", "free-tier-strong", "api-heavy"],
+      "use_cases": ["פיתוח עם Gemini", "prototyping", "API testing"],
+      "wiki_file": "google-ai-studio.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 87, "freshness_score": 87 }
+    },
+    {
+      "id": "gemma4-local",
+      "name": "Gemma 4 (Local)",
+      "vendor": "Google / OSS",
+      "category": "local_model",
+      "ecosystem": "local",
+      "description": "מודל Gemma 4 של Google, מריץ מקומית דרך Ollama או LM Studio. פרטיות מלאה, ללא עלות.",
+      "surfaces": ["local_server", "api"],
+      "relations": [
+        { "tool_id": "google-gemini-full", "type": "parallel", "note": "Gemma הוא גרסה מקומית קטנה יותר" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי לחלוטין", "access_key": "local_runtime", "features": ["פרטיות מלאה", "ללא חיבור לאינטרנט", "GPU מומלץ"] }
+      ],
+      "primary_access_key": "local_runtime",
+      "tags": ["privacy-safe", "free-tier-strong", "gpu-recommended", "local_model"],
+      "use_cases": ["פרטיות", "offline AI", "code assistance", "text generation"],
+      "wiki_file": "gemma4-local.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 82, "freshness_score": 82 }
+    },
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "vendor": "OpenAI",
+      "category": "chat_assistant",
+      "ecosystem": "openai",
+      "description": "ממשק הצ'אט של OpenAI עם GPT-4o. כולל GPTs, DALL-E 3, Code Interpreter ב-Plus.",
+      "surfaces": ["web", "mobile", "api", "desktop_app"],
+      "relations": [
+        { "tool_id": "claude-ai-web",      "type": "competing" },
+        { "tool_id": "google-gemini-full", "type": "competing" },
+        { "tool_id": "github-copilot",     "type": "related", "note": "GitHub Copilot מבוסס על GPT-4" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free",   "price": "חינמי",     "access_key": "free",    "features": ["GPT-4o mini", "DALL-E 3 (מוגבל)", "GPTs"] },
+        { "level": "pro",    "price": "$20/חודש", "access_key": "web_sub", "features": ["GPT-4o", "o1", "DALL-E 3 מלא", "Code Interpreter", "Sora"], "unlocks": ["dall-e-3"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["beginner-friendly", "free-tier-strong"],
+      "use_cases": ["כתיבה", "מחקר", "תכנות", "יצירת תמונות", "ניתוח נתונים"],
+      "wiki_file": "chatgpt.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 90, "freshness_score": 90 }
+    },
+    {
+      "id": "chatgpt-full",
+      "name": "ChatGPT (Full Reference)",
+      "vendor": "OpenAI",
+      "category": "chat_assistant",
+      "ecosystem": "openai",
+      "description": "תיעוד מורחב של ChatGPT כולל GPTs, Assistants API, ו-Fine-tuning.",
+      "surfaces": ["web", "mobile", "api"],
+      "relations": [
+        { "tool_id": "chatgpt", "type": "parent", "note": "גרסה מורחבת של אותו הכלי" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "api_payg", "price": "לפי שימוש", "access_key": "api_key", "features": ["GPT-4o API", "Assistants API", "Fine-tuning", "Embeddings"] }
+      ],
+      "primary_access_key": "api_key",
+      "tags": ["code-required", "api-heavy", "production-ready"],
+      "use_cases": ["Assistants API", "fine-tuning", "embeddings", "בניית אפליקציות"],
+      "wiki_file": "chatgpt-full.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 85, "freshness_score": 85 }
+    },
+    {
+      "id": "github-copilot",
+      "name": "GitHub Copilot",
+      "vendor": "Microsoft / GitHub",
+      "category": "ide",
+      "ecosystem": "microsoft",
+      "description": "AI משולב ב-VS Code, JetBrains, Neovim. השלמת קוד, Copilot Chat, PR summaries.",
+      "surfaces": ["ide_plugin", "web"],
+      "relations": [
+        { "tool_id": "cursor-ide",    "type": "competing" },
+        { "tool_id": "windsurf-ide",  "type": "competing" },
+        { "tool_id": "claude-code",   "type": "parallel", "note": "Copilot ב-IDE, Claude Code ב-terminal" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free",    "price": "חינמי (מוגבל)",  "access_key": "free",         "features": ["2000 completions/month", "50 chat messages", "VS Code"] },
+        { "level": "pro",     "price": "$10/חודש",       "access_key": "web_sub",      "features": ["Unlimited completions", "Claude Sonnet", "GPT-4o", "PR review"] },
+        { "level": "student", "price": "חינמי לסטודנטים", "access_key": "student_access", "features": ["Pro features חינמי"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["code-required", "beginner-friendly", "fast-iteration", "free-tier-strong"],
+      "use_cases": ["השלמת קוד", "code review", "PR summaries", "debugging"],
+      "wiki_file": "github-copilot.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 90, "freshness_score": 90 }
+    },
+    {
+      "id": "microsoft-copilot",
+      "name": "Microsoft Copilot",
+      "vendor": "Microsoft",
+      "category": "chat_assistant",
+      "ecosystem": "microsoft",
+      "description": "AI משולב ב-Microsoft 365 — Word, Excel, Teams, Outlook. גישה ארגונית.",
+      "surfaces": ["web", "desktop_app", "ide_plugin"],
+      "relations": [
+        { "tool_id": "github-copilot", "type": "related", "note": "שניהם מבית Microsoft, גישה שונה" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free",       "price": "חינמי (web בלבד)", "access_key": "free",       "features": ["Bing AI", "Image generation"] },
+        { "level": "enterprise", "price": "$30/user/חודש",    "access_key": "org_access", "features": ["Microsoft 365 integration", "Teams", "SharePoint", "Enterprise data"] }
+      ],
+      "primary_access_key": "org_access",
+      "tags": ["team-collaboration", "no-code", "beginner-friendly"],
+      "use_cases": ["Word", "Excel", "Teams", "Outlook", "ניהול ארגוני"],
+      "wiki_file": "microsoft-copilot.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 80, "freshness_score": 80 }
+    },
+    {
+      "id": "cursor-ide",
+      "name": "Cursor IDE",
+      "vendor": "Anysphere",
+      "category": "ide",
+      "ecosystem": "ide-code",
+      "description": "עורך קוד מבוסס VS Code עם AI מובנה עמוק — Composer, Agent mode, Tab completion.",
+      "surfaces": ["desktop_app"],
+      "relations": [
+        { "tool_id": "github-copilot",  "type": "competing" },
+        { "tool_id": "windsurf-ide",    "type": "competing" },
+        { "tool_id": "cursor-agents",   "type": "child", "note": "Cursor Agents הוא מצב Agent בתוך Cursor" },
+        { "tool_id": "claude-code",     "type": "parallel" }
+      ],
+      "connectors": [
+        { "tool_id": "mcp-protocol", "connector_type": "mcp", "description": "Cursor תומך MCP servers" }
+      ],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (מוגבל)", "access_key": "free",    "features": ["2000 completions", "50 slow requests", "Tab completion"] },
+        { "level": "pro",  "price": "$20/חודש",      "access_key": "web_sub", "features": ["Unlimited fast requests", "Claude Sonnet/Opus", "GPT-4o", "Agent mode"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["code-required", "fast-iteration", "production-ready"],
+      "use_cases": ["פיתוח קוד", "refactoring", "debugging", "full-stack", "agent coding"],
+      "wiki_file": "cursor-ide.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 92, "freshness_score": 92 }
+    },
+    {
+      "id": "cursor-agents",
+      "name": "Cursor Agents",
+      "vendor": "Anysphere",
+      "category": "agent_framework",
+      "ecosystem": "ide-code",
+      "description": "מצב Agent בתוך Cursor — מריץ משימות אוטונומיות מרובות-שלבים בסביבת הקוד.",
+      "surfaces": ["desktop_app"],
+      "relations": [
+        { "tool_id": "cursor-ide",   "type": "parent" },
+        { "tool_id": "claude-code",  "type": "parallel" },
+        { "tool_id": "devin-ai",     "type": "parallel" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "included", "price": "כלול ב-Cursor Pro", "access_key": "web_sub", "features": ["Autonomous task completion", "Multi-file editing", "Terminal access"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["code-required", "production-ready", "fast-iteration"],
+      "use_cases": ["autonomous coding", "refactoring גדול", "migration", "feature development"],
+      "wiki_file": "cursor-agents.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 85, "freshness_score": 85 }
+    },
+    {
+      "id": "windsurf-ide",
+      "name": "Windsurf IDE",
+      "vendor": "Codeium",
+      "category": "ide",
+      "ecosystem": "ide-code",
+      "description": "עורך קוד AI מבית Codeium עם Cascade — agent mode ששומר context על פני sessions.",
+      "surfaces": ["desktop_app"],
+      "relations": [
+        { "tool_id": "cursor-ide",     "type": "competing" },
+        { "tool_id": "github-copilot", "type": "competing" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (mוגבל)", "access_key": "free",    "features": ["Cascade Agent", "Tab completion", "Chat"] },
+        { "level": "pro",  "price": "$15/חודש",      "access_key": "web_sub", "features": ["Unlimited Cascade", "GPT-4o", "Claude Sonnet"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["code-required", "fast-iteration", "free-tier-strong"],
+      "use_cases": ["פיתוח קוד", "agent coding", "full-stack"],
+      "wiki_file": "windsurf-ide.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 83, "freshness_score": 83 }
+    },
+    {
+      "id": "aider-cline",
+      "name": "Aider / Cline",
+      "vendor": "OSS",
+      "category": "code_assistant",
+      "ecosystem": "ide-code",
+      "description": "כלי קוד open-source CLI (Aider) ו-VS Code extension (Cline). עובדים עם כל API — Anthropic, OpenAI, Gemini.",
+      "surfaces": ["cli", "ide_plugin"],
+      "relations": [
+        { "tool_id": "claude-code",  "type": "parallel" },
+        { "tool_id": "cursor-ide",   "type": "parallel" },
+        { "tool_id": "anthropic-api","type": "related", "note": "משתמש ב-Anthropic API" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free",     "price": "OSS חינמי",    "access_key": "free",    "features": ["Open source", "Any LLM", "Git integration"] },
+        { "level": "api_payg", "price": "לפי API usage", "access_key": "api_key", "features": ["כל המודלים", "Multi-file", "Architect mode"] }
+      ],
+      "primary_access_key": "api_key",
+      "tags": ["code-required", "terminal-required", "api-heavy"],
+      "use_cases": ["פיתוח קוד", "refactoring", "CLI coding", "OSS projects"],
+      "wiki_file": "aider-cline.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 80, "freshness_score": 80 }
+    },
+    {
+      "id": "devin-ai",
+      "name": "Devin AI",
+      "vendor": "Cognition",
+      "category": "agent_framework",
+      "ecosystem": "ide-code",
+      "description": "סוכן קוד אוטונומי מלא — מתכנן, כותב, בודק ומ-deploy קוד בסביבה מבודדת.",
+      "surfaces": ["web", "api"],
+      "relations": [
+        { "tool_id": "cursor-agents", "type": "competing" },
+        { "tool_id": "claude-code",   "type": "competing" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "pro", "price": "$500/חודש", "access_key": "web_sub", "features": ["Autonomous development", "Sandboxed environment", "GitHub integration"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["code-required", "production-ready", "experimental"],
+      "use_cases": ["autonomous software development", "feature implementation", "bug fixes"],
+      "wiki_file": "devin-ai.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 75, "freshness_score": 75 }
+    },
+    {
+      "id": "lovable-dev",
+      "name": "Lovable",
+      "vendor": "Lovable",
+      "category": "web_builder",
+      "ecosystem": "web-builders",
+      "description": "בניית אפליקציות React + Supabase עם AI דרך prompt בלבד. ממשק ויזואלי + deploy אוטומטי.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "bolt-new",     "type": "competing" },
+        { "tool_id": "v0-vercel",    "type": "parallel", "note": "v0 לקומפוננטים, Lovable לאפליקציה מלאה" },
+        { "tool_id": "replit-agent", "type": "competing" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (5 projects)", "access_key": "free",    "features": ["React apps", "Supabase", "GitHub sync"] },
+        { "level": "pro",  "price": "$20/חודש",          "access_key": "web_sub", "features": ["Unlimited projects", "Custom domains", "Priority support"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["no-code", "beginner-friendly", "visual-first", "fast-iteration"],
+      "use_cases": ["בניית אתר", "SaaS MVP", "אפליקציה עם DB", "פרויקט אישי"],
+      "wiki_file": "lovable-dev.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 88, "freshness_score": 88 }
+    },
+    {
+      "id": "bolt-new",
+      "name": "Bolt.new",
+      "vendor": "StackBlitz",
+      "category": "web_builder",
+      "ecosystem": "web-builders",
+      "description": "בניית אפליקציות full-stack בדפדפן עם AI — Node.js, React, Svelte. ללא התקנה.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "lovable-dev",  "type": "competing" },
+        { "tool_id": "v0-vercel",    "type": "parallel" },
+        { "tool_id": "replit-agent", "type": "competing" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (מוגבל)", "access_key": "free",    "features": ["Web container", "npm support", "Basic tokens"] },
+        { "level": "pro",  "price": "$20/חודש",      "access_key": "web_sub", "features": ["Unlimited tokens", "Private projects", "Custom domains"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["no-code", "beginner-friendly", "visual-first", "fast-iteration", "free-tier-strong"],
+      "use_cases": ["אתר מהיר", "prototype", "full-stack ללא התקנה", "demo"],
+      "wiki_file": "bolt-new.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 88, "freshness_score": 88 }
+    },
+    {
+      "id": "v0-vercel",
+      "name": "v0.dev",
+      "vendor": "Vercel",
+      "category": "web_builder",
+      "ecosystem": "web-builders",
+      "description": "גנרטור קומפוננטות React/shadcn/ui עם AI. מוכן ל-copy-paste לפרויקט Next.js.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "lovable-dev", "type": "parallel", "note": "v0 לקומפוננטים בלבד, Lovable לאפליקציה שלמה" },
+        { "tool_id": "bolt-new",    "type": "parallel" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (200 credits/month)", "access_key": "free",    "features": ["shadcn/ui", "React", "Tailwind", "Copy-paste ready"] },
+        { "level": "pro",  "price": "$20/חודש",                  "access_key": "web_sub", "features": ["Unlimited credits", "Private projects"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["no-code", "visual-first", "fast-iteration", "free-tier-strong"],
+      "use_cases": ["קומפוננטות React", "UI generation", "Next.js", "design-to-code"],
+      "wiki_file": "v0-vercel.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 85, "freshness_score": 85 }
+    },
+    {
+      "id": "replit-agent",
+      "name": "Replit Agent",
+      "vendor": "Replit",
+      "category": "web_builder",
+      "ecosystem": "web-builders",
+      "description": "בניית אפליקציות בענן עם AI — הסביבה, הקוד, ה-hosting הכל ב-Replit.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "lovable-dev", "type": "competing" },
+        { "tool_id": "bolt-new",    "type": "competing" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (מוגבל)",  "access_key": "free",    "features": ["Public repls", "Basic compute"] },
+        { "level": "pro",  "price": "$25/חודש",       "access_key": "web_sub", "features": ["Replit Agent", "Private repls", "Always-on"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["no-code", "beginner-friendly", "fast-iteration"],
+      "use_cases": ["אפליקציה מהירה", "hosting", "teaching", "Python apps"],
+      "wiki_file": "replit-agent.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 80, "freshness_score": 80 }
+    },
+    {
+      "id": "n8n-automation",
+      "name": "n8n",
+      "vendor": "n8n GmbH",
+      "category": "automation",
+      "ecosystem": "automation",
+      "description": "פלטפורמת workflow automation open-source עם 400+ connectors. Self-hosted או cloud.",
+      "surfaces": ["web", "local_server", "api"],
+      "relations": [
+        { "tool_id": "make-automation",   "type": "competing" },
+        { "tool_id": "zapier-ai-agents",  "type": "competing" },
+        { "tool_id": "claude-agent-sdk",  "type": "related", "note": "ניתן לשלב Claude ב-n8n" }
+      ],
+      "connectors": [
+        { "tool_id": "anthropic-api",     "connector_type": "native", "description": "Anthropic node ב-n8n" },
+        { "tool_id": "google-gemini-full","connector_type": "native", "description": "Gemini node" }
+      ],
+      "subscription_tiers": [
+        { "level": "free",   "price": "OSS Self-hosted",    "access_key": "free",    "features": ["Unlimited workflows", "Self-hosted", "All 400+ integrations"] },
+        { "level": "pro",    "price": "$24/חודש (cloud)",   "access_key": "web_sub", "features": ["Cloud hosted", "5 users", "10K executions"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["no-code", "production-ready", "fast-iteration", "free-tier-strong"],
+      "use_cases": ["אוטומציה", "workflow", "API integration", "AI agents", "data pipeline"],
+      "wiki_file": "n8n-automation.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "partial",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 90, "freshness_score": 90 }
+    },
+    {
+      "id": "make-automation",
+      "name": "Make.com",
+      "vendor": "Make",
+      "category": "automation",
+      "ecosystem": "automation",
+      "description": "פלטפורמת automation ויזואלית עם 1000+ integrations. ממשק drag-and-drop, cloud-based.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "n8n-automation",  "type": "competing" },
+        { "tool_id": "zapier-ai-agents","type": "competing" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (1000 ops/month)", "access_key": "free",    "features": ["1000 operations", "2 users", "Visual builder"] },
+        { "level": "pro",  "price": "$9/חודש",               "access_key": "web_sub", "features": ["10K operations", "Unlimited users", "Error handling"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["no-code", "visual-first", "beginner-friendly", "free-tier-strong"],
+      "use_cases": ["אוטומציה", "data sync", "notifications", "CRM integration"],
+      "wiki_file": "make-automation.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 85, "freshness_score": 85 }
+    },
+    {
+      "id": "zapier-ai-agents",
+      "name": "Zapier AI Agents",
+      "vendor": "Zapier",
+      "category": "automation",
+      "ecosystem": "automation",
+      "description": "Zapier עם יכולות AI Agents — אוטומציה שמקבלת החלטות, לא רק triggers.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "n8n-automation",  "type": "competing" },
+        { "tool_id": "make-automation", "type": "competing" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (100 tasks/month)", "access_key": "free",    "features": ["100 tasks", "5 Zaps", "2-step Zaps"] },
+        { "level": "pro",  "price": "$20/חודש",               "access_key": "web_sub", "features": ["750 tasks", "Multi-step Zaps", "AI agents"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["no-code", "beginner-friendly"],
+      "use_cases": ["אוטומציה פשוטה", "app connections", "CRM", "email automation"],
+      "wiki_file": "zapier-ai-agents.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 82, "freshness_score": 82 }
+    },
+    {
+      "id": "gumloop-ai",
+      "name": "Gumloop AI",
+      "vendor": "Gumloop",
+      "category": "automation",
+      "ecosystem": "automation",
+      "description": "פלטפורמת AI automation ויזואלית לצוותים — מיועדת ל-AI workflows בלבד.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "n8n-automation", "type": "parallel" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (מוגבל)", "access_key": "free",    "features": ["5 automations", "Basic nodes"] },
+        { "level": "pro",  "price": "$20/חודש",      "access_key": "web_sub", "features": ["Unlimited automations", "All nodes", "Team workspace"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["no-code", "visual-first", "fast-iteration"],
+      "use_cases": ["AI workflows", "document processing", "lead generation"],
+      "wiki_file": "gumloop-ai.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 72, "freshness_score": 72 }
+    },
+    {
+      "id": "perplexity-ai",
+      "name": "Perplexity AI",
+      "vendor": "Perplexity",
+      "category": "research",
+      "ecosystem": "research-writing",
+      "description": "מנוע חיפוש + AI שמחזיר תשובות עם מקורות מדויקים. Pro Tier כולל Deep Research.",
+      "surfaces": ["web", "mobile", "api"],
+      "relations": [
+        { "tool_id": "google-gemini-full", "type": "parallel", "note": "שניהם עושים AI search" },
+        { "tool_id": "chatgpt",            "type": "parallel" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי",     "access_key": "free",    "features": ["5 Pro searches/day", "Basic search"] },
+        { "level": "pro",  "price": "$20/חודש", "access_key": "web_sub", "features": ["300 Pro searches/day", "Deep Research", "File upload"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["beginner-friendly", "free-tier-strong", "fast-iteration"],
+      "use_cases": ["מחקר", "fact-checking", "web search", "academic research"],
+      "wiki_file": "perplexity-ai.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 87, "freshness_score": 87 }
+    },
+    {
+      "id": "notion-ai",
+      "name": "Notion AI",
+      "vendor": "Notion",
+      "category": "writing",
+      "ecosystem": "research-writing",
+      "description": "AI משולב ב-Notion — כתיבה, סיכום, תרגום, ניתוח דאטאבייס בתוך workspace.",
+      "surfaces": ["web", "desktop_app", "mobile"],
+      "relations": [
+        { "tool_id": "chatgpt", "type": "parallel", "note": "Notion AI לתוך ה-workspace, ChatGPT חיצוני" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "included", "price": "+$10/חודש (Add-on)", "access_key": "web_sub", "features": ["AI writing", "Summarize", "Translate", "Database AI"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["no-code", "beginner-friendly", "team-collaboration"],
+      "use_cases": ["כתיבה", "סיכום", "ניהול ידע", "תיעוד"],
+      "wiki_file": "notion-ai.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 80, "freshness_score": 80 }
+    },
+    {
+      "id": "jasper-copyai",
+      "name": "Jasper / Copy.ai",
+      "vendor": "Jasper / Copy.ai",
+      "category": "writing",
+      "ecosystem": "research-writing",
+      "description": "כלי כתיבה שיווקית עם AI — blog posts, ads, social media, email copy.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "chatgpt", "type": "parallel" },
+        { "tool_id": "notion-ai","type": "parallel" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "pro", "price": "$49/חודש (Jasper)", "access_key": "web_sub", "features": ["Unlimited words", "Brand Voice", "Templates", "SEO tools"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["no-code", "beginner-friendly"],
+      "use_cases": ["שיווק", "blog", "social media", "email", "ads"],
+      "wiki_file": "jasper-copyai.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 70, "freshness_score": 70 }
+    },
+    {
+      "id": "runway-video",
+      "name": "Runway Gen-3",
+      "vendor": "Runway",
+      "category": "video_generation",
+      "ecosystem": "creative",
+      "description": "יצירת וידאו מ-text/image עם AI. Gen-3 Alpha — הדור הנוכחי עם איכות גבוהה.",
+      "surfaces": ["web", "api"],
+      "relations": [
+        { "tool_id": "heygen-avatars", "type": "parallel", "note": "Runway ליצירה, HeyGen לאוואטארים" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "125 credits חינמי", "access_key": "free",    "features": ["Gen-3 Alpha", "720p", "5 sec videos"] },
+        { "level": "pro",  "price": "$15/חודש",         "access_key": "web_sub", "features": ["625 credits/month", "4K", "Remove watermark"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["visual-first", "beginner-friendly", "experimental"],
+      "use_cases": ["יצירת וידאו", "social media", "creative projects"],
+      "wiki_file": "runway-video.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 80, "freshness_score": 80 }
+    },
+    {
+      "id": "heygen-avatars",
+      "name": "HeyGen",
+      "vendor": "HeyGen",
+      "category": "video_generation",
+      "ecosystem": "creative",
+      "description": "יצירת וידאו עם אוואטאר AI — מזין טקסט, מקבל וידאו עם דובר דיגיטלי.",
+      "surfaces": ["web", "api"],
+      "relations": [
+        { "tool_id": "did-israeli",   "type": "competing" },
+        { "tool_id": "runway-video",  "type": "parallel" },
+        { "tool_id": "elevenlabs-voice","type": "related", "note": "ניתן לשלב ElevenLabs לקול" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (1 credit)", "access_key": "free",    "features": ["1 video/month", "Avatar library", "720p"] },
+        { "level": "pro",  "price": "$29/חודש",         "access_key": "web_sub", "features": ["15 credits", "Custom avatar", "1080p", "API"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["visual-first", "beginner-friendly"],
+      "use_cases": ["וידאו שיווקי", "explainer videos", "avatar presenter", "e-learning"],
+      "wiki_file": "heygen-avatars.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 78, "freshness_score": 78 }
+    },
+    {
+      "id": "suno-music",
+      "name": "Suno AI",
+      "vendor": "Suno",
+      "category": "music_generation",
+      "ecosystem": "creative",
+      "description": "יצירת מוזיקה מקורית מ-text prompt. סגנון, מילות שיר, instrumentation — הכל מ-prompt.",
+      "surfaces": ["web", "api"],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "50 credits/day", "access_key": "free",    "features": ["10 songs/day", "Commercial use (limited)"] },
+        { "level": "pro",  "price": "$10/חודש",       "access_key": "web_sub", "features": ["500 credits/month", "Commercial use", "Audio stems"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["no-code", "beginner-friendly", "visual-first", "free-tier-strong"],
+      "use_cases": ["מוזיקה שיווקית", "jingles", "background music", "creative projects"],
+      "wiki_file": "suno-music.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 78, "freshness_score": 78 }
+    },
+    {
+      "id": "elevenlabs-voice",
+      "name": "ElevenLabs",
+      "vendor": "ElevenLabs",
+      "category": "voice_generation",
+      "ecosystem": "creative",
+      "description": "גנרציית קול AI ריאליסטי — text-to-speech, voice cloning, 30+ שפות כולל עברית.",
+      "surfaces": ["web", "api", "sdk"],
+      "relations": [
+        { "tool_id": "heygen-avatars", "type": "related", "note": "HeyGen משתמש ב-ElevenLabs לקול" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "10K chars/month", "access_key": "free",    "features": ["10K chars", "3 voices", "Hebrew"] },
+        { "level": "pro",  "price": "$22/חודש",        "access_key": "web_sub", "features": ["30K chars", "Voice cloning", "API"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["no-code", "beginner-friendly", "hebrew-support", "free-tier-strong"],
+      "use_cases": ["voice-over", "podcasts", "e-learning", "accessibility", "dubbing"],
+      "wiki_file": "elevenlabs-voice.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 85, "freshness_score": 85 }
+    },
+    {
+      "id": "base44-israeli",
+      "name": "Base44",
+      "vendor": "Base44 (ישראל)",
+      "category": "web_builder",
+      "ecosystem": "israeli",
+      "description": "כלי no-code ישראלי לבניית אפליקציות web. ממשק עברי, תמיכה מקומית, מחירים בש\"ח.",
+      "surfaces": ["web"],
+      "relations": [
+        { "tool_id": "lovable-dev", "type": "parallel", "note": "Lovable בינ\"ל, Base44 ישראלי עם תמיכה בעברית" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "חינמי (מוגבל)", "access_key": "free",    "features": ["3 apps", "עברית", "Local support"] },
+        { "level": "pro",  "price": "₪99/חודש",     "access_key": "web_sub", "features": ["Unlimited apps", "Custom domain", "Priority support"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["no-code", "beginner-friendly", "hebrew-support", "israeli-product", "visual-first"],
+      "use_cases": ["אתר עסקי", "אפליקציה עברית", "landing page", "MVP ישראלי"],
+      "wiki_file": "base44-israeli.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 80, "freshness_score": 80 }
+    },
+    {
+      "id": "did-israeli",
+      "name": "D-ID",
+      "vendor": "D-ID (ישראל)",
+      "category": "video_generation",
+      "ecosystem": "israeli",
+      "description": "חברה ישראלית ליצירת וידאו עם talking heads מתמונה. API, Studio, Chat Avatar.",
+      "surfaces": ["web", "api"],
+      "relations": [
+        { "tool_id": "heygen-avatars", "type": "competing" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "5 credits חינמי", "access_key": "free",    "features": ["5 videos", "720p", "Talking head"] },
+        { "level": "pro",  "price": "$24/חודש",        "access_key": "web_sub", "features": ["50 credits", "Custom avatar", "API", "1080p"] }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": ["visual-first", "beginner-friendly", "israeli-product"],
+      "use_cases": ["talking avatar", "e-learning", "marketing video", "customer service bot"],
+      "wiki_file": "did-israeli.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 78, "freshness_score": 78 }
+    },
+    {
+      "id": "nemoclaw-openclaw",
+      "name": "NemoClaw / OpenClaw",
+      "vendor": "ישראל (OSS)",
+      "category": "agent_framework",
+      "ecosystem": "israeli",
+      "description": "פרויקט open-source ישראלי לבניית AI agents עם ממשק עברי.",
+      "surfaces": ["web", "api"],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "OSS חינמי", "access_key": "free", "features": ["Open source", "Hebrew UI", "Community"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["hebrew-support", "israeli-product", "experimental", "code-required"],
+      "use_cases": ["AI agents", "Hebrew NLP", "local AI"],
+      "wiki_file": "nemoclaw-openclaw.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 55, "freshness_score": 55 }
+    },
+    {
+      "id": "browser-use-oss",
+      "name": "Browser Use",
+      "vendor": "OSS",
+      "category": "browser_agent",
+      "ecosystem": "local",
+      "description": "ספריית Python open-source לאוטומציה של דפדפן עם LLM — Playwright + AI.",
+      "surfaces": ["local_server", "api"],
+      "relations": [
+        { "tool_id": "claude-agent-sdk", "type": "related" },
+        { "tool_id": "n8n-automation",   "type": "parallel" }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        { "level": "free", "price": "OSS חינמי", "access_key": "free", "features": ["Open source", "Any LLM", "Playwright", "Self-hosted"] }
+      ],
+      "primary_access_key": "free",
+      "tags": ["code-required", "privacy-safe", "terminal-required"],
+      "use_cases": ["web scraping", "browser automation", "testing", "data collection"],
+      "wiki_file": "browser-use-oss.md",
+      "notebooklm_ref": null,
+      "deep_research_status": "none",
+      "youtube_video_ids": [],
+      "freshness": { "last_verified": "2026-04-01", "confidence": 75, "freshness_score": 75 }
+    }
+  ],
+  "backfill_queue": [
+    {
+      "id": "bf-001",
+      "discovered_during": "claude-code",
+      "discovery_source": "wiki",
+      "tool_name": "Ghostwriter (Replit)",
+      "suggested_ecosystem": "ide-code",
+      "suggested_category": "code_assistant",
+      "suggested_relations": [
+        { "type": "competing", "note": "מתחרה ל-Claude Code ב-Replit" }
+      ],
+      "url": "https://replit.com/ai",
+      "notes": "הוזכר ב-wiki של Replit Agent כ-AI assistant מובנה ב-Replit IDE",
+      "discovered_at": "2026-04-13",
+      "status": "pending"
+    },
+    {
+      "id": "bf-002",
+      "discovered_during": "n8n-automation",
+      "discovery_source": "wiki",
+      "tool_name": "Relevance AI",
+      "suggested_ecosystem": "automation",
+      "suggested_category": "agent_framework",
+      "suggested_relations": [
+        { "type": "parallel", "note": "כלי AI agents ללא קוד — מתחרה ל-n8n AI agents" }
+      ],
+      "url": "https://relevanceai.com",
+      "notes": "הוזכר כפלטפורמת AI agents ב-context של automation tools",
+      "discovered_at": "2026-04-13",
+      "status": "pending"
+    },
+    {
+      "id": "bf-003",
+      "discovered_during": "perplexity-ai",
+      "discovery_source": "wiki",
+      "tool_name": "NotebookLM (Google)",
+      "suggested_ecosystem": "google",
+      "suggested_category": "research",
+      "suggested_relations": [
+        { "type": "related", "note": "NotebookLM לניתוח מסמכים, Perplexity לחיפוש web" }
+      ],
+      "url": "https://notebooklm.google.com",
+      "notes": "כלי מחקר של Google לניתוח מסמכים ארוכים עם AI. רלוונטי כשכבת מחקר במערכת שלנו.",
+      "discovered_at": "2026-04-13",
+      "status": "pending"
+    },
+    {
+      "id": "bf-004",
+      "discovered_during": "claude-code",
+      "discovery_source": "youtube",
+      "tool_name": "Amp (Sourcegraph)",
+      "suggested_ecosystem": "ide-code",
+      "suggested_category": "code_assistant",
+      "suggested_relations": [
+        { "type": "competing", "note": "CLI coding agent מתחרה ל-Claude Code" }
+      ],
+      "url": "https://ampcode.com",
+      "notes": "הוזכר ב-Shorts כמתחרה ל-Claude Code — CLI agent מבוסס Claude",
+      "discovered_at": "2026-04-13",
+      "status": "pending"
+    }
+  ],
+  "stats": {
+    "total_tools": 33,
+    "tools_with_wiki": 33,
+    "tools_with_research": 5,
+    "pending_backfill": 4,
+    "last_wiki_sync": "2026-04-13"
+  }
+}

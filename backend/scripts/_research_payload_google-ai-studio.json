@@ -1,0 +1,18 @@
+{
+  "model": "sonar-pro",
+  "messages": [
+    {
+      "role": "system",
+      "content": "אתה חוקר AI מומחה שמיישם את Deep Research Framework. כלל Anti-Shallow: מחקר רדוד = שם + מחיר בלבד. מחקר עמוק = פרמטרים טכניים + RTL + תמחור אמיתי. ענה תמיד בעברית עם מונחים טכניים באנגלית. פורמט: Markdown מלא."
+    },
+    {
+      "role": "user",
+      "content": "חקור לעומק את Google AI Studio (aistudio.google.com) — ה-Playground הרשמי של גוגל ל-Gemini. זה שונה מ-gemini.google.com הצ'אט הרגיל. מלא את כל הסעיפים:\n\n## 1. תקציר טכני\n- מהו Google AI Studio בדיוק? (Playground, IDE, API portal?)\n- גרסאות Gemini 2025-2026: Gemini 2.0 Flash, Gemini 2.5 Pro, Gemini Ultra\n- יכולות ייחודיות: Grounding, Code Execution, File API, Live API\n- Gemini 2.5 Pro vs Flash — מתי להשתמש בכל אחד?\n\n## 2. UI & Settings Audit\n- ציון נוחות ניווט (1-10)\n- Temperature: ערכים, ברירת מחדל, היכן בממשק?\n- Top P: זמין? ערך ברירת מחדל?\n- Top K: זמין? (ייחודי ל-Gemini)\n- Frequency Penalty: זמין?\n- Presence Penalty: זמין?\n- Stop Sequences: זמינים?\n- Logit Bias: זמין?\n- System Instructions: קיימות ונוחות?\n- Streaming: זמין?\n- Context Caching: קיים ב-2025?\n- Grounding with Google Search: איך מפעילים?\n\n## 3. ניתוח כלכלי 2025-2026\n- גרסה חינמית ב-AI Studio: RPM, TPM, הגבלות\n- Gemini 2.5 Pro: עלות API לפי tokens ($ ל-1M input/output)\n- Gemini 2.0 Flash: עלות\n- Gemini 1.5 Flash: עלות\n- Context Caching: עלות\n- Grounding: עלות\n- Google AI Premium ($19.99/חודש) — מה כלול?\n\n## 4. לוקליזציה לישראל\n- RTL ב-AI Studio: תמיכה בעברית בממשק?\n- מגדר עברי: שיעור שגיאה ידוע\n- GDPR + חוק הגנת הפרטיות הישראלי\n- שרתי אחסון: EU? US?\n- בעיות ידועות בעברית vs. ChatGPT/Claude\n\n## 5. מדריך פשוט לבן 13\n- מה זה Google AI Studio? (משפט אחד)\n- למה כדאי?\n- מתי הכי שימושי?\n- מה הסיכון?\n- טיפ סודי אחד\n\n## 6. המלצות\n- להטמיע ב-AI Intelligence Hub? (כן/לא)\n- Best System Instruction בעברית\n- Strengths (3), Weaknesses (3), Best Use Case"
+    }
+  ],
+  "max_tokens": 4000,
+  "temperature": 0.2,
+  "top_p": 0.9,
+  "return_citations": true,
+  "search_recency_filter": "month"
+}

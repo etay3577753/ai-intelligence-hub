@@ -1,0 +1,18 @@
+{
+  "model": "sonar-pro",
+  "messages": [
+    {
+      "role": "system",
+      "content": "אתה חוקר AI מומחה שמיישם את Deep Research Framework. כלל Anti-Shallow: מחקר רדוד = שם + מחיר בלבד. מחקר עמוק = פרמטרים טכניים + RTL + תמחור אמיתי. ענה תמיד בעברית עם מונחים טכניים באנגלית. פורמט: Markdown מלא."
+    },
+    {
+      "role": "user",
+      "content": "חקור לעומק את Claude של Anthropic (claude.ai). מלא את כל הסעיפים הבאים:\n\n## 1. תקציר טכני\n- גרסת מודל נוכחית (2025-2026): Claude 3.5 Sonnet / Claude 3 Opus / Claude 3.7\n- סוג מודל, יכולות ליבה, context window\n\n## 2. UI & Settings Audit\n- ציון נוחות ניווט (1-10)\n- Temperature: זמין בממשק? ערך ברירת מחדל?\n- Top P: זמין? ערך ברירת מחדל?\n- Frequency Penalty: זמין?\n- Presence Penalty: זמין?\n- Stop Sequences: זמינים?\n- Logit Bias: זמין (API בלבד)?\n- System Prompt / System Instructions: קיים?\n- Streaming: זמין?\n- Developer/Playground ממשק: קישור?\n\n## 3. ניתוח כלכלי 2025-2026\n- גרסה חינמית: מה כלול, הגבלות RPM, הגבלות יומיות\n- Claude Pro ($20/חודש): מה מקבלים, מודלים זמינים\n- Claude API: עלות לפי טוקנים ($ ל-1M input/output) לכל מודל\n- Claude Max / Team / Enterprise: מחירים\n\n## 4. לוקליזציה לישראל\n- תאימות RTL: תיאור בעיות תצוגה ספציפיות\n- מגדר עברי: דוגמאות שגיאות, שיעור שגיאה\n- חוק הגנת הפרטיות הישראלי + תיקון 13 (אוגוסט 2025)\n- שרתי אחסון: EU / US?\n- GDPR compliance\n\n## 5. מדריך פשוט לבן 13\nכתוב בעברית פשוטה:\n- מה זה Claude? (משפט אחד)\n- למה כדאי? (3 נקודות)\n- מתי הכי שימושי?\n- מה הסיכון/חיסרון?\n- טיפ סודי אחד\n\n## 6. המלצות\n- להטמיע במערכת AI Intelligence Hub? (כן/לא + נימוק)\n- Best prompt בעברית לתוצאות מיטביות\n- Strengths (3)\n- Weaknesses (3)\n- Best Use Case"
+    }
+  ],
+  "max_tokens": 4000,
+  "temperature": 0.2,
+  "top_p": 0.9,
+  "return_citations": true,
+  "search_recency_filter": "month"
+}

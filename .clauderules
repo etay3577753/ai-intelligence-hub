@@ -1,0 +1,39 @@
+# AI Intelligence Hub — Permanent Design Rules
+# These rules apply to EVERY page and component in this project.
+
+## RTL (Right-to-Left) Layout
+- The entire application is in Hebrew → direction is always RTL.
+- `<html dir="rtl">` and `direction: rtl` in globals.css are the single source of truth.
+- Never add `dir="ltr"` to a container unless it wraps purely English/code content (e.g., <select> with English option labels is acceptable).
+
+## Sidebar Placement
+- The Sidebar must ALWAYS be on the RIGHT side of the screen.
+- Use `flex-row-reverse` on the outermost layout wrapper.
+- Put the main content area FIRST in the DOM, then the Sidebar — `flex-row-reverse` will push the Sidebar to the right visually.
+- Example structure:
+    <div className="flex flex-row-reverse h-screen w-full overflow-hidden">
+      <main>…content…</main>
+      <Sidebar />          ← second in DOM, appears on RIGHT
+    </div>
+
+## Text Alignment
+- All Hebrew text is right-aligned by default (inherited from `text-align: right` on body).
+- Use `text-start` (not `text-right`) for Tailwind alignment so it respects direction automatically.
+- Use `text-end` for labels that should align to the LEFT in RTL context.
+
+## Icons & Arrows
+- "Back" navigation buttons use `ChevronRight` (→) because in RTL, right = the starting/home direction.
+- "Forward" / "next" buttons use `ChevronLeft` (←).
+- Collapse toggles: use `ChevronLeft` for "collapse left", `ChevronRight` for "expand right".
+
+## Borders
+- A sidebar on the RIGHT uses `border-l` (physical left border = the divider between content and sidebar).
+- Headers and footers use `border-b` / `border-t` as normal.
+
+## New Pages Checklist
+Before shipping any new page, verify:
+[ ] Outer layout wrapper uses `flex flex-row-reverse` (if it has a sidebar or panel).
+[ ] Sidebar / panel appears on the RIGHT.
+[ ] No accidental `dir="ltr"` on Hebrew text containers.
+[ ] Back-navigation icon is ChevronRight.
+[ ] Text is right-aligned without explicit `text-right` overrides (should be automatic).

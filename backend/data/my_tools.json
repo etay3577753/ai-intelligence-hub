@@ -1,0 +1,541 @@
+{
+  "meta": {
+    "version": "3.0.0",
+    "description": "User's comprehensive AI toolbox — brand-specific tiers, ecosystem hierarchy, strength profiles"
+  },
+  "user_tiers": {
+    "claude": "pro",
+    "chatgpt": "pro",
+    "gemini": "pro",
+    "grok": "pro",
+    "microsoft-copilot": "free",
+    "perplexity": "pro",
+    "deepseek": "free",
+    "mistral": "free",
+    "qwen": "free",
+    "poe": "free",
+    "huggingchat": "free",
+    "notebooklm": "pro",
+    "notion": "free",
+    "canva": "free",
+    "gamma": "free",
+    "genspark": "free",
+    "zapier": "free",
+    "make": "free",
+    "n8n": "free",
+    "manychat": "free",
+    "runway": "free",
+    "heygen": "free",
+    "pika": "free",
+    "kling": "free",
+    "suno": "free",
+    "elevenlabs": "free",
+    "adobe-podcast": "free",
+    "midjourney": "free",
+    "dall-e": "pro",
+    "stable-diffusion": "free",
+    "ideogram": "free",
+    "cursor": "free",
+    "v0": "free",
+    "base44": "free",
+    "bolt": "free",
+    "lovable": "free"
+  },
+  "user_brand_tiers": {
+    "gemini": "advanced",
+    "claude": "claude_pro",
+    "chatgpt": "plus",
+    "microsoft-copilot": "free",
+    "perplexity": "pro",
+    "grok": "pro"
+  },
+  "valid_tiers": [
+    "free",
+    "pro",
+    "api"
+  ],
+  "brand_tiers": {
+    "gemini": {
+      "provider_label": "Google",
+      "tool_ids": [
+        "gemini",
+        "notebooklm"
+      ],
+      "options": [
+        {
+          "id": "free",
+          "label": "Free",
+          "maps_to": "free",
+          "models": [
+            "Gemini 1.5 Flash",
+            "Gemini 1.0 Pro (limited)"
+          ],
+          "info_he": "גישה חינמית למודל Flash מהיר. מגבלה יומית על מספר השאלות. NotebookLM זמין עם מגבלות.",
+          "unlocks": []
+        },
+        {
+          "id": "advanced",
+          "label": "Gemini Advanced",
+          "maps_to": "pro",
+          "models": [
+            "Gemini 1.5 Pro",
+            "Gemini Ultra 1.0",
+            "Gemini 2.0 Flash"
+          ],
+          "info_he": "מנוי Google One AI Premium (19.99$/חודש). כולל Gemini 1.5 Pro עם 1M טוקן context, יצירת תמונות, NotebookLM Plus ואינטגרציה עם Gmail/Docs.",
+          "unlocks": [
+            "notebooklm"
+          ]
+        },
+        {
+          "id": "ai_studio",
+          "label": "AI Studio (Pay-as-you-go)",
+          "maps_to": "api",
+          "models": [
+            "Gemini 1.5 Pro",
+            "Gemini 1.5 Flash",
+            "Gemini 2.0"
+          ],
+          "info_he": "Google AI Studio — גישה API לכל מודלי Gemini. תשלום לפי שימוש (tokens). מתאים למפתחים שרוצים לשלב Gemini בפרויקטים. כולל Grounding עם Google Search.",
+          "unlocks": [
+            "notebooklm"
+          ]
+        },
+        {
+          "id": "vertex_ai",
+          "label": "Vertex AI",
+          "maps_to": "api",
+          "models": [
+            "Gemini Ultra",
+            "Gemini 1.5 Pro",
+            "Nano Banana",
+            "Imagen 3"
+          ],
+          "info_he": "Google Cloud Vertex AI — הגרסה הארגונית המלאה. גישה ל-Gemini Ultra, Nano Banana (מודל קל לקצה), Imagen 3 ליצירת תמונות, ו-Grounding מתקדם. SLA מסחרי מלא.",
+          "unlocks": [
+            "notebooklm"
+          ]
+        }
+      ]
+    },
+    "claude": {
+      "provider_label": "Anthropic",
+      "tool_ids": [
+        "claude"
+      ],
+      "options": [
+        {
+          "id": "free",
+          "label": "Free",
+          "maps_to": "free",
+          "models": [
+            "Claude 3 Haiku",
+            "Claude 3.5 Haiku (limited)"
+          ],
+          "info_he": "גישה חינמית מוגבלת ל-Claude. מספר הודעות יומיות מוגבל, ללא גישה לקבצים גדולים.",
+          "unlocks": []
+        },
+        {
+          "id": "claude_pro",
+          "label": "Claude Pro",
+          "maps_to": "pro",
+          "models": [
+            "Claude 3.5 Sonnet",
+            "Claude 3.5 Haiku",
+            "Claude 3 Opus"
+          ],
+          "info_he": "Claude Pro (20$/חודש) — גישה מלאה ל-Claude 3.5 Sonnet, המודל החזק ביותר לניסוח, קוד וניתוח מסמכים. Context window של 200K טוקן. תמיכה מלאה בעברית.",
+          "unlocks": []
+        },
+        {
+          "id": "api",
+          "label": "API / Console",
+          "maps_to": "api",
+          "models": [
+            "Claude 3.5 Sonnet",
+            "Claude 3 Opus",
+            "Claude 3 Haiku"
+          ],
+          "info_he": "Anthropic API — גישה תכנותית מלאה. תשלום לפי tokens. מאפשר לשלב Claude בכל אפליקציה, לבנות סוכנים ולהריץ batch jobs. גישה ל-Claude 3 Opus המתקדם.",
+          "unlocks": []
+        }
+      ]
+    },
+    "chatgpt": {
+      "provider_label": "OpenAI",
+      "tool_ids": [
+        "chatgpt",
+        "dall-e"
+      ],
+      "options": [
+        {
+          "id": "free",
+          "label": "Free",
+          "maps_to": "free",
+          "models": [
+            "GPT-4o mini",
+            "GPT-4o (limited)"
+          ],
+          "info_he": "גישה חינמית לGPT-4o mini ומספר מוגבל של שאלות ל-GPT-4o. ללא יצירת תמונות עם DALL-E.",
+          "unlocks": []
+        },
+        {
+          "id": "plus",
+          "label": "ChatGPT Plus",
+          "maps_to": "pro",
+          "models": [
+            "GPT-4o",
+            "GPT-4o mini",
+            "o1-preview",
+            "o1-mini"
+          ],
+          "info_he": "ChatGPT Plus (20$/חודש) — גישה מלאה ל-GPT-4o, מודלי o1 לחשיבה מתקדמת, DALL-E 3 ליצירת תמונות, ניתוח קבצים, גלישת אינטרנט ו-GPTs מותאמים אישית.",
+          "unlocks": [
+            "dall-e"
+          ]
+        },
+        {
+          "id": "team",
+          "label": "Team / Enterprise",
+          "maps_to": "pro",
+          "models": [
+            "GPT-4o",
+            "o1",
+            "GPT-4 Turbo",
+            "DALL-E 3"
+          ],
+          "info_he": "ChatGPT Team (30$/user/חודש) — כל היכולות של Plus + context window גדול יותר, ללא שימוש בנתוני אימון, ניהול קבוצתי ו-workspace משותף.",
+          "unlocks": [
+            "dall-e"
+          ]
+        },
+        {
+          "id": "api",
+          "label": "API Only",
+          "maps_to": "api",
+          "models": [
+            "GPT-4o",
+            "GPT-4 Turbo",
+            "GPT-3.5 Turbo",
+            "DALL-E 3",
+            "Whisper",
+            "TTS"
+          ],
+          "info_he": "OpenAI API — גישה תכנותית לכל המודלים. תשלום לפי tokens. כולל Whisper לתמלול, TTS לקריינות, DALL-E 3 ליצירת תמונות. מאפשר בניית אפליקציות AI.",
+          "unlocks": [
+            "dall-e"
+          ]
+        }
+      ]
+    },
+    "microsoft-copilot": {
+      "provider_label": "Microsoft",
+      "tool_ids": [
+        "microsoft-copilot"
+      ],
+      "options": [
+        {
+          "id": "free",
+          "label": "Free",
+          "maps_to": "free",
+          "models": [
+            "GPT-4o (limited)",
+            "DALL-E 3 (limited)",
+            "Sora (limited)"
+          ],
+          "info_he": "Copilot חינמי — מבוסס GPT-4o, כולל יצירת תמונות עם DALL-E 3 ואפילו סרטונים קצרים עם Sora. מגבלה יומית על מספר הבקשות.",
+          "unlocks": []
+        },
+        {
+          "id": "pro",
+          "label": "Copilot Pro",
+          "maps_to": "pro",
+          "models": [
+            "GPT-4o (priority)",
+            "GPT-4 Turbo",
+            "DALL-E 3 (unlimited)",
+            "Sora"
+          ],
+          "info_he": "Copilot Pro (22$/חודש) — גישה עדיפות ל-GPT-4o בשעות עומס, שילוב מלא עם Word/Excel/PowerPoint/Outlook/Teams. יצירת תמונות ללא הגבלה ב-Designer.",
+          "unlocks": []
+        }
+      ]
+    },
+    "perplexity": {
+      "provider_label": "Perplexity AI",
+      "tool_ids": [
+        "perplexity"
+      ],
+      "options": [
+        {
+          "id": "free",
+          "label": "Free",
+          "maps_to": "free",
+          "models": [
+            "Perplexity Base",
+            "Claude 3 Haiku",
+            "Llama 3"
+          ],
+          "info_he": "Perplexity חינמי — 5 שאלות Pro ביום, חיפוש ברשת בזמן אמת, מקורות מאומתים. מגבלה על שאלות מורכבות.",
+          "unlocks": []
+        },
+        {
+          "id": "pro",
+          "label": "Pro",
+          "maps_to": "pro",
+          "models": [
+            "Claude 3.5 Sonnet",
+            "GPT-4o",
+            "Llama 3.1 405B",
+            "Mistral Large"
+          ],
+          "info_he": "Perplexity Pro (20$/חודש) — שאלות ללא הגבלה, בחירת מודל (Claude/GPT-4o/Llama), ניתוח קבצים, יצירת תמונות עם DALL-E ו-FLUX. API access כלול.",
+          "unlocks": []
+        }
+      ]
+    },
+    "grok": {
+      "provider_label": "xAI",
+      "tool_ids": [
+        "grok"
+      ],
+      "options": [
+        {
+          "id": "free",
+          "label": "Free (X Basic)",
+          "maps_to": "free",
+          "models": [
+            "Grok 1.5 (limited)"
+          ],
+          "info_he": "גישה מוגבלת ל-Grok דרך X (טוויטר). מספר שאלות יומי מועט.",
+          "unlocks": []
+        },
+        {
+          "id": "pro",
+          "label": "X Premium+ / Grok Pro",
+          "maps_to": "pro",
+          "models": [
+            "Grok 2",
+            "Grok 2 Vision",
+            "Aurora (image gen)"
+          ],
+          "info_he": "X Premium+ (16$/חודש) — גישה מלאה ל-Grok 2, יצירת תמונות עם Aurora, חיפוש בזמן אמת בטוויטר/X, ניתוח קבצים וזיהוי תמונות.",
+          "unlocks": []
+        }
+      ]
+    }
+  },
+  "ecosystems": {
+    "google": {
+      "label": "Google Ecosystem",
+      "tools": [
+        "gemini",
+        "notebooklm"
+      ],
+      "hierarchy": {
+        "pro": {
+          "unlocks": [
+            "notebooklm"
+          ],
+          "note": "Gemini Advanced / Google One AI Premium מכסה את כלל הכלים"
+        },
+        "api": {
+          "unlocks": [
+            "notebooklm"
+          ],
+          "note": "AI Studio / Vertex AI — גישה API לכל מודלי Gemini"
+        }
+      }
+    },
+    "anthropic": {
+      "label": "Anthropic Ecosystem",
+      "tools": [
+        "claude"
+      ],
+      "hierarchy": {
+        "pro": {
+          "unlocks": [
+            "claude"
+          ],
+          "note": "Claude Pro מפעיל Claude 3.5 Sonnet ללא הגבלה"
+        },
+        "api": {
+          "unlocks": [
+            "claude"
+          ],
+          "note": "Claude API — גישה תכנותית ל-Claude 3 Opus/Sonnet"
+        }
+      }
+    },
+    "openai": {
+      "label": "OpenAI Ecosystem",
+      "tools": [
+        "chatgpt",
+        "dall-e"
+      ],
+      "hierarchy": {
+        "pro": {
+          "unlocks": [
+            "dall-e"
+          ],
+          "note": "ChatGPT Plus / Team כולל DALL-E 3 ויצירת תמונות"
+        },
+        "api": {
+          "unlocks": [
+            "chatgpt",
+            "dall-e"
+          ],
+          "note": "OpenAI API — גישה ל-GPT-4o, DALL-E 3, Whisper"
+        }
+      }
+    },
+    "microsoft": {
+      "label": "Microsoft Ecosystem",
+      "tools": [
+        "microsoft-copilot"
+      ],
+      "hierarchy": {
+        "pro": {
+          "unlocks": [
+            "microsoft-copilot"
+          ],
+          "note": "Copilot Pro / Microsoft 365 Copilot — ממוזג עם Word, Excel, Teams"
+        }
+      }
+    },
+    "xai": {
+      "label": "xAI Ecosystem",
+      "tools": [
+        "grok"
+      ],
+      "hierarchy": {
+        "pro": {
+          "unlocks": [
+            "grok"
+          ],
+          "note": "Grok Pro (X Premium+) — חיפוש בזמן אמת בטוויטר + מודל Grok 2"
+        }
+      }
+    }
+  },
+  "tool_strengths": {
+    "claude": {
+      "deep_reasoning": 5,
+      "coding": 5,
+      "writing": 5,
+      "hebrew": 4,
+      "web_search": 1,
+      "image_gen": 0,
+      "video_gen": 0,
+      "automation": 2,
+      "speed": 3
+    },
+    "chatgpt": {
+      "deep_reasoning": 4,
+      "coding": 4,
+      "writing": 4,
+      "hebrew": 4,
+      "web_search": 3,
+      "image_gen": 4,
+      "video_gen": 1,
+      "automation": 3,
+      "speed": 4
+    },
+    "gemini": {
+      "deep_reasoning": 4,
+      "coding": 4,
+      "writing": 3,
+      "hebrew": 3,
+      "web_search": 5,
+      "image_gen": 4,
+      "video_gen": 3,
+      "automation": 2,
+      "speed": 5
+    },
+    "microsoft-copilot": {
+      "deep_reasoning": 3,
+      "coding": 3,
+      "writing": 3,
+      "hebrew": 3,
+      "web_search": 5,
+      "image_gen": 3,
+      "video_gen": 2,
+      "automation": 4,
+      "speed": 5
+    },
+    "grok": {
+      "deep_reasoning": 4,
+      "coding": 3,
+      "writing": 3,
+      "hebrew": 4,
+      "web_search": 5,
+      "image_gen": 2,
+      "video_gen": 0,
+      "automation": 1,
+      "speed": 4
+    },
+    "perplexity": {
+      "deep_reasoning": 3,
+      "coding": 1,
+      "writing": 2,
+      "hebrew": 3,
+      "web_search": 5,
+      "image_gen": 0,
+      "video_gen": 0,
+      "automation": 1,
+      "speed": 5
+    },
+    "deepseek": {
+      "deep_reasoning": 5,
+      "coding": 5,
+      "writing": 3,
+      "hebrew": 2,
+      "web_search": 2,
+      "image_gen": 0,
+      "video_gen": 0,
+      "automation": 2,
+      "speed": 4
+    },
+    "mistral": {
+      "deep_reasoning": 3,
+      "coding": 4,
+      "writing": 3,
+      "hebrew": 2,
+      "web_search": 1,
+      "image_gen": 0,
+      "video_gen": 0,
+      "automation": 2,
+      "speed": 5
+    }
+  },
+  "task_profiles": {
+    "deep_analysis": {
+      "primary": "deep_reasoning",
+      "secondary": "writing"
+    },
+    "web_research": {
+      "primary": "web_search",
+      "secondary": "deep_reasoning"
+    },
+    "code": {
+      "primary": "coding",
+      "secondary": "deep_reasoning"
+    },
+    "content_writing": {
+      "primary": "writing",
+      "secondary": "hebrew"
+    },
+    "automation": {
+      "primary": "automation",
+      "secondary": "coding"
+    },
+    "image_creation": {
+      "primary": "image_gen",
+      "secondary": "deep_reasoning"
+    },
+    "video_creation": {
+      "primary": "video_gen",
+      "secondary": "image_gen"
+    }
+  }
+}

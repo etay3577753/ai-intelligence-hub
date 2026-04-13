@@ -42,7 +42,7 @@ function ResultCard({ result }: { result: ModelResult }) {
             {result.tokens_used && (
               <Badge variant="outline" className="gap-1 text-xs">
                 <Cpu className="h-3 w-3" />
-                {result.tokens_used} tok
+                {result.tokens_used} טוקנים
               </Badge>
             )}
           </div>
@@ -79,11 +79,11 @@ export function ComparisonView() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt }),
       });
-      if (!res.ok) throw new Error(`API error ${res.status}`);
+      if (!res.ok) throw new Error(`שגיאת API: ${res.status}`);
       const data = await res.json();
       setResults(data.results);
     } catch (err) {
-      setError(err instanceof Error ? err.message : "Unknown error");
+      setError(err instanceof Error ? err.message : "שגיאה לא ידועה");
     } finally {
       setLoading(false);
     }
@@ -91,13 +91,14 @@ export function ComparisonView() {
 
   return (
     <div className="flex flex-col gap-6 h-full">
-      {/* Prompt input */}
+      {/* שדה פרומפט */}
       <form onSubmit={handleSubmit} className="flex gap-3">
         <textarea
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          placeholder="Enter your prompt — all three models will respond side-by-side…"
+          placeholder="הכנס פרומפט — שלושת המודלים יענו בו-זמנית…"
           rows={3}
+          dir="auto"
           className="flex-1 resize-none rounded-md border border-input bg-secondary px-3 py-2 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
           onKeyDown={(e) => {
             if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) handleSubmit(e as unknown as React.FormEvent);
@@ -105,18 +106,18 @@ export function ComparisonView() {
         />
         <Button type="submit" disabled={!prompt.trim() || loading} className="self-end gap-2">
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
-          {loading ? "Running…" : "Compare"}
+          {loading ? "מריץ…" : "השווה"}
         </Button>
       </form>
 
-      {/* Error */}
+      {/* הודעת שגיאה */}
       {error && (
         <div className="rounded-md bg-destructive/20 border border-destructive/40 p-3 text-sm text-destructive">
           {error}
         </div>
       )}
 
-      {/* Results grid */}
+      {/* רשת תוצאות */}
       {results.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 flex-1">
           {results.map((r) => (
@@ -125,7 +126,7 @@ export function ComparisonView() {
         </div>
       ) : !loading ? (
         <div className="flex-1 flex items-center justify-center text-muted-foreground text-sm border border-dashed border-border rounded-lg">
-          Results will appear here after you submit a prompt.
+          התוצאות יופיעו כאן לאחר שליחת פרומפט.
         </div>
       ) : (
         <div className="flex-1 flex items-center justify-center">

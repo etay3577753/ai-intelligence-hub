@@ -27,12 +27,13 @@ function VramBar({ used, total }: { used: number; total: number }) {
   return (
     <div className="w-full">
       <div className="flex justify-between text-xs text-muted-foreground mb-1">
-        <span>{used.toFixed(1)} GB used</span>
-        <span>{total} GB total</span>
+        <span>{used.toFixed(1)} GB בשימוש</span>
+        <span>סה״כ {total} GB</span>
       </div>
       <div className="h-2 w-full rounded-full bg-secondary overflow-hidden">
+        {/* The bar fills from right in RTL — we reverse the fill direction */}
         <div
-          className={cn("h-full rounded-full transition-all duration-500", color)}
+          className={cn("h-full rounded-full transition-all duration-500 me-auto", color)}
           style={{ width: `${pct}%` }}
         />
       </div>
@@ -53,9 +54,9 @@ export function HardwareGuard({
     pct >= 90 ? "critical" : pct >= 70 ? "warn" : "ok";
 
   const statusConfig = {
-    ok:       { label: "OK",       badge: "success"     as const, icon: Cpu },
-    warn:     { label: "High",     badge: "warning"     as const, icon: ThermometerSun },
-    critical: { label: "Critical", badge: "destructive" as const, icon: AlertTriangle },
+    ok:       { label: "תקין",    badge: "success"     as const, icon: Cpu },
+    warn:     { label: "גבוה",   badge: "warning"     as const, icon: ThermometerSun },
+    critical: { label: "קריטי",  badge: "destructive" as const, icon: AlertTriangle },
   }[status];
 
   const Icon = statusConfig.icon;
@@ -70,25 +71,28 @@ export function HardwareGuard({
         className
       )}
     >
-      {/* Header */}
+      {/* כותרת */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-sm font-medium">
           <Zap className="h-4 w-4 text-primary" />
-          <span>Hardware Guard</span>
+          <span>מצב חומרה</span>
         </div>
         <Badge variant={statusConfig.badge}>{statusConfig.label}</Badge>
       </div>
 
-      {/* GPU name */}
+      {/* שם כרטיס המסך */}
       <div className="flex items-center gap-2 text-xs text-muted-foreground">
         <Icon className="h-3.5 w-3.5" />
         <span>{gpu}</span>
       </div>
 
-      {/* Overall VRAM bar */}
-      <VramBar used={totalUsed} total={vramTotal} />
+      {/* פס זיכרון וידאו כולל */}
+      <div>
+        <p className="text-xs text-muted-foreground mb-1 font-medium">זיכרון וידאו בשימוש</p>
+        <VramBar used={totalUsed} total={vramTotal} />
+      </div>
 
-      {/* Per-model breakdown */}
+      {/* פירוט לפי מודל */}
       {vramEntries.length > 0 && (
         <div className="space-y-2 pt-1 border-t border-border">
           {vramEntries.map((e) => (
@@ -100,7 +104,7 @@ export function HardwareGuard({
         </div>
       )}
 
-      {/* Warning banner */}
+      {/* באנר אזהרה */}
       {status !== "ok" && (
         <div
           className={cn(
@@ -112,8 +116,8 @@ export function HardwareGuard({
           <AlertTriangle className="h-3.5 w-3.5 mt-0.5 shrink-0" />
           <span>
             {status === "critical"
-              ? "VRAM near capacity. Unload a model or switch to a cloud provider to avoid OOM crashes."
-              : "VRAM usage is elevated. Avoid loading additional local models simultaneously."}
+              ? "זיכרון הוידאו כמעט מלא. פרוק מודל או עבור לספק ענן כדי למנוע קריסה."
+              : "השימוש בזיכרון הוידאו גבוה. הימנע מטעינת מודלים מקומיים נוספים."}
           </span>
         </div>
       )}

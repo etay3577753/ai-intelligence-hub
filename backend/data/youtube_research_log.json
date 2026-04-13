@@ -1,0 +1,2225 @@
+{
+  "processed": {
+    "wZGIHRq2Tq4": {
+      "video_id": "wZGIHRq2Tq4",
+      "title": "��� 24/30 ����������� multi pass review",
+      "status": "success",
+      "lang": "IP חסום (כותרת בלבד)",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\wZGIHRq2Tq4.md",
+      "timestamp": "2026-04-11T20:59:45.208290"
+    },
+    "BytiMMLkH3g": {
+      "video_id": "BytiMMLkH3g",
+      "title": "������ ������� ������ ����� ������",
+      "status": "success",
+      "lang": "IP חסום (כותרת בלבד)",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\BytiMMLkH3g.md",
+      "timestamp": "2026-04-11T20:59:45.208951"
+    },
+    "Gau7FaY5qJo": {
+      "video_id": "Gau7FaY5qJo",
+      "title": "��� ����� ������� �Claude Code",
+      "status": "success",
+      "lang": "IP חסום (כותרת בלבד)",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\Gau7FaY5qJo.md",
+      "timestamp": "2026-04-11T20:59:45.209566"
+    },
+    "mkMOgfaBJck": {
+      "video_id": "mkMOgfaBJck",
+      "title": "����� ����� ������ �� ���� ���� ��� 16 CORS",
+      "status": "success",
+      "lang": "IP חסום (כותרת בלבד)",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\mkMOgfaBJck.md",
+      "timestamp": "2026-04-11T20:59:45.210185"
+    },
+    "Kw9BHi3v7P4": {
+      "video_id": "Kw9BHi3v7P4",
+      "title": "יום 23/30 בסדרה סרטיפיקלוד Batch API",
+      "status": "success",
+      "lang": "עברית (אוטומטי)",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\Kw9BHi3v7P4.md",
+      "timestamp": "2026-04-11T20:33:33.891648"
+    },
+    "eT9zpMAaROg": {
+      "video_id": "eT9zpMAaROg",
+      "title": "5 Claude Cowork use cases",
+      "status": "success",
+      "lang": "עברית (אוטומטי)",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\eT9zpMAaROg.md",
+      "timestamp": "2026-04-11T20:33:43.208715"
+    },
+    "7vqovHuhSUM": {
+      "video_id": "7vqovHuhSUM",
+      "title": "Managed Agents",
+      "status": "success",
+      "lang": "עברית (אוטומטי)",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\7vqovHuhSUM.md",
+      "timestamp": "2026-04-11T20:33:54.122182"
+    },
+    "D6a8AhAIX8c": {
+      "video_id": "D6a8AhAIX8c",
+      "title": "דברים שלא מספרים לכם בוייב קודינג חלק 15 CI/CD",
+      "status": "success",
+      "lang": "עברית (אוטומטי)",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\D6a8AhAIX8c.md",
+      "timestamp": "2026-04-11T20:34:04.590699"
+    },
+    "gut1gry1RJU": {
+      "video_id": "gut1gry1RJU",
+      "title": "יום 22/30 בסרטיפיקלוד Validations & Retries",
+      "status": "success",
+      "lang": "עברית (אוטומטי)",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\gut1gry1RJU.md",
+      "timestamp": "2026-04-11T20:34:16.016805"
+    },
+    "DhA8V6-dNTo": {
+      "video_id": "DhA8V6-dNTo",
+      "title": "דברים שלא מספרים לכם בוייב קודינג חלק 14 Logging & Monitoring",
+      "status": "success",
+      "lang": "שגיאה: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=DhA8V6-dNTo! This is most likely caused by:\n\nYouTube is blocking requests from your IP. This usually is due to one of the following reasons:\n- You have done too many requests and your IP has been blocked by YouTube\n- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.\n\nWays to work around this are explained in the \"Working around IP bans\" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).\n\n\nIf you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\DhA8V6-dNTo.md",
+      "timestamp": "2026-04-11T20:34:31.285506"
+    },
+    "jgBDwnwffFs": {
+      "video_id": "jgBDwnwffFs",
+      "title": "יום 21/30 בסדרה סרטיפיקלוד Stractured output & Tool use",
+      "status": "success",
+      "lang": "שגיאה: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=jgBDwnwffFs! This is most likely caused by:\n\nYouTube is blocking requests from your IP. This usually is due to one of the following reasons:\n- You have done too many requests and your IP has been blocked by YouTube\n- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.\n\nWays to work around this are explained in the \"Working around IP bans\" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).\n\n\nIf you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\jgBDwnwffFs.md",
+      "timestamp": "2026-04-11T20:34:42.995988"
+    },
+    "_TtKpWEhE4g": {
+      "video_id": "_TtKpWEhE4g",
+      "title": "100 ימים 100 כלים יום 100!!! בונים AI",
+      "status": "success",
+      "lang": "שגיאה: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=_TtKpWEhE4g! This is most likely caused by:\n\nYouTube is blocking requests from your IP. This usually is due to one of the following reasons:\n- You have done too many requests and your IP has been blocked by YouTube\n- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.\n\nWays to work around this are explained in the \"Working around IP bans\" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).\n\n\nIf you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\_TtKpWEhE4g.md",
+      "timestamp": "2026-04-11T20:34:53.309161"
+    },
+    "lsyQ1rNcnRU": {
+      "video_id": "lsyQ1rNcnRU",
+      "title": "יום 20/30 בסדרה סרטיפיקלוד Few shot prompting",
+      "status": "success",
+      "lang": "שגיאה: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=lsyQ1rNcnRU! This is most likely caused by:\n\nYouTube is blocking requests from your IP. This usually is due to one of the following reasons:\n- You have done too many requests and your IP has been blocked by YouTube\n- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.\n\nWays to work around this are explained in the \"Working around IP bans\" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).\n\n\nIf you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\lsyQ1rNcnRU.md",
+      "timestamp": "2026-04-11T20:35:04.413542"
+    },
+    "-0rIpbgM2mw": {
+      "video_id": "-0rIpbgM2mw",
+      "title": "דברים שלא מלמדים אתכם בוייב קודינג חלק 13 Race Conditions",
+      "status": "success",
+      "lang": "שגיאה: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=-0rIpbgM2mw! This is most likely caused by:\n\nYouTube is blocking requests from your IP. This usually is due to one of the following reasons:\n- You have done too many requests and your IP has been blocked by YouTube\n- You are doing requests from an IP belonging to a cloud provider (like AWS, Google Cloud Platform, Azure, etc.). Unfortunately, most IPs from cloud providers are blocked by YouTube.\n\nWays to work around this are explained in the \"Working around IP bans\" section of the README (https://github.com/jdepoix/youtube-transcript-api?tab=readme-ov-file#working-around-ip-bans-requestblocked-or-ipblocked-exception).\n\n\nIf you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!",
+      "model": "gemini-2.5-flash",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\-0rIpbgM2mw.md",
+      "timestamp": "2026-04-11T20:35:16.528856"
+    },
+    "VDFU7itVAUU": {
+      "video_id": "VDFU7itVAUU",
+      "title": "3 ������� ����� ����� ���",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\VDFU7itVAUU.md",
+      "timestamp": "2026-04-11T20:59:45.207584"
+    },
+    "qz6Rg-goR9I": {
+      "video_id": "qz6Rg-goR9I",
+      "title": "Claude Mythos",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\qz6Rg-goR9I.md",
+      "timestamp": "2026-04-11T20:44:41.856247"
+    },
+    "8j4FBfBjFcc": {
+      "video_id": "8j4FBfBjFcc",
+      "title": "100 ���� 100 ���� ��� 99/100 Flow",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\8j4FBfBjFcc.md",
+      "timestamp": "2026-04-11T20:45:35.552688"
+    },
+    "G8mhY9NuANw": {
+      "video_id": "G8mhY9NuANw",
+      "title": "Harness engineering",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\G8mhY9NuANw.md",
+      "timestamp": "2026-04-11T20:46:28.483617"
+    },
+    "D1c-UDFCqYY": {
+      "video_id": "D1c-UDFCqYY",
+      "title": "��� 19/30 ����� ���������� Explicit Criteria",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "dry-run",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\D1c-UDFCqYY.md",
+      "timestamp": "2026-04-11T20:47:26.233134"
+    },
+    "kuGfQhDbAOQ": {
+      "video_id": "kuGfQhDbAOQ",
+      "title": "����� ��� ������ ���� ����� ������ ��� 12 idempotency",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "gemini-2.5-flash",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\kuGfQhDbAOQ.md",
+      "timestamp": "2026-04-11T20:48:31.123899"
+    },
+    "tHtQyymXbCQ": {
+      "video_id": "tHtQyymXbCQ",
+      "title": "100 ���� 100 ���� ��� 98/100 Clickhouse",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "gemini-2.5-flash",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\tHtQyymXbCQ.md",
+      "timestamp": "2026-04-11T20:49:36.389276"
+    },
+    "Rj7Tc2g6rr4": {
+      "video_id": "Rj7Tc2g6rr4",
+      "title": "��� 18/30 ����� ���������� CI/CD with Claude Code",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "gemini-2.5-flash",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\Rj7Tc2g6rr4.md",
+      "timestamp": "2026-04-11T20:50:43.110879"
+    },
+    "OH4ZYTDd-Ww": {
+      "video_id": "OH4ZYTDd-Ww",
+      "title": "����� ��� ������ ��� ����� ������ ��� 11 Database transactions",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "gemini-2.5-flash",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\OH4ZYTDd-Ww.md",
+      "timestamp": "2026-04-11T20:51:57.117499"
+    },
+    "ItxF85aORro": {
+      "video_id": "ItxF85aORro",
+      "title": "100 ���� 100 ���� ��� 97/100 Gemma4",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "gemini-2.5-flash",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\ItxF85aORro.md",
+      "timestamp": "2026-04-11T20:53:02.823664"
+    },
+    "55AW_X4b12o": {
+      "video_id": "55AW_X4b12o",
+      "title": "Antropic closes Open Claw",
+      "status": "success",
+      "lang": "נחסם על ידי YouTube",
+      "model": "gemini-2.5-flash",
+      "source": "shorts",
+      "file": "C:\\Users\\איתי\\The Master AI Architect\\backend\\data\\wiki\\youtube\\55AW_X4b12o.md",
+      "timestamp": "2026-04-11T21:00:26.099230"
+    },
+    "WbMD9zNKeDI": {
+      "video_id": "WbMD9zNKeDI",
+      "title": "100 ���� 100 ���� ��� 96/100 Mylo AI",
+      "status": "error",
+      "error": "Gemini rate limit — כל הניסיונות נכשלו",
+      "timestamp": "2026-04-11T21:29:19.580686"
+    },
+    "H9L22CO1vC8": {
+      "video_id": "H9L22CO1vC8",
+      "title": "Cursor 3",
+      "status": "error",
+      "error": "Gemini rate limit — כל הניסיונות נכשלו",
+      "timestamp": "2026-04-11T21:40:18.592397"
+    },
+    "r9IcYm3DCVY": {
+      "video_id": "r9IcYm3DCVY",
+      "title": "����� ����� ������ �� ���� ���� ��� 10 Webhooks",
+      "status": "error",
+      "error": "Gemini rate limit — כל הניסיונות נכשלו",
+      "timestamp": "2026-04-11T21:51:17.555736"
+    },
+    "yz9sKjE2RCM": {
+      "video_id": "yz9sKjE2RCM",
+      "title": "��� 17/30 ����� ���������� �iterative refinement",
+      "status": "error",
+      "error": "Gemini rate limit — כל הניסיונות נכשלו",
+      "timestamp": "2026-04-11T22:02:16.533109"
+    },
+    "yFPyyE6TJ9I": {
+      "video_id": "yFPyyE6TJ9I",
+      "title": "����� �� ������",
+      "status": "error",
+      "error": "<urlopen error [WinError 10051] A socket operation was attempted to an unreachable network>",
+      "timestamp": "2026-04-11T22:05:36.812846"
+    },
+    "MtnHvF0D_2U": {
+      "video_id": "MtnHvF0D_2U",
+      "title": "����� ����� ������ �� ���� ���� ��� 9 Load Balancing",
+      "status": "error",
+      "error": "<urlopen error [WinError 10051] A socket operation was attempted to an unreachable network>",
+      "timestamp": "2026-04-11T22:07:51.170255"
+    },
+    "goFq3VvKfkk": {
+      "video_id": "goFq3VvKfkk",
+      "title": "��� 16/30 ����� ���������� Plan mode",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:07:59.598308"
+    },
+    "CVAr4seIx88": {
+      "video_id": "CVAr4seIx88",
+      "title": "100 ���� 100 ���� ��� 95/100 Genspark",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:08:07.601866"
+    },
+    "PGEI2Gjs374": {
+      "video_id": "PGEI2Gjs374",
+      "title": "���� �� ���� ��� ����� ������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:08:15.605188"
+    },
+    "t1Cg1TGnEpo": {
+      "video_id": "t1Cg1TGnEpo",
+      "title": "Canva Magic Layers",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:08:23.608259"
+    },
+    "5SWAN8ejOIk": {
+      "video_id": "5SWAN8ejOIk",
+      "title": "����� ��� ������ ��� ����� ������ ��� 8 Database Migrations",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:08:31.612889"
+    },
+    "ednqj4ubne0": {
+      "video_id": "ednqj4ubne0",
+      "title": "��� 15/30 ����� ���������� Path rules",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:08:39.615698"
+    },
+    "C46UTxbtGRg": {
+      "video_id": "C46UTxbtGRg",
+      "title": "Reverse prompting",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:08:47.635053"
+    },
+    "4FiOm55J_ZY": {
+      "video_id": "4FiOm55J_ZY",
+      "title": "100 ���� 100 ���� ��� 94 Obsidian",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:08:55.643613"
+    },
+    "pc-1JL75S0g": {
+      "video_id": "pc-1JL75S0g",
+      "title": "Claude Code Conputer use",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:09:03.648837"
+    },
+    "eqwb78sRiRA": {
+      "video_id": "eqwb78sRiRA",
+      "title": "����� ��� ������ ��� ����� ������ ��� 7 Environment Variables",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:09:11.652809"
+    },
+    "k1GW0iAK81k": {
+      "video_id": "k1GW0iAK81k",
+      "title": "��� 14/30 ����� ���������� skills/commands",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:09:19.657340"
+    },
+    "45rX9yu-zOc": {
+      "video_id": "45rX9yu-zOc",
+      "title": "Claude Code hidden features",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:09:27.661038"
+    },
+    "hZYY97P6s_I": {
+      "video_id": "hZYY97P6s_I",
+      "title": "100 ���� 100 ���� ��� 93/100 Gemini flash lite 3.1",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:09:35.665884"
+    },
+    "x3o4egQlywQ": {
+      "video_id": "x3o4egQlywQ",
+      "title": "��� 13/30 ����� ���������� CLAUDE.md",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:09:43.673499"
+    },
+    "dHuZdDPYBRI": {
+      "video_id": "dHuZdDPYBRI",
+      "title": "Lovable telegram",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:09:51.679472"
+    },
+    "sz9lty6Vm30": {
+      "video_id": "sz9lty6Vm30",
+      "title": "����� ��� ������ ���� ����� ������ ��� 6 Authentication & Authorization",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:09:59.684116"
+    },
+    "fmMV6EqmT8c": {
+      "video_id": "fmMV6EqmT8c",
+      "title": "Antropic Capybara/Mythos",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:10:07.687449"
+    },
+    "ET-hGohtDV8": {
+      "video_id": "ET-hGohtDV8",
+      "title": "100 ���� 100 ���� ��� 92/100 Ruflo",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:10:15.691164"
+    },
+    "T4uxaAEUYQs": {
+      "video_id": "T4uxaAEUYQs",
+      "title": "��� 12/30 ����� ���������� Built in tools",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:10:23.718787"
+    },
+    "4gdRUoJiUr0": {
+      "video_id": "4gdRUoJiUr0",
+      "title": "����� ��� ������ ���� ����� ������ ��� 5 Retry Logic",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:10:31.722818"
+    },
+    "vvLKvUkTjbA": {
+      "video_id": "vvLKvUkTjbA",
+      "title": "Claude for Chrome security vulnerability",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:10:39.729854"
+    },
+    "_ntt0ZS8ty8": {
+      "video_id": "_ntt0ZS8ty8",
+      "title": "Claude code worktrees",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:10:47.737232"
+    },
+    "sPznKYY7C4s": {
+      "video_id": "sPznKYY7C4s",
+      "title": "��� 11/30 ����� ���������� MCP",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:10:55.744630"
+    },
+    "nme3KkI59t4": {
+      "video_id": "nme3KkI59t4",
+      "title": "����� ��� ������ ��� ������ ������ ��� 4 Database indexes",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:11:03.751152"
+    },
+    "jH_Lj3DKkow": {
+      "video_id": "jH_Lj3DKkow",
+      "title": "100 ���� 100 ���� ��� 91/100 Lyria",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:11:11.759288"
+    },
+    "fNDrMjxxnIo": {
+      "video_id": "fNDrMjxxnIo",
+      "title": "100 ���� 100 ���� ��� 90/100 hugging face",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:11:19.766606"
+    },
+    "QNhvdVl83c0": {
+      "video_id": "QNhvdVl83c0",
+      "title": "����� ��� ������ ���� ����� ������ ��� 3 Rate limiting",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:11:27.771949"
+    },
+    "sgDgQOGS4ng": {
+      "video_id": "sgDgQOGS4ng",
+      "title": "��� 9/30 ����� ���������� Error responses",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:11:35.777404"
+    },
+    "gWeGkhlhvkM": {
+      "video_id": "gWeGkhlhvkM",
+      "title": "��� 10/30 ����� ���������� Tool Choice",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:11:43.786918"
+    },
+    "a5pVFKLjoPw": {
+      "video_id": "a5pVFKLjoPw",
+      "title": "Claude mobile tools",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:11:51.794524"
+    },
+    "X4Cu6AeGsxA": {
+      "video_id": "X4Cu6AeGsxA",
+      "title": "����� ��� ������ ��� ����������� ��� 2 Caching",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:11:59.801302"
+    },
+    "2SkPyXVKs-o": {
+      "video_id": "2SkPyXVKs-o",
+      "title": "100 ���� 100 ���� aikido.dev",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:12:07.808016"
+    },
+    "mzNwFePKTJE": {
+      "video_id": "mzNwFePKTJE",
+      "title": "�� *���* ���� ����� �� AI?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:12:15.814734"
+    },
+    "L9g_QFF3wT8": {
+      "video_id": "L9g_QFF3wT8",
+      "title": "Claude auto mode",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:12:23.821325"
+    },
+    "6VX5TZ2ZJGA": {
+      "video_id": "6VX5TZ2ZJGA",
+      "title": "Open AI ������ �� Sora",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:12:31.827479"
+    },
+    "DXLYzS57mg8": {
+      "video_id": "DXLYzS57mg8",
+      "title": "��� 8/30 ����� ���������� Tools",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:12:39.835055"
+    },
+    "7-qztztvDLY": {
+      "video_id": "7-qztztvDLY",
+      "title": "The Gemini Advantage",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:12:47.842313"
+    },
+    "v4XyFe1I_qE": {
+      "video_id": "v4XyFe1I_qE",
+      "title": "100 ���� 100 ���� ��� 88/100",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:12:55.850182"
+    },
+    "HoKtaYO7I2A": {
+      "video_id": "HoKtaYO7I2A",
+      "title": "����� ��� ������ ��� ����� ������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:13:03.857685"
+    },
+    "P55RvW71w_g": {
+      "video_id": "P55RvW71w_g",
+      "title": "Claude computer use",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:13:11.864368"
+    },
+    "QmeBPYEdnPk": {
+      "video_id": "QmeBPYEdnPk",
+      "title": "��� 7/30 ����� ���������� Session management",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:13:19.869975"
+    },
+    "qvh3j91Al1c": {
+      "video_id": "qvh3j91Al1c",
+      "title": "Door dash tasks",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:13:27.875814"
+    },
+    "ekyfBHDIrM8": {
+      "video_id": "ekyfBHDIrM8",
+      "title": "����� ����� ���� ������ ��������� ���� ������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:13:35.881820"
+    },
+    "zs-dcYoZSHY": {
+      "video_id": "zs-dcYoZSHY",
+      "title": "100 ���� 100 ���� ��� 87/100 json-renderer",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:13:43.887143"
+    },
+    "oD37xCGmkHA": {
+      "video_id": "oD37xCGmkHA",
+      "title": "Machine Payments Protocol",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:13:51.894556"
+    },
+    "yKTIws9TrQw": {
+      "video_id": "yKTIws9TrQw",
+      "title": "��� 6/30 ����� ���������� Task decomposition",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:13:59.901526"
+    },
+    "w6pLhthB29s": {
+      "video_id": "w6pLhthB29s",
+      "title": "100 ���� 100 ���� ��� 86/100 NemoClaw",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:14:07.904770"
+    },
+    "eaKuQj-vy6I": {
+      "video_id": "eaKuQj-vy6I",
+      "title": "���� ��� ���� ������ �2026",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:14:15.907387"
+    },
+    "Km726eESJic": {
+      "video_id": "Km726eESJic",
+      "title": "Claude Cowork Projects",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:14:23.911045"
+    },
+    "HkT_PpyO-gM": {
+      "video_id": "HkT_PpyO-gM",
+      "title": "Claude code cloud scheduled tasks",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:14:31.916462"
+    },
+    "tYh2mOS7_LE": {
+      "video_id": "tYh2mOS7_LE",
+      "title": "��� 5/30 ����� ���������� Hooks SDK",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:14:39.923844"
+    },
+    "tIoL1mcGxnE": {
+      "video_id": "tIoL1mcGxnE",
+      "title": "100 ���� 100 ���� lovable tasks",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:14:47.930562"
+    },
+    "OaMVjzuuvn4": {
+      "video_id": "OaMVjzuuvn4",
+      "title": "���� ��� ��� �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:14:55.935041"
+    },
+    "9V-iytGu9B4": {
+      "video_id": "9V-iytGu9B4",
+      "title": "Cursor composer 2",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:15:03.939752"
+    },
+    "cqTl55PsYXo": {
+      "video_id": "cqTl55PsYXo",
+      "title": "��� 4/30 ����� ���������� Enforcement & Handoff",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:15:11.946790"
+    },
+    "2_HhOTvjWvI": {
+      "video_id": "2_HhOTvjWvI",
+      "title": "100 ���� 100 ���� ��� 84/100 Google AI Studio",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:15:19.953723"
+    },
+    "3YQY2PsOPzs": {
+      "video_id": "3YQY2PsOPzs",
+      "title": "Perplexity comet for IOS",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:15:27.961335"
+    },
+    "SXyUtY8JLbM": {
+      "video_id": "SXyUtY8JLbM",
+      "title": "Claude code channels",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:15:35.965557"
+    },
+    "xa7PLX95os8": {
+      "video_id": "xa7PLX95os8",
+      "title": "��� 3/30 ����������� Multi agents",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:15:43.970195"
+    },
+    "yJvFSsSR0Kw": {
+      "video_id": "yJvFSsSR0Kw",
+      "title": "What does 81k pepole want from AI?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:15:51.976345"
+    },
+    "61P-ZZ5EwgQ": {
+      "video_id": "61P-ZZ5EwgQ",
+      "title": "����� ������� �� Open Claw",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:15:59.979971"
+    },
+    "We93HUJgFjU": {
+      "video_id": "We93HUJgFjU",
+      "title": "��� 2/30 ����� ����������� ����� Subagents",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:16:07.983749"
+    },
+    "K82CShMcGq4": {
+      "video_id": "K82CShMcGq4",
+      "title": "��� ����� �������� �� Remotion �Claude Code",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:16:15.989971"
+    },
+    "aiFguwMh7rU": {
+      "video_id": "aiFguwMh7rU",
+      "title": "100 ���� 100 ���� ��� 82/100 Stitch",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:16:23.995556"
+    },
+    "KcZ7Ggzx_04": {
+      "video_id": "KcZ7Ggzx_04",
+      "title": "Claude Cowork dispatch",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:16:31.998426"
+    },
+    "P-ygXeGVCoA": {
+      "video_id": "P-ygXeGVCoA",
+      "title": "��� ����� ��������� ��� ����� ����� AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:16:40.004365"
+    },
+    "xw_XEu_SG68": {
+      "video_id": "xw_XEu_SG68",
+      "title": "��� 1/30 ����� �����������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:16:48.009573"
+    },
+    "cBeMhvJr71A": {
+      "video_id": "cBeMhvJr71A",
+      "title": "100 ���� 100 ���� ��� 81/100 Manus",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:16:56.013457"
+    },
+    "-q9UcXWFvpE": {
+      "video_id": "-q9UcXWFvpE",
+      "title": "AirPods Max 2",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:17:04.019198"
+    },
+    "xUQO6M41gTk": {
+      "video_id": "xUQO6M41gTk",
+      "title": "Codex sub agents",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:17:12.022848"
+    },
+    "HJQI2OnQge8": {
+      "video_id": "HJQI2OnQge8",
+      "title": "100 ���� 100 ���� ��� 80 paperclip",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:17:20.027720"
+    },
+    "cYipF5sTxN4": {
+      "video_id": "cYipF5sTxN4",
+      "title": "����� ���� ����� ������ �����!!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:17:28.033136"
+    },
+    "4xumSE72AkU": {
+      "video_id": "4xumSE72AkU",
+      "title": "��� 0/30 ����� ����� ����������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:17:36.037171"
+    },
+    "M27GAzML9TE": {
+      "video_id": "M27GAzML9TE",
+      "title": "Claude Cowork skills",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:17:44.039914"
+    },
+    "8XBOi658f4s": {
+      "video_id": "8XBOi658f4s",
+      "title": "100 ���� 100 ���� ��� 79/100 AEO Grader",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:17:52.042747"
+    },
+    "GppJgfGHEik": {
+      "video_id": "GppJgfGHEik",
+      "title": "Don�t steal this book",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:18:00.047805"
+    },
+    "2f6q_v-_WHo": {
+      "video_id": "2f6q_v-_WHo",
+      "title": "���� ������� �� ������ ���� ��������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:18:08.053734"
+    },
+    "atrC5QQtHrI": {
+      "video_id": "atrC5QQtHrI",
+      "title": "100 ���� 100 ���� ��� 78/100 Chrome dev tools mcp",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:18:16.059165"
+    },
+    "a0lKYNdZ9hU": {
+      "video_id": "a0lKYNdZ9hU",
+      "title": "Antropic product strategy",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:18:24.067317"
+    },
+    "v66y0L_64ic": {
+      "video_id": "v66y0L_64ic",
+      "title": "Claude code update features",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:18:32.073240"
+    },
+    "Vm4_6MjoOns": {
+      "video_id": "Vm4_6MjoOns",
+      "title": "Google ask maps",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:18:40.076550"
+    },
+    "kGTykp7rLh8": {
+      "video_id": "kGTykp7rLh8",
+      "title": "100 ���� 100 ���� ��� 77/100 Wonderful AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:18:48.081448"
+    },
+    "uvncS4ecO5c": {
+      "video_id": "uvncS4ecO5c",
+      "title": "Gemini embedding 2",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:18:56.088590"
+    },
+    "2MSUoQuzksk": {
+      "video_id": "2MSUoQuzksk",
+      "title": "Cloudflare crawl",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:19:04.094164"
+    },
+    "41EpbYG5IaU": {
+      "video_id": "41EpbYG5IaU",
+      "title": "Claude interactive mode",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:19:12.098611"
+    },
+    "BJZwdBIjTn0": {
+      "video_id": "BJZwdBIjTn0",
+      "title": "Claude for Excel and PowerPoint",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:19:20.104172"
+    },
+    "e0vYAc9WY-k": {
+      "video_id": "e0vYAc9WY-k",
+      "title": "Antropic Institute",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:19:28.112100"
+    },
+    "TVfnElWdatM": {
+      "video_id": "TVfnElWdatM",
+      "title": "Perplexity personal computer",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:19:36.119525"
+    },
+    "RAFLOLVjlJ4": {
+      "video_id": "RAFLOLVjlJ4",
+      "title": "Base44 Superagents",
+      "status": "error",
+      "error": "Gemini rate limit — כל הניסיונות נכשלו",
+      "timestamp": "2026-04-11T22:30:35.796224"
+    },
+    "E2OLLceRae4": {
+      "video_id": "E2OLLceRae4",
+      "title": "100 ���� 100 ���� ��� 76/100 Replit",
+      "status": "error",
+      "error": "Gemini rate limit — כל הניסיונות נכשלו",
+      "timestamp": "2026-04-11T22:41:34.786161"
+    },
+    "Fon__Q0ZRIg": {
+      "video_id": "Fon__Q0ZRIg",
+      "title": "���� ������ �AI",
+      "status": "error",
+      "error": "Gemini rate limit — כל הניסיונות נכשלו",
+      "timestamp": "2026-04-11T22:52:33.754818"
+    },
+    "XnekFcGcXXw": {
+      "video_id": "XnekFcGcXXw",
+      "title": "ChatGPT 5.4 prompting guide",
+      "status": "error",
+      "error": "<urlopen error [WinError 10051] A socket operation was attempted to an unreachable network>",
+      "timestamp": "2026-04-11T22:54:48.106294"
+    },
+    "4TmaZwUFqA8": {
+      "video_id": "4TmaZwUFqA8",
+      "title": "���� ������ ���",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:55:04.108857"
+    },
+    "2qwdZV1NIfw": {
+      "video_id": "2qwdZV1NIfw",
+      "title": "Claude Code /btw",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:55:20.188124"
+    },
+    "6yAM11nucEM": {
+      "video_id": "6yAM11nucEM",
+      "title": "100 ���� 100 ���� ��� 75/100 eleven labs",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:55:28.193576"
+    },
+    "QV_-0jcGAl8": {
+      "video_id": "QV_-0jcGAl8",
+      "title": "Open AI ������ ��� ����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:55:37.261997"
+    },
+    "2Bq88UyxrWQ": {
+      "video_id": "2Bq88UyxrWQ",
+      "title": "��� ����� �AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:55:45.270482"
+    },
+    "Z5Hl27Dz_2s": {
+      "video_id": "Z5Hl27Dz_2s",
+      "title": "100 ���� 100 ���� ��� 74/100 Playwright",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:55:53.275036"
+    },
+    "ZNg5iTSsfEk": {
+      "video_id": "ZNg5iTSsfEk",
+      "title": "ChatGPT 5.4 Computer use",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:56:01.278529"
+    },
+    "gIcKItotiYg": {
+      "video_id": "gIcKItotiYg",
+      "title": "���� ��� ���� �������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:56:09.283658"
+    },
+    "EpIOlQErtQs": {
+      "video_id": "EpIOlQErtQs",
+      "title": "100 ���� 100 ���� ��� 73/100 BMad",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:56:17.287909"
+    },
+    "SZhdEkuIbD0": {
+      "video_id": "SZhdEkuIbD0",
+      "title": "Cursor automation",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:56:35.416051"
+    },
+    "Bx-Is8nCW9Y": {
+      "video_id": "Bx-Is8nCW9Y",
+      "title": "Claude /loop",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:56:43.422548"
+    },
+    "uBZZEzPgDzo": {
+      "video_id": "uBZZEzPgDzo",
+      "title": "100 ���� 100 ���� ��� 72/100 Pomelli",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:56:51.427490"
+    },
+    "LUVlG0pEF1s": {
+      "video_id": "LUVlG0pEF1s",
+      "title": "���� ������ �� 10/10",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:56:59.432475"
+    },
+    "ZBcjaymg4FI": {
+      "video_id": "ZBcjaymg4FI",
+      "title": "Claude code desktop scheduled tasks",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:57:07.438389"
+    },
+    "RJNRRnHxgAA": {
+      "video_id": "RJNRRnHxgAA",
+      "title": "Codex security",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:57:16.554297"
+    },
+    "QfpYR8x5rio": {
+      "video_id": "QfpYR8x5rio",
+      "title": "Claude Marketplace",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:57:24.559964"
+    },
+    "J1jFVDcuVyc": {
+      "video_id": "J1jFVDcuVyc",
+      "title": "Bot house",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:57:32.561273"
+    },
+    "xSv_QmsDUHU": {
+      "video_id": "xSv_QmsDUHU",
+      "title": "100 ���� 100 ���� ��� 71/100 Gling AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:57:51.617246"
+    },
+    "mKLsvx7LUYY": {
+      "video_id": "mKLsvx7LUYY",
+      "title": "�������� vs ����� �������� vs ���� AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:57:59.621652"
+    },
+    "IkIThQC2FzI": {
+      "video_id": "IkIThQC2FzI",
+      "title": "����� ����� ���� �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:58:08.699871"
+    },
+    "UD6kcXogcps": {
+      "video_id": "UD6kcXogcps",
+      "title": "ChatGPT 5.4 Thinking",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:58:16.706030"
+    },
+    "_LZIADyR-WM": {
+      "video_id": "_LZIADyR-WM",
+      "title": "MacBook Neo",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:58:35.782074"
+    },
+    "jOXhqMpRioo": {
+      "video_id": "jOXhqMpRioo",
+      "title": "100 ���� 100 ���� ��� 70/100",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:58:43.788036"
+    },
+    "pYqCkuCtClA": {
+      "video_id": "pYqCkuCtClA",
+      "title": "����� ����� ���� ��",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:59:01.799820"
+    },
+    "AOsLPcqTEos": {
+      "video_id": "AOsLPcqTEos",
+      "title": "100 ���� 100 ���� ��� 69/100 Replika",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:59:09.803200"
+    },
+    "d-KKUJ8RLNE": {
+      "video_id": "d-KKUJ8RLNE",
+      "title": "Claude vs ChatGPT",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:59:26.883248"
+    },
+    "fecKiNeHRKE": {
+      "video_id": "fecKiNeHRKE",
+      "title": "Cursor MCP Apps",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:59:45.947383"
+    },
+    "9Clo0OjM2dA": {
+      "video_id": "9Clo0OjM2dA",
+      "title": "ChatGPT 5.3 Instant",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T22:59:53.950800"
+    },
+    "7g6xuQIWPKk": {
+      "video_id": "7g6xuQIWPKk",
+      "title": "100 ���� 100 ���� ��� 68/100 Google Analytics",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:00:01.955015"
+    },
+    "KkQmN8-8N_8": {
+      "video_id": "KkQmN8-8N_8",
+      "title": "Wix in ChatGPT",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:00:12.980587"
+    },
+    "eeBgd8dPE-4": {
+      "video_id": "eeBgd8dPE-4",
+      "title": "Qwen 3.5",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:00:20.985228"
+    },
+    "YcgJo-_p7nA": {
+      "video_id": "YcgJo-_p7nA",
+      "title": "���� ���",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:00:28.987687"
+    },
+    "his8FKuIF6w": {
+      "video_id": "his8FKuIF6w",
+      "title": "Claude Code Voice",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:00:36.992661"
+    },
+    "nHE0ggwPGlk": {
+      "video_id": "nHE0ggwPGlk",
+      "title": "100 ���� 100 ���� ��� 67/100 Calendly",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:00:44.995300"
+    },
+    "WhACNJMyLgo": {
+      "video_id": "WhACNJMyLgo",
+      "title": "9 ����� ����� prompt injection",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:01:03.120986"
+    },
+    "oh8g8lEu46Y": {
+      "video_id": "oh8g8lEu46Y",
+      "title": "������� ������� �Claude Cowork",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:01:11.126629"
+    },
+    "pTCtinbWUaU": {
+      "video_id": "pTCtinbWUaU",
+      "title": "������ ����� �� ��������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:01:19.131523"
+    },
+    "oopHUXM9Uvs": {
+      "video_id": "oopHUXM9Uvs",
+      "title": "100 ���� 100 ���� ��� 66/100 Wispr Flow",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:01:27.135597"
+    },
+    "mhWDBoYA8pk": {
+      "video_id": "mhWDBoYA8pk",
+      "title": "3 ������� ������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:01:35.138760"
+    },
+    "uF2g9Llh0es": {
+      "video_id": "uF2g9Llh0es",
+      "title": "��� ���� ��� ����� �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:01:54.190364"
+    },
+    "UpgUjbTs92s": {
+      "video_id": "UpgUjbTs92s",
+      "title": "��� ����� �Claude ��� AI ���",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:02:02.195095"
+    },
+    "Pi-dwEaiUHE": {
+      "video_id": "Pi-dwEaiUHE",
+      "title": "4 ����� �� ����� AI ���� ����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:02:19.244263"
+    },
+    "s0tqrCJruKc": {
+      "video_id": "s0tqrCJruKc",
+      "title": "100 ���� 100 ���� ��� 65/109 Perplexity",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:02:38.293650"
+    },
+    "oegVyyx1Js0": {
+      "video_id": "oegVyyx1Js0",
+      "title": "���� ����� ������� ���� �� ��������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:02:46.299297"
+    },
+    "pvFLk1bcd20": {
+      "video_id": "pvFLk1bcd20",
+      "title": "AI �� ����� ����� ����� �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:02:54.308001"
+    },
+    "8anyoZExpyE": {
+      "video_id": "8anyoZExpyE",
+      "title": "���� ��� ��� �� �� ����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:03:02.316673"
+    },
+    "ALxwrlXPHXc": {
+      "video_id": "ALxwrlXPHXc",
+      "title": "Claude code auto memory",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:03:10.324392"
+    },
+    "cy_KrzOvuzI": {
+      "video_id": "cy_KrzOvuzI",
+      "title": "��� ���� 2",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:03:18.331734"
+    },
+    "5m57I5g3atU": {
+      "video_id": "5m57I5g3atU",
+      "title": "100 ���� 100 ���� ��� 63/109 Google Opal",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:03:26.337745"
+    },
+    "1LlP6MGjo2U": {
+      "video_id": "1LlP6MGjo2U",
+      "title": "Open Claw and Open AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:03:34.346688"
+    },
+    "-ZeL602UrVY": {
+      "video_id": "-ZeL602UrVY",
+      "title": "Claude Cowork scheduled tasks",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:03:42.355197"
+    },
+    "qkzY7-YhoZI": {
+      "video_id": "qkzY7-YhoZI",
+      "title": "100 ���� 100 ���� ��� 62/100 backslash skill scanner",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:03:50.363716"
+    },
+    "eKuu_qGF3XA": {
+      "video_id": "eKuu_qGF3XA",
+      "title": "Claude SEO",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:03:58.372337"
+    },
+    "GGrrX5E2cZI": {
+      "video_id": "GGrrX5E2cZI",
+      "title": "Cursor agent computer",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:04:06.380223"
+    },
+    "6uvuIhQruuA": {
+      "video_id": "6uvuIhQruuA",
+      "title": "Plugins for Claude Cowork",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:04:14.386814"
+    },
+    "xCU7F8yVoTw": {
+      "video_id": "xCU7F8yVoTw",
+      "title": "Claude remote control",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:04:22.393653"
+    },
+    "ApjgeIC2DpQ": {
+      "video_id": "ApjgeIC2DpQ",
+      "title": "100 ���� 100 ���� ��� 61/100 Kimi Claw",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:04:30.401918"
+    },
+    "H1zl8mg-c34": {
+      "video_id": "H1zl8mg-c34",
+      "title": "llms.txt",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:04:38.410419"
+    },
+    "p-mJXrrDZnY": {
+      "video_id": "p-mJXrrDZnY",
+      "title": "������ ���� ���������??",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:04:46.419622"
+    },
+    "SDYYiw6YHhs": {
+      "video_id": "SDYYiw6YHhs",
+      "title": "100 ���� 100 ���� ��� 60/100 Google Skills",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:04:54.428889"
+    },
+    "wi5Z0BU5nuE": {
+      "video_id": "wi5Z0BU5nuE",
+      "title": "������� ����� �notebook lm",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:05:02.437885"
+    },
+    "6ip-0tn2v80": {
+      "video_id": "6ip-0tn2v80",
+      "title": "����� ���� Snyk �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:05:10.445266"
+    },
+    "vziH9G5otQ4": {
+      "video_id": "vziH9G5otQ4",
+      "title": "100 ���� 100 ���� ��� 59/100 Google Pub/Sub",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:05:18.448922"
+    },
+    "xjAy7DNhUlE": {
+      "video_id": "xjAy7DNhUlE",
+      "title": "5 ����� ����� ������� �� ���� ���",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:05:26.454561"
+    },
+    "eoQwvUC_LQU": {
+      "video_id": "eoQwvUC_LQU",
+      "title": "Claude code worktrees",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:05:34.460847"
+    },
+    "7Kv0741aheE": {
+      "video_id": "7Kv0741aheE",
+      "title": "��� ���� ��� ����� ���� �� AI �2026",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:05:42.465781"
+    },
+    "NGJba6Hl8U4": {
+      "video_id": "NGJba6Hl8U4",
+      "title": "100 ���� 100 ���� ��� 58/100 DynamoDB",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:05:50.474449"
+    },
+    "j4JRFeypo1U": {
+      "video_id": "j4JRFeypo1U",
+      "title": "Preview on Claude Code",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:05:58.481607"
+    },
+    "7kdvmFTSnZM": {
+      "video_id": "7kdvmFTSnZM",
+      "title": "Claude Code Security",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:06:06.488546"
+    },
+    "AV1CyCiE-GQ": {
+      "video_id": "AV1CyCiE-GQ",
+      "title": "����� �������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:06:14.494031"
+    },
+    "TVzyGZZhoJk": {
+      "video_id": "TVzyGZZhoJk",
+      "title": "��� ��� ���� ���� ����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:06:22.502131"
+    },
+    "3Ywq9thLr-I": {
+      "video_id": "3Ywq9thLr-I",
+      "title": "100 ���� 100 ���� ��� 57/100 VEED.IO",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:06:30.510782"
+    },
+    "eYmTpciyg2I": {
+      "video_id": "eYmTpciyg2I",
+      "title": "������� ������� �Open Claw",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:06:38.519590"
+    },
+    "0bW40de436s": {
+      "video_id": "0bW40de436s",
+      "title": "Antropic ���� �� Open Claw",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:06:46.527153"
+    },
+    "LK4HE7rkHvo": {
+      "video_id": "LK4HE7rkHvo",
+      "title": "������� 3.1 ���",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:06:54.532948"
+    },
+    "4LpMbbdyL9Y": {
+      "video_id": "4LpMbbdyL9Y",
+      "title": "����� AI ������ �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:07:02.541103"
+    },
+    "Sgulkq5VsG0": {
+      "video_id": "Sgulkq5VsG0",
+      "title": "100 ���� 100 ���� ��� 56/100 Kimi code",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:07:10.547420"
+    },
+    "C2tRhKvEOCQ": {
+      "video_id": "C2tRhKvEOCQ",
+      "title": "����� �������!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:07:18.553061"
+    },
+    "XPFcEikErq4": {
+      "video_id": "XPFcEikErq4",
+      "title": "Lyria 3",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:07:26.560528"
+    },
+    "gjkgM5Voo_0": {
+      "video_id": "gjkgM5Voo_0",
+      "title": "100 ���� 100 ���� ��� 55/100 Monday.com",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:07:34.566242"
+    },
+    "wyCAnnliOnA": {
+      "video_id": "wyCAnnliOnA",
+      "title": "����� ��� ������ �������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:07:42.574865"
+    },
+    "AFUeR9vYefI": {
+      "video_id": "AFUeR9vYefI",
+      "title": "Figma in Claud Code",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:07:50.601778"
+    },
+    "paFeNUG4yL4": {
+      "video_id": "paFeNUG4yL4",
+      "title": "����� ���� Claude Sonnet 4.6",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:07:58.610991"
+    },
+    "pmvp-RoPWf0": {
+      "video_id": "pmvp-RoPWf0",
+      "title": "100 ���� 100 ���� ��� 54/100 higgsfield.ai",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:08:06.621332"
+    },
+    "H6ex0olVPVs": {
+      "video_id": "H6ex0olVPVs",
+      "title": "������� ���� �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:08:14.629698"
+    },
+    "ftGsUz6PVDE": {
+      "video_id": "ftGsUz6PVDE",
+      "title": "�� �� �morning brief",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:08:22.638784"
+    },
+    "dHjSisDPT8w": {
+      "video_id": "dHjSisDPT8w",
+      "title": "����� �� �����?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:08:30.647992"
+    },
+    "ji_TYaWKfkg": {
+      "video_id": "ji_TYaWKfkg",
+      "title": "100 ���� 100 ���� ��� 53/100 Browser Stack",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:08:38.657329"
+    },
+    "Rj4QS6qezJ0": {
+      "video_id": "Rj4QS6qezJ0",
+      "title": "����� ������� �� ��� �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:08:46.667765"
+    },
+    "NEl9ch2fOVA": {
+      "video_id": "NEl9ch2fOVA",
+      "title": "Open AI ���� �� Open Claw",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:08:54.676912"
+    },
+    "_8XpTinWzxk": {
+      "video_id": "_8XpTinWzxk",
+      "title": "100 ���� 100 ���� ��� 52/100 Remotion",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:09:02.686331"
+    },
+    "mL6HgtW3Xy4": {
+      "video_id": "mL6HgtW3Xy4",
+      "title": "����� ����� �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:09:10.695609"
+    },
+    "oJWu4hV8otQ": {
+      "video_id": "oJWu4hV8otQ",
+      "title": "������� ����� �Claude!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:09:18.704194"
+    },
+    "rqPeUWz8pG0": {
+      "video_id": "rqPeUWz8pG0",
+      "title": "N8n ��?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:09:26.712579"
+    },
+    "J9xMwlNRWZA": {
+      "video_id": "J9xMwlNRWZA",
+      "title": "100 ���� 100 ���� ��� 51/100 gogcli",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:09:34.720305"
+    },
+    "qxSofa19J80": {
+      "video_id": "qxSofa19J80",
+      "title": "Excalidraw for Claude",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:09:42.725057"
+    },
+    "6m9I2cVsBoc": {
+      "video_id": "6m9I2cVsBoc",
+      "title": "����� ��� �Claude code for desktop",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:09:50.732062"
+    },
+    "CckYOBjppT0": {
+      "video_id": "CckYOBjppT0",
+      "title": "Geo",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:09:58.741394"
+    },
+    "Bv_Hu9CofFs": {
+      "video_id": "Bv_Hu9CofFs",
+      "title": "100 ���� 100 ���� ��� 50/100 Todoist",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:10:06.751581"
+    },
+    "tyUpuxqxJr8": {
+      "video_id": "tyUpuxqxJr8",
+      "title": "����� ������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:10:14.759358"
+    },
+    "DzhWkG_fd-M": {
+      "video_id": "DzhWkG_fd-M",
+      "title": "100 ���� 100 ���� ��� 49/100 1password",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:10:22.769407"
+    },
+    "xHPiiiRn0qQ": {
+      "video_id": "xHPiiiRn0qQ",
+      "title": "��� ������� �� ���� ����� ����!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:10:30.778417"
+    },
+    "1DzQbgg8-Eo": {
+      "video_id": "1DzQbgg8-Eo",
+      "title": "����� �ai agents",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:10:38.787125"
+    },
+    "cvA6K43pGjU": {
+      "video_id": "cvA6K43pGjU",
+      "title": "Claude Cowork for Windows",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:10:46.796866"
+    },
+    "C5ksNRMk6ec": {
+      "video_id": "C5ksNRMk6ec",
+      "title": "100 ���� 100 ���� ��� 48/100 Antigravity",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:10:54.807009"
+    },
+    "GTRcwKD3Tpk": {
+      "video_id": "GTRcwKD3Tpk",
+      "title": "Klaus by bits",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:11:02.817097"
+    },
+    "FUQ58rGh11U": {
+      "video_id": "FUQ58rGh11U",
+      "title": "������� �������� �� Y combinator",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:11:10.824038"
+    },
+    "E_CW0OHSoXg": {
+      "video_id": "E_CW0OHSoXg",
+      "title": "100 ���� 100 ���� ��� 47/100 Gemini CLI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:11:18.829142"
+    },
+    "HuMMtfST6-w": {
+      "video_id": "HuMMtfST6-w",
+      "title": "Chrome web MCP",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:11:26.838000"
+    },
+    "-hOG8Lh3kvw": {
+      "video_id": "-hOG8Lh3kvw",
+      "title": "Claude code desktop ��������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:11:34.846646"
+    },
+    "b5hJ74LR8vA": {
+      "video_id": "b5hJ74LR8vA",
+      "title": "Draw io mcp",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:11:42.853704"
+    },
+    "ndsInJdER_o": {
+      "video_id": "ndsInJdER_o",
+      "title": "100 ���� 100 ���� ��� 46/100 Looker studio",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:11:50.860452"
+    },
+    "O5F6K8WW7lI": {
+      "video_id": "O5F6K8WW7lI",
+      "title": "100 ���� 100 ���� ��� 45/100 Screen Studio",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:11:58.868978"
+    },
+    "zkwGDstmb3U": {
+      "video_id": "zkwGDstmb3U",
+      "title": "������ ������� ����� ���",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:12:06.875911"
+    },
+    "ajRGp1dcR7Y": {
+      "video_id": "ajRGp1dcR7Y",
+      "title": "��� ����� �������� �� ���� ���?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:12:14.881687"
+    },
+    "QmZvDrlL97E": {
+      "video_id": "QmZvDrlL97E",
+      "title": "��� ����� ���� ��� ����� �����?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:12:22.890372"
+    },
+    "PX_UU1aIygw": {
+      "video_id": "PX_UU1aIygw",
+      "title": "100 ���� 100 ���� ��� 44/100 Snyk",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:12:30.900091"
+    },
+    "Gc7vbofYWo8": {
+      "video_id": "Gc7vbofYWo8",
+      "title": "����� ����� ������ ���� AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:12:38.907919"
+    },
+    "DM6CbY6Fqcw": {
+      "video_id": "DM6CbY6Fqcw",
+      "title": "��� mcp ��?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:12:46.917411"
+    },
+    "nbCWkD2qct0": {
+      "video_id": "nbCWkD2qct0",
+      "title": "������ ���� ���������!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:12:54.926883"
+    },
+    "b7aidcokctE": {
+      "video_id": "b7aidcokctE",
+      "title": "100 ���� 100 ���� ��� 43/100 Manychat",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:13:02.934191"
+    },
+    "5EFyDbDtCms": {
+      "video_id": "5EFyDbDtCms",
+      "title": "ChatGPT the master of none",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:13:10.940102"
+    },
+    "gUtPJeI_tV8": {
+      "video_id": "gUtPJeI_tV8",
+      "title": "Codex 5.3",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:13:18.950353"
+    },
+    "_1LWsivD5DQ": {
+      "video_id": "_1LWsivD5DQ",
+      "title": "�� ���� ��� �agent ���? ����� ����� ������!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:13:26.960193"
+    },
+    "PdCJtJyq8J8": {
+      "video_id": "PdCJtJyq8J8",
+      "title": "Opus 4.6!!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:13:34.967137"
+    },
+    "7-u5l8BT2KM": {
+      "video_id": "7-u5l8BT2KM",
+      "title": "100 ���� 100 ���� ��� 42/100 SigNoz",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:13:42.972092"
+    },
+    "F9Ei4AaXg54": {
+      "video_id": "F9Ei4AaXg54",
+      "title": "����� ������� ���� ���� cto ��������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:13:50.980228"
+    },
+    "CR8Iku2VkyE": {
+      "video_id": "CR8Iku2VkyE",
+      "title": "�������� ������� ������ �� Open AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:13:58.987780"
+    },
+    "tA8hl_iMwZM": {
+      "video_id": "tA8hl_iMwZM",
+      "title": "��� ���� ����� �� ���� ����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:14:06.997066"
+    },
+    "QHdzxOAFW3s": {
+      "video_id": "QHdzxOAFW3s",
+      "title": "��� ���� �� ���� �� ������ ����� ����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:14:15.005088"
+    },
+    "HKasRIyAFnE": {
+      "video_id": "HKasRIyAFnE",
+      "title": "����� ���� ����� ��� �Claude Code",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:14:23.009485"
+    },
+    "MTGT5zv5XOg": {
+      "video_id": "MTGT5zv5XOg",
+      "title": "100 ���� 100 ���� ��� 40/100 Vercel",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:14:31.016083"
+    },
+    "nX17Xc62DJI": {
+      "video_id": "nX17Xc62DJI",
+      "title": "��������� �� Codex ������� ���",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:14:39.023733"
+    },
+    "g-KIDE-nJWc": {
+      "video_id": "g-KIDE-nJWc",
+      "title": "����� �������� �� ���� ���� ����� ������ �� AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:14:47.028404"
+    },
+    "9juH2paonVQ": {
+      "video_id": "9juH2paonVQ",
+      "title": "��� ����� ����� ����� ������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:14:55.032655"
+    },
+    "g5D02onkSYk": {
+      "video_id": "g5D02onkSYk",
+      "title": "������ �� ��� ���� ���� ���������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:15:03.037947"
+    },
+    "Bonk9I7NQXk": {
+      "video_id": "Bonk9I7NQXk",
+      "title": "100 ���� 100 ���� ��� 39 Apps script",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:15:11.053482"
+    },
+    "ggv4UXpkUrY": {
+      "video_id": "ggv4UXpkUrY",
+      "title": "��� �� ���� ����� ����� �2026?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:15:19.059248"
+    },
+    "BbzUvyQadL0": {
+      "video_id": "BbzUvyQadL0",
+      "title": "�� ��� ����� ����� ������ AI ����� �� ����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:15:27.067120"
+    },
+    "7Nwxqj0jPb8": {
+      "video_id": "7Nwxqj0jPb8",
+      "title": "������� ������ ������ �� ����� AI �����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:15:35.073207"
+    },
+    "tj_i4jyb7P8": {
+      "video_id": "tj_i4jyb7P8",
+      "title": "100 ���� 109 ���� ��� 38 oh my zsh",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:15:43.080904"
+    },
+    "e2gPNBdgtn4": {
+      "video_id": "e2gPNBdgtn4",
+      "title": "��� ���� ���� ������� ���� �AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:15:51.090475"
+    },
+    "JyzRcizo9SY": {
+      "video_id": "JyzRcizo9SY",
+      "title": "������ gta 6 � AI ���� gta 6",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:15:59.099562"
+    },
+    "9iVkgf8IxI4": {
+      "video_id": "9iVkgf8IxI4",
+      "title": "������ ���� �� ���� ��� ����",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:16:07.110468"
+    },
+    "q4h1hDGzBaw": {
+      "video_id": "q4h1hDGzBaw",
+      "title": "���� ��� �Claude Code ���� ���?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:16:15.117604"
+    },
+    "hkSJwSQTQWo": {
+      "video_id": "hkSJwSQTQWo",
+      "title": "100 ���� 100 ���� ��� 37 Figma",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:16:23.123915"
+    },
+    "L6EVTf3NxqQ": {
+      "video_id": "L6EVTf3NxqQ",
+      "title": "������ ������� �� ����!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:16:31.133913"
+    },
+    "gtuP1xCbgDU": {
+      "video_id": "gtuP1xCbgDU",
+      "title": "����� ������� �Claud Cowork",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:16:39.143689"
+    },
+    "hNCqnRj5Uok": {
+      "video_id": "hNCqnRj5Uok",
+      "title": "��� ������ �� �� AI!!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:16:47.151273"
+    },
+    "AVyhqfglGAE": {
+      "video_id": "AVyhqfglGAE",
+      "title": "100 ���� 100 ���� ��� 36 base 44",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:16:55.158673"
+    },
+    "U8DS3jDCGug": {
+      "video_id": "U8DS3jDCGug",
+      "title": "����� ���� ���������� �������",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:17:03.166335"
+    },
+    "tCJBJF7D1as": {
+      "video_id": "tCJBJF7D1as",
+      "title": "������ ����� ����� ������!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:17:11.171950"
+    },
+    "cjuYENZb9ck": {
+      "video_id": "cjuYENZb9ck",
+      "title": "����� ������ �� ���� ������ ���� �AI?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:17:19.178838"
+    },
+    "0rbBqhREJHc": {
+      "video_id": "0rbBqhREJHc",
+      "title": "��� ����� ����� �2026",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:17:27.188203"
+    },
+    "t0oU22TzeEc": {
+      "video_id": "t0oU22TzeEc",
+      "title": "����� ��� �������� ��� �� AI �30 ����!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:17:35.195221"
+    },
+    "NX2c5SMlDYQ": {
+      "video_id": "NX2c5SMlDYQ",
+      "title": "100 ���� 100 ���� ��� 35 Jest",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:17:43.200448"
+    },
+    "rQJIw52hiqU": {
+      "video_id": "rQJIw52hiqU",
+      "title": "�� �� AI Agent Skills?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:17:51.208380"
+    },
+    "R1n89gNgw_c": {
+      "video_id": "R1n89gNgw_c",
+      "title": "�� AI �� ����� ���� ��� ���� �����!!!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:17:59.214099"
+    },
+    "t9ynLFitUaY": {
+      "video_id": "t9ynLFitUaY",
+      "title": "����� ��� ����� - ������� ���� ������ ����!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:18:07.223380"
+    },
+    "RmVb4oJ9I5Q": {
+      "video_id": "RmVb4oJ9I5Q",
+      "title": "100 ���� 100 ���� ��� 34/100 Twilio Segment",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:18:15.230541"
+    },
+    "mjOxjcKxmLE": {
+      "video_id": "mjOxjcKxmLE",
+      "title": "������ ������ �Open AI!!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:18:23.236437"
+    },
+    "hd7-CI4rmAQ": {
+      "video_id": "hd7-CI4rmAQ",
+      "title": "����� ����� �clawdbot",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:18:31.255903"
+    },
+    "VSVHHuGdxT8": {
+      "video_id": "VSVHHuGdxT8",
+      "title": "���� �� ����� ��� ������ ���� ����� �AI",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:18:39.265931"
+    },
+    "FkFOEBiNqi0": {
+      "video_id": "FkFOEBiNqi0",
+      "title": "100 ���� 100 ���� ��� 33/100 Canva",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:18:47.276870"
+    },
+    "0BqWp7rP9ZU": {
+      "video_id": "0BqWp7rP9ZU",
+      "title": "����� ������ ����� skills.md?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:18:55.286881"
+    },
+    "-NFFVPRsdqU": {
+      "video_id": "-NFFVPRsdqU",
+      "title": "���� ����� �2026",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:19:03.296840"
+    },
+    "2UK1q8PqDrU": {
+      "video_id": "2UK1q8PqDrU",
+      "title": "Vercel agent skills",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:19:11.306144"
+    },
+    "dhrF5sO7E7s": {
+      "video_id": "dhrF5sO7E7s",
+      "title": "��� AI ����� ������?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:19:19.313767"
+    },
+    "blRcdmEYugU": {
+      "video_id": "blRcdmEYugU",
+      "title": "��� �� ���� �� UI ����������?",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:19:27.319582"
+    },
+    "6fyZjuZwWBE": {
+      "video_id": "6fyZjuZwWBE",
+      "title": "��� 32/100 ����� 100 ���� 100 ���� ����� AWS Client VPN",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:19:35.329187"
+    },
+    "pxkpBva5VXc": {
+      "video_id": "pxkpBva5VXc",
+      "title": "3 �������� ���� ����� ��� �Claude Code",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:19:43.339276"
+    },
+    "MCu-xVkOLXk": {
+      "video_id": "MCu-xVkOLXk",
+      "title": "��� ����� ������ �����!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:19:51.352957"
+    },
+    "gKuQG21DDnk": {
+      "video_id": "gKuQG21DDnk",
+      "title": "���� ���� 40 ��� ������ ���� ���!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:19:59.356966"
+    },
+    "na4FsDtriAY": {
+      "video_id": "na4FsDtriAY",
+      "title": "��� 31 ���� 100! Readme io",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:20:07.362881"
+    },
+    "TCpOvmLD4QQ": {
+      "video_id": "TCpOvmLD4QQ",
+      "title": "��� ���� ����� �� ����??",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:20:15.372365"
+    },
+    "I18Nid0xDMQ": {
+      "video_id": "I18Nid0xDMQ",
+      "title": "����� ��� �Cursor, Agent Skills!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:20:23.381925"
+    },
+    "tCsCrwvrVyA": {
+      "video_id": "tCsCrwvrVyA",
+      "title": "��� ������ ���� �� AI ���� 2026",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:20:31.389954"
+    },
+    "05n9v6WL74k": {
+      "video_id": "05n9v6WL74k",
+      "title": "100 ���� 100 ����. ��� 30 (��� ����� ���������/������)",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:20:39.398245"
+    },
+    "A_8Sl9r7rmY": {
+      "video_id": "A_8Sl9r7rmY",
+      "title": "�������� ������! ���������� ����� ���� �����!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:20:47.408471"
+    },
+    "JPBwUxfK-cc": {
+      "video_id": "JPBwUxfK-cc",
+      "title": "�� ����� �� grok!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:20:55.419127"
+    },
+    "deYWxEbuuvQ": {
+      "video_id": "deYWxEbuuvQ",
+      "title": "��� ��� �������� ���� �-13 ���� ������!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:21:03.429499"
+    },
+    "W8cOQHREfik": {
+      "video_id": "W8cOQHREfik",
+      "title": "23 January 2026",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:21:11.438884"
+    },
+    "AIjJo8iSjQU": {
+      "video_id": "AIjJo8iSjQU",
+      "title": "23 January 2026",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:21:19.449135"
+    },
+    "tKxpW_GkmAk": {
+      "video_id": "tKxpW_GkmAk",
+      "title": "OWASP Top 10 for LLMs 2025 - ���� ������ ������ �������� ����� ������� AI.",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:21:27.458428"
+    },
+    "N7HEA60fNRs": {
+      "video_id": "N7HEA60fNRs",
+      "title": "���� ��� �� ���� ������!",
+      "status": "error",
+      "error": "<urlopen error [Errno 11003] getaddrinfo failed>",
+      "timestamp": "2026-04-11T23:21:35.468293"
+    }
+  }
+}

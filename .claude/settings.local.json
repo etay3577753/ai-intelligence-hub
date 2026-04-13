@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(python -m yt_dlp --flat-playlist --print \"%\\(id\\)s|%\\(title\\)s|%\\(url\\)s|%\\(duration\\)s\" \"https://www.youtube.com/@elironginy/shorts\")",
+      "Bash(python -m yt_dlp --flat-playlist --print \"%\\(id\\)s|%\\(title\\)s|%\\(duration\\)s\" \"https://www.youtube.com/channel/UCOdE5_ctQ2FOTf93f7AGBEQ/shorts\")",
+      "Bash(python -c ':*)",
+      "Bash(python youtube_researcher.py --source shorts --dry-run --limit 5)",
+      "Bash(python youtube_researcher.py --source shorts --dry-run --limit 5 --force)",
+      "Bash(python youtube_researcher.py --source shorts --limit 5)",
+      "Bash(python -m yt_dlp --write-auto-sub --sub-lang he --skip-download --print \"%\\(id\\)s\" -o \"%\\(id\\)s\" \"https://www.youtube.com/shorts/Gau7FaY5qJo\")",
+      "Bash(ls \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\"/*.vtt)",
+      "Bash(ls \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\"/*.srt)",
+      "Bash(python -m yt_dlp --list-subs \"https://www.youtube.com/shorts/Gau7FaY5qJo\")",
+      "Bash(python -m yt_dlp --write-auto-sub --sub-lang iw --skip-download -o \"/tmp/yt_test/%\\(id\\)s\" \"https://www.youtube.com/shorts/Gau7FaY5qJo\")",
+      "Bash(python -m yt_dlp --write-auto-sub --sub-lang iw --skip-download --sleep-requests 3 -o \"C:/tmp/yt_test/%\\(id\\)s\" \"https://www.youtube.com/shorts/gut1gry1RJU\")",
+      "Bash(python youtube_researcher.py --source shorts --delay 3)",
+      "Read(//mnt/c/Users/D152~1/AppData/Local/Temp/**)",
+      "Read(//c/Users/D152~1/AppData/Local/Temp/claude/**)",
+      "Bash(python youtube_researcher.py --source shorts --retry-errors --delay 8)",
+      "Bash(python youtube_researcher.py --source shorts --delay 8 --limit 10)",
+      "Bash(python youtube_researcher.py --source shorts --delay 6 --limit 30)",
+      "Bash(python youtube_researcher.py --source shorts --delay 7)",
+      "Bash(python youtube_researcher.py --source shorts --delay 6 --limit 25)",
+      "Bash(python youtube_researcher.py --source shorts --delay 5 --limit 8)",
+      "Bash(python youtube_researcher.py --source shorts --delay 6)",
+      "Bash(curl -s http://localhost:3000/api/task-router -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"task\\\\\":\\\\\"רוצה לבנות אתר לעסק שלי, אני לא יודע לתכנת\\\\\",\\\\\"answers\\\\\":{\\\\\"type\\\\\":\\\\\"אתר / אפליקציה Web\\\\\",\\\\\"experience\\\\\":\\\\\"מתחיל\\\\\",\\\\\"privacy\\\\\":\\\\\"ענן — בסדר\\\\\",\\\\\"priority\\\\\":\\\\\"עלות נמוכה\\\\\"},\\\\\"accessMap\\\\\":{\\\\\"web_sub\\\\\":\\\\\"no\\\\\",\\\\\"api_key\\\\\":\\\\\"no\\\\\",\\\\\"local_runtime\\\\\":\\\\\"no\\\\\",\\\\\"org_access\\\\\":\\\\\"no\\\\\",\\\\\"student_access\\\\\":\\\\\"no\\\\\",\\\\\"notes\\\\\":\\\\\"\\\\\"},\\\\\"knowledgeLevel\\\\\":\\\\\"מתחיל\\\\\"}\")",
+      "Bash(curl -s http://localhost:3001/api/task-router -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"task\\\\\":\\\\\"test\\\\\",\\\\\"answers\\\\\":{\\\\\"type\\\\\":\\\\\"אחר\\\\\",\\\\\"experience\\\\\":\\\\\"מתחיל\\\\\",\\\\\"privacy\\\\\":\\\\\"ענן — בסדר\\\\\",\\\\\"priority\\\\\":\\\\\"עלות נמוכה\\\\\"},\\\\\"accessMap\\\\\":{\\\\\"web_sub\\\\\":\\\\\"no\\\\\",\\\\\"api_key\\\\\":\\\\\"no\\\\\",\\\\\"local_runtime\\\\\":\\\\\"no\\\\\",\\\\\"org_access\\\\\":\\\\\"no\\\\\",\\\\\"student_access\\\\\":\\\\\"no\\\\\",\\\\\"notes\\\\\":\\\\\"\\\\\"},\\\\\"knowledgeLevel\\\\\":\\\\\"מתחיל\\\\\"}\")",
+      "Bash(npx next:*)",
+      "Bash(curl -s http://localhost:3099/api/task-router -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"task\\\\\":\\\\\"test\\\\\",\\\\\"answers\\\\\":{\\\\\"type\\\\\":\\\\\"אחר\\\\\",\\\\\"experience\\\\\":\\\\\"מתחיל\\\\\",\\\\\"privacy\\\\\":\\\\\"ענן — בסדר\\\\\",\\\\\"priority\\\\\":\\\\\"עלות נמוכה\\\\\"},\\\\\"accessMap\\\\\":{\\\\\"web_sub\\\\\":\\\\\"no\\\\\",\\\\\"api_key\\\\\":\\\\\"no\\\\\",\\\\\"local_runtime\\\\\":\\\\\"no\\\\\",\\\\\"org_access\\\\\":\\\\\"no\\\\\",\\\\\"student_access\\\\\":\\\\\"no\\\\\",\\\\\"notes\\\\\":\\\\\"\\\\\"},\\\\\"knowledgeLevel\\\\\":\\\\\"מתחיל\\\\\"}\")",
+      "Bash(curl -s http://localhost:3099/api/task-router -X POST -H \"Content-Type: application/json\" -d \"{\\\\\"task\\\\\":\\\\\"רוצה לבנות אתר לעסק שלי שיציג את השירותים שלי ויהיה בו טופס יצירת קשר. אני לא יודע לתכנת בכלל.\\\\\",\\\\\"answers\\\\\":{\\\\\"type\\\\\":\\\\\"אתר / אפליקציה Web\\\\\",\\\\\"experience\\\\\":\\\\\"מתחיל\\\\\",\\\\\"privacy\\\\\":\\\\\"ענן — בסדר\\\\\",\\\\\"priority\\\\\":\\\\\"עלות נמוכה\\\\\"},\\\\\"accessMap\\\\\":{\\\\\"web_sub\\\\\":\\\\\"no\\\\\",\\\\\"api_key\\\\\":\\\\\"no\\\\\",\\\\\"local_runtime\\\\\":\\\\\"no\\\\\",\\\\\"org_access\\\\\":\\\\\"no\\\\\",\\\\\"student_access\\\\\":\\\\\"no\\\\\",\\\\\"notes\\\\\":\\\\\"\\\\\"},\\\\\"knowledgeLevel\\\\\":\\\\\"מתחיל\\\\\"}\")",
+      "Bash(node -e ':*)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}

@@ -31,3 +31,17 @@ desktop.ini
 .idea/
 *.swp
 *.swo
+
+# Large generated files — excluded from git (rebuild locally)
+frontend/tsconfig.tsbuildinfo
+
+# Claude Code internal cache (not needed on other machine)
+.claude/cache/
+.claude/tmp/
+
+# Large data files that are rebuilt by scripts
+backend/data/shorts_list.json
+
+# Logs
+*.log
+npm-debug.log*

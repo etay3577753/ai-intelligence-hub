@@ -1,0 +1,18 @@
+{
+  "model": "sonar-pro",
+  "messages": [
+    {
+      "role": "system",
+      "content": "אתה חוקר AI מומחה שמיישם את Deep Research Framework. כלל Anti-Shallow: מחקר רדוד = שם + מחיר בלבד. מחקר עמוק = פרמטרים טכניים + RTL + תמחור אמיתי. ענה תמיד בעברית עם מונחים טכניים באנגלית. פורמט: Markdown מלא."
+    },
+    {
+      "role": "user",
+      "content": "חקור לעומק את Claude Code של Anthropic — כלי ה-agentic coding CLI שמותקן בטרמינל ועובד על codebase שלם. זה שונה מ-claude.ai הצ'אט הרגיל. מלא את כל הסעיפים:\n\n## 1. תקציר טכני\n- מהו Claude Code בדיוק? (CLI, MCP server, SDK?)\n- גרסה נוכחית 2025-2026\n- יכולות ליבה: Computer Use, file editing, bash, git\n- הבדל מ-Cursor/Windsurf\n\n## 2. UI & Settings Audit\n- איך מתקינים? (npm? pip?)\n- פרמטרים שניתן לכוון: temperature, max tokens\n- CLAUDE.md — מה זה ואיך משתמשים?\n- MCP (Model Context Protocol): מה תומך?\n- Hooks: pre/post tool use hooks\n- Permission modes: auto-approve, manual\n- Multi-agent: האם ניתן להריץ כמה instances?\n\n## 3. ניתוח כלכלי 2025-2026\n- מחיר: כמה עולה שימוש יומי אמיתי ב-Claude Code?\n- עלות לפי tokens (input/output של Sonnet 4.6)\n- Claude Max: כמה עולה ומה כלול?\n- הגבלות: rate limits, context limits\n- השוואה ל-Cursor Pro ($20/חודש)\n\n## 4. לוקליזציה לישראל\n- האם עובד עם עברית בקוד (comments, variable names)?\n- RTL בטרמינל Windows — בעיות ידועות?\n- פרטיות: האם הקוד נשלח לשרתי Anthropic?\n\n## 5. מדריך פשוט לבן 13\n- מה זה Claude Code? (משפט אחד פשוט)\n- למה כדאי?\n- מתי הכי שימושי?\n- מה הסיכון?\n- טיפ סודי אחד\n\n## 6. המלצות\n- להטמיע כ-Master Brain לכתיבת קוד? (כן/לא)\n- Best prompts / CLAUDE.md templates\n- Strengths (3), Weaknesses (3), Best Use Case"
+    }
+  ],
+  "max_tokens": 4000,
+  "temperature": 0.2,
+  "top_p": 0.9,
+  "return_citations": true,
+  "search_recency_filter": "month"
+}
