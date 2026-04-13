@@ -33,7 +33,9 @@
       "Bash(npx tsc:*)",
       "Skill(update-config)",
       "Skill(update-config:*)",
-      "Bash(node -e \"const f=require\\('fs'\\);const j=JSON.parse\\(f.readFileSync\\('C:/Users/\\\\u05d0\\\\u05d9\\\\u05ea\\\\u05d9/.claude/settings.json','utf8'\\)\\);console.log\\('hook cmd:',j.hooks.Stop[0].hooks[0].command\\);console.log\\('✅ JSON valid'\\)\")"
+      "Bash(node -e \"const f=require\\('fs'\\);const j=JSON.parse\\(f.readFileSync\\('C:/Users/\\\\u05d0\\\\u05d9\\\\u05ea\\\\u05d9/.claude/settings.json','utf8'\\)\\);console.log\\('hook cmd:',j.hooks.Stop[0].hooks[0].command\\);console.log\\('✅ JSON valid'\\)\")",
+      "Bash(node -e \"const d=require\\('./backend/data/knowledge-base/ecosystem-inventory.json'\\);console.log\\('tools:',d.tools.length\\);console.log\\('ecosystems:',d.ecosystems.length\\);console.log\\('backfill:',d.backfill_queue.length\\);console.log\\('stats:',JSON.stringify\\(d.stats\\)\\)\")",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(f'Tools: {len\\(d[\\\\\"tools\\\\\"]\\)}'\\); print\\(f'Ecosystems: {len\\(d[\\\\\"ecosystems\\\\\"]\\)}'\\); print\\(f'Backfill: {len\\(d[\\\\\"backfill_queue\\\\\"]\\)}'\\); print\\(f'Stats.total_tools: {d[\\\\\"stats\\\\\"][\\\\\"total_tools\\\\\"]}'\\)\")"
     ]
   }
 }

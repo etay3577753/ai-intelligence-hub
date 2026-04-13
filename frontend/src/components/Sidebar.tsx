@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
   LayoutDashboard, GitCompare, Settings, Brain,
   ChevronLeft, ChevronRight, Plus, Wrench, BookOpen, MessageCircle, Workflow, ShieldCheck,
-  LogOut,
+  LogOut, Database,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -26,7 +26,8 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 const LINK_ITEMS = [
-  { icon: ShieldCheck, label: "מפת גישה", href: "/access-map", color: "text-green-400 border-green-500/30 hover:bg-green-500/10" },
+  { icon: ShieldCheck, label: "מפת גישה",  href: "/access-map",     color: "text-green-400 border-green-500/30 hover:bg-green-500/10" },
+  { icon: Database,    label: "מאגר ידע",  href: "/knowledge-base", color: "text-blue-400 border-blue-500/30 hover:bg-blue-500/10"   },
 ] as const;
 
 interface SidebarProps {

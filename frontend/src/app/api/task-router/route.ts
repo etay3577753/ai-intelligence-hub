@@ -3,6 +3,7 @@ import fs from "fs";
 import path from "path";
 
 const WIKI_DIR      = path.join(process.cwd(), "..", "backend", "data", "wiki");
+const KB_PATH       = path.join(process.cwd(), "..", "backend", "data", "knowledge-base", "ecosystem-inventory.json");
 const GEMINI_KEY    = process.env.GEMINI_API_KEY  ?? "";
 const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY ?? "";
 
@@ -343,6 +344,114 @@ ${ytCtx}`;
   return ctx;
 }
 
+// ─── KB3: Structured knowledge-base context ───────────────────────────────────
+/**
+ * Reads ecosystem-inventory.json and returns a compact structured summary
+ * of the most relevant tools for the given task + accessMap.
+ *
+ * Scoring:
+ *   +5  exact tool name appears in task
+ *   +3  per use_case sentence that shares 2+ words with task
+ *   +2  per matching recommendation tag keyword in task
+ *   +1  description keyword match
+ *
+ * Returns "" if the KB file doesn't exist or no tools score > 0.
+ * Budget: ~2 500 chars — intentionally smaller than wiki (14 000).
+ */
+function loadKBContext(task: string, accessMap?: AccessMap): string {
+  if (!fs.existsSync(KB_PATH)) return "";
+
+  let inventory: {
+    tools: Array<{
+      id: string;
+      name: string;
+      vendor: string;
+      category: string;
+      description: string;
+      use_cases: string[];
+      tags: string[];
+      subscription_tiers: Array<{ tier_name?: string; level: string; price: string; access_key: string }>;
+      primary_access_key: string;
+      relations: Array<{ tool_id: string; type: string; note?: string }>;
+    }>;
+  };
+
+  try {
+    inventory = JSON.parse(fs.readFileSync(KB_PATH, "utf-8"));
+  } catch {
+    return "";
+  }
+
+  const taskLower = task.toLowerCase();
+  const words     = taskLower.split(/\s+/).filter(w => w.length > 3);
+
+  const scored = inventory.tools.map(tool => {
+    let score = 0;
+
+    // Exact name match (strongest signal)
+    if (taskLower.includes(tool.name.toLowerCase())) score += 5;
+
+    // Use-case relevance: each use_case that shares ≥2 words with task
+    for (const uc of tool.use_cases) {
+      const ucLower = uc.toLowerCase();
+      const shared  = words.filter(w => ucLower.includes(w)).length;
+      if (shared >= 2) score += 3;
+      else if (shared === 1) score += 1;
+    }
+
+    // Tag keywords in task
+    for (const tag of tool.tags) {
+      const tagWords = tag.replace(/-/g, " ").split(" ");
+      if (tagWords.some(tw => taskLower.includes(tw))) score += 2;
+    }
+
+    // Description keyword match
+    const descLower = tool.description.toLowerCase();
+    const descShared = words.filter(w => descLower.includes(w)).length;
+    if (descShared >= 3) score += 1;
+
+    return { tool, score };
+  })
+    .filter(x => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 7);
+
+  if (scored.length === 0) return "";
+
+  const lines: string[] = ["\n\n## מאגר ידע מובנה — כלים רלוונטיים למשימה:"];
+
+  for (const { tool, score: _score } of scored) {
+    lines.push(`\n### ${tool.name} (${tool.vendor})`);
+    lines.push(`- ${tool.description}`);
+
+    // Access availability from user's accessMap
+    if (accessMap) {
+      const userKey = tool.primary_access_key as keyof AccessMap;
+      const access  = accessMap[userKey];
+      lines.push(`- גישה: ${access === "yes" ? "✅ זמין" : access === "partial" ? "⚠️ חלקי" : "❌ לא מוגדר"}`);
+    }
+
+    // Cheapest available tier
+    const freeTier = tool.subscription_tiers.find(t => t.level === "free" || t.price === "free");
+    if (freeTier) lines.push(`- תוכנית חינמית: ${freeTier.price}`);
+
+    // Key tags (first 3)
+    if (tool.tags.length > 0) {
+      lines.push(`- תגיות: ${tool.tags.slice(0, 3).join(", ")}`);
+    }
+
+    // Competing / related tools (compact)
+    const competing = tool.relations.filter(r => r.type === "competing").map(r => r.tool_id);
+    if (competing.length > 0) {
+      lines.push(`- מתחרים ישירים: ${competing.slice(0, 3).join(", ")}`);
+    }
+  }
+
+  const result = lines.join("\n");
+  // Hard cap at 2500 chars
+  return result.length > 2500 ? result.slice(0, 2500) + "\n...[נקצר]" : result;
+}
+
 // ─── System prompt (WP2 + WP3 + WP4) ─────────────────────────────────────────
 function buildSystemPrompt(
   wiki:           string,
@@ -551,8 +660,11 @@ export async function POST(req: NextRequest) {
     const blockedTools = accessMap ? buildBlockedToolsList(accessMap) : [];
 
     // WP1: relevance-scored wiki loading
-    const wiki   = loadWikiContext(task);
-    const system = buildSystemPrompt(wiki, blockedTools, knowledgeLevel);
+    const wikiText = loadWikiContext(task);
+    // KB3: structured knowledge-base context (appended to wiki, separate budget)
+    const kbText   = loadKBContext(task, accessMap ?? undefined);
+    const wiki     = wikiText + kbText;
+    const system   = buildSystemPrompt(wiki, blockedTools, knowledgeLevel);
 
     const accessSection = accessMap
       ? `\n## גישה זמינה למשתמש:\n${formatAccessMap(accessMap)}`
