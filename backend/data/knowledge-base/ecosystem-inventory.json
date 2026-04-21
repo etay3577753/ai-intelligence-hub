@@ -20,7 +20,42 @@
         "claude-projects",
         "claude-desktop",
         "anthropic-console",
-        "claude-ios-app"
+        "claude-ios-app",
+        "claude-3-opus",
+        "claude-3-sonnet",
+        "claude-3-haiku",
+        "claude-35-sonnet",
+        "claude-workbench",
+        "anthropic-sdk-python",
+        "anthropic-sdk-typescript",
+        "anthropic-sdk-go",
+        "message-batches-api",
+        "tool-use-api",
+        "prompt-caching-api",
+        "claude-code-vscode",
+        "claude-code-chrome-integration",
+        "claude-workspaces",
+        "claude-for-excel",
+        "claude-for-powerpoint",
+        "connector-jira",
+        "connector-salesforce",
+        "connector-snowflake",
+        "connector-google-workspace-claude",
+        "connector-slack-claude",
+        "claude-memory-enterprise",
+        "claude-memory-consumer",
+        "claude-artifacts",
+        "claude-knowledge-base",
+        "contextual-retriever",
+        "claude-on-bedrock",
+        "claude-on-vertex",
+        "claude-marketplace",
+        "claude-plan-pro",
+        "claude-plan-max",
+        "claude-plan-team",
+        "claude-plan-enterprise",
+        "constitutional-ai",
+        "claude-2-legacy"
       ]
     },
     {
@@ -32,7 +67,36 @@
       "tool_ids": [
         "google-gemini-full",
         "google-ai-studio",
-        "gemma4-local"
+        "gemma4-local",
+        "gemini-advanced",
+        "gemini-android-app",
+        "gemini-extensions",
+        "gemini-for-workspace",
+        "workspace-studio-google",
+        "notebooklm",
+        "notebooklm-mobile",
+        "notebooks-in-gemini",
+        "gemini-api",
+        "vertex-ai-google",
+        "vertex-model-garden",
+        "gemma-family",
+        "gemini-nano",
+        "ml-kit-genai",
+        "firebase-suite",
+        "google-workspace-suite",
+        "notebooklm-google",
+        "google-docs-suite",
+        "google-meet",
+        "google-appsheet",
+        "google-apps-script",
+        "imagefx-google",
+        "videofx-google",
+        "musicfx-google",
+        "synthed-google",
+        "google-search",
+        "youtube-google",
+        "google-maps",
+        "google-analytics-suite"
       ]
     },
     {
@@ -596,7 +660,9 @@
       "research_status": "research_in_progress",
       "last_research_date": "2026-04-01",
       "has_pending_updates": false,
-      "research_record_ids": []
+      "research_record_ids": [
+        "dr-005"
+      ]
     },
     {
       "id": "google-ai-studio",
@@ -699,7 +765,9 @@
         "privacy-safe",
         "free-tier-strong",
         "gpu-recommended",
-        "local_model"
+        "local_model",
+        "compare:open-model",
+        "type:llm-model"
       ],
       "use_cases": [
         "פרטיות",
@@ -3144,6 +3212,4312 @@
       "research_record_ids": [
         "dr-004"
       ]
+    },
+    {
+      "id": "claude-3-opus",
+      "name": "Claude 3 Opus",
+      "vendor": "Anthropic",
+      "category": "llm_model",
+      "ecosystem": "anthropic",
+      "description": "מודל הדגל הבכיר של Anthropic במשפחת Claude 3. ביצועים מצוינים ב-reasoning מורכב, ניתוח מעמיק וכתיבה ארוכה. יקר יותר ואיטי יותר מ-Sonnet — מיועד למשימות קריטיות.",
+      "item_type": "model",
+      "ecosystem_branch": "Claude Models Family",
+      "status": "official",
+      "access_path": "Anthropic API, Claude.ai (Pro/Max/Team/Enterprise), Bedrock, Vertex",
+      "surfaces": [
+        "api",
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "$15/$75 per 1M tokens (input/output)",
+          "access_key": "api_key",
+          "features": [
+            "200K context",
+            "Vision",
+            "Tool use",
+            "Best reasoning"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:reasoning",
+        "capability:long-context",
+        "capability:image-analysis",
+        "capability:code-generation",
+        "capability:document-analysis",
+        "access:api-key",
+        "access:subscription",
+        "audience:developer",
+        "audience:enterprise",
+        "compare:ai-model",
+        "compare:gemini-ultra",
+        "compare:gpt4"
+      ],
+      "use_cases": [
+        "reasoning מורכב",
+        "ניתוח מעמיק",
+        "כתיבה ארוכה",
+        "משימות קריטיות",
+        "vision"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-3-sonnet",
+      "name": "Claude 3 Sonnet",
+      "vendor": "Anthropic",
+      "category": "llm_model",
+      "ecosystem": "anthropic",
+      "description": "מודל Claude 3 המאוזן — ברירת המחדל לרוב המשתמשים. מאזן בין ביצועים (reasoning, כתיבה) לבין עלות ומהירות. זמין בכל תכניות Claude.",
+      "item_type": "model",
+      "ecosystem_branch": "Claude Models Family",
+      "status": "official",
+      "access_path": "Free/Pro/Max/Team/Enterprise, API",
+      "surfaces": [
+        "api",
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "מוגבל",
+          "access_key": "free",
+          "features": [
+            "Claude 3 Sonnet",
+            "100 msg/day"
+          ]
+        },
+        {
+          "level": "api_payg",
+          "price": "$3/$15 per 1M tokens",
+          "access_key": "api_key",
+          "features": [
+            "200K context",
+            "Vision",
+            "Tool use"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:reasoning",
+        "capability:long-context",
+        "capability:image-analysis",
+        "capability:code-generation",
+        "capability:document-analysis",
+        "access:api-key",
+        "access:subscription",
+        "access:free-tier",
+        "audience:consumer",
+        "audience:developer",
+        "compare:ai-model",
+        "compare:gemini-pro",
+        "compare:gpt4"
+      ],
+      "use_cases": [
+        "צ'אט כללי",
+        "כתיבה",
+        "ניתוח",
+        "קוד",
+        "vision",
+        "ברירת מחדל"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-3-haiku",
+      "name": "Claude 3 Haiku",
+      "vendor": "Anthropic",
+      "category": "llm_model",
+      "ecosystem": "anthropic",
+      "description": "המודל הקל והמהיר ביותר במשפחת Claude 3. מיועד ל-high-volume, latency נמוכה ועיבוד batch. עלות נמוכה מאוד — אידיאלי לאפליקציות עם תנועה גבוהה.",
+      "item_type": "model",
+      "ecosystem_branch": "Claude Models Family",
+      "status": "official",
+      "access_path": "API, Claude.ai Free tier, Bedrock, Vertex",
+      "surfaces": [
+        "api",
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "$0.25/$1.25 per 1M tokens",
+          "access_key": "api_key",
+          "features": [
+            "200K context",
+            "Fast",
+            "Low cost"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:fast-inference",
+        "capability:batch-processing",
+        "capability:code-generation",
+        "access:api-key",
+        "access:subscription",
+        "audience:developer",
+        "compare:ai-model",
+        "compare:gemini-flash",
+        "compare:gpt35-turbo"
+      ],
+      "use_cases": [
+        "high-volume",
+        "latency נמוכה",
+        "batch processing",
+        "סיווג",
+        "chatbots"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-35-sonnet",
+      "name": "Claude 3.5 Sonnet",
+      "vendor": "Anthropic",
+      "category": "llm_model",
+      "ecosystem": "anthropic",
+      "description": "גרסת Sonnet המשופרת של Claude 3.5 — ביצועי SOTA לגנרל. שיפורים ניכרים ב-coding, reasoning ועדיפה על Claude 3 Opus בעלות נמוכה יותר. זמינה ב-API כ-claude-3-5-sonnet.",
+      "item_type": "model",
+      "ecosystem_branch": "Claude Models Family",
+      "status": "official",
+      "access_path": "API (claude-3-5-sonnet-*), Claude.ai Pro+, Bedrock, Vertex",
+      "surfaces": [
+        "api",
+        "web",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "$3/$15 per 1M tokens",
+          "access_key": "api_key",
+          "features": [
+            "200K context",
+            "SOTA coding",
+            "Vision"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:reasoning",
+        "capability:code-generation",
+        "capability:long-context",
+        "capability:image-analysis",
+        "capability:document-analysis",
+        "access:api-key",
+        "access:subscription",
+        "audience:developer",
+        "audience:enterprise",
+        "compare:ai-model",
+        "compare:gemini-15-pro",
+        "compare:gpt4o"
+      ],
+      "use_cases": [
+        "SOTA performance",
+        "coding",
+        "reasoning",
+        "ניתוח",
+        "vision"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-workbench",
+      "name": "Claude Workbench",
+      "vendor": "Anthropic",
+      "category": "developer_tool",
+      "ecosystem": "anthropic",
+      "description": "סביבת ניסוי prompts בתוך Anthropic Console: הרצת test cases, השוואה בין מודלים, ייעול prompts, קטלוג ספריות. הכלי הראשי ל-prompt engineering של מפתחים.",
+      "item_type": "developer_tool",
+      "ecosystem_branch": "Developer Platform",
+      "status": "official",
+      "access_path": "Anthropic Console (platform.claude.com)",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "כלול ב-Console",
+          "access_key": "api_key",
+          "features": [
+            "Prompt testing",
+            "Model comparison",
+            "Library"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:developer-platform",
+        "capability:prompt-testing",
+        "capability:model-comparison",
+        "access:api-key",
+        "audience:developer",
+        "compare:developer-platform",
+        "compare:google-ai-studio"
+      ],
+      "use_cases": [
+        "prompt testing",
+        "model comparison",
+        "prompt optimization",
+        "prompt library",
+        "A/B testing"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "anthropic-sdk-python",
+      "name": "Anthropic Python SDK",
+      "vendor": "Anthropic",
+      "category": "sdk",
+      "ecosystem": "anthropic",
+      "description": "SDK רשמי לפייתון לגישה ל-Anthropic API — כולל תמיכה מובנית ב-Tool Use, Batch API, Streaming ו-Prompt Caching. החבילה הנפוצה ביותר לבניית אפליקציות Claude.",
+      "item_type": "sdk",
+      "ecosystem_branch": "Developer Platform",
+      "status": "official",
+      "access_path": "pip install anthropic",
+      "surfaces": [
+        "sdk"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (client), API בתשלום",
+          "access_key": "api_key",
+          "features": [
+            "Tool use",
+            "Streaming",
+            "Batch API",
+            "Async"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:sdk",
+        "capability:function-calling",
+        "capability:batch-processing",
+        "capability:real-time-streaming",
+        "access:api-key",
+        "access:open-source",
+        "audience:developer",
+        "compare:google-sdk",
+        "compare:openai-sdk"
+      ],
+      "use_cases": [
+        "בניית אפליקציות",
+        "tool use",
+        "streaming",
+        "batch processing",
+        "Python integration"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "anthropic-sdk-typescript",
+      "name": "Anthropic TypeScript/JS SDK",
+      "vendor": "Anthropic",
+      "category": "sdk",
+      "ecosystem": "anthropic",
+      "description": "SDK רשמי ל-TypeScript/JavaScript עם תמיכה ב-Node.js ו-Deno — כולל tools, streaming ו-prompt caching. מיועד לאפליקציות Web ו-Node backend.",
+      "item_type": "sdk",
+      "ecosystem_branch": "Developer Platform",
+      "status": "official",
+      "access_path": "npm install @anthropic-ai/sdk",
+      "surfaces": [
+        "sdk"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (client), API בתשלום",
+          "access_key": "api_key",
+          "features": [
+            "Tool use",
+            "Streaming",
+            "ESM/CJS"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:sdk",
+        "capability:function-calling",
+        "capability:real-time-streaming",
+        "access:api-key",
+        "access:open-source",
+        "audience:developer",
+        "compare:google-sdk"
+      ],
+      "use_cases": [
+        "Node.js",
+        "TypeScript",
+        "web apps",
+        "streaming",
+        "tool use"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "anthropic-sdk-go",
+      "name": "Anthropic Go SDK",
+      "vendor": "Anthropic",
+      "category": "sdk",
+      "ecosystem": "anthropic",
+      "description": "SDK רשמי ל-Go עם תמיכה ב-Tool Use ו-Batch API — מיועד ל-microservices ו-backend services בשפת Go.",
+      "item_type": "sdk",
+      "ecosystem_branch": "Developer Platform",
+      "status": "official",
+      "access_path": "go get github.com/anthropics/anthropic-sdk-go",
+      "surfaces": [
+        "sdk"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (client), API בתשלום",
+          "access_key": "api_key",
+          "features": [
+            "Tool use",
+            "Batch API"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:sdk",
+        "access:api-key",
+        "access:open-source",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "Go microservices",
+        "backend",
+        "tool use"
+      ],
+      "recommendation_relevance": "secondary",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "message-batches-api",
+      "name": "Message Batches API",
+      "vendor": "Anthropic",
+      "category": "api",
+      "ecosystem": "anthropic",
+      "description": "API לעיבוד בקשות בכמויות גדולות (batch) בצורה אסינכרונית — עם הנחה של עד 50% בעלות לעומת real-time API. אידיאלי ל-evaluations, data processing ו-bulk generation.",
+      "item_type": "api",
+      "ecosystem_branch": "Developer Platform",
+      "status": "official",
+      "access_path": "Anthropic Messages API (batch endpoint)",
+      "surfaces": [
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "50% הנחה על מחיר רגיל",
+          "access_key": "api_key",
+          "features": [
+            "Async",
+            "Up to 50% cheaper",
+            "Large scale"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:api",
+        "capability:batch-processing",
+        "access:api-key",
+        "audience:developer",
+        "compare:batch-api",
+        "compare:openai-batch"
+      ],
+      "use_cases": [
+        "batch processing",
+        "bulk generation",
+        "evaluations",
+        "data pipelines",
+        "cost reduction"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "tool-use-api",
+      "name": "Tool Use / Function Calling",
+      "vendor": "Anthropic",
+      "category": "api_feature",
+      "ecosystem": "anthropic",
+      "description": "מנגנון ה-Tool Use המובנה ב-Anthropic API — מאפשר למודל לקרוא לפונקציות חיצוניות (tools) במהלך שיחה. הבסיס לבניית agents ו-MCP integration. נקרא גם 'function calling'.",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Developer Platform",
+      "status": "official",
+      "access_path": "Anthropic API, Bedrock, Vertex",
+      "surfaces": [
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "כלול ב-API",
+          "access_key": "api_key",
+          "features": [
+            "JSON schema",
+            "Parallel tools",
+            "Forced tool use"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:api",
+        "capability:function-calling",
+        "capability:agents",
+        "access:api-key",
+        "audience:developer",
+        "compare:function-calling",
+        "compare:gemini-tools",
+        "compare:openai-tools"
+      ],
+      "use_cases": [
+        "function calling",
+        "agent building",
+        "API integration",
+        "MCP",
+        "tool use"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "prompt-caching-api",
+      "name": "Prompt Caching (API)",
+      "vendor": "Anthropic",
+      "category": "api_feature",
+      "ecosystem": "anthropic",
+      "description": "מנגנון לשיתוף prompt בין בקשות — מפחית עלויות ב-90% ו-latency ב-85% עבור prompts ארוכים חוזרים. מיועד למסמכים גדולים, system prompts ארוכים ו-few-shot examples.",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Developer Platform",
+      "status": "beta",
+      "access_path": "Anthropic API (beta headers: anthropic-beta: prompt-caching-2024-07-31)",
+      "surfaces": [
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "90% הנחה על cached tokens",
+          "access_key": "api_key",
+          "features": [
+            "Cache TTL 5min",
+            "Up to 90% cheaper",
+            "85% lower latency"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:api",
+        "capability:batch-processing",
+        "capability:long-context",
+        "access:api-key",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "cost reduction",
+        "performance optimization",
+        "long documents",
+        "system prompts",
+        "few-shot"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-code-vscode",
+      "name": "Claude Code for VS Code",
+      "vendor": "Anthropic",
+      "category": "ide_extension",
+      "ecosystem": "anthropic",
+      "description": "הרחבת VS Code הרשמית ל-Claude Code — מחברת את ה-CLI ישירות ל-IDE ומאפשרת זרימת עבודה agentic בתוך Visual Studio Code. Beta מסומן בתיעוד.",
+      "item_type": "ide_integration",
+      "ecosystem_branch": "Claude Code Family",
+      "status": "beta",
+      "access_path": "VS Code Marketplace (free ext + Claude account)",
+      "surfaces": [
+        "ide",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "web_sub",
+          "features": [
+            "Agentic editing",
+            "Multi-file",
+            "Claude Code workflows"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:sdk",
+        "capability:code-generation",
+        "capability:agents",
+        "access:api-key",
+        "access:subscription",
+        "audience:developer",
+        "compare:github-copilot",
+        "compare:cursor"
+      ],
+      "use_cases": [
+        "IDE coding",
+        "agentic coding",
+        "VS Code",
+        "code navigation",
+        "refactoring"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-code-chrome-integration",
+      "name": "Claude Code Chrome Integration",
+      "vendor": "Anthropic",
+      "category": "automation_tool",
+      "ecosystem": "anthropic",
+      "description": "קישור בין Claude Code לדפדפן Chrome — מאפשר הרצת scheduled automations, בדיקות, וגישה לדפדפן כחלק מ-workflows של Claude Code. משתמש ב-Chrome extension כ-bridge.",
+      "item_type": "automation_tool",
+      "ecosystem_branch": "Claude Code Family",
+      "status": "beta",
+      "access_path": "Chrome Extension + Claude account",
+      "surfaces": [
+        "browser_extension"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "pro",
+          "price": "$20/month",
+          "access_key": "web_sub",
+          "features": [
+            "Browser control",
+            "Scheduled automations",
+            "Dev workflows"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:browser-extension",
+        "capability:browser-automation",
+        "capability:agents",
+        "access:api-key",
+        "access:subscription",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "browser testing",
+        "automation",
+        "Claude Code workflows",
+        "scheduled browser tasks"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-workspaces",
+      "name": "Claude Workspaces",
+      "vendor": "Anthropic",
+      "category": "developer_tool",
+      "ecosystem": "anthropic",
+      "description": "יחידות ארגון ב-Anthropic Console — מנהלות API keys, הרשאות, הגבלות תקציב, קצבי שימוש ונתוני שימוש לפי צוות/פרויקט. הבסיס לניהול multi-team ב-Enterprise.",
+      "item_type": "workspace_tool",
+      "ecosystem_branch": "Developer Platform",
+      "status": "official",
+      "access_path": "Anthropic Console",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "api_key",
+          "features": [
+            "Multiple Workspaces",
+            "Budget controls",
+            "Team roles"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "Custom",
+          "access_key": "api_key",
+          "features": [
+            "SCIM",
+            "SSO",
+            "Audit logs"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:developer-platform",
+        "access:api-key",
+        "audience:developer",
+        "audience:enterprise",
+        "compare:openai-organizations",
+        "compare:google-cloud-projects"
+      ],
+      "use_cases": [
+        "team management",
+        "API key management",
+        "budget limits",
+        "usage tracking",
+        "org structure"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-for-excel",
+      "name": "Claude for Excel",
+      "vendor": "Anthropic",
+      "category": "office_integration",
+      "ecosystem": "anthropic",
+      "description": "תוסף Excel רשמי — מאפשר ל-Claude לקרוא, לנתח ולערוך גיליונות ישירות. חלק ממשפחת Claude for Work. זמין ב-Microsoft Marketplace. Research preview.",
+      "item_type": "office_integration",
+      "ecosystem_branch": "Cowork / Productivity Family",
+      "status": "research_preview",
+      "access_path": "Microsoft Marketplace add-in (Max/Team/Enterprise)",
+      "surfaces": [
+        "desktop",
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "max",
+          "price": "~$100/month",
+          "access_key": "web_sub",
+          "features": [
+            "Read/edit spreadsheets",
+            "Claude in Excel"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "web_sub",
+          "features": [
+            "Team Excel access"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:connector",
+        "capability:document-analysis",
+        "capability:data-analysis",
+        "capability:text-generation",
+        "access:subscription",
+        "audience:enterprise",
+        "audience:consumer",
+        "compare:copilot-excel",
+        "compare:gemini-sheets"
+      ],
+      "use_cases": [
+        "ניתוח גיליונות",
+        "עריכת נתונים",
+        "Excel automation",
+        "formula generation",
+        "data insights"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-for-powerpoint",
+      "name": "Claude for PowerPoint",
+      "vendor": "Anthropic",
+      "category": "office_integration",
+      "ecosystem": "anthropic",
+      "description": "תוסף PowerPoint רשמי — יצירה ועריכת מצגות עם Claude. מתואר כחלק מ-Cowork. מאפשר יצירת slides מנתונים וקבצים. Research preview.",
+      "item_type": "office_integration",
+      "ecosystem_branch": "Cowork / Productivity Family",
+      "status": "research_preview",
+      "access_path": "Add-in (Max/Team/Enterprise)",
+      "surfaces": [
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "max",
+          "price": "~$100/month",
+          "access_key": "web_sub",
+          "features": [
+            "Create/edit presentations",
+            "Data to slides"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:connector",
+        "capability:document-analysis",
+        "capability:text-generation",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:copilot-ppt"
+      ],
+      "use_cases": [
+        "יצירת מצגות",
+        "slide generation",
+        "presentation automation",
+        "נרטיב ויזואלי"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-jira",
+      "name": "Jira Connector (Claude)",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור רשמי בין Claude/Cowork ל-Jira — ניהול tickets, מעקב sprints, ניתוח backlog וקריאת issues ישירות מתוך שיחות Claude. זמין ב-Connectors Directory.",
+      "item_type": "connector",
+      "ecosystem_branch": "Connectors & Integrations",
+      "status": "official",
+      "access_path": "Claude Settings > Connectors (Team/Enterprise)",
+      "surfaces": [
+        "web",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "team",
+          "price": "כלול ב-Team",
+          "access_key": "web_sub",
+          "features": [
+            "Jira read/write",
+            "Issue tracking",
+            "Sprint analysis"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:connector",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:copilot-jira",
+        "compare:gemini-workspace-connector"
+      ],
+      "use_cases": [
+        "ניהול tickets",
+        "sprint tracking",
+        "backlog analysis",
+        "issue linking",
+        "project management"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-salesforce",
+      "name": "Salesforce Connector (Claude)",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור רשמי ל-Salesforce CRM — גישה ל-accounts, opportunities ו-cases, אוטומציות מכירה ותמיכה מתוך Claude/Cowork.",
+      "item_type": "connector",
+      "ecosystem_branch": "Connectors & Integrations",
+      "status": "official",
+      "access_path": "Claude Settings > Connectors (Enterprise)",
+      "surfaces": [
+        "web",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "enterprise",
+          "price": "Custom",
+          "access_key": "web_sub",
+          "features": [
+            "Full CRM access",
+            "Sales automation"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:connector",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:copilot-salesforce"
+      ],
+      "use_cases": [
+        "CRM access",
+        "sales automation",
+        "opportunity tracking",
+        "customer data",
+        "support cases"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-snowflake",
+      "name": "Snowflake Connector (Claude)",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור ל-Snowflake Data Warehouse — יצירת שאילתות SQL, ניתוח נתונים ובניית dashboards ישירות מ-Claude/Cowork. מופיע גם כ-partner ב-Claude Marketplace.",
+      "item_type": "connector",
+      "ecosystem_branch": "Connectors & Integrations",
+      "status": "official",
+      "access_path": "Claude Settings > Connectors + Claude Marketplace (Enterprise)",
+      "surfaces": [
+        "web",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "enterprise",
+          "price": "Custom",
+          "access_key": "web_sub",
+          "features": [
+            "SQL queries",
+            "Data analysis",
+            "Dashboard generation"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:connector",
+        "capability:data-analysis",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:enterprise",
+        "audience:data-scientist",
+        "compare:gemini-bigquery"
+      ],
+      "use_cases": [
+        "data analysis",
+        "SQL generation",
+        "dashboard creation",
+        "data warehouse",
+        "analytics"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-google-workspace-claude",
+      "name": "Google Workspace Connector (Claude)",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבורים רשמיים של Claude ל-Google Workspace: Gmail, Drive, Calendar — מנוהלים דרך Claude Settings > Connectors. מאפשר חיפוש, שליחה וניהול תוכן ב-Google apps מתוך Claude.",
+      "item_type": "connector",
+      "ecosystem_branch": "Connectors & Integrations",
+      "status": "official",
+      "access_path": "Claude Settings > Connectors (Free/Pro/Team/Enterprise with auth)",
+      "surfaces": [
+        "web",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי עם auth",
+          "access_key": "free",
+          "features": [
+            "Basic Gmail/Drive access"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "web_sub",
+          "features": [
+            "Full Workspace integration",
+            "Calendar automation"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:connector",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:enterprise",
+        "audience:consumer",
+        "compare:gemini-workspace"
+      ],
+      "use_cases": [
+        "Gmail search",
+        "Drive access",
+        "Calendar management",
+        "Google integration",
+        "email automation"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-slack-claude",
+      "name": "Slack Connector (Claude)",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "אינטגרציית Slack רשמית — מאפשרת ל-Claude לפעול בערוצים, לחפש מידע ולהשתמש ב-connectors מתוך Slack. זמינה ב-Team/Enterprise.",
+      "item_type": "connector",
+      "ecosystem_branch": "Connectors & Integrations",
+      "status": "official",
+      "access_path": "Slack app install + Claude Team/Enterprise",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "web_sub",
+          "features": [
+            "Slack integration",
+            "Channel actions"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:connector",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "Slack search",
+        "channel automation",
+        "team communication",
+        "Slack workflows"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-memory-enterprise",
+      "name": "Claude Memory (Teams/Enterprise)",
+      "vendor": "Anthropic",
+      "category": "embedded_feature",
+      "ecosystem": "anthropic",
+      "description": "זיכרון פר-פרויקט ופר-צוות ב-Claude Teams/Enterprise — נשמר לאורך כל השיחות בפרויקט, עם ניהול אדמיניסטרטיבי ואפשרות כיבוי גלובלי. קריטי לאקסלרציה של עבודת צוות.",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Storage/Workspace",
+      "status": "official",
+      "access_path": "Claude Projects (Team/Enterprise)",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "web_sub",
+          "features": [
+            "Per-project memory",
+            "Admin control",
+            "Global toggle"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:assistant-app",
+        "capability:memory-persistent",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:gemini-workspace-memory"
+      ],
+      "use_cases": [
+        "persistent memory",
+        "team context",
+        "project continuity",
+        "knowledge retention"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-memory-consumer",
+      "name": "Claude Memory (Personal)",
+      "vendor": "Anthropic",
+      "category": "embedded_feature",
+      "ecosystem": "anthropic",
+      "description": "זיכרון אישי ב-Claude assistant — שומר סגנון, העדפות עבודה ומידע אישי לאורך שיחות שונות. Opt-in עם אפשרות צפייה/עריכה/מחיקה. בשלבי rollout (Pro/Max בעיקר).",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Storage/Workspace",
+      "status": "rollout/beta",
+      "access_path": "Claude.ai (Pro/Max) — opt-in",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "pro",
+          "price": "$20/month",
+          "access_key": "web_sub",
+          "features": [
+            "Personal memory",
+            "Edit/delete control",
+            "Opt-in"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:assistant-app",
+        "capability:memory-persistent",
+        "access:subscription",
+        "access:free-tier",
+        "audience:consumer",
+        "compare:chatgpt-memory",
+        "compare:gemini-memory"
+      ],
+      "use_cases": [
+        "personal preferences",
+        "style learning",
+        "cross-session memory",
+        "personalization"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-artifacts",
+      "name": "Artifacts (Claude)",
+      "vendor": "Anthropic",
+      "category": "embedded_feature",
+      "ecosystem": "anthropic",
+      "description": "אובייקטים מובנים שנוצרים בתוך Claude — מסמכים, קוד, דשבורדים ודיאגרמות המוצגים ב-UI נפרד מהטקסט. Artifacts מאפשרים עריכה ושיתוף, ומשפיעים ישירות על איכות ההמלצות.",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Claude Assistant",
+      "status": "official",
+      "access_path": "Claude.ai (all tiers)",
+      "surfaces": [
+        "web",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי",
+          "access_key": "free",
+          "features": [
+            "Basic artifacts",
+            "Code execution"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$20/month",
+          "access_key": "web_sub",
+          "features": [
+            "All artifact types",
+            "Sharing"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:assistant-app",
+        "capability:code-generation",
+        "capability:document-analysis",
+        "capability:data-analysis",
+        "access:subscription",
+        "access:free-tier",
+        "audience:consumer",
+        "audience:developer",
+        "compare:chatgpt-canvas",
+        "compare:gemini-canvas"
+      ],
+      "use_cases": [
+        "code artifacts",
+        "dashboard creation",
+        "document generation",
+        "diagrams",
+        "shareable outputs"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-knowledge-base",
+      "name": "Claude Projects Knowledge Base",
+      "vendor": "Anthropic",
+      "category": "embedded_feature",
+      "ecosystem": "anthropic",
+      "description": "שכבת Knowledge Base בתוך Projects — העלאת מסמכים (PDF, Word, Markdown, HTML) שהמודל משתמש בהם כ-context לכל שיחות הפרויקט. מבצע preprocessing ו-RAG מובנה.",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Storage/Workspace",
+      "status": "official",
+      "access_path": "Claude Projects (Pro/Max/Team/Enterprise)",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "pro",
+          "price": "$20/month",
+          "access_key": "web_sub",
+          "features": [
+            "File upload",
+            "RAG",
+            "200K context"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "web_sub",
+          "features": [
+            "Shared KB",
+            "Team access"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:assistant-app",
+        "capability:knowledge-base",
+        "capability:document-analysis",
+        "capability:long-context",
+        "access:subscription",
+        "audience:consumer",
+        "audience:enterprise",
+        "compare:notebooklm",
+        "compare:chatgpt-knowledge",
+        "compare:gemini-workspace"
+      ],
+      "use_cases": [
+        "document upload",
+        "RAG",
+        "knowledge management",
+        "project context",
+        "PDF analysis"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "contextual-retriever",
+      "name": "Contextual Retriever",
+      "vendor": "Anthropic",
+      "category": "embedded_feature",
+      "ecosystem": "anthropic",
+      "description": "מנוע RAG פנימי משופר של Anthropic שמוסיף שכבת הקשר לכל chunk לפני שמכניס אותו ל-prompt — לא רק copy-paste של טקסט. נשען על Prompt Caching להוזלת עלויות.",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Research / Knowledge",
+      "status": "official",
+      "access_path": "Anthropic API (internal engine for Projects)",
+      "surfaces": [
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "כלול ב-Projects",
+          "access_key": "api_key",
+          "features": [
+            "Contextual chunking",
+            "Prompt caching",
+            "Better accuracy"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:api",
+        "capability:knowledge-base",
+        "capability:long-context",
+        "capability:document-analysis",
+        "access:api-key",
+        "audience:developer",
+        "compare:openai-rag",
+        "compare:vertex-search"
+      ],
+      "use_cases": [
+        "enhanced RAG",
+        "contextual chunks",
+        "document processing",
+        "semantic search",
+        "knowledge retrieval"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-on-bedrock",
+      "name": "Claude on Amazon Bedrock",
+      "vendor": "AWS/Anthropic",
+      "category": "cloud_service",
+      "ecosystem": "anthropic",
+      "description": "גישה מנוהלת למודלי Claude (כולל Sonnet 3.5 ועוד) דרך Amazon Bedrock — כחלק מ-AWS services. כולל אינטגרציה ל-agents, Slack ו-Bedrock Guardrails.",
+      "item_type": "cloud_service",
+      "ecosystem_branch": "Cloud Distribution",
+      "status": "official",
+      "access_path": "AWS Console / API (AWS credentials)",
+      "surfaces": [
+        "api",
+        "cloud"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "AWS pricing לפי מודל",
+          "access_key": "api_key",
+          "features": [
+            "Managed models",
+            "Bedrock agents",
+            "Guardrails",
+            "VPC"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:developer-platform",
+        "capability:text-generation",
+        "capability:agents",
+        "capability:function-calling",
+        "access:api-key",
+        "audience:enterprise",
+        "audience:developer",
+        "compare:vertex-ai",
+        "compare:azure-openai"
+      ],
+      "use_cases": [
+        "AWS integration",
+        "managed models",
+        "enterprise deployment",
+        "Bedrock agents",
+        "cloud AI"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-on-vertex",
+      "name": "Claude on Google Vertex AI",
+      "vendor": "Google/Anthropic",
+      "category": "cloud_service",
+      "ecosystem": "anthropic",
+      "description": "גישה למודלי Claude כ-Partner Models ב-Vertex AI — עם logging, IAM ו-pipelines. מיועד לארגונים שעובדים ב-Google Cloud ורוצים Claude בסביבה מנוהלת.",
+      "item_type": "cloud_service",
+      "ecosystem_branch": "Cloud Distribution",
+      "status": "official",
+      "access_path": "Google Cloud Console / Vertex AI API",
+      "surfaces": [
+        "api",
+        "cloud"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "GCP pricing",
+          "access_key": "api_key",
+          "features": [
+            "Vertex endpoints",
+            "Logging",
+            "IAM",
+            "Pipelines"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:developer-platform",
+        "capability:text-generation",
+        "capability:agents",
+        "access:api-key",
+        "audience:enterprise",
+        "compare:bedrock",
+        "compare:azure-openai"
+      ],
+      "use_cases": [
+        "GCP integration",
+        "managed models",
+        "Vertex pipelines",
+        "enterprise AI",
+        "Google Cloud"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-marketplace",
+      "name": "Claude Marketplace",
+      "vendor": "Anthropic",
+      "category": "marketplace",
+      "ecosystem": "anthropic",
+      "description": "חנות רשמית חדשה של Anthropic לרכישת שירותי צד-שלישי מבוססי Claude — עם billing מאוחד דרך Anthropic. שותפים ראשוניים: Snowflake, GitLab, Harvey, Replit, Lovable. Enterprise with committed spend.",
+      "item_type": "marketplace",
+      "ecosystem_branch": "Connectors & Integrations",
+      "status": "official",
+      "access_path": "Claude Console / web (Enterprise committed spend)",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "enterprise",
+          "price": "Committed spend",
+          "access_key": "web_sub",
+          "features": [
+            "Snowflake",
+            "GitLab",
+            "Harvey",
+            "Replit",
+            "Lovable",
+            "Unified billing"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:marketplace",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:openai-gpt-store",
+        "compare:google-workspace-marketplace"
+      ],
+      "use_cases": [
+        "partner apps",
+        "third-party services",
+        "unified billing",
+        "enterprise apps",
+        "ecosystem expansion"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-plan-pro",
+      "name": "Claude Pro Plan",
+      "vendor": "Anthropic",
+      "category": "subscription_tier",
+      "ecosystem": "anthropic",
+      "description": "תכנית מנוי אישית ב-$20/חודש — כוללת גישה לכל המודלים (Sonnet/Opus), שימוש גבוה יותר, Projects עם Knowledge Base, Artifacts ו-Priority access. ברירת המחדל ל-prosumer.",
+      "item_type": "subscription",
+      "ecosystem_branch": "Pricing / Plans",
+      "status": "official",
+      "access_path": "claude.ai (credit card, $20/month)",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "pro",
+          "price": "$20/חודש",
+          "access_key": "web_sub",
+          "features": [
+            "All Claude models",
+            "Priority",
+            "5x usage vs Free",
+            "Projects KB",
+            "Artifacts"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:subscription",
+        "access:subscription",
+        "audience:consumer",
+        "compare:chatgpt-plus",
+        "compare:gemini-advanced"
+      ],
+      "use_cases": [
+        "individual subscription",
+        "all models",
+        "priority access",
+        "Projects",
+        "Knowledge Base"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-plan-max",
+      "name": "Claude Max Plan",
+      "vendor": "Anthropic",
+      "category": "subscription_tier",
+      "ecosystem": "anthropic",
+      "description": "תכנית פרימיום ב-~$100/חודש — שימוש גבוה מאוד, גישה מוקדמת לפיצ'רים כמו Cowork, ו-research preview features. מיועד ל-power users.",
+      "item_type": "subscription",
+      "ecosystem_branch": "Pricing / Plans",
+      "status": "official",
+      "access_path": "claude.ai (~$100/month, varies)",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "max",
+          "price": "~$100/חודש",
+          "access_key": "web_sub",
+          "features": [
+            "Maximum usage",
+            "Cowork access",
+            "Early access features",
+            "All models"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:subscription",
+        "access:subscription",
+        "audience:consumer",
+        "compare:chatgpt-pro",
+        "compare:gemini-ultra"
+      ],
+      "use_cases": [
+        "high usage",
+        "Cowork access",
+        "early features",
+        "power user",
+        "maximum capacity"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-plan-team",
+      "name": "Claude Team Plan",
+      "vendor": "Anthropic",
+      "category": "subscription_tier",
+      "ecosystem": "anthropic",
+      "description": "תכנית לצוותים ב-$30/seat — shared workspace, connectors ארגוניים, Claude Code access ומידע ארגוני. הבסיס לאימוץ צוותי של Claude.",
+      "item_type": "subscription",
+      "ecosystem_branch": "Pricing / Plans",
+      "status": "official",
+      "access_path": "claude.ai (per-seat, $30/seat or ~$100+/seat with Max)",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "team",
+          "price": "$30/seat/month",
+          "access_key": "web_sub",
+          "features": [
+            "Shared workspace",
+            "Claude Code",
+            "Enterprise connectors",
+            "Team memory"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:subscription",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:chatgpt-team",
+        "compare:gemini-workspace"
+      ],
+      "use_cases": [
+        "team workspace",
+        "shared connectors",
+        "Claude Code",
+        "org context",
+        "team collaboration"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-plan-enterprise",
+      "name": "Claude Enterprise Plan",
+      "vendor": "Anthropic",
+      "category": "subscription_tier",
+      "ecosystem": "anthropic",
+      "description": "תכנית Enterprise עם חוזה ומחיר מותאם — context ארוך יותר, Audit logs, SCIM/SSO, compliance (SOC2/ISO 27001/42001) ו-zero-retention endpoints לנתונים רגישים.",
+      "item_type": "subscription",
+      "ecosystem_branch": "Pricing / Plans",
+      "status": "official",
+      "access_path": "Sales / contract",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "enterprise",
+          "price": "Custom (per seat, annual)",
+          "access_key": "web_sub",
+          "features": [
+            "SOC2/ISO compliance",
+            "SCIM",
+            "SSO",
+            "Audit logs",
+            "Zero-retention endpoints",
+            "Longer context"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:subscription",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:chatgpt-enterprise",
+        "compare:gemini-workspace-enterprise"
+      ],
+      "use_cases": [
+        "enterprise security",
+        "audit logs",
+        "SCIM",
+        "SSO",
+        "compliance",
+        "zero retention",
+        "custom contract"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "constitutional-ai",
+      "name": "Constitutional AI Framework",
+      "vendor": "Anthropic",
+      "category": "research_framework",
+      "ecosystem": "anthropic",
+      "description": "מסגרת המחקר/alignment של Anthropic לבנייה ואימון מודלים בטוחים ועקביים — אינה מוצר עצמאי אלא עקרונות alignment שמשפיעים ישירות על התנהגות כל מודלי Claude. מכאן בטיחות Claude.",
+      "item_type": "framework",
+      "ecosystem_branch": "Research / Alignment",
+      "status": "official",
+      "access_path": "Anthropic research papers (conceptual)",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "N/A (research framework)",
+          "access_key": "free",
+          "features": [
+            "Principled AI",
+            "RLHF-free alignment",
+            "Safety by design"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:framework",
+        "audience:researcher",
+        "compare:openai-alignment",
+        "compare:google-safety"
+      ],
+      "use_cases": [
+        "AI safety",
+        "alignment",
+        "model training",
+        "responsible AI",
+        "Constitutional principles"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-2-legacy",
+      "name": "Claude 2 / 2.1 (Legacy)",
+      "vendor": "Anthropic",
+      "category": "llm_model",
+      "ecosystem": "anthropic",
+      "description": "דורות קודמים של מודל Claude (1, 2, 2.1) — מופיעים בדוחות ומודלי הערכה אך נחשבים legacy ביחס ל-Claude 3. ייתכן עדיין נגישים לחלק מ-API customers.",
+      "item_type": "legacy_model",
+      "ecosystem_branch": "Legacy Branch",
+      "status": "legacy",
+      "access_path": "API (partial legacy access)",
+      "surfaces": [
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "Legacy pricing",
+          "access_key": "api_key",
+          "features": [
+            "Legacy support"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:llm-model",
+        "type:legacy",
+        "access:api-key",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "legacy comparison",
+        "eval baseline",
+        "historical models"
+      ],
+      "recommendation_relevance": "secondary",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "gemini-advanced",
+      "name": "Gemini Advanced / Ultra",
+      "vendor": "Google",
+      "category": "subscription_tier",
+      "ecosystem": "google",
+      "description": "תכנית פרימיום של Google One AI Premium ($19.99/חודש) — גישה ל-Gemini Ultra, NotebookLM Plus, 2TB storage ב-Google One. המתחרה הישיר ל-Claude Pro/ChatGPT Plus.",
+      "item_type": "subscription",
+      "ecosystem_branch": "Consumer AI & Assistants",
+      "status": "official",
+      "access_path": "Google One AI Premium ($19.99/month)",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "pro",
+          "price": "$19.99/חודש",
+          "access_key": "web_sub",
+          "features": [
+            "Gemini Ultra",
+            "1M context",
+            "NotebookLM Plus",
+            "2TB storage",
+            "Extensions"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:subscription",
+        "capability:text-generation",
+        "capability:reasoning",
+        "capability:long-context",
+        "access:subscription",
+        "audience:consumer",
+        "compare:claude-pro",
+        "compare:chatgpt-plus"
+      ],
+      "use_cases": [
+        "premium AI",
+        "Gemini Ultra",
+        "1M context",
+        "NotebookLM Plus",
+        "Google One benefits"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "gemini-android-app",
+      "name": "Gemini App (Android/iOS)",
+      "vendor": "Google",
+      "category": "mobile_app",
+      "ecosystem": "google",
+      "description": "אפליקציית Gemini הרשמית ל-Android ו-iOS — מחליפה את Google Assistant במכשירים נתמכים. כוללת גישה ל-Extensions, Gemini Advanced ואינטגרציה עמוקה עם Google apps.",
+      "item_type": "mobile_app",
+      "ecosystem_branch": "Consumer AI & Assistants",
+      "status": "official",
+      "access_path": "Google Play / App Store (free + Google account)",
+      "surfaces": [
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי",
+          "access_key": "free",
+          "features": [
+            "Gemini Pro",
+            "Voice",
+            "Extensions"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$19.99/month",
+          "access_key": "web_sub",
+          "features": [
+            "Gemini Ultra",
+            "Advanced features"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:mobile-app",
+        "capability:text-generation",
+        "capability:image-analysis",
+        "capability:voice-interface",
+        "access:free-tier",
+        "access:subscription",
+        "audience:consumer",
+        "compare:claude-ios",
+        "compare:chatgpt-mobile"
+      ],
+      "use_cases": [
+        "mobile AI",
+        "voice assistant",
+        "Android integration",
+        "Extensions",
+        "Google apps"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "gemini-extensions",
+      "name": "Gemini Extensions",
+      "vendor": "Google",
+      "category": "embedded_feature",
+      "ecosystem": "google",
+      "description": "תוספים של Gemini ל-Google apps — גישה ל-Drive, Docs, Gmail, Maps, YouTube, Google Flights ועוד ישירות מתוך שיחת Gemini. מתועד בעיקר בחומרי שיווק.",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Consumer AI & Assistants",
+      "status": "official",
+      "access_path": "Gemini app (free + Google account)",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי עם Google account",
+          "access_key": "free",
+          "features": [
+            "Drive",
+            "Gmail",
+            "Maps",
+            "YouTube",
+            "Flights"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:connector",
+        "capability:workspace-integration",
+        "access:free-tier",
+        "access:subscription",
+        "audience:consumer",
+        "compare:claude-connectors"
+      ],
+      "use_cases": [
+        "Google Drive search",
+        "Gmail access",
+        "YouTube search",
+        "Maps integration",
+        "cross-app AI"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "gemini-for-workspace",
+      "name": "Gemini for Google Workspace",
+      "vendor": "Google",
+      "category": "workspace_ai",
+      "ecosystem": "google",
+      "description": "AI layer מובנה ב-Workspace — side panel ב-Gmail, Docs, Sheets, Slides, Drive, Meet, Chat ו-Vids. כולל Workspace Studio לאוטומציות agentic. לשעבר Duet AI.",
+      "item_type": "workspace_tool",
+      "ecosystem_branch": "Google Workspace",
+      "status": "official",
+      "access_path": "Workspace Business/Enterprise + Gemini add-on",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "business",
+          "price": "כלול ב-Business Plus+",
+          "access_key": "web_sub",
+          "features": [
+            "Side panel",
+            "Summarization",
+            "Smart compose",
+            "Generate content"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "Custom",
+          "access_key": "web_sub",
+          "features": [
+            "Full Gemini",
+            "Workspace Studio",
+            "Advanced features"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:workspace-app",
+        "capability:text-generation",
+        "capability:document-analysis",
+        "capability:agents",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:microsoft-copilot",
+        "compare:claude-cowork"
+      ],
+      "use_cases": [
+        "Gmail AI",
+        "Docs writing assistant",
+        "Sheets formulas",
+        "Slides creation",
+        "Meet summaries",
+        "Workspace automation"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "workspace-studio-google",
+      "name": "Workspace Studio",
+      "vendor": "Google",
+      "category": "automation_tool",
+      "ecosystem": "google",
+      "description": "מנוע אוטומציה agentic בתוך Workspace — יצירת workflows בשפה טבעית ('כתוב דוח לאחר כל פגישה'). Preview/experimental לארגוניים. המתחרה ל-Claude Cowork.",
+      "item_type": "automation_tool",
+      "ecosystem_branch": "Google Workspace",
+      "status": "preview/experimental",
+      "access_path": "Workspace Business/Enterprise (2026 rollout)",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "enterprise",
+          "price": "Workspace Enterprise",
+          "access_key": "web_sub",
+          "features": [
+            "Natural language workflows",
+            "Agentic automation",
+            "Cross-app tasks"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:automation-tool",
+        "capability:agents",
+        "capability:scheduling",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:enterprise",
+        "compare:claude-cowork",
+        "compare:copilot-studio"
+      ],
+      "use_cases": [
+        "agentic workflows",
+        "automation",
+        "plain language tasks",
+        "meeting summaries",
+        "workflow creation"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "notebooklm",
+      "name": "NotebookLM",
+      "vendor": "Google",
+      "category": "research_tool",
+      "ecosystem": "google",
+      "description": "כלי מחקר ולמידה AI-centric של Google — ניתוח עד 50 מקורות (PDFs, Docs, URLs, YouTube), Audio Overviews, Mind Maps, Timelines, study guides. מבוסס Gemini 1.5 Pro+. המתחרה הישיר ל-Claude Projects Knowledge Base.",
+      "item_type": "research_tool",
+      "ecosystem_branch": "Research & Knowledge Tools",
+      "status": "official",
+      "access_path": "notebooklm.google.com (free + paid Plus)",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (100 notebooks, 50 sources each)",
+          "access_key": "free",
+          "features": [
+            "Audio Overviews",
+            "Mind Maps",
+            "50 sources",
+            "Study guides"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "Google One AI Premium $19.99/month",
+          "access_key": "web_sub",
+          "features": [
+            "NotebookLM Plus",
+            "More notebooks",
+            "Priority access"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:research-tool",
+        "capability:document-analysis",
+        "capability:knowledge-base",
+        "capability:audio-generation",
+        "capability:long-context",
+        "access:free-tier",
+        "access:subscription",
+        "audience:researcher",
+        "audience:student",
+        "compare:claude-knowledge-base",
+        "compare:chatgpt-knowledge",
+        "compare:perplexity"
+      ],
+      "use_cases": [
+        "document analysis",
+        "research synthesis",
+        "Audio Overviews",
+        "study guides",
+        "Mind Maps",
+        "source grounding",
+        "PDF analysis"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "notebooklm-mobile",
+      "name": "NotebookLM Mobile App",
+      "vendor": "Google",
+      "category": "mobile_app",
+      "ecosystem": "google",
+      "description": "אפליקציית NotebookLM ל-Android ו-iOS — גישה ל-notebooks, שאלות ותשובות על מקורות, ו-Audio Overviews בניידים.",
+      "item_type": "mobile_app",
+      "ecosystem_branch": "Research & Knowledge Tools",
+      "status": "official",
+      "access_path": "Google Play / App Store",
+      "surfaces": [
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי",
+          "access_key": "free",
+          "features": [
+            "Notebook access",
+            "Q&A",
+            "Audio Overviews"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:mobile-app",
+        "capability:document-analysis",
+        "capability:knowledge-base",
+        "access:free-tier",
+        "access:subscription",
+        "audience:researcher"
+      ],
+      "use_cases": [
+        "mobile research",
+        "on-the-go notebooks",
+        "audio overviews mobile",
+        "source questions"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "notebooks-in-gemini",
+      "name": "Notebooks in Gemini",
+      "vendor": "Google",
+      "category": "embedded_feature",
+      "ecosystem": "google",
+      "description": "אינטגרציה דו-כיוונית בין NotebookLM ל-Gemini — Notebooks מופיעים כ-source בשיחות Gemini ו-Gemini יכול לגשת ל-notebooks כ-knowledge grounding.",
+      "item_type": "embedded_feature",
+      "ecosystem_branch": "Research & Knowledge Tools",
+      "status": "official",
+      "access_path": "Gemini Pro/Ultra (with NotebookLM)",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "pro",
+          "price": "$19.99/month",
+          "access_key": "web_sub",
+          "features": [
+            "Bidirectional sync",
+            "Notebook as source"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:connector",
+        "capability:knowledge-base",
+        "capability:workspace-integration",
+        "access:subscription",
+        "audience:researcher",
+        "compare:claude-projects"
+      ],
+      "use_cases": [
+        "knowledge grounding",
+        "Gemini + NotebookLM",
+        "source linking",
+        "research integration"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "gemini-api",
+      "name": "Gemini API",
+      "vendor": "Google",
+      "category": "api",
+      "ecosystem": "google",
+      "description": "API REST/SDK לגישה למודלי Gemini (דרך Google AI Studio + Vertex AI) — כולל text, chat, vision, audio, video ו-embeddings. המתחרה הישיר ל-Anthropic Messages API.",
+      "item_type": "api",
+      "ecosystem_branch": "AI Platforms & APIs",
+      "status": "official",
+      "access_path": "Google AI Studio + Google Cloud (usage-based billing)",
+      "surfaces": [
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "Free tier (rate limited)",
+          "access_key": "api_key",
+          "features": [
+            "Gemini Flash",
+            "Rate limited",
+            "All modalities"
+          ]
+        },
+        {
+          "level": "api_payg",
+          "price": "לפי tokens/requests",
+          "access_key": "api_key",
+          "features": [
+            "All Gemini models",
+            "High limits",
+            "Batch",
+            "Grounding"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:api",
+        "capability:text-generation",
+        "capability:image-analysis",
+        "capability:audio-analysis",
+        "capability:video-analysis",
+        "capability:function-calling",
+        "capability:real-time-streaming",
+        "access:api-key",
+        "audience:developer",
+        "compare:anthropic-api",
+        "compare:openai-api"
+      ],
+      "use_cases": [
+        "text generation",
+        "vision",
+        "audio analysis",
+        "video understanding",
+        "embeddings",
+        "multimodal"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "vertex-ai-google",
+      "name": "Vertex AI (Google Cloud)",
+      "vendor": "Google",
+      "category": "developer_platform",
+      "ecosystem": "google",
+      "description": "פלטפורמת ML/AI מאוחדת של Google Cloud — Model Garden (+200 מודלים כולל Gemini), AutoML, MLOps, Vertex Workbench, agent builder. המתחרה ל-Anthropic Console + Bedrock/Azure AI.",
+      "item_type": "cloud_platform",
+      "ecosystem_branch": "AI Platforms & APIs",
+      "status": "official",
+      "access_path": "Google Cloud Console / API (paid GCP)",
+      "surfaces": [
+        "api",
+        "cloud",
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "Google Cloud pricing (compute + model)",
+          "access_key": "api_key",
+          "features": [
+            "200+ models",
+            "AutoML",
+            "Pipelines",
+            "MLOps",
+            "Gemini",
+            "Agent Builder"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:developer-platform",
+        "capability:text-generation",
+        "capability:agents",
+        "capability:function-calling",
+        "capability:batch-processing",
+        "access:api-key",
+        "audience:developer",
+        "audience:enterprise",
+        "compare:anthropic-console",
+        "compare:bedrock",
+        "compare:azure-openai"
+      ],
+      "use_cases": [
+        "model training",
+        "MLOps",
+        "Model Garden",
+        "agent builder",
+        "GenAI",
+        "AutoML",
+        "enterprise AI"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "vertex-model-garden",
+      "name": "Vertex AI Model Garden",
+      "vendor": "Google",
+      "category": "model_catalog",
+      "ecosystem": "google",
+      "description": "קטלוג מודלים ב-Vertex AI — +200 מודלים כולל Gemini, מודלים פתוחים (Gemma, Llama) ומודלי שותפים. מאפשר פריסה, fine-tuning ו-evaluation של מודלים שונים.",
+      "item_type": "model_catalog",
+      "ecosystem_branch": "AI Platforms & APIs",
+      "status": "official",
+      "access_path": "Vertex AI (Google Cloud, paid usage-based)",
+      "surfaces": [
+        "web",
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "Usage-based per model",
+          "access_key": "api_key",
+          "features": [
+            "200+ models",
+            "Open models",
+            "Partner models",
+            "Fine-tuning"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "type:marketplace",
+        "access:api-key",
+        "audience:developer",
+        "audience:enterprise",
+        "compare:claude-marketplace",
+        "compare:azure-model-catalog",
+        "compare:bedrock-model-catalog"
+      ],
+      "use_cases": [
+        "model selection",
+        "open models",
+        "Gemma",
+        "Llama",
+        "Gemini",
+        "fine-tuning",
+        "model comparison"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "gemma-family",
+      "name": "Gemma (Model Family)",
+      "vendor": "Google",
+      "category": "llm_model",
+      "ecosystem": "google",
+      "description": "משפחת מודלי שפה פתוחים של Google — Gemma 1 (2B/7B), Gemma 2 (9B/27B), Gemma 3/4 (reasoning, agentic). כולל PaliGemma (vision-language), MedGemma (רפואה). מופץ תחת Apache 2.0.",
+      "item_type": "open_model",
+      "ecosystem_branch": "Open / On-Device Models",
+      "status": "official",
+      "access_path": "weights download (Hugging Face, Kaggle, Colab) + Vertex AI",
+      "surfaces": [
+        "local",
+        "api",
+        "cloud"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (weights)",
+          "access_key": "free",
+          "features": [
+            "2B-27B variants",
+            "Apache 2.0",
+            "Agentic (Gemma 4)",
+            "PaliGemma",
+            "MedGemma"
+          ]
+        },
+        {
+          "level": "api_payg",
+          "price": "Cloud deployment via Vertex",
+          "access_key": "api_key",
+          "features": [
+            "Managed serving",
+            "Fine-tuning"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:reasoning",
+        "capability:agents",
+        "access:open-source",
+        "access:free-tier",
+        "audience:developer",
+        "audience:researcher",
+        "compare:claude-models",
+        "compare:llama",
+        "compare:mistral"
+      ],
+      "use_cases": [
+        "open source",
+        "local deployment",
+        "research",
+        "fine-tuning",
+        "on-premise",
+        "Hugging Face",
+        "Kaggle"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "gemini-nano",
+      "name": "Gemini Nano",
+      "vendor": "Google",
+      "category": "llm_model",
+      "ecosystem": "google",
+      "description": "מודל on-device לאנדרואיד — פועל דרך AICore ב-Pixel 8 Pro ו-Samsung S24+. מאפשר Summarization, Proofreading, Rewriting ו-Image Description בפרטיות מלאה ללא ענן.",
+      "item_type": "on_device_model",
+      "ecosystem_branch": "Open / On-Device Models",
+      "status": "official",
+      "access_path": "Built-in to Android (Pixel 8 Pro, Samsung S24 series)",
+      "surfaces": [
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "כלול במכשיר",
+          "access_key": "free",
+          "features": [
+            "On-device",
+            "Private",
+            "Offline",
+            "Summarization",
+            "Proofreading"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:llm-model",
+        "capability:on-device",
+        "capability:text-generation",
+        "capability:image-analysis",
+        "access:device-bundled",
+        "audience:consumer",
+        "compare:apple-intelligence",
+        "compare:local-llm"
+      ],
+      "use_cases": [
+        "on-device AI",
+        "Android",
+        "privacy",
+        "offline",
+        "Pixel features",
+        "Scam Detection",
+        "Recorder summaries"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "ml-kit-genai",
+      "name": "ML Kit GenAI APIs",
+      "vendor": "Google",
+      "category": "sdk",
+      "ecosystem": "google",
+      "description": "שכבת API ברמת Android מעל Gemini Nano — חשיפת יכולות GenAI לאפליקציות צד-שלישי: Summarization, Proofreading, Rewriting, Image Description. כחלק מ-Google Play services.",
+      "item_type": "sdk",
+      "ecosystem_branch": "Open / On-Device Models",
+      "status": "official",
+      "access_path": "Android SDK (Google Play services)",
+      "surfaces": [
+        "sdk",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (Google Play services)",
+          "access_key": "free",
+          "features": [
+            "Summarization",
+            "Proofreading",
+            "Image description",
+            "On-device privacy"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:sdk",
+        "capability:on-device",
+        "capability:text-generation",
+        "capability:image-analysis",
+        "access:free-tier",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "Android GenAI",
+        "on-device APIs",
+        "summarization",
+        "proofreading",
+        "image description",
+        "mobile AI"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-suite",
+      "name": "Firebase (Suite)",
+      "vendor": "Google",
+      "category": "developer_platform",
+      "ecosystem": "google",
+      "description": "פלטפורמת פיתוח אפליקציות ווב ומובייל של Google עם 20+ מוצרים — Firestore, Auth, Functions, Hosting, FCM, Analytics, Crashlytics ועוד. כוללת Gemini integration ב-console.",
+      "item_type": "developer_platform",
+      "ecosystem_branch": "Firebase",
+      "status": "official",
+      "access_path": "Firebase Console (free Spark tier + pay-as-you-go Blaze)",
+      "surfaces": [
+        "api",
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "Spark (חינמי נדיב)",
+          "access_key": "free",
+          "features": [
+            "Auth",
+            "Firestore",
+            "FCM",
+            "Hosting",
+            "Crashlytics"
+          ]
+        },
+        {
+          "level": "api_payg",
+          "price": "Blaze pay-as-you-go",
+          "access_key": "api_key",
+          "features": [
+            "All products",
+            "Functions",
+            "Test Lab",
+            "Unlimited usage"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:developer-platform",
+        "capability:agents",
+        "access:free-tier",
+        "access:api-key",
+        "audience:developer",
+        "compare:aws-amplify",
+        "compare:supabase"
+      ],
+      "use_cases": [
+        "mobile development",
+        "web apps",
+        "backend",
+        "real-time database",
+        "authentication",
+        "hosting",
+        "analytics",
+        "serverless"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-workspace-suite",
+      "name": "Google Workspace",
+      "vendor": "Google",
+      "category": "workspace_suite",
+      "ecosystem": "google",
+      "description": "חבילת פרודוקטיביות וענן של Google — Gmail, Drive, Docs/Sheets/Slides, Calendar, Chat, Meet, Forms, Sites, Keep, Tasks, Voice, AppSheet, Admin, Vault ועוד. לשעבר G Suite.",
+      "item_type": "productivity_suite",
+      "ecosystem_branch": "Google Workspace",
+      "status": "official",
+      "access_path": "Free (consumer) / Business Starter $6/seat / Business Plus $18/seat / Enterprise custom",
+      "surfaces": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (15GB)",
+          "access_key": "free",
+          "features": [
+            "Gmail",
+            "Drive 15GB",
+            "Docs/Sheets/Slides",
+            "Meet (basic)"
+          ]
+        },
+        {
+          "level": "business",
+          "price": "$6-18/seat/month",
+          "access_key": "web_sub",
+          "features": [
+            "Custom domain",
+            "Admin",
+            "More storage",
+            "Meet advanced"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "Custom",
+          "access_key": "web_sub",
+          "features": [
+            "Vault",
+            "DLP",
+            "Advanced security",
+            "Gemini"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:workspace-app",
+        "capability:document-analysis",
+        "capability:workspace-integration",
+        "access:free-tier",
+        "access:subscription",
+        "audience:consumer",
+        "audience:enterprise",
+        "compare:microsoft-365",
+        "compare:notion"
+      ],
+      "use_cases": [
+        "email",
+        "documents",
+        "spreadsheets",
+        "presentations",
+        "video meetings",
+        "team communication",
+        "file storage"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "notebooklm-google",
+      "name": "Google Drive",
+      "vendor": "Google",
+      "category": "storage_service",
+      "ecosystem": "google",
+      "description": "שירות אחסון ושיתוף קבצים בענן של Google — שכבת האחסון ל-Workspace, NotebookLM ו-Gemini Extensions. 15GB חינמי, One Plans עד 2TB+.",
+      "item_type": "storage_service",
+      "ecosystem_branch": "Google Workspace",
+      "status": "official",
+      "access_path": "Google Account (free 15GB)",
+      "surfaces": [
+        "web",
+        "mobile",
+        "desktop"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (15GB)",
+          "access_key": "free",
+          "features": [
+            "15GB",
+            "File sharing",
+            "Desktop sync"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$2.99/month (100GB)",
+          "access_key": "web_sub",
+          "features": [
+            "100GB+",
+            "Priority support"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:storage-service",
+        "capability:document-analysis",
+        "capability:workspace-integration",
+        "access:free-tier",
+        "access:subscription",
+        "audience:consumer",
+        "audience:enterprise",
+        "compare:onedrive",
+        "compare:dropbox",
+        "compare:icloud"
+      ],
+      "use_cases": [
+        "file storage",
+        "sharing",
+        "collaboration",
+        "document sync",
+        "backup",
+        "Workspace storage"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-docs-suite",
+      "name": "Google Docs / Sheets / Slides",
+      "vendor": "Google",
+      "category": "productivity_app",
+      "ecosystem": "google",
+      "description": "סוויטת עריכת מסמכים של Google — Docs (עיבוד תמלילים), Sheets (גיליונות), Slides (מצגות). שיתוף real-time, אינטגרציה עם Gemini לכתיבה/ניתוח ו-Workspace automation.",
+      "item_type": "productivity_app",
+      "ecosystem_branch": "Google Workspace",
+      "status": "official",
+      "access_path": "Google Account (free) / Workspace",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי",
+          "access_key": "free",
+          "features": [
+            "Real-time collab",
+            "Comments",
+            "Revision history",
+            "Gemini (basic)"
+          ]
+        },
+        {
+          "level": "business",
+          "price": "Workspace tier",
+          "access_key": "web_sub",
+          "features": [
+            "Full Gemini",
+            "Advanced features"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:workspace-app",
+        "capability:document-analysis",
+        "capability:text-generation",
+        "capability:workspace-integration",
+        "access:free-tier",
+        "audience:consumer",
+        "audience:enterprise",
+        "compare:microsoft-word",
+        "compare:notion",
+        "compare:claude-artifacts"
+      ],
+      "use_cases": [
+        "document editing",
+        "collaborative writing",
+        "spreadsheet",
+        "presentations",
+        "Gemini writing",
+        "real-time collaboration"
+      ],
+      "recommendation_relevance": "critical",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-meet",
+      "name": "Google Meet",
+      "vendor": "Google",
+      "category": "communication_app",
+      "ecosystem": "google",
+      "description": "פלטפורמת וידאו קונפרנס של Google — כולל AI summaries, transcription, noise cancellation ו-Gemini summaries לפגישות. לשעבר Hangouts Meet.",
+      "item_type": "communication_app",
+      "ecosystem_branch": "Google Workspace",
+      "status": "official",
+      "access_path": "Google Account (free) / Workspace",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (60 min limit, 3 users+)",
+          "access_key": "free",
+          "features": [
+            "HD video",
+            "Screen sharing",
+            "Chat"
+          ]
+        },
+        {
+          "level": "business",
+          "price": "Workspace tier",
+          "access_key": "web_sub",
+          "features": [
+            "No time limit",
+            "100+ users",
+            "AI summaries",
+            "Recording"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:workspace-app",
+        "capability:voice-interface",
+        "capability:text-generation",
+        "access:free-tier",
+        "access:subscription",
+        "audience:consumer",
+        "audience:enterprise",
+        "compare:zoom",
+        "compare:teams"
+      ],
+      "use_cases": [
+        "video meetings",
+        "AI meeting summaries",
+        "transcription",
+        "noise cancellation",
+        "screen sharing"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-appsheet",
+      "name": "Google AppSheet",
+      "vendor": "Google",
+      "category": "no_code_platform",
+      "ecosystem": "google",
+      "description": "פלטפורמת No-Code לבניית אפליקציות עסקיות מ-Google Sheets, Drive ו-APIs — ללא קוד. חלק מ-Workspace. המתחרה ל-Lovable, Bolt.new.",
+      "item_type": "no_code_platform",
+      "ecosystem_branch": "Google Workspace",
+      "status": "official",
+      "access_path": "Workspace add-on (some free tiers)",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "Limited free tier",
+          "access_key": "free",
+          "features": [
+            "Basic apps",
+            "Sheets integration"
+          ]
+        },
+        {
+          "level": "business",
+          "price": "Workspace add-on",
+          "access_key": "web_sub",
+          "features": [
+            "Unlimited apps",
+            "Advanced automations",
+            "AI features"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "type:no-code-platform",
+        "capability:agents",
+        "access:subscription",
+        "audience:consumer",
+        "audience:enterprise",
+        "compare:lovable",
+        "compare:bolt-new",
+        "compare:airtable"
+      ],
+      "use_cases": [
+        "no-code apps",
+        "Sheets-based apps",
+        "automation",
+        "mobile apps",
+        "business apps"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-apps-script",
+      "name": "Google Apps Script",
+      "vendor": "Google",
+      "category": "automation_tool",
+      "ecosystem": "google",
+      "description": "פלטפורמת סקריפטינג מבוססת JavaScript ב-Workspace — אינטגרציה עם Gmail, Drive, Docs, Sheets, Calendar, Analytics ועוד. RAD לבניית automations ו-add-ons ללא שרת.",
+      "item_type": "automation_tool",
+      "ecosystem_branch": "Automation & Dev Tools",
+      "status": "official",
+      "access_path": "Google Account (free, bundled with Workspace)",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי עם Google account",
+          "access_key": "free",
+          "features": [
+            "All Google APIs",
+            "Triggers",
+            "Web Apps",
+            "Add-ons"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:automation-tool",
+        "capability:workspace-integration",
+        "access:free-tier",
+        "audience:developer",
+        "compare:claude-api",
+        "compare:zapier",
+        "compare:n8n"
+      ],
+      "use_cases": [
+        "Workspace automation",
+        "custom functions",
+        "Google API integration",
+        "add-ons",
+        "triggers",
+        "webhooks"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "imagefx-google",
+      "name": "ImageFX (Google Labs)",
+      "vendor": "Google",
+      "category": "creative_ai",
+      "ecosystem": "google",
+      "description": "כלי יצירת תמונות ניסיוני של Google Labs — מבוסס Imagen. כולל Brush-based editing ו-My Library. זמין חינמית ב-labs.google.",
+      "item_type": "creative_ai",
+      "ecosystem_branch": "Labs & Experiments",
+      "status": "experimental",
+      "access_path": "labs.google/experiments/imagefx (free, limited)",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (waitlist/limits)",
+          "access_key": "free",
+          "features": [
+            "Imagen model",
+            "Brush editing",
+            "My Library"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:experiment-lab",
+        "capability:image-generation",
+        "access:free-tier",
+        "audience:consumer",
+        "audience:content-creator",
+        "compare:dalle3",
+        "compare:midjourney",
+        "compare:stable-diffusion"
+      ],
+      "use_cases": [
+        "image generation",
+        "AI art",
+        "Imagen",
+        "text-to-image",
+        "photo editing",
+        "Google Labs"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "videofx-google",
+      "name": "VideoFX / Veo (Google Labs)",
+      "vendor": "Google",
+      "category": "creative_ai",
+      "ecosystem": "google",
+      "description": "כלי יצירת וידאו ניסיוני של Google Labs — מבוסס Veo (מודל וידאו של Google DeepMind). יצירת וידאו מטקסט. זמין ב-labs.google.",
+      "item_type": "creative_ai",
+      "ecosystem_branch": "Labs & Experiments",
+      "status": "experimental",
+      "access_path": "labs.google/experiments/videofx (free, waitlist, country-limited)",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (waitlist)",
+          "access_key": "free",
+          "features": [
+            "Veo model",
+            "Text-to-video",
+            "Labs"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:experiment-lab",
+        "capability:video-generation",
+        "access:free-tier",
+        "audience:content-creator",
+        "compare:runway",
+        "compare:sora",
+        "compare:kling"
+      ],
+      "use_cases": [
+        "video generation",
+        "text-to-video",
+        "Veo",
+        "Google Labs",
+        "cinematic AI",
+        "creative video"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "musicfx-google",
+      "name": "MusicFX (Google Labs)",
+      "vendor": "Google",
+      "category": "creative_ai",
+      "ecosystem": "google",
+      "description": "כלי יצירת מוזיקה ניסיוני של Google Labs — יצירת מוזיקה וצליל מטקסט, כולל DJ Mode.",
+      "item_type": "creative_ai",
+      "ecosystem_branch": "Labs & Experiments",
+      "status": "experimental",
+      "access_path": "labs.google/experiments/musicfx (free, labs)",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי",
+          "access_key": "free",
+          "features": [
+            "Text-to-music",
+            "DJ Mode"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:experiment-lab",
+        "capability:audio-generation",
+        "access:free-tier",
+        "audience:content-creator",
+        "compare:suno",
+        "compare:udio"
+      ],
+      "use_cases": [
+        "music generation",
+        "AI music",
+        "text-to-music",
+        "DJ Mode",
+        "Google Labs",
+        "creative audio"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "synthed-google",
+      "name": "SynthID (Google)",
+      "vendor": "Google",
+      "category": "safety_tool",
+      "ecosystem": "google",
+      "description": "כלי watermarking בלתי נראה למדיה שנוצרה ע\"י AI — חלק מ-VideoFX/ImageFX של Google Labs. מסמן תוכן AI ללא השפעה על האיכות.",
+      "item_type": "safety_tool",
+      "ecosystem_branch": "Labs & Experiments",
+      "status": "official",
+      "access_path": "Integrated in VideoFX/ImageFX (no direct UI)",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "מובנה בכלים",
+          "access_key": "free",
+          "features": [
+            "Invisible watermark",
+            "Video/Image support"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:framework",
+        "capability:agents",
+        "access:free-tier",
+        "audience:developer",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "AI watermarking",
+        "content authenticity",
+        "media labeling",
+        "responsible AI",
+        "deepfake detection"
+      ],
+      "recommendation_relevance": "secondary",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-search",
+      "name": "Google Search + AI Overviews",
+      "vendor": "Google",
+      "category": "search_engine",
+      "ecosystem": "google",
+      "description": "מנוע החיפוש של Google עם AI Overviews (תשובות גנרטיביות מעל תוצאות) — שילוב Gemini לסיכום תוצאות חיפוש ישירות בדף. הכי נפוץ בעולם.",
+      "item_type": "search_engine",
+      "ecosystem_branch": "Consumer / Core",
+      "status": "official",
+      "access_path": "google.com (free)",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי",
+          "access_key": "free",
+          "features": [
+            "Web search",
+            "AI Overviews",
+            "Gemini integration",
+            "1 billion+ pages"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:assistant-app",
+        "capability:web-search",
+        "capability:text-generation",
+        "access:free-tier",
+        "audience:consumer",
+        "compare:perplexity",
+        "compare:bing-copilot"
+      ],
+      "use_cases": [
+        "web search",
+        "AI summaries",
+        "information retrieval",
+        "AI Overviews",
+        "SGE"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "youtube-google",
+      "name": "YouTube",
+      "vendor": "Google",
+      "category": "media_platform",
+      "ecosystem": "google",
+      "description": "פלטפורמת הוידאו הגדולה בעולם — כולל YouTube Premium, YouTube Music, AI features כמו summaries ו-dubbing. ממוין לעתים ב-Gemini Extensions.",
+      "item_type": "media_platform",
+      "ecosystem_branch": "Media & Geo",
+      "status": "official",
+      "access_path": "youtube.com (free) / YouTube Premium ($13.99/month)",
+      "surfaces": [
+        "web",
+        "mobile"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (עם פרסומות)",
+          "access_key": "free",
+          "features": [
+            "Video viewing",
+            "Upload",
+            "Search",
+            "AI summaries"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$13.99/month",
+          "access_key": "web_sub",
+          "features": [
+            "Ad-free",
+            "Background play",
+            "YouTube Music",
+            "Downloads"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:media-platform",
+        "capability:video-analysis",
+        "capability:audio-analysis",
+        "access:free-tier",
+        "access:subscription",
+        "audience:consumer",
+        "audience:content-creator",
+        "compare:tiktok",
+        "compare:vimeo"
+      ],
+      "use_cases": [
+        "video hosting",
+        "content creation",
+        "video search",
+        "YouTube Music",
+        "live streaming",
+        "AI dubbing"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-maps",
+      "name": "Google Maps",
+      "vendor": "Google",
+      "category": "mapping_service",
+      "ecosystem": "google",
+      "description": "שירות מיפוי ומסלול של Google — כולל Maps API לפיתוח, Street View, Navigation ו-Business listings. Gemini extensions מאפשרים חיפוש מקומות מתוך Gemini.",
+      "item_type": "mapping_service",
+      "ecosystem_branch": "Media & Geo",
+      "status": "official",
+      "access_path": "Google Account (free) / Maps API (paid per request)",
+      "surfaces": [
+        "web",
+        "mobile",
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (consumer)",
+          "access_key": "free",
+          "features": [
+            "Navigation",
+            "Search",
+            "Street View"
+          ]
+        },
+        {
+          "level": "api_payg",
+          "price": "$0-7 per 1000 requests",
+          "access_key": "api_key",
+          "features": [
+            "Geocoding",
+            "Directions",
+            "Places API",
+            "Static maps"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:assistant-app",
+        "access:free-tier",
+        "access:api-key",
+        "audience:consumer",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "navigation",
+        "location search",
+        "business discovery",
+        "directions",
+        "Maps API",
+        "route planning"
+      ],
+      "recommendation_relevance": "secondary",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-analytics-suite",
+      "name": "Google Analytics 4",
+      "vendor": "Google",
+      "category": "analytics_tool",
+      "ecosystem": "google",
+      "description": "פלטפורמת web/app analytics של Google — GA4 עם machine learning לתחזיות, anomaly detection ו-BigQuery integration. זמינה חינמית ועם tier 360 לארגונים.",
+      "item_type": "analytics_tool",
+      "ecosystem_branch": "Ads & Commerce / Firebase",
+      "status": "official",
+      "access_path": "Google Account (free) / Analytics 360 (paid)",
+      "surfaces": [
+        "web",
+        "api"
+      ],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי",
+          "access_key": "free",
+          "features": [
+            "GA4",
+            "ML insights",
+            "BigQuery export (limited)",
+            "App tracking"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "Analytics 360 (custom)",
+          "access_key": "web_sub",
+          "features": [
+            "Full BigQuery",
+            "SLAs",
+            "Dedicated support"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "type:analytics-tool",
+        "capability:data-analysis",
+        "access:free-tier",
+        "access:subscription",
+        "audience:developer",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "web analytics",
+        "user behavior",
+        "conversion tracking",
+        "ML predictions",
+        "BigQuery",
+        "event tracking"
+      ],
+      "recommendation_relevance": "important",
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "pending",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
     }
   ],
   "backfill_queue": [
@@ -3221,7 +7595,7 @@
     }
   ],
   "stats": {
-    "total_tools": 42,
+    "total_tools": 106,
     "tools_with_wiki": 33,
     "tools_with_research": 5,
     "pending_backfill": 4,
@@ -3231,7 +7605,7 @@
     "tools_researched": 9,
     "tools_update_pending": 1,
     "tools_needs_review": 2,
-    "tools_inventory_only": 24,
+    "tools_inventory_only": 88,
     "open_review_items": 2,
     "active_sources": 4
   },
@@ -3335,6 +7709,39 @@
       "confidence": 0.85,
       "version": "1.0",
       "notes": "PDF מחקר מקיף מאת etay. חלקים ג-ו: שכבות עמוקות, coverage checklist, missing items, עדיפויות."
+    },
+    {
+      "id": "dr-005",
+      "tool_id": "google",
+      "ecosystem_id": "google",
+      "research_type": "ecosystem_mapping",
+      "research_date": "2026-04-21",
+      "researcher": "etay",
+      "sources_used": [
+        {
+          "type": "pdf",
+          "title": "Google Ecosystem – Broad Inventory and Structured Map",
+          "url": null,
+          "notes": "PDF 14 עמ': 74-item inventory table, 10 branches, subscription map, legacy layer"
+        }
+      ],
+      "key_findings": [
+        "אקוסיסטם Google כולל 10+ ענפים: Consumer AI, Research Tools, AI Platforms, Open Models, Firebase, Workspace, Automation, OS/Devices, Media/Geo, Labs",
+        "Gemini — המותג המאוחד ל-AI של Google (לשעבר Bard/Duet AI) — קיים ב-5 צורות: consumer, Advanced, for Workspace, Nano, API",
+        "NotebookLM — כלי מחקר ייחודי עם Audio Overviews, Mind Maps, 50 מקורות — מתחרה ישיר ל-Claude Projects KB",
+        "Vertex AI — פלטפורמת ML מאוחדת עם 200+ מודלים, AutoML, MLOps — מתחרה ל-Bedrock",
+        "Gemma — משפחת open models חינמיים (Apache 2.0) — Gemma 4 כולל reasoning ו-agentic workflows",
+        "Gemini Nano — on-device model ל-Android דרך AICore — מתחרה ל-Apple Intelligence",
+        "Firebase — 20+ מוצרי פיתוח אפליקציות עם Gemini integration מובנה",
+        "Google Workspace — 15+ אפליקציות עם Gemini side panel, Workspace Studio לאוטומציות agentic",
+        "Google Labs FX — VideoFX (Veo), ImageFX (Imagen), MusicFX, Flow — כלי creative AI ניסיוניים חינמיים",
+        "Legacy: Bard→Gemini, G Suite→Workspace, Hangouts→Chat+Meet, 299 מוצרים הופסקו",
+        "Subscription tiers: Free / Google One ($2.99+) / AI Premium $19.99 / Workspace $6-18/seat / Enterprise custom",
+        "Blind spots: ~35 Labs experiments, Enterprise-only features, regional services, internal dev tools"
+      ],
+      "confidence": 0.83,
+      "version": "1.0",
+      "notes": "מבוסס על PDF מחקר מקיף. סקשן 3 מכיל 74-item inventory table מלאה."
     }
   ],
   "update_records": [
