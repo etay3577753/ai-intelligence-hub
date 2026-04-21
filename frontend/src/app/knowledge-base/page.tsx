@@ -3,24 +3,22 @@
 import { useEffect, useState, useMemo } from "react";
 import Link from "next/link";
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// ─── Types ─────────────────────────────────────────────────────────────────────
 
 type ResearchStatus =
   | "inventory_only" | "research_in_progress" | "deep_research_complete"
   | "update_pending" | "needs_review" | "deprecated";
 
-interface FreshnessInfo  { last_verified: string; confidence: number; freshness_score: number; notes?: string }
-interface ToolRelation   { tool_id: string; type: string; note?: string }
-interface SubscriptionTier { level: string; price: string; access_key: string; features: string[] }
-
 interface ToolRecord {
   id: string; name: string; vendor: string; category: string; ecosystem: string;
-  description: string; surfaces: string[]; relations: ToolRelation[];
-  subscription_tiers: SubscriptionTier[]; primary_access_key: string;
-  tags: string[]; use_cases: string[]; wiki_file?: string | null;
-  research_status: ResearchStatus; last_research_date: string | null;
-  has_pending_updates: boolean; research_record_ids: string[];
-  deep_research_status: string; freshness: FreshnessInfo;
+  description: string; surfaces: string[]; relations: { tool_id: string; type: string; note?: string }[];
+  subscription_tiers: { level: string; price: string; access_key: string; features?: string[] }[];
+  primary_access_key: string; tags: string[]; use_cases: string[];
+  wiki_file?: string | null; research_status: ResearchStatus;
+  last_research_date: string | null; has_pending_updates: boolean;
+  research_record_ids: string[];
+  deep_research_status: string;
+  freshness: { score?: number; freshness_score?: number; confidence?: number; last_verified?: string; last_checked?: string };
 }
 
 interface EcosystemBranch {
@@ -31,8 +29,7 @@ interface EcosystemBranch {
 interface DeepResearchRecord {
   id: string; tool_id: string; ecosystem_id: string; research_date: string;
   researcher: string; sources_used: string[]; summary: string;
-  key_findings: string[]; confidence: number; notebooklm_url?: string | null;
-  version: number;
+  key_findings: string[]; confidence: number; notebooklm_url?: string | null; version: number;
 }
 
 interface UpdateRecord {
@@ -76,69 +73,154 @@ interface KBInventory {
   backfill_queue: BackfillItem[]; stats: KBStats;
 }
 
-// ─── Status config ────────────────────────────────────────────────────────────
+// ─── Helpers ───────────────────────────────────────────────────────────────────
 
 const STATUS_CFG: Record<ResearchStatus, { label: string; icon: string; color: string; bg: string; border: string; priority: number }> = {
-  needs_review:           { label: "דורש בדיקה",    icon: "🔴", color: "text-red-300",    bg: "bg-red-950/50",    border: "border-red-700/60",    priority: 5 },
-  update_pending:         { label: "עדכון ממתין",   icon: "⚠️", color: "text-amber-300",  bg: "bg-amber-950/50",  border: "border-amber-700/60",  priority: 4 },
-  research_in_progress:   { label: "בתהליך מחקר",  icon: "🔬", color: "text-blue-300",   bg: "bg-blue-950/50",   border: "border-blue-700/60",   priority: 3 },
-  deep_research_complete: { label: "מחקר עמוק",     icon: "✅", color: "text-green-300",  bg: "bg-green-950/50",  border: "border-green-700/60",  priority: 2 },
-  inventory_only:         { label: "מלאי בלבד",     icon: "📦", color: "text-gray-400",   bg: "bg-gray-800/50",   border: "border-gray-700/60",   priority: 1 },
-  deprecated:             { label: "מיושן",         icon: "⚰️", color: "text-gray-600",   bg: "bg-gray-900/50",   border: "border-gray-800/60",   priority: 0 },
+  needs_review:           { label: "דורש בדיקה",        icon: "🔴", color: "text-red-300",    bg: "bg-red-950/50",    border: "border-red-700/60",    priority: 5 },
+  update_pending:         { label: "עדכון ממתין",        icon: "⚠️", color: "text-amber-300",  bg: "bg-amber-950/50",  border: "border-amber-700/60",  priority: 4 },
+  research_in_progress:   { label: "בתהליך מחקר",       icon: "🔬", color: "text-blue-300",   bg: "bg-blue-950/50",   border: "border-blue-700/60",   priority: 3 },
+  deep_research_complete: { label: "מחקר עמוק הושלם",   icon: "✅", color: "text-green-300",  bg: "bg-green-950/50",  border: "border-green-700/60",  priority: 2 },
+  inventory_only:         { label: "ממתין למחקר עמוק",  icon: "📦", color: "text-gray-400",   bg: "bg-gray-800/50",   border: "border-gray-700/60",   priority: 1 },
+  deprecated:             { label: "מיושן / Legacy",     icon: "⚰️", color: "text-gray-600",   bg: "bg-gray-900/50",   border: "border-gray-800/60",   priority: 0 },
 };
 
-const CLASSIFICATION_COLORS: Record<string, string> = {
-  pricing_change:  "bg-yellow-900/50 text-yellow-300 border-yellow-700",
-  new_feature:     "bg-blue-900/50 text-blue-300 border-blue-700",
-  model_update:    "bg-purple-900/50 text-purple-300 border-purple-700",
-  api_change:      "bg-orange-900/50 text-orange-300 border-orange-700",
-  deprecation:     "bg-red-900/50 text-red-300 border-red-700",
-  new_tool:        "bg-cyan-900/50 text-cyan-300 border-cyan-700",
-  security_update: "bg-red-900/70 text-red-200 border-red-600",
-  acquisition:     "bg-pink-900/50 text-pink-300 border-pink-700",
-  other:           "bg-gray-800/50 text-gray-400 border-gray-600",
+// Tag prefix definitions
+const TAG_PREFIX_CFG: Record<string, { label: string; color: string; bg: string; border: string }> = {
+  "type":       { label: "סוג",              color: "text-violet-300",  bg: "bg-violet-950/40",  border: "border-violet-700/50" },
+  "capability": { label: "יכולת",            color: "text-blue-300",    bg: "bg-blue-950/40",    border: "border-blue-700/50" },
+  "audience":   { label: "קהל יעד",          color: "text-green-300",   bg: "bg-green-950/40",   border: "border-green-700/50" },
+  "access":     { label: "גישה",             color: "text-cyan-300",    bg: "bg-cyan-950/40",    border: "border-cyan-700/50" },
+  "compare":    { label: "מקבילים",          color: "text-amber-300",   bg: "bg-amber-950/40",   border: "border-amber-700/50" },
+  "misc":       { label: "תגיות",            color: "text-gray-400",    bg: "bg-gray-800/40",    border: "border-gray-700/50" },
 };
 
-const SEVERITY_COLORS: Record<string, string> = {
-  low:    "text-yellow-400 bg-yellow-950/40 border-yellow-700/50",
-  medium: "text-orange-400 bg-orange-950/40 border-orange-700/50",
-  high:   "text-red-400 bg-red-950/40 border-red-700/50",
+const TAG_VALUE_LABELS: Record<string, string> = {
+  "llm-model": "מודל שפה", "assistant-app": "אפליקציית עוזר", "api": "API", "sdk": "SDK",
+  "connector": "חיבור", "developer-platform": "פלטפורמת פיתוח", "workspace-app": "כלי Workspace",
+  "browser-extension": "הרחבת דפדפן", "desktop-app": "דסקטופ", "mobile-app": "אפליקציית מובייל",
+  "marketplace": "Marketplace", "protocol": "פרוטוקול", "no-code-platform": "No-Code",
+  "automation-tool": "אוטומציה", "research-tool": "כלי מחקר", "storage-service": "אחסון",
+  "experiment-lab": "ניסויי", "framework": "Framework", "subscription": "מנוי",
+  "text-generation": "יצירת טקסט", "code-generation": "יצירת קוד", "image-generation": "יצירת תמונות",
+  "video-generation": "יצירת וידאו", "audio-generation": "יצירת אודיו", "image-analysis": "ניתוח תמונות",
+  "document-analysis": "ניתוח מסמכים", "web-search": "חיפוש ווב", "long-context": "הקשר ארוך",
+  "agents": "Agents", "memory-persistent": "זיכרון מתמיד", "knowledge-base": "בסיס ידע",
+  "function-calling": "Function Calling", "batch-processing": "עיבוד אצווה", "scheduling": "תזמון",
+  "browser-automation": "אוטומציית דפדפן", "on-device": "On-Device", "reasoning": "חשיבה",
+  "multimodal": "Multimodal", "real-time-streaming": "Streaming בזמן אמת",
+  "workspace-integration": "אינטגרציית Workspace", "data-analysis": "ניתוח נתונים",
+  "consumer": "צרכן", "developer": "מפתח", "enterprise": "ארגון", "researcher": "חוקר",
+  "data-scientist": "מדען נתונים", "content-creator": "יוצר תוכן",
+  "free-tier": "חינמי", "api-key": "מפתח API", "subscription": "מנוי", "enterprise-only": "Enterprise בלבד",
+  "open-source": "קוד פתוח", "device-bundled": "מובנה במכשיר",
 };
 
-const CATEGORY_ICONS: Record<string, string> = {
-  chat_assistant: "🤖", code_assistant: "💻", ide: "🖥️", web_builder: "🌐",
-  automation: "⚙️", agent_framework: "🤝", image_generation: "🖼️",
-  video_generation: "🎬", voice_generation: "🎙️", music_generation: "🎵",
-  research: "🔬", writing: "✍️", data_analysis: "📊", local_model: "🏠",
-  browser_agent: "🌍", protocol: "🔗", platform: "🏗️", company: "🏢",
+function parseTagGroups(tags: string[]) {
+  const groups: Record<string, string[]> = {};
+  for (const tag of tags) {
+    const idx = tag.indexOf(":");
+    const prefix = idx > 0 ? tag.slice(0, idx) : "misc";
+    const value  = idx > 0 ? tag.slice(idx + 1) : tag;
+    groups[prefix] = [...(groups[prefix] ?? []), value];
+  }
+  return Object.entries(groups).sort(([a], [b]) => {
+    const order = ["type","capability","audience","access","compare","misc"];
+    return order.indexOf(a) - order.indexOf(b);
+  });
+}
+
+function tagLabel(value: string) {
+  return TAG_VALUE_LABELS[value] ?? value.replace(/-/g, " ");
+}
+
+// Ecosystem → branch mapping
+function getToolBranch(tool: ToolRecord): string {
+  const id  = tool.id;
+  const eco = tool.ecosystem;
+
+  if (eco === "google") {
+    if (id.startsWith("firebase-") || ["cloud-firestore","firebase-realtime-database","firebase-analytics","firebase-ab-testing"].includes(id))
+      return "🔥 Firebase";
+    if (["gmail","google-drive","google-docs","google-sheets","google-slides","google-chat",
+         "google-calendar","google-forms","google-keep","google-tasks","google-sites","google-vault",
+         "google-vids","google-workspace-suite","google-docs-suite","workspace-admin-console",
+         "google-meet","google-appsheet","google-apps-script","google-voice"].includes(id))
+      return "💼 Google Workspace";
+    if (id.startsWith("gemini") || id === "google-ai-studio" || id.startsWith("notebooklm") || id === "notebooks-in-gemini")
+      return "🤖 Gemini & AI";
+    if (id.startsWith("vertex") || id === "gemini-api" || ["vision-ai-api","cloud-translation-api","speech-to-text-api","text-to-speech-api"].includes(id))
+      return "☁️ Vertex AI & APIs";
+    if (["gemma-family","gemma4-local","gemini-nano","ml-kit-genai","paligemma","medgemma"].includes(id))
+      return "🔓 מודלים פתוחים";
+    if (id.startsWith("google-cloud") || id.startsWith("cloud-") || ["bigquery","google-colab","kaggle","vertex-automl","vertex-workbench","vertex-mlops"].includes(id))
+      return "🏗️ Cloud Infrastructure";
+    if (["android-os","chrome-browser","chromeos","pixel-phones","nest-devices"].includes(id))
+      return "📱 OS & מכשירים";
+    if (["google-ads","google-adsense","google-admob","google-analytics-4","google-tag-manager","google-merchant-center","google-analytics-suite"].includes(id))
+      return "📢 פרסום & Analytics";
+    if (["imagefx-google","videofx-google","musicfx-google","flow-google","whisk-google","synthed-google","google-experiments-portal","google-labs-hub","workspace-studio-google"].includes(id))
+      return "🧪 Labs & ניסויים";
+    if (["google-search","youtube-google","google-maps","google-earth","google-photos","google-news","youtube-music","youtube-tv"].includes(id))
+      return "🌐 מדיה & Geo";
+    return "🗂️ אחר";
+  }
+
+  if (eco === "anthropic") {
+    if (["claude-3-opus","claude-3-sonnet","claude-3-haiku","claude-35-sonnet","claude-2-legacy","constitutional-ai"].includes(id))
+      return "🧠 מודלי Claude";
+    if (id.startsWith("connector-"))
+      return "🔌 Connectors";
+    if (id.startsWith("marketplace-") || id === "claude-marketplace")
+      return "🏪 Marketplace";
+    if (id.startsWith("claude-plan-"))
+      return "💳 תוכניות & מחיר";
+    if (["claude-code","claude-code-vscode","claude-code-chrome-integration","claude-plan-mode",
+         "claude-checkpoints","claude-claude-md","claude-agent-sdk"].includes(id))
+      return "⌨️ Claude Code";
+    if (["anthropic-sdk-python","anthropic-sdk-typescript","anthropic-sdk-go","anthropic-sdk-java","anthropic-sdk-ruby",
+         "anthropic-api","message-batches-api","tool-use-api","prompt-caching-api","anthropic-console",
+         "claude-workbench","mcp-protocol","anthropic-academy"].includes(id))
+      return "🛠️ Developer Platform";
+    if (["claude-workspaces","claude-projects","claude-knowledge-base","contextual-retriever",
+         "claude-memory-enterprise","claude-memory-consumer","claude-artifacts"].includes(id))
+      return "💾 Storage & Memory";
+    if (["claude-zero-retention","claude-enterprise-sso","claude-on-bedrock","claude-on-vertex"].includes(id))
+      return "🔒 Enterprise & Cloud";
+    if (["claude-ai-web","claude-ios-app","claude-desktop","claude-in-chrome","claude-cowork",
+         "claude-for-excel","claude-for-powerpoint","claude-computer-use","claude-projects"].includes(id))
+      return "💬 Claude Apps";
+    return "🗂️ אחר";
+  }
+
+  return tool.category;
+}
+
+const ECO_COLORS: Record<string, string> = {
+  anthropic:      "border-orange-500/40 bg-orange-950/20",
+  google:         "border-blue-500/40 bg-blue-950/20",
+  openai:         "border-green-500/40 bg-green-950/20",
+  microsoft:      "border-sky-500/40 bg-sky-950/20",
+  "web-builders": "border-purple-500/40 bg-purple-950/20",
+  "ide-code":     "border-cyan-500/40 bg-cyan-950/20",
+  automation:     "border-yellow-500/40 bg-yellow-950/20",
+  "research-writing": "border-teal-500/40 bg-teal-950/20",
+  creative:       "border-pink-500/40 bg-pink-950/20",
+  israeli:        "border-blue-400/40 bg-blue-900/20",
+  local:          "border-gray-500/40 bg-gray-900/30",
 };
 
-const TAG_COLORS: Record<string, string> = {
-  "beginner-friendly": "bg-green-900/50 text-green-300 border-green-700",
-  "code-required":     "bg-purple-900/50 text-purple-300 border-purple-700",
-  "no-code":           "bg-cyan-900/50 text-cyan-300 border-cyan-700",
-  "privacy-safe":      "bg-emerald-900/50 text-emerald-300 border-emerald-700",
-  "hebrew-support":    "bg-yellow-900/50 text-yellow-300 border-yellow-700",
-  "israeli-product":   "bg-amber-900/50 text-amber-300 border-amber-700",
-  "free-tier-strong":  "bg-teal-900/50 text-teal-300 border-teal-700",
-  "production-ready":  "bg-indigo-900/50 text-indigo-300 border-indigo-700",
-  "experimental":      "bg-red-900/50 text-red-300 border-red-700",
-  "terminal-required": "bg-gray-800/70 text-gray-400 border-gray-600",
+const ECO_ICON: Record<string, string> = {
+  anthropic: "🟠", google: "🔵", openai: "🟢", microsoft: "🔷",
+  "web-builders": "🟣", "ide-code": "💻", automation: "⚙️",
+  "research-writing": "📚", creative: "🎨", israeli: "🇮🇱", local: "🏠",
 };
 
-// ─── Reusable atoms ───────────────────────────────────────────────────────────
-
-function StatusBadge({ status, small }: { status: ResearchStatus; small?: boolean }) {
-  const cfg = STATUS_CFG[status] ?? STATUS_CFG.inventory_only;
-  return (
-    <span className={`inline-flex items-center gap-1 border rounded-full px-2 py-0.5 ${cfg.bg} ${cfg.border} ${cfg.color} ${small ? "text-xs" : "text-xs"}`}>
-      {cfg.icon} {cfg.label}
-    </span>
-  );
+function freshnessScore(t: ToolRecord) {
+  return t.freshness?.freshness_score ?? t.freshness?.score ?? t.freshness?.confidence ?? 0;
 }
 
 function FreshnessBar({ score }: { score: number }) {
-  const pct   = Math.min(100, Math.max(0, Math.round(score)));
+  const pct   = Math.min(100, Math.max(0, Math.round(score * (score > 1 ? 1 : 100))));
   const color = pct >= 70 ? "bg-green-500" : pct >= 40 ? "bg-yellow-500" : "bg-red-500";
   return (
     <div className="flex items-center gap-1.5">
@@ -150,181 +232,442 @@ function FreshnessBar({ score }: { score: number }) {
   );
 }
 
-// ─── TAB 1: Overview ──────────────────────────────────────────────────────────
+function StatusBadge({ status, small }: { status: ResearchStatus; small?: boolean }) {
+  const c = STATUS_CFG[status] ?? STATUS_CFG.inventory_only;
+  return (
+    <span className={`inline-flex items-center gap-1 border rounded-full ${small ? "px-2 py-0.5 text-xs" : "px-3 py-1 text-sm"} ${c.bg} ${c.border} ${c.color}`}>
+      {c.icon} {c.label}
+    </span>
+  );
+}
 
-function OverviewTab({ inv, toolById }: { inv: KBInventory; toolById: Map<string, ToolRecord> }) {
-  const s = inv.stats;
+// ─── Tag Badge ─────────────────────────────────────────────────────────────────
 
-  // Ecosystem research progress
-  const ecoProgress = inv.ecosystems.map(eco => {
-    const tools = eco.tool_ids.map(id => toolById.get(id)).filter(Boolean) as ToolRecord[];
-    const researched = tools.filter(t => t.research_status === "deep_research_complete").length;
-    const pending    = tools.filter(t => t.research_status === "update_pending" || t.research_status === "needs_review").length;
-    const pct        = tools.length ? Math.round((researched / tools.length) * 100) : 0;
-    return { eco, tools: tools.length, researched, pending, pct };
-  });
+function TagBadge({ prefix, value, onClick }: { prefix: string; value: string; onClick?: () => void }) {
+  const cfg = TAG_PREFIX_CFG[prefix] ?? TAG_PREFIX_CFG.misc;
+  return (
+    <button
+      onClick={onClick}
+      disabled={!onClick}
+      className={`inline-flex items-center gap-1 text-xs border rounded-full px-2.5 py-1 ${cfg.bg} ${cfg.border} ${cfg.color} ${onClick ? "cursor-pointer hover:brightness-125 transition-all" : "cursor-default"}`}
+    >
+      <span className="opacity-60">{prefix}:</span>
+      <span>{tagLabel(value)}</span>
+    </button>
+  );
+}
 
-  const recentUpdates = [...inv.update_records]
-    .sort((a, b) => b.detected_at.localeCompare(a.detected_at))
-    .slice(0, 5);
+// ─── Tool Detail Panel ─────────────────────────────────────────────────────────
 
-  const recentResearch = [...inv.deep_research_records]
-    .sort((a, b) => b.research_date.localeCompare(a.research_date))
-    .slice(0, 4);
+function ToolDetailPanel({
+  tool, inv, toolById, onClose, onCompareClick
+}: {
+  tool: ToolRecord;
+  inv: KBInventory;
+  toolById: Map<string, ToolRecord>;
+  onClose: () => void;
+  onCompareClick: (id: string) => void;
+}) {
+  const drs     = inv.deep_research_records.filter(d => d.tool_id === tool.id);
+  const updates = inv.update_records.filter(u => u.tool_id === tool.id && u.status === "pending_review");
+  const eco     = inv.ecosystems.find(e => e.id === tool.ecosystem);
+  const tagGroups = parseTagGroups(tool.tags);
+  const compareTools = (tagGroups.find(([p]) => p === "compare")?.[1] ?? [])
+    .map(v => toolById.get(v) ?? toolById.get(v.replace(/^compare:/,"")))
+    .filter(Boolean) as ToolRecord[];
+
+  const statusCfg = STATUS_CFG[tool.research_status] ?? STATUS_CFG.inventory_only;
 
   return (
-    <div className="space-y-8">
-      {/* Stats grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        {[
-          { label: "סה״כ כלים",       value: s.total_tools,           color: "text-blue-400",   icon: "🗂️" },
-          { label: "נחקרו לעומק",      value: s.tools_researched,      color: "text-green-400",  icon: "✅" },
-          { label: "עדכון ממתין",      value: (s.tools_update_pending ?? 0) + (s.tools_needs_review ?? 0), color: "text-amber-400", icon: "⚠️" },
-          { label: "מלאי בלבד",        value: s.tools_inventory_only ?? (s.total_tools - s.tools_researched), color: "text-gray-400", icon: "📦" },
-        ].map(stat => (
-          <div key={stat.label} className="bg-gray-900/60 border border-gray-800 rounded-xl p-4 text-center">
-            <div className="text-2xl mb-1">{stat.icon}</div>
-            <p className={`text-3xl font-bold ${stat.color}`}>{stat.value}</p>
-            <p className="text-xs text-gray-500 mt-1">{stat.label}</p>
-          </div>
-        ))}
-      </div>
-
-      {/* Secondary stats */}
-      <div className="grid grid-cols-3 gap-3">
-        {[
-          { label: "פריטים לבדיקה",  value: s.open_review_items,   color: "text-red-400",    icon: "🔴" },
-          { label: "מקורות פעילים",  value: s.active_sources,      color: "text-cyan-400",   icon: "📡" },
-          { label: "ממתינים ל-Backfill", value: s.pending_backfill, color: "text-orange-400", icon: "📥" },
-        ].map(stat => (
-          <div key={stat.label} className="bg-gray-900/40 border border-gray-800 rounded-lg p-3 flex items-center gap-3">
-            <span className="text-xl">{stat.icon}</span>
-            <div>
-              <p className={`text-xl font-bold ${stat.color}`}>{stat.value}</p>
-              <p className="text-xs text-gray-500">{stat.label}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Ecosystem research progress */}
-        <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
-          <h2 className="text-sm font-semibold text-gray-300 mb-4 flex items-center gap-2">
-            <span>📊</span> התקדמות מחקר לפי אקוסיסטם
-          </h2>
-          <div className="space-y-3">
-            {ecoProgress.map(({ eco, tools, researched, pending, pct }) => (
-              <div key={eco.id}>
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm text-gray-300 truncate">{eco.name.replace(" Ecosystem","").replace(" AI","")}</span>
-                  <div className="flex items-center gap-2 text-xs text-gray-500 shrink-0">
-                    {pending > 0 && <span className="text-amber-400">⚠️ {pending}</span>}
-                    <span>{researched}/{tools}</span>
-                  </div>
-                </div>
-                <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                  <div
-                    className={`h-full rounded-full transition-all ${pct === 100 ? "bg-green-500" : pct > 50 ? "bg-blue-500" : pct > 0 ? "bg-blue-700" : "bg-gray-700"}`}
-                    style={{ width: `${Math.max(pct, pct > 0 ? 3 : 0)}%` }}
-                  />
-                </div>
+    <div className="fixed inset-0 z-50 flex items-start justify-end bg-black/60 backdrop-blur-sm" onClick={onClose}>
+      <div
+        className="w-full max-w-2xl h-full bg-gray-950 border-l border-gray-700 overflow-y-auto shadow-2xl"
+        onClick={e => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="sticky top-0 bg-gray-950/95 backdrop-blur border-b border-gray-800 px-6 py-4 z-10">
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 flex-wrap mb-1">
+                <span className="text-xl">{ECO_ICON[tool.ecosystem] ?? "🔧"}</span>
+                <h2 className="text-lg font-bold text-white">{tool.name}</h2>
               </div>
-            ))}
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs text-gray-500">{tool.vendor}</span>
+                {eco && (
+                  <span className={`text-xs border rounded-full px-2 py-0.5 ${ECO_COLORS[eco.id] ?? "border-gray-700 bg-gray-800"} text-gray-300`}>
+                    {eco.name.replace(" Ecosystem","")}
+                  </span>
+                )}
+                <span className="text-xs text-gray-600">{getToolBranch(tool)}</span>
+              </div>
+            </div>
+            <button onClick={onClose} className="text-gray-500 hover:text-white text-2xl leading-none shrink-0">×</button>
+          </div>
+          <div className="mt-2">
+            <StatusBadge status={tool.research_status} small />
           </div>
         </div>
 
-        {/* Recent activity */}
-        <div className="space-y-4">
-          {/* Recent deep research */}
-          <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
-            <h2 className="text-sm font-semibold text-gray-300 mb-3 flex items-center gap-2">
-              <span>🔬</span> מחקר עמוק אחרון
-            </h2>
-            <div className="space-y-2">
-              {recentResearch.map(dr => {
-                const tool = toolById.get(dr.tool_id);
-                return (
-                  <div key={dr.id} className="flex items-center justify-between py-1 border-b border-gray-800/60 last:border-0">
-                    <div>
-                      <p className="text-sm text-white">{tool?.name ?? dr.tool_id}</p>
-                      <p className="text-xs text-gray-500">אמון: {dr.confidence}% · v{dr.version}</p>
-                    </div>
-                    <span className="text-xs text-gray-500">{dr.research_date}</span>
-                  </div>
-                );
-              })}
-              {recentResearch.length === 0 && (
-                <p className="text-xs text-gray-600">אין רשומות מחקר עמוק עדיין</p>
-              )}
-            </div>
-          </div>
+        <div className="px-6 py-5 space-y-6">
 
-          {/* Recent updates */}
-          <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
-            <h2 className="text-sm font-semibold text-gray-300 mb-3 flex items-center gap-2">
-              <span>📡</span> עדכונים שזוהו לאחרונה
-            </h2>
-            <div className="space-y-2">
-              {recentUpdates.map(upd => {
-                const tool = toolById.get(upd.tool_id);
-                const cls  = CLASSIFICATION_COLORS[upd.classification] ?? CLASSIFICATION_COLORS.other;
-                return (
-                  <div key={upd.id} className="flex items-start gap-2 py-1 border-b border-gray-800/60 last:border-0">
-                    <span className={`text-xs border rounded px-1.5 py-0.5 shrink-0 mt-0.5 ${cls}`}>
-                      {upd.classification.replace(/_/g," ")}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs text-gray-300 truncate">{tool?.name ?? upd.tool_id}</p>
-                      <p className="text-xs text-gray-500 truncate">{upd.title}</p>
-                    </div>
-                    <span className={`text-xs shrink-0 ${upd.status === "pending_review" ? "text-amber-400" : "text-gray-500"}`}>
-                      {upd.status === "pending_review" ? "⏳" : "✅"}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Missing deep research — what needs work */}
-      <div className="bg-gray-900/50 border border-gray-800 rounded-xl p-5">
-        <h2 className="text-sm font-semibold text-gray-300 mb-4 flex items-center gap-2">
-          <span>📋</span> חסר מחקר עמוק ({inv.tools.filter(t => t.research_status === "inventory_only").length} כלים)
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-          {inv.tools
-            .filter(t => t.research_status === "inventory_only")
-            .sort((a, b) => (b.freshness?.freshness_score ?? 0) - (a.freshness?.freshness_score ?? 0))
-            .slice(0, 12)
-            .map(tool => (
-              <div key={tool.id} className="flex items-center gap-2 bg-gray-800/40 rounded-lg px-3 py-2 text-xs">
-                <span>{CATEGORY_ICONS[tool.category] ?? "🔧"}</span>
-                <span className="text-gray-300 truncate">{tool.name}</span>
-              </div>
-            ))}
-          {inv.tools.filter(t => t.research_status === "inventory_only").length > 12 && (
-            <div className="flex items-center justify-center bg-gray-800/20 rounded-lg px-3 py-2 text-xs text-gray-600">
-              +{inv.tools.filter(t => t.research_status === "inventory_only").length - 12} נוספים
+          {/* Research needed banner */}
+          {tool.research_status === "inventory_only" && (
+            <div className="bg-yellow-950/30 border border-yellow-700/40 rounded-xl p-4">
+              <p className="text-sm text-yellow-300 font-medium">📦 ממתין למחקר עמוק</p>
+              <p className="text-xs text-yellow-500/80 mt-1">
+                כלי זה במאגר הידע אך לא עבר מחקר עמוק עדיין. הנתונים מבוססים על מחקר הסקר הראשוני בלבד.
+              </p>
             </div>
           )}
+
+          {/* Pending updates */}
+          {updates.length > 0 && (
+            <div className="bg-amber-950/20 border border-amber-700/30 rounded-xl p-4">
+              <p className="text-sm text-amber-300 font-medium mb-2">⚠️ {updates.length} עדכונים ממתינים</p>
+              {updates.map(u => (
+                <div key={u.id} className="text-xs text-amber-400">{u.title}</div>
+              ))}
+            </div>
+          )}
+
+          {/* Description */}
+          <section>
+            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">תיאור</h3>
+            <p className="text-gray-200 text-sm leading-relaxed">{tool.description}</p>
+          </section>
+
+          {/* Tags grouped by prefix */}
+          <section>
+            <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">תגיות ומיון</h3>
+            <div className="space-y-3">
+              {tagGroups.map(([prefix, values]) => {
+                const cfg = TAG_PREFIX_CFG[prefix] ?? TAG_PREFIX_CFG.misc;
+                return (
+                  <div key={prefix}>
+                    <p className={`text-xs font-semibold mb-1.5 ${cfg.color} opacity-70`}>{cfg.label}</p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {values.map(v => (
+                        <TagBadge
+                          key={v}
+                          prefix={prefix}
+                          value={v}
+                          onClick={prefix === "compare" ? () => {
+                            const t2 = toolById.get(v);
+                            if (t2) onCompareClick(t2.id);
+                          } : undefined}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+
+          {/* Use cases */}
+          {tool.use_cases.length > 0 && (
+            <section>
+              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">שימושים עיקריים</h3>
+              <ul className="space-y-1.5">
+                {tool.use_cases.map((uc, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
+                    <span className="text-blue-500 mt-0.5 shrink-0">▸</span>
+                    {uc}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {/* Compare tools (cross-ecosystem equivalents) */}
+          {compareTools.length > 0 && (
+            <section>
+              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                🔀 מקבילים מאקוסיסטמים אחרים
+              </h3>
+              <div className="space-y-2">
+                {compareTools.map(ct => (
+                  <button
+                    key={ct.id}
+                    onClick={() => onCompareClick(ct.id)}
+                    className={`w-full text-left p-3 rounded-xl border transition-all hover:brightness-110 ${ECO_COLORS[ct.ecosystem] ?? "border-gray-700 bg-gray-800/40"}`}
+                  >
+                    <div className="flex items-center gap-2">
+                      <span>{ECO_ICON[ct.ecosystem] ?? "🔧"}</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-sm font-medium text-white">{ct.name}</p>
+                        <p className="text-xs text-gray-400 truncate">{ct.vendor} · {ct.ecosystem}</p>
+                      </div>
+                      <StatusBadge status={ct.research_status} small />
+                    </div>
+                    <p className="text-xs text-gray-400 mt-1.5 line-clamp-2">{ct.description}</p>
+                  </button>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Subscription tiers */}
+          {tool.subscription_tiers.length > 0 && (
+            <section>
+              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">תוכניות & מחיר</h3>
+              <div className="space-y-1.5">
+                {tool.subscription_tiers.map((tier, i) => (
+                  <div key={i} className="flex items-center justify-between bg-gray-900 rounded-lg px-4 py-2.5">
+                    <span className="text-sm text-gray-200 capitalize font-medium">{tier.level}</span>
+                    <span className="text-sm font-semibold text-blue-300">{tier.price}</span>
+                    <span className="text-xs text-gray-500">{tier.access_key}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Deep research records */}
+          {drs.length > 0 && (
+            <section>
+              <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">🔬 מחקר עמוק</h3>
+              {drs.sort((a,b) => b.version - a.version).map(dr => (
+                <div key={dr.id} className="bg-gray-900/60 border border-green-800/30 rounded-xl p-4 mb-3">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-semibold text-green-300">v{dr.version} — {dr.research_date}</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs text-gray-500">חוקר: {dr.researcher}</span>
+                      <span className={`text-xs font-semibold ${dr.confidence >= 80 ? "text-green-400" : dr.confidence >= 60 ? "text-yellow-400" : "text-red-400"}`}>
+                        אמון {dr.confidence}%
+                      </span>
+                    </div>
+                  </div>
+                  {dr.summary && <p className="text-sm text-gray-300 mb-3">{dr.summary}</p>}
+                  {dr.key_findings.length > 0 && (
+                    <ul className="space-y-1.5">
+                      {dr.key_findings.map((f, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs text-gray-400">
+                          <span className="text-green-500 mt-0.5 shrink-0">✓</span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  {dr.sources_used.length > 0 && (
+                    <div className="mt-3 pt-3 border-t border-gray-800">
+                      <p className="text-xs text-gray-600 mb-1">מקורות ({dr.sources_used.length})</p>
+                      <div className="flex flex-wrap gap-1">
+                        {dr.sources_used.slice(0, 5).map((s, i) => (
+                          <span key={i} className="text-xs bg-gray-800 text-gray-500 rounded px-2 py-0.5 truncate max-w-xs">{s}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </section>
+          )}
+
+          {/* Footer meta */}
+          <div className="flex items-center justify-between pt-4 border-t border-gray-800 text-xs text-gray-600">
+            <span>ID: {tool.id}</span>
+            <span>מחקר אחרון: {tool.last_research_date ?? "—"}</span>
+          </div>
         </div>
       </div>
     </div>
   );
 }
 
-// ─── TAB 2: Ecosystem browser ─────────────────────────────────────────────────
+// ─── Overview Tab ──────────────────────────────────────────────────────────────
 
-function EcosystemTab({ inv, toolById }: { inv: KBInventory; toolById: Map<string, ToolRecord> }) {
-  const [selectedEco, setSelectedEco]     = useState<string | null>(null);
-  const [selectedTool, setSelectedTool]   = useState<ToolRecord | null>(null);
-  const [searchQuery,  setSearchQuery]    = useState("");
-  const [filterStatus, setFilterStatus]  = useState<ResearchStatus | "">("");
+function OverviewTab({
+  inv, toolById, onEcoSelect
+}: {
+  inv: KBInventory;
+  toolById: Map<string, ToolRecord>;
+  onEcoSelect: (id: string) => void;
+}) {
+  const [selectedEcoId, setSelectedEcoId] = useState<string | null>(null);
 
-  const filteredTools = useMemo(() => {
+  const selectedEco   = inv.ecosystems.find(e => e.id === selectedEcoId);
+  const selectedTools = selectedEco
+    ? selectedEco.tool_ids.map(id => toolById.get(id)).filter(Boolean) as ToolRecord[]
+    : [];
+  const selectedDRs   = inv.deep_research_records.filter(dr => dr.ecosystem_id === selectedEcoId);
+
+  const ecoStats = inv.ecosystems.map(eco => {
+    const tools      = eco.tool_ids.map(id => toolById.get(id)).filter(Boolean) as ToolRecord[];
+    const researched = tools.filter(t => t.research_status === "deep_research_complete").length;
+    const pending    = tools.filter(t => ["update_pending","needs_review"].includes(t.research_status)).length;
+    const inventory  = tools.filter(t => t.research_status === "inventory_only").length;
+    return { eco, tools: tools.length, researched, pending, inventory, pct: tools.length ? Math.round((researched / tools.length) * 100) : 0 };
+  });
+
+  return (
+    <div className="space-y-6">
+      {/* Top stats */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        {[
+          { label: "סה״כ כלים",      value: inv.stats.total_tools,       color: "text-blue-400",   icon: "🗂️" },
+          { label: "אקוסיסטמים",     value: inv.stats.total_ecosystems,  color: "text-purple-400", icon: "🌐" },
+          { label: "נחקרו לעומק",    value: inv.stats.tools_researched,  color: "text-green-400",  icon: "✅" },
+          { label: "ממתינים למחקר",  value: (inv.stats.tools_inventory_only ?? 0) + (inv.stats.tools_update_pending ?? 0), color: "text-amber-400", icon: "📦" },
+        ].map(s => (
+          <div key={s.label} className="bg-gray-900/60 border border-gray-800 rounded-xl p-4 text-center">
+            <div className="text-2xl mb-1">{s.icon}</div>
+            <p className={`text-3xl font-bold ${s.color}`}>{s.value}</p>
+            <p className="text-xs text-gray-500 mt-1">{s.label}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Ecosystem cards grid */}
+      <div>
+        <h2 className="text-sm font-semibold text-gray-400 mb-3">לחץ על אקוסיסטם לפרטים מלאים ומחקר</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          {ecoStats.map(({ eco, tools, researched, pending, inventory, pct }) => (
+            <button
+              key={eco.id}
+              onClick={() => setSelectedEcoId(selectedEcoId === eco.id ? null : eco.id)}
+              className={`text-left p-4 rounded-xl border transition-all hover:brightness-110 ${
+                selectedEcoId === eco.id
+                  ? `${ECO_COLORS[eco.id] ?? "border-gray-600 bg-gray-800"} ring-1 ring-blue-500/40`
+                  : `${ECO_COLORS[eco.id] ?? "border-gray-700 bg-gray-900/40"}`
+              }`}
+            >
+              <div className="flex items-start justify-between mb-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-xl">{ECO_ICON[eco.id] ?? "🔧"}</span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">{eco.name.replace(" Ecosystem","").replace(" AI","")}</p>
+                    <p className="text-xs text-gray-500">{eco.vendor ?? ""}</p>
+                  </div>
+                </div>
+                <span className="text-xs font-bold text-gray-300 bg-gray-800/80 rounded-full px-2.5 py-1">{tools}</span>
+              </div>
+              <p className="text-xs text-gray-400 line-clamp-2 mb-3">{eco.description}</p>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="flex-1 h-1.5 bg-gray-800 rounded-full overflow-hidden">
+                  <div
+                    className={`h-full rounded-full ${pct === 100 ? "bg-green-500" : pct > 0 ? "bg-blue-500" : "bg-gray-700"}`}
+                    style={{ width: `${Math.max(pct, pct > 0 ? 4 : 0)}%` }}
+                  />
+                </div>
+                <span className="text-xs text-gray-600">{pct}%</span>
+              </div>
+              <div className="flex gap-3 text-xs">
+                <span className="text-green-400">✅ {researched} נחקרו</span>
+                <span className="text-gray-500">📦 {inventory} ממתינים</span>
+                {pending > 0 && <span className="text-amber-400">⚠️ {pending}</span>}
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Ecosystem detail panel */}
+      {selectedEco && (
+        <div className={`border rounded-2xl p-6 ${ECO_COLORS[selectedEco.id] ?? "border-gray-700 bg-gray-900"}`}>
+          <div className="flex items-start justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">{ECO_ICON[selectedEco.id]}</span>
+              <div>
+                <h2 className="text-xl font-bold text-white">{selectedEco.name}</h2>
+                <p className="text-sm text-gray-400">{selectedEco.description}</p>
+              </div>
+            </div>
+            <button
+              onClick={() => { onEcoSelect(selectedEco.id); }}
+              className="text-sm text-blue-400 hover:text-blue-300 transition-colors border border-blue-500/30 rounded-lg px-3 py-1.5 hover:bg-blue-500/10"
+            >
+              צפה בכל הכלים ←
+            </button>
+          </div>
+
+          {/* DR records for this ecosystem */}
+          {selectedDRs.length > 0 && (
+            <div className="mb-5">
+              <h3 className="text-sm font-semibold text-gray-300 mb-3 flex items-center gap-2">
+                🔬 מחקר עמוק שהועלה למערכת ({selectedDRs.length} רשומות)
+              </h3>
+              <div className="space-y-3">
+                {selectedDRs.map(dr => (
+                  <div key={dr.id} className="bg-black/30 border border-gray-700/50 rounded-xl p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs font-mono text-gray-500">{dr.id}</span>
+                        <span className="text-xs text-gray-600">·</span>
+                        <span className="text-xs text-gray-400">{dr.research_date}</span>
+                        <span className="text-xs text-gray-600">·</span>
+                        <span className="text-xs text-gray-400">חוקר: {dr.researcher}</span>
+                      </div>
+                      <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${dr.confidence >= 80 ? "bg-green-900/50 text-green-400" : dr.confidence >= 60 ? "bg-yellow-900/50 text-yellow-400" : "bg-red-900/50 text-red-400"}`}>
+                        אמון {dr.confidence}%
+                      </span>
+                    </div>
+                    {dr.summary && <p className="text-sm text-gray-300 mb-3">{dr.summary}</p>}
+                    <ul className="space-y-1.5">
+                      {dr.key_findings.map((f, i) => (
+                        <li key={i} className="flex items-start gap-2 text-xs text-gray-400">
+                          <span className="text-blue-500 mt-0.5 shrink-0">›</span>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                    {dr.sources_used.length > 0 && (
+                      <p className="text-xs text-gray-600 mt-3">{dr.sources_used.length} מקורות מחקר</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Tool preview by branch */}
+          <div>
+            <h3 className="text-sm font-semibold text-gray-300 mb-3">כלים לפי ענף</h3>
+            {(() => {
+              const byBranch: Record<string, ToolRecord[]> = {};
+              for (const t of selectedTools) {
+                const b = getToolBranch(t);
+                byBranch[b] = [...(byBranch[b] ?? []), t];
+              }
+              return Object.entries(byBranch).slice(0, 6).map(([branch, tools]) => (
+                <div key={branch} className="mb-3">
+                  <p className="text-xs font-semibold text-gray-400 mb-1.5">{branch} <span className="text-gray-600">({tools.length})</span></p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {tools.slice(0, 6).map(t => (
+                      <span key={t.id} className={`text-xs border rounded-full px-2.5 py-1 ${STATUS_CFG[t.research_status]?.bg} ${STATUS_CFG[t.research_status]?.border} text-gray-300`}>
+                        {STATUS_CFG[t.research_status]?.icon} {t.name}
+                      </span>
+                    ))}
+                    {tools.length > 6 && (
+                      <span className="text-xs text-gray-600 px-2 py-1">+{tools.length - 6} נוספים</span>
+                    )}
+                  </div>
+                </div>
+              ));
+            })()}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ─── Ecosystem Tab (with branch grouping) ─────────────────────────────────────
+
+function EcosystemTab({
+  inv, toolById, initialEco
+}: {
+  inv: KBInventory;
+  toolById: Map<string, ToolRecord>;
+  initialEco?: string;
+}) {
+  const [selectedEco,  setSelectedEco]  = useState<string | null>(initialEco ?? null);
+  const [selectedTool, setSelectedTool] = useState<ToolRecord | null>(null);
+  const [searchQuery,  setSearchQuery]  = useState("");
+  const [viewMode,     setViewMode]     = useState<"branches" | "grid">("branches");
+
+  const ecoTools = useMemo(() => {
     let tools = inv.tools;
     if (selectedEco) {
       const eco = inv.ecosystems.find(e => e.id === selectedEco);
@@ -334,244 +677,265 @@ function EcosystemTab({ inv, toolById }: { inv: KBInventory; toolById: Map<strin
       const q = searchQuery.toLowerCase();
       tools = tools.filter(t =>
         t.name.toLowerCase().includes(q) ||
-        t.vendor.toLowerCase().includes(q) ||
         t.description.toLowerCase().includes(q) ||
-        t.tags.some(tag => tag.includes(q))
+        t.tags.some(tag => tag.includes(q)) ||
+        t.use_cases.some(uc => uc.toLowerCase().includes(q))
       );
     }
-    if (filterStatus) tools = tools.filter(t => t.research_status === filterStatus);
     return tools;
-  }, [inv, selectedEco, searchQuery, filterStatus]);
+  }, [inv, selectedEco, searchQuery]);
+
+  const byBranch = useMemo(() => {
+    const map: Record<string, ToolRecord[]> = {};
+    for (const t of ecoTools) {
+      const b = getToolBranch(t);
+      map[b] = [...(map[b] ?? []), t];
+    }
+    return Object.entries(map).sort(([a], [b]) => a.localeCompare(b));
+  }, [ecoTools]);
+
+  const handleCompareClick = (toolId: string) => {
+    const t = toolById.get(toolId);
+    if (t) setSelectedTool(t);
+  };
 
   return (
     <div className="flex gap-5">
-      {/* Ecosystem sidebar */}
+      {/* Sidebar */}
       <aside className="w-52 shrink-0">
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider px-1 mb-2">אקוסיסטמים</p>
         <div className="space-y-0.5">
           <button
-            onClick={() => setSelectedEco(null)}
+            onClick={() => { setSelectedEco(null); }}
             className={`w-full text-right text-sm px-3 py-2 rounded-lg transition-colors flex items-center justify-between ${
-              !selectedEco ? "bg-blue-600/20 border border-blue-500/40 text-blue-300" : "text-gray-400 hover:bg-gray-800/60 hover:text-gray-300"
+              !selectedEco ? "bg-blue-600/20 border border-blue-500/40 text-blue-300" : "text-gray-400 hover:bg-gray-800/60"
             }`}
           >
-            <span>כולם</span>
+            <span>הכל</span>
             <span className="text-xs bg-gray-800 rounded-full px-2 py-0.5">{inv.tools.length}</span>
           </button>
-          {inv.ecosystems.map(eco => {
-            const tools   = eco.tool_ids.map(id => toolById.get(id)).filter(Boolean) as ToolRecord[];
-            const needsAtt = tools.filter(t => t.research_status === "needs_review" || t.research_status === "update_pending").length;
-            return (
-              <button
-                key={eco.id}
-                onClick={() => setSelectedEco(eco.id === selectedEco ? null : eco.id)}
-                className={`w-full text-right text-sm px-3 py-2 rounded-lg transition-colors flex items-center justify-between ${
-                  selectedEco === eco.id ? "bg-blue-600/20 border border-blue-500/40 text-blue-300" : "text-gray-400 hover:bg-gray-800/60"
-                }`}
-              >
-                <span className="truncate">{eco.name.replace(" Ecosystem","").replace(" AI","")}</span>
-                <div className="flex items-center gap-1 shrink-0">
-                  {needsAtt > 0 && <span className="text-xs text-amber-400">⚠️</span>}
-                  <span className="text-xs bg-gray-800 rounded-full px-2 py-0.5">{eco.tool_ids.length}</span>
-                </div>
-              </button>
-            );
-          })}
-        </div>
-      </aside>
-
-      {/* Tools area */}
-      <div className="flex-1 min-w-0">
-        {/* Filters */}
-        <div className="flex gap-2 mb-4">
-          <input
-            type="text"
-            placeholder="חיפוש..."
-            value={searchQuery}
-            onChange={e => setSearchQuery(e.target.value)}
-            className="flex-1 bg-gray-900 border border-gray-700 rounded-lg px-3 py-1.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
-          />
-          <select
-            value={filterStatus}
-            onChange={e => setFilterStatus(e.target.value as ResearchStatus | "")}
-            className="bg-gray-900 border border-gray-700 rounded-lg px-3 py-1.5 text-sm text-gray-300 focus:outline-none focus:border-blue-500"
-          >
-            <option value="">כל הסטטוסים</option>
-            {Object.entries(STATUS_CFG).map(([k, v]) => (
-              <option key={k} value={k}>{v.icon} {v.label}</option>
-            ))}
-          </select>
-        </div>
-
-        <p className="text-xs text-gray-500 mb-3">{filteredTools.length} כלים</p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
-          {filteredTools.map(tool => (
+          {inv.ecosystems.map(eco => (
             <button
-              key={tool.id}
-              onClick={() => setSelectedTool(tool)}
-              className="text-left w-full bg-gray-900/60 border border-gray-700/50 rounded-xl p-4 hover:border-blue-500/50 hover:bg-gray-800/60 transition-all group"
+              key={eco.id}
+              onClick={() => setSelectedEco(eco.id === selectedEco ? null : eco.id)}
+              className={`w-full text-right text-sm px-3 py-2 rounded-lg transition-colors flex items-center gap-2 ${
+                selectedEco === eco.id ? "bg-blue-600/20 border border-blue-500/40 text-blue-300" : "text-gray-400 hover:bg-gray-800/60"
+              }`}
             >
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-white text-sm truncate group-hover:text-blue-300 transition-colors">
-                    {CATEGORY_ICONS[tool.category] ?? "🔧"} {tool.name}
-                  </h3>
-                  <p className="text-xs text-gray-500 truncate">{tool.vendor}</p>
-                </div>
-                <StatusBadge status={tool.research_status} small />
-              </div>
-              <p className="text-xs text-gray-400 line-clamp-2 mb-2">{tool.description}</p>
-              <div className="flex flex-wrap gap-1 mb-2">
-                {tool.tags.slice(0, 2).map(tag => (
-                  <span key={tag} className={`text-xs border rounded px-1.5 py-0.5 ${TAG_COLORS[tag] ?? "bg-gray-800 text-gray-400 border-gray-600"}`}>{tag}</span>
-                ))}
-              </div>
-              <FreshnessBar score={tool.freshness?.freshness_score ?? tool.freshness?.confidence ?? 0} />
+              <span>{ECO_ICON[eco.id] ?? "🔧"}</span>
+              <span className="flex-1 truncate">{eco.name.replace(" Ecosystem","").replace(" AI","")}</span>
+              <span className="text-xs bg-gray-800 rounded-full px-2 py-0.5 shrink-0">{eco.tool_ids.length}</span>
             </button>
           ))}
         </div>
+      </aside>
+
+      {/* Main area */}
+      <div className="flex-1 min-w-0">
+        {/* Toolbar */}
+        <div className="flex items-center gap-2 mb-4">
+          <input
+            type="text" placeholder="חפש כלי, יכולת, שימוש..."
+            value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+            className="flex-1 bg-gray-900 border border-gray-700 rounded-lg px-3 py-1.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500"
+          />
+          <div className="flex border border-gray-700 rounded-lg overflow-hidden">
+            <button onClick={() => setViewMode("branches")} className={`px-3 py-1.5 text-xs transition-colors ${viewMode === "branches" ? "bg-blue-600/30 text-blue-300" : "text-gray-500 hover:bg-gray-800"}`}>
+              עץ
+            </button>
+            <button onClick={() => setViewMode("grid")} className={`px-3 py-1.5 text-xs transition-colors ${viewMode === "grid" ? "bg-blue-600/30 text-blue-300" : "text-gray-500 hover:bg-gray-800"}`}>
+              רשת
+            </button>
+          </div>
+          <span className="text-xs text-gray-600">{ecoTools.length} כלים</span>
+        </div>
+
+        {viewMode === "branches" ? (
+          /* Branch tree view */
+          <div className="space-y-5">
+            {byBranch.map(([branch, tools]) => (
+              <div key={branch}>
+                <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-gray-800">
+                  <h3 className="text-sm font-semibold text-gray-300">{branch}</h3>
+                  <span className="text-xs text-gray-600 bg-gray-800 rounded-full px-2 py-0.5">{tools.length}</span>
+                  <div className="flex items-center gap-1 ml-1">
+                    {Object.entries(
+                      tools.reduce((acc, t) => { acc[t.research_status] = (acc[t.research_status] ?? 0) + 1; return acc; }, {} as Record<string, number>)
+                    ).map(([s, n]) => (
+                      <span key={s} className={`text-xs ${STATUS_CFG[s as ResearchStatus]?.color ?? "text-gray-500"}`}>
+                        {STATUS_CFG[s as ResearchStatus]?.icon} {n}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-2">
+                  {tools.map(tool => (
+                    <ToolCard key={tool.id} tool={tool} onClick={() => setSelectedTool(tool)} />
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          /* Grid view */
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+            {ecoTools.map(tool => (
+              <ToolCard key={tool.id} tool={tool} onClick={() => setSelectedTool(tool)} />
+            ))}
+          </div>
+        )}
       </div>
 
-      {/* Tool detail modal */}
+      {/* Tool detail side panel */}
       {selectedTool && (
-        <ToolModal tool={selectedTool} inv={inv} onClose={() => setSelectedTool(null)} />
+        <ToolDetailPanel
+          tool={selectedTool}
+          inv={inv}
+          toolById={toolById}
+          onClose={() => setSelectedTool(null)}
+          onCompareClick={handleCompareClick}
+        />
       )}
     </div>
   );
 }
 
-// ─── TAB 3: Research Tracker ──────────────────────────────────────────────────
+// ─── Tool Card ─────────────────────────────────────────────────────────────────
+
+function ToolCard({ tool, onClick }: { tool: ToolRecord; onClick: () => void }) {
+  const sc = STATUS_CFG[tool.research_status] ?? STATUS_CFG.inventory_only;
+  const typeTags = tool.tags.filter(t => t.startsWith("type:")).map(t => t.slice(5));
+  const capTags  = tool.tags.filter(t => t.startsWith("capability:")).slice(0, 2).map(t => t.slice(11));
+
+  return (
+    <button
+      onClick={onClick}
+      className={`text-left w-full bg-gray-900/60 border rounded-xl p-3.5 hover:border-blue-500/50 hover:bg-gray-800/60 transition-all group ${sc.border}`}
+    >
+      <div className="flex items-start justify-between gap-2 mb-1.5">
+        <div className="flex-1 min-w-0">
+          <p className="font-semibold text-white text-sm truncate group-hover:text-blue-300 transition-colors">
+            {ECO_ICON[tool.ecosystem] ?? "🔧"} {tool.name}
+          </p>
+          <p className="text-xs text-gray-500 truncate">{tool.vendor}</p>
+        </div>
+        <span className={`text-xs shrink-0 ${sc.color}`}>{sc.icon}</span>
+      </div>
+
+      <p className="text-xs text-gray-400 line-clamp-2 mb-2">{tool.description}</p>
+
+      {/* Type + capability tags */}
+      <div className="flex flex-wrap gap-1">
+        {typeTags.slice(0,1).map(v => (
+          <span key={v} className="text-xs border rounded-full px-2 py-0.5 bg-violet-950/40 border-violet-700/50 text-violet-300">
+            {tagLabel(v)}
+          </span>
+        ))}
+        {capTags.map(v => (
+          <span key={v} className="text-xs border rounded-full px-2 py-0.5 bg-blue-950/40 border-blue-700/50 text-blue-300">
+            {tagLabel(v)}
+          </span>
+        ))}
+      </div>
+    </button>
+  );
+}
+
+// ─── Research Tracker Tab ──────────────────────────────────────────────────────
 
 function ResearchTrackerTab({ inv, toolById }: { inv: KBInventory; toolById: Map<string, ToolRecord> }) {
   const [filterStatus, setFilterStatus] = useState<ResearchStatus | "">("");
-  const [sortBy, setSortBy]             = useState<"name" | "status" | "date" | "freshness">("status");
+  const [filterEco,    setFilterEco]    = useState("");
+  const [sortBy,       setSortBy]       = useState<"name"|"status"|"date"|"freshness">("status");
+  const [selectedTool, setSelectedTool] = useState<ToolRecord | null>(null);
 
   const rows = useMemo(() => {
     let tools = filterStatus ? inv.tools.filter(t => t.research_status === filterStatus) : inv.tools;
+    if (filterEco) tools = tools.filter(t => t.ecosystem === filterEco);
     return [...tools].sort((a, b) => {
       if (sortBy === "name")      return a.name.localeCompare(b.name);
       if (sortBy === "status")    return (STATUS_CFG[b.research_status]?.priority ?? 0) - (STATUS_CFG[a.research_status]?.priority ?? 0);
       if (sortBy === "date")      return (b.last_research_date ?? "0").localeCompare(a.last_research_date ?? "0");
-      if (sortBy === "freshness") return (b.freshness?.freshness_score ?? 0) - (a.freshness?.freshness_score ?? 0);
+      if (sortBy === "freshness") return freshnessScore(b) - freshnessScore(a);
       return 0;
     });
-  }, [inv, filterStatus, sortBy]);
+  }, [inv, filterStatus, filterEco, sortBy]);
 
-  const drByTool = useMemo(() => {
-    const m = new Map<string, DeepResearchRecord[]>();
-    for (const dr of inv.deep_research_records) {
-      if (!m.has(dr.tool_id)) m.set(dr.tool_id, []);
-      m.get(dr.tool_id)!.push(dr);
-    }
-    return m;
-  }, [inv]);
-
-  const ThBtn = ({ col, label }: { col: typeof sortBy; label: string }) => (
-    <button
-      onClick={() => setSortBy(col)}
-      className={`text-xs font-semibold uppercase tracking-wide hover:text-white transition-colors ${sortBy === col ? "text-blue-400" : "text-gray-500"}`}
-    >
+  const Th = ({ col, label }: { col: typeof sortBy; label: string }) => (
+    <button onClick={() => setSortBy(col)} className={`text-xs font-semibold uppercase tracking-wide hover:text-white ${sortBy === col ? "text-blue-400" : "text-gray-500"}`}>
       {label} {sortBy === col ? "↓" : ""}
     </button>
   );
 
   return (
     <div className="space-y-4">
-      {/* Toolbar */}
-      <div className="flex items-center gap-3">
-        <select
-          value={filterStatus}
-          onChange={e => setFilterStatus(e.target.value as ResearchStatus | "")}
-          className="bg-gray-900 border border-gray-700 rounded-lg px-3 py-1.5 text-sm text-gray-300 focus:outline-none focus:border-blue-500"
-        >
+      <div className="flex items-center gap-3 flex-wrap">
+        <select value={filterStatus} onChange={e => setFilterStatus(e.target.value as ResearchStatus | "")}
+          className="bg-gray-900 border border-gray-700 rounded-lg px-3 py-1.5 text-sm text-gray-300 focus:outline-none">
           <option value="">כל הסטטוסים ({inv.tools.length})</option>
-          {Object.entries(STATUS_CFG).map(([k, v]) => {
-            const count = inv.tools.filter(t => t.research_status === k).length;
-            return <option key={k} value={k}>{v.icon} {v.label} ({count})</option>;
-          })}
+          {Object.entries(STATUS_CFG).map(([k, v]) => (
+            <option key={k} value={k}>{v.icon} {v.label} ({inv.tools.filter(t => t.research_status === k).length})</option>
+          ))}
+        </select>
+        <select value={filterEco} onChange={e => setFilterEco(e.target.value)}
+          className="bg-gray-900 border border-gray-700 rounded-lg px-3 py-1.5 text-sm text-gray-300 focus:outline-none">
+          <option value="">כל האקוסיסטמים</option>
+          {inv.ecosystems.map(e => <option key={e.id} value={e.id}>{e.name.replace(" Ecosystem","")}</option>)}
         </select>
         <span className="text-xs text-gray-600">{rows.length} כלים</span>
       </div>
 
-      {/* Table */}
       <div className="bg-gray-900/50 border border-gray-800 rounded-xl overflow-hidden">
         <div className="grid grid-cols-12 gap-2 px-4 py-2 border-b border-gray-800 bg-gray-900/80">
-          <div className="col-span-3"><ThBtn col="name" label="כלי" /></div>
-          <div className="col-span-2"><ThBtn col="status" label="סטטוס" /></div>
-          <div className="col-span-2"><ThBtn col="date" label="תאריך מחקר" /></div>
-          <div className="col-span-2"><ThBtn col="freshness" label="טריות" /></div>
-          <div className="col-span-1 text-xs font-semibold text-gray-500 uppercase tracking-wide">אמון</div>
-          <div className="col-span-2 text-xs font-semibold text-gray-500 uppercase tracking-wide">מחקרים</div>
+          <div className="col-span-4"><Th col="name" label="כלי" /></div>
+          <div className="col-span-3"><Th col="status" label="סטטוס" /></div>
+          <div className="col-span-2"><Th col="date" label="תאריך" /></div>
+          <div className="col-span-3 text-xs font-semibold text-gray-500 uppercase tracking-wide">תגיות מרכזיות</div>
         </div>
-
-        <div className="divide-y divide-gray-800/60">
+        <div className="divide-y divide-gray-800/60 max-h-[600px] overflow-y-auto">
           {rows.map(tool => {
-            const drs     = drByTool.get(tool.id) ?? [];
-            const latestDr = drs.sort((a, b) => b.version - a.version)[0];
-
+            const typeTags = tool.tags.filter(t => t.startsWith("type:")).slice(0,1).map(t => t.slice(5));
+            const capTags  = tool.tags.filter(t => t.startsWith("capability:")).slice(0,2).map(t => t.slice(11));
             return (
-              <div key={tool.id} className="grid grid-cols-12 gap-2 px-4 py-3 hover:bg-gray-800/30 transition-colors items-center">
-                {/* Tool name */}
-                <div className="col-span-3">
-                  <p className="text-sm text-white font-medium truncate">
-                    {CATEGORY_ICONS[tool.category] ?? "🔧"} {tool.name}
-                  </p>
+              <button
+                key={tool.id}
+                onClick={() => setSelectedTool(tool)}
+                className="w-full grid grid-cols-12 gap-2 px-4 py-3 hover:bg-gray-800/30 transition-colors text-left items-center"
+              >
+                <div className="col-span-4">
+                  <p className="text-sm text-white font-medium truncate">{ECO_ICON[tool.ecosystem] ?? "🔧"} {tool.name}</p>
                   <p className="text-xs text-gray-500 truncate">{tool.vendor}</p>
                 </div>
-
-                {/* Status */}
-                <div className="col-span-2">
+                <div className="col-span-3">
                   <StatusBadge status={tool.research_status} small />
-                  {tool.has_pending_updates && (
-                    <p className="text-xs text-amber-400 mt-1">📬 עדכון ממתין</p>
-                  )}
                 </div>
-
-                {/* Last research date */}
-                <div className="col-span-2 text-xs text-gray-400">
-                  {tool.last_research_date ?? <span className="text-gray-700">—</span>}
+                <div className="col-span-2 text-xs text-gray-400">{tool.last_research_date ?? "—"}</div>
+                <div className="col-span-3 flex flex-wrap gap-1">
+                  {typeTags.map(v => (
+                    <span key={v} className="text-xs bg-violet-950/40 border border-violet-700/50 text-violet-300 rounded-full px-2 py-0.5">{tagLabel(v)}</span>
+                  ))}
+                  {capTags.map(v => (
+                    <span key={v} className="text-xs bg-blue-950/40 border border-blue-700/50 text-blue-300 rounded-full px-2 py-0.5">{tagLabel(v)}</span>
+                  ))}
                 </div>
-
-                {/* Freshness bar */}
-                <div className="col-span-2">
-                  <FreshnessBar score={tool.freshness?.freshness_score ?? tool.freshness?.confidence ?? 0} />
-                  <p className="text-xs text-gray-600 mt-0.5">{tool.freshness?.last_verified}</p>
-                </div>
-
-                {/* Confidence */}
-                <div className="col-span-1">
-                  {latestDr ? (
-                    <span className={`text-sm font-semibold ${
-                      latestDr.confidence >= 80 ? "text-green-400" : latestDr.confidence >= 60 ? "text-yellow-400" : "text-red-400"
-                    }`}>{latestDr.confidence}%</span>
-                  ) : <span className="text-gray-700 text-sm">—</span>}
-                </div>
-
-                {/* Research records */}
-                <div className="col-span-2">
-                  {drs.length > 0 ? (
-                    <div className="flex items-center gap-1 flex-wrap">
-                      {drs.map(dr => (
-                        <span key={dr.id} className="text-xs bg-green-900/40 border border-green-700/40 text-green-300 rounded px-1.5 py-0.5">
-                          v{dr.version}
-                        </span>
-                      ))}
-                    </div>
-                  ) : (
-                    <span className="text-xs text-gray-700">אין</span>
-                  )}
-                </div>
-              </div>
+              </button>
             );
           })}
         </div>
       </div>
+
+      {selectedTool && (
+        <ToolDetailPanel
+          tool={selectedTool} inv={inv} toolById={toolById}
+          onClose={() => setSelectedTool(null)}
+          onCompareClick={id => { const t = toolById.get(id); if (t) setSelectedTool(t); }}
+        />
+      )}
     </div>
   );
 }
 
-// ─── TAB 4: Update Queue ──────────────────────────────────────────────────────
+// ─── Update Queue Tab (unchanged) ─────────────────────────────────────────────
 
 function UpdateQueueTab({ inv, toolById }: { inv: KBInventory; toolById: Map<string, ToolRecord> }) {
   const pendingUpdates  = inv.update_records.filter(u => u.status === "pending_review");
@@ -579,321 +943,84 @@ function UpdateQueueTab({ inv, toolById }: { inv: KBInventory; toolById: Map<str
   const openReview      = inv.review_queue.filter(r => r.status === "open");
   const pendingBackfill = inv.backfill_queue.filter(b => b.status === "pending");
 
-  const ACTION_LABELS: Record<string, { label: string; color: string }> = {
-    append_update:   { label: "הוסף עדכון",       color: "text-blue-300" },
-    update_research: { label: "עדכן מחקר",        color: "text-purple-300" },
-    new_tool:        { label: "כלי חדש → Backfill", color: "text-cyan-300" },
-    manual_review:   { label: "בדיקה ידנית",      color: "text-orange-300" },
+  const CLS_COLORS: Record<string, string> = {
+    pricing_change: "bg-yellow-900/50 text-yellow-300 border-yellow-700",
+    new_feature:    "bg-blue-900/50 text-blue-300 border-blue-700",
+    model_update:   "bg-purple-900/50 text-purple-300 border-purple-700",
+    api_change:     "bg-orange-900/50 text-orange-300 border-orange-700",
+    deprecation:    "bg-red-900/50 text-red-300 border-red-700",
+    new_tool:       "bg-cyan-900/50 text-cyan-300 border-cyan-700",
+    other:          "bg-gray-800/50 text-gray-400 border-gray-600",
   };
 
   return (
     <div className="space-y-8">
-
-      {/* Review queue (high priority) */}
       {openReview.length > 0 && (
         <section>
-          <h2 className="text-sm font-semibold text-red-300 mb-3 flex items-center gap-2">
-            🔴 תור בדיקה ידנית — {openReview.length} פתוחים
-          </h2>
-          <div className="space-y-3">
-            {openReview.map(item => {
-              const tool = toolById.get(item.tool_id);
-              const linked = inv.update_records.find(u => u.id === item.linked_update_id);
-              return (
-                <div key={item.id} className={`border rounded-xl p-4 ${SEVERITY_COLORS[item.severity]}`}>
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="font-semibold text-white">{tool?.name ?? item.tool_id}</span>
-                        <span className={`text-xs border rounded-full px-2 py-0.5 ${SEVERITY_COLORS[item.severity]}`}>
-                          {item.severity}
-                        </span>
-                        <span className="text-xs text-gray-500">{item.category.replace(/_/g," ")}</span>
-                      </div>
-                      <p className="text-sm text-gray-300">{item.reason}</p>
-                      {linked && (
-                        <p className="text-xs text-gray-500 mt-1">
-                          קשור ל: <span className="text-gray-300">{linked.title}</span>
-                        </p>
-                      )}
-                    </div>
-                    <span className="text-xs text-gray-500 shrink-0">{item.flagged_at}</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+          <h2 className="text-sm font-semibold text-red-300 mb-3">🔴 תור בדיקה — {openReview.length}</h2>
+          {openReview.map(r => (
+            <div key={r.id} className="bg-red-950/20 border border-red-700/40 rounded-xl p-4 mb-2">
+              <p className="text-sm font-semibold text-white">{toolById.get(r.tool_id)?.name ?? r.tool_id}</p>
+              <p className="text-xs text-red-400 mt-1">{r.reason}</p>
+            </div>
+          ))}
         </section>
       )}
-
-      {/* Pending update records */}
       <section>
-        <h2 className="text-sm font-semibold text-amber-300 mb-3 flex items-center gap-2">
-          ⚠️ עדכונים ממתינים לאישור — {pendingUpdates.length}
-        </h2>
-        {pendingUpdates.length === 0 ? (
-          <p className="text-sm text-gray-600">אין עדכונים ממתינים</p>
-        ) : (
-          <div className="space-y-3">
-            {pendingUpdates.map(upd => {
-              const tool   = toolById.get(upd.tool_id);
-              const cls    = CLASSIFICATION_COLORS[upd.classification] ?? CLASSIFICATION_COLORS.other;
-              const action = ACTION_LABELS[upd.recommended_action];
-              return (
-                <div key={upd.id} className="bg-gray-900/60 border border-amber-800/40 rounded-xl p-4">
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 flex-wrap mb-1">
-                        <span className="font-semibold text-white text-sm">{tool?.name ?? upd.tool_id}</span>
-                        <span className={`text-xs border rounded px-1.5 py-0.5 ${cls}`}>
-                          {upd.classification.replace(/_/g," ")}
-                        </span>
-                        {action && (
-                          <span className={`text-xs ${action.color}`}>→ {action.label}</span>
-                        )}
-                        {upd.affects_deep_research && (
-                          <span className="text-xs text-purple-400">🔬 משפיע על מחקר</span>
-                        )}
-                      </div>
-                      <p className="text-sm font-medium text-gray-200">{upd.title}</p>
-                      <p className="text-xs text-gray-400 mt-1">{upd.summary}</p>
-                      <a href={upd.source_url} target="_blank" rel="noreferrer" className="text-xs text-blue-400 hover:underline mt-1 block">
-                        {upd.source_type} — {upd.source_url.replace(/https?:\/\//,"")}
-                      </a>
-                    </div>
-                    <span className="text-xs text-gray-500 shrink-0">{upd.detected_at}</span>
-                  </div>
-                </div>
-              );
-            })}
+        <h2 className="text-sm font-semibold text-amber-300 mb-3">⚠️ עדכונים ממתינים — {pendingUpdates.length}</h2>
+        {pendingUpdates.length === 0 ? <p className="text-sm text-gray-600">אין עדכונים</p> : pendingUpdates.map(u => (
+          <div key={u.id} className="bg-gray-900/60 border border-amber-800/40 rounded-xl p-4 mb-3">
+            <div className="flex items-start justify-between gap-2 mb-1">
+              <p className="text-sm font-semibold text-white">{toolById.get(u.tool_id)?.name ?? u.tool_id}</p>
+              <span className={`text-xs border rounded px-1.5 py-0.5 ${CLS_COLORS[u.classification] ?? CLS_COLORS.other}`}>{u.classification.replace(/_/g," ")}</span>
+            </div>
+            <p className="text-sm text-gray-200">{u.title}</p>
+            <p className="text-xs text-gray-400 mt-1">{u.summary}</p>
           </div>
-        )}
+        ))}
       </section>
-
-      {/* Applied updates (history) */}
       {appliedUpdates.length > 0 && (
         <section>
-          <h2 className="text-sm font-semibold text-gray-400 mb-3 flex items-center gap-2">
-            ✅ עודכנו לאחרונה — {appliedUpdates.length}
-          </h2>
-          <div className="space-y-2">
-            {appliedUpdates.map(upd => {
-              const tool = toolById.get(upd.tool_id);
-              const cls  = CLASSIFICATION_COLORS[upd.classification] ?? CLASSIFICATION_COLORS.other;
-              return (
-                <div key={upd.id} className="bg-gray-900/30 border border-gray-800/50 rounded-lg px-4 py-3 flex items-center gap-3">
-                  <span className={`text-xs border rounded px-1.5 py-0.5 ${cls} shrink-0`}>
-                    {upd.classification.replace(/_/g," ")}
-                  </span>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm text-gray-300 truncate">{tool?.name ?? upd.tool_id} — {upd.title}</p>
-                    {upd.resolution_notes && <p className="text-xs text-gray-500">{upd.resolution_notes}</p>}
-                  </div>
-                  <span className="text-xs text-gray-600 shrink-0">{upd.applied_at}</span>
-                </div>
-              );
-            })}
-          </div>
+          <h2 className="text-sm font-semibold text-gray-400 mb-3">✅ הוחלו — {appliedUpdates.length}</h2>
+          {appliedUpdates.map(u => (
+            <div key={u.id} className="flex items-center gap-3 bg-gray-900/30 border border-gray-800 rounded-lg px-4 py-2 mb-1">
+              <span className={`text-xs border rounded px-1.5 py-0.5 ${CLS_COLORS[u.classification] ?? CLS_COLORS.other} shrink-0`}>{u.classification.replace(/_/g," ")}</span>
+              <p className="text-sm text-gray-300 truncate">{toolById.get(u.tool_id)?.name} — {u.title}</p>
+              <span className="text-xs text-gray-600 shrink-0">{u.applied_at}</span>
+            </div>
+          ))}
         </section>
       )}
-
-      {/* Backfill queue */}
       {pendingBackfill.length > 0 && (
         <section>
-          <h2 className="text-sm font-semibold text-orange-300 mb-3 flex items-center gap-2">
-            📥 Backfill — כלים שהתגלו, ממתינים לאישור ({pendingBackfill.length})
-          </h2>
-          <p className="text-xs text-gray-500 mb-3">
-            כלים אלה התגלו במהלך מחקר עמוק של כלים אחרים ועדיין לא נכנסו למלאי הראשי.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {pendingBackfill.map(item => (
-              <div key={item.id} className="bg-gray-900/60 border border-orange-800/30 rounded-xl p-4">
-                <div className="flex items-start justify-between gap-2">
-                  <div>
-                    <p className="font-semibold text-white text-sm">{item.tool_name}</p>
-                    <div className="flex items-center gap-2 mt-1 text-xs text-gray-400">
-                      <span>→ {item.suggested_ecosystem}</span>
-                      <span>·</span>
-                      <span>{item.suggested_category.replace(/_/g," ")}</span>
-                    </div>
-                    <p className="text-xs text-gray-500 mt-1">
-                      מקור: {item.discovery_source} · {item.discovered_during}
-                    </p>
-                  </div>
-                  <span className="text-xs text-gray-500 shrink-0">{item.discovered_at}</span>
-                </div>
-              </div>
-            ))}
-          </div>
+          <h2 className="text-sm font-semibold text-orange-300 mb-3">📥 Backfill — {pendingBackfill.length}</h2>
+          {pendingBackfill.map(b => (
+            <div key={b.id} className="bg-gray-900/60 border border-orange-800/30 rounded-xl p-3 mb-2">
+              <p className="text-sm font-semibold text-white">{b.tool_name}</p>
+              <p className="text-xs text-gray-400">→ {b.suggested_ecosystem} · {b.suggested_category}</p>
+            </div>
+          ))}
         </section>
       )}
-
-      {/* Source monitor */}
-      <section>
-        <h2 className="text-sm font-semibold text-cyan-300 mb-3 flex items-center gap-2">
-          📡 מקורות מנוטרים ({inv.source_records.filter(s => s.is_active).length} פעילים)
-        </h2>
-        <p className="text-xs text-gray-500 mb-3">
-          בעתיד: סקריפטים אוטומטיים יבדקו מקורות אלה ויצרו UpdateRecords אוטומטית.
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {inv.source_records.map(src => {
-            const tool = toolById.get(src.tool_id);
-            return (
-              <div key={src.id} className="bg-gray-900/50 border border-gray-800 rounded-xl p-4">
-                <div className="flex items-start justify-between gap-2 mb-2">
-                  <div>
-                    <p className="text-sm font-medium text-white">{src.label}</p>
-                    <p className="text-xs text-gray-500">{tool?.name ?? src.tool_id}</p>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className={`w-2 h-2 rounded-full ${src.is_active ? "bg-green-400" : "bg-gray-600"}`} />
-                    <span className="text-xs text-gray-500">{src.check_frequency}</span>
-                  </div>
-                </div>
-                <div className="flex items-center justify-between text-xs text-gray-500">
-                  <span>{src.source_type.replace(/_/g," ")}</span>
-                  <span>🔍 {src.total_updates_found} עדכונים</span>
-                  <span>נבדק: {src.last_checked}</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
     </div>
   );
 }
 
-// ─── Tool detail modal ────────────────────────────────────────────────────────
-
-function ToolModal({ tool, inv, onClose }: { tool: ToolRecord; inv: KBInventory; onClose: () => void }) {
-  const drs     = inv.deep_research_records.filter(dr => dr.tool_id === tool.id);
-  const updates = inv.update_records.filter(u => u.tool_id === tool.id);
-  const reviews = inv.review_queue.filter(r => r.tool_id === tool.id && r.status === "open");
-  const sources = inv.source_records.filter(s => s.tool_id === tool.id);
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center bg-black/75 backdrop-blur-sm pt-10 px-4 pb-4 overflow-y-auto" onClick={onClose}>
-      <div className="bg-gray-900 border border-gray-700 rounded-2xl p-6 w-full max-w-2xl shadow-2xl" onClick={e => e.stopPropagation()}>
-        <div className="flex items-start justify-between mb-4">
-          <div>
-            <div className="flex items-center gap-2 mb-1">
-              <h2 className="text-xl font-bold text-white">{CATEGORY_ICONS[tool.category]} {tool.name}</h2>
-              <StatusBadge status={tool.research_status} />
-            </div>
-            <p className="text-gray-400 text-sm">{tool.vendor} · {tool.category.replace(/_/g," ")}</p>
-          </div>
-          <button onClick={onClose} className="text-gray-500 hover:text-white text-2xl leading-none">×</button>
-        </div>
-
-        <p className="text-gray-300 mb-4">{tool.description}</p>
-
-        {/* Open reviews warning */}
-        {reviews.length > 0 && (
-          <div className="bg-red-950/30 border border-red-700/40 rounded-lg p-3 mb-4">
-            <p className="text-sm text-red-300 font-medium mb-1">⚠️ דורש בדיקה ידנית</p>
-            {reviews.map(r => <p key={r.id} className="text-xs text-red-400">{r.reason}</p>)}
-          </div>
-        )}
-
-        {/* Deep research records */}
-        {drs.length > 0 && (
-          <div className="mb-4">
-            <h3 className="text-sm font-semibold text-gray-400 mb-2">🔬 מחקר עמוק ({drs.length})</h3>
-            {drs.sort((a,b) => b.version - a.version).map(dr => (
-              <div key={dr.id} className="bg-gray-800/50 rounded-lg p-3 mb-2">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm font-medium text-green-300">v{dr.version} — {dr.research_date}</span>
-                  <span className="text-xs text-gray-500">אמון: {dr.confidence}%</span>
-                </div>
-                <p className="text-xs text-gray-300 mb-2">{dr.summary}</p>
-                <ul className="list-disc list-inside text-xs text-gray-400 space-y-1">
-                  {dr.key_findings.map((f, i) => <li key={i}>{f}</li>)}
-                </ul>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Pending updates */}
-        {updates.filter(u => u.status === "pending_review").length > 0 && (
-          <div className="mb-4">
-            <h3 className="text-sm font-semibold text-amber-300 mb-2">⚠️ עדכונים ממתינים</h3>
-            {updates.filter(u => u.status === "pending_review").map(upd => (
-              <div key={upd.id} className="bg-amber-950/20 border border-amber-800/30 rounded-lg p-3 mb-2">
-                <p className="text-sm text-gray-200">{upd.title}</p>
-                <p className="text-xs text-gray-400 mt-1">{upd.summary}</p>
-                <p className="text-xs text-blue-400 mt-1">פעולה מומלצת: {upd.recommended_action.replace(/_/g," ")}</p>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Subscription tiers */}
-        {tool.subscription_tiers.length > 0 && (
-          <div className="mb-4">
-            <h3 className="text-sm font-semibold text-gray-400 mb-2">תוכניות</h3>
-            <div className="space-y-1.5">
-              {tool.subscription_tiers.map((tier, i) => (
-                <div key={i} className="flex items-center justify-between bg-gray-800/50 rounded-lg px-3 py-2 text-sm">
-                  <span className="text-gray-300 capitalize">{tier.level}</span>
-                  <span className="font-medium text-blue-300">{tier.price}</span>
-                  <span className="text-xs text-gray-500">{tier.access_key}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* Sources */}
-        {sources.length > 0 && (
-          <div className="mb-4">
-            <h3 className="text-sm font-semibold text-gray-400 mb-2">📡 מקורות מנוטרים</h3>
-            {sources.map(s => (
-              <div key={s.id} className="flex items-center gap-2 text-xs text-gray-400 py-1">
-                <span className={`w-1.5 h-1.5 rounded-full ${s.is_active ? "bg-green-400" : "bg-gray-600"}`} />
-                <span className="text-gray-300">{s.label}</span>
-                <span>({s.check_frequency})</span>
-                <span className="text-gray-600">· נמצאו {s.total_updates_found} עדכונים</span>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Footer */}
-        <div className="flex items-center justify-between pt-3 border-t border-gray-800 text-xs text-gray-500">
-          <span>עודכן: {tool.freshness?.last_verified}</span>
-          <span>מחקר אחרון: {tool.last_research_date ?? "—"}</span>
-          <div className="w-24"><FreshnessBar score={tool.freshness?.freshness_score ?? 0} /></div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// ─── Main page ────────────────────────────────────────────────────────────────
+// ─── Main ──────────────────────────────────────────────────────────────────────
 
 type TabId = "overview" | "ecosystems" | "tracker" | "queue";
-
-const TABS: { id: TabId; label: string; icon: string }[] = [
-  { id: "overview",    label: "סקירה כללית",    icon: "📊" },
-  { id: "ecosystems",  label: "אקוסיסטמים",     icon: "🌐" },
-  { id: "tracker",     label: "מעקב מחקר",      icon: "🔬" },
-  { id: "queue",       label: "תור עדכונים",     icon: "📥" },
-];
 
 export default function KnowledgeBasePage() {
   const [inventory, setInventory] = useState<KBInventory | null>(null);
   const [loading,   setLoading]   = useState(true);
   const [error,     setError]     = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabId>("overview");
+  const [jumpEco,   setJumpEco]   = useState<string | undefined>();
 
   useEffect(() => {
     fetch("/api/knowledge-base")
       .then(r => r.json())
-      .then((data: KBInventory) => { setInventory(data); setLoading(false); })
+      .then((d: KBInventory) => { setInventory(d); setLoading(false); })
       .catch(() => { setError("שגיאה בטעינת מאגר הידע"); setLoading(false); });
   }, []);
 
@@ -902,33 +1029,34 @@ export default function KnowledgeBasePage() {
     return new Map(inventory.tools.map(t => [t.id, t]));
   }, [inventory]);
 
-  // Badge counts for tabs
+  const handleEcoSelect = (ecoId: string) => {
+    setJumpEco(ecoId);
+    setActiveTab("ecosystems");
+  };
+
   const queueBadge = inventory
-    ? (inventory.review_queue.filter(r => r.status === "open").length +
-       inventory.update_records.filter(u => u.status === "pending_review").length)
+    ? inventory.review_queue.filter(r => r.status === "open").length
+      + inventory.update_records.filter(u => u.status === "pending_review").length
     : 0;
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="text-center">
-          <div className="text-4xl mb-3 animate-pulse">🧠</div>
-          <p className="text-gray-400">טוען מאגר ידע...</p>
-        </div>
-      </div>
-    );
-  }
+  if (loading) return (
+    <div className="min-h-screen bg-gray-950 flex items-center justify-center">
+      <div className="text-center"><div className="text-4xl mb-3 animate-pulse">🧠</div><p className="text-gray-400">טוען מאגר ידע...</p></div>
+    </div>
+  );
 
-  if (error || !inventory) {
-    return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="text-center">
-          <p className="text-red-400 mb-2">{error ?? "שגיאה לא ידועה"}</p>
-          <Link href="/" className="text-blue-400 hover:underline text-sm">חזור לראשי</Link>
-        </div>
-      </div>
-    );
-  }
+  if (error || !inventory) return (
+    <div className="min-h-screen bg-gray-950 flex items-center justify-center">
+      <p className="text-red-400">{error ?? "שגיאה"}</p>
+    </div>
+  );
+
+  const TABS: { id: TabId; label: string; icon: string }[] = [
+    { id: "overview",   label: "סקירה כללית",  icon: "📊" },
+    { id: "ecosystems", label: "אקוסיסטמים",   icon: "🌐" },
+    { id: "tracker",    label: "מעקב מחקר",    icon: "🔬" },
+    { id: "queue",      label: "תור עדכונים",  icon: "📥" },
+  ];
 
   return (
     <div className="min-h-screen bg-gray-950 text-white" dir="rtl">
@@ -937,33 +1065,25 @@ export default function KnowledgeBasePage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between py-3">
             <div className="flex items-center gap-3">
-              <Link href="/" className="text-gray-500 hover:text-gray-300 text-sm transition-colors">← ראשי</Link>
+              <Link href="/" className="text-gray-500 hover:text-gray-300 text-sm">← ראשי</Link>
               <span className="text-gray-700">|</span>
-              <h1 className="text-lg font-bold text-white">🧠 מאגר הידע</h1>
+              <h1 className="text-lg font-bold">🧠 מאגר הידע</h1>
               <span className="text-xs text-gray-600 border border-gray-700 rounded px-1.5 py-0.5">v{inventory.version}</span>
             </div>
-            <div className="text-xs text-gray-500">
-              {inventory.stats.total_tools} כלים · {inventory.stats.total_ecosystems} אקוסיסטמים · {inventory.last_updated}
-            </div>
+            <p className="text-xs text-gray-500">{inventory.stats.total_tools} כלים · {inventory.stats.total_ecosystems} אקוסיסטמים · {inventory.last_updated}</p>
           </div>
-
-          {/* Tabs */}
           <div className="flex gap-1">
             {TABS.map(tab => (
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={`relative flex items-center gap-1.5 px-4 py-2.5 text-sm font-medium transition-colors border-b-2 ${
-                  activeTab === tab.id
-                    ? "text-white border-blue-500"
-                    : "text-gray-500 border-transparent hover:text-gray-300 hover:border-gray-600"
+                  activeTab === tab.id ? "text-white border-blue-500" : "text-gray-500 border-transparent hover:text-gray-300"
                 }`}
               >
                 {tab.icon} {tab.label}
                 {tab.id === "queue" && queueBadge > 0 && (
-                  <span className="absolute -top-1 -left-1 text-xs bg-amber-500 text-black rounded-full w-4 h-4 flex items-center justify-center font-bold">
-                    {queueBadge}
-                  </span>
+                  <span className="absolute -top-1 -left-1 text-xs bg-amber-500 text-black rounded-full w-4 h-4 flex items-center justify-center font-bold">{queueBadge}</span>
                 )}
               </button>
             ))}
@@ -971,12 +1091,11 @@ export default function KnowledgeBasePage() {
         </div>
       </div>
 
-      {/* Tab content */}
       <div className="max-w-7xl mx-auto px-4 py-6">
-        {activeTab === "overview"   && <OverviewTab        inv={inventory} toolById={toolById} />}
-        {activeTab === "ecosystems" && <EcosystemTab       inv={inventory} toolById={toolById} />}
+        {activeTab === "overview"   && <OverviewTab   inv={inventory} toolById={toolById} onEcoSelect={handleEcoSelect} />}
+        {activeTab === "ecosystems" && <EcosystemTab  inv={inventory} toolById={toolById} initialEco={jumpEco} />}
         {activeTab === "tracker"    && <ResearchTrackerTab inv={inventory} toolById={toolById} />}
-        {activeTab === "queue"      && <UpdateQueueTab     inv={inventory} toolById={toolById} />}
+        {activeTab === "queue"      && <UpdateQueueTab    inv={inventory} toolById={toolById} />}
       </div>
     </div>
   );
