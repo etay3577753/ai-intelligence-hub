@@ -1,6 +1,6 @@
 {
   "version": "2.0.0",
-  "last_updated": "2026-04-13",
+  "last_updated": "2026-04-21",
   "description": "מאגר הידע המרכזי של AI Intelligence Hub — מקור האמת לכל הכלים, האקוסיסטמים, והקשרים ביניהם",
   "ecosystems": [
     {
@@ -16,7 +16,11 @@
         "claude-agent-sdk",
         "mcp-protocol",
         "claude-cowork",
-        "claude-in-chrome"
+        "claude-in-chrome",
+        "claude-projects",
+        "claude-desktop",
+        "anthropic-console",
+        "claude-ios-app"
       ]
     },
     {
@@ -2650,6 +2654,496 @@
       "last_research_date": null,
       "has_pending_updates": false,
       "research_record_ids": []
+    },
+    {
+      "id": "claude-cowork",
+      "name": "Claude Cowork",
+      "vendor": "Anthropic",
+      "category": "workspace_ai",
+      "ecosystem": "anthropic",
+      "description": "סביבה למשימות ממושכות ב-Claude: תזמון אוטומציות, task plans, עבודה על קבצים מקומיים, cross-app workflows.",
+      "surfaces": [
+        "desktop",
+        "web"
+      ],
+      "relations": [
+        {
+          "tool_id": "claude-ai-web",
+          "type": "child"
+        },
+        {
+          "tool_id": "claude-projects",
+          "type": "related"
+        },
+        {
+          "tool_id": "claude-in-chrome",
+          "type": "related"
+        }
+      ],
+      "connectors": [
+        {
+          "tool_id": "mcp-protocol",
+          "connector_type": "mcp",
+          "description": "Cowork משתמש ב-MCP לחיבור כלים חיצוניים"
+        }
+      ],
+      "subscription_tiers": [
+        {
+          "level": "max",
+          "price": "~$100/month",
+          "access_key": "web_sub",
+          "features": [
+            "Scheduled tasks",
+            "File access",
+            "Cross-app workflows"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "web_sub",
+          "features": [
+            "Shared workspace",
+            "Task orchestration"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "Custom",
+          "access_key": "web_sub",
+          "features": [
+            "Enterprise connectors",
+            "Audit logs"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "productivity",
+        "automation",
+        "scheduling",
+        "long-running-tasks"
+      ],
+      "use_cases": [
+        "תזמון משימות",
+        "עבודה על קבצים",
+        "cross-app workflows",
+        "scheduled automation"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "done",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 80,
+        "freshness_score": 80
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-in-chrome",
+      "name": "Claude in Chrome (Beta)",
+      "vendor": "Anthropic",
+      "category": "browser_extension",
+      "ecosystem": "anthropic",
+      "description": "תוסף Chrome רשמי (Beta): קריאת דפים, הקלטת workflows, משימות מתוזמנות על tabs בדפדפן.",
+      "surfaces": [
+        "browser_extension"
+      ],
+      "relations": [
+        {
+          "tool_id": "claude-ai-web",
+          "type": "related"
+        },
+        {
+          "tool_id": "claude-cowork",
+          "type": "related"
+        }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי + חשבון Claude",
+          "access_key": "free",
+          "features": [
+            "Browser reading"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$20/month",
+          "access_key": "web_sub",
+          "features": [
+            "Workflow recording",
+            "Scheduled tasks"
+          ]
+        },
+        {
+          "level": "max",
+          "price": "~$100/month",
+          "access_key": "web_sub",
+          "features": [
+            "Full browser control"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "browser-automation",
+        "beta",
+        "workflow-recording"
+      ],
+      "use_cases": [
+        "אוטומציה בדפדפן",
+        "הקלטת workflows",
+        "קריאת דפים",
+        "מילוי טפסים"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "done",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 78,
+        "freshness_score": 78
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-projects",
+      "name": "Claude Projects",
+      "vendor": "Anthropic",
+      "category": "workspace",
+      "ecosystem": "anthropic",
+      "description": "יחידות עבודה פר-נושא ב-Claude עם קבצים, system prompt, Knowledge Base ו-scoped memory מתמשך לכל שיחות הפרויקט.",
+      "surfaces": [
+        "web",
+        "desktop",
+        "mobile"
+      ],
+      "relations": [
+        {
+          "tool_id": "claude-ai-web",
+          "type": "child"
+        },
+        {
+          "tool_id": "claude-cowork",
+          "type": "related"
+        }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי (בסיסי)",
+          "access_key": "free",
+          "features": [
+            "Basic projects"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$20/month",
+          "access_key": "web_sub",
+          "features": [
+            "Knowledge Base",
+            "Persistent memory",
+            "Artifacts"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "web_sub",
+          "features": [
+            "Shared projects"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "Custom",
+          "access_key": "web_sub",
+          "features": [
+            "Admin control",
+            "SCIM"
+          ]
+        }
+      ],
+      "primary_access_key": "web_sub",
+      "tags": [
+        "workspace",
+        "memory",
+        "knowledge-base",
+        "collaboration",
+        "beginner-friendly"
+      ],
+      "use_cases": [
+        "ניהול פרויקטים",
+        "זיכרון מתמשך",
+        "בסיס ידע",
+        "עבודת צוות",
+        "RAG"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "done",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 90,
+        "freshness_score": 90
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-desktop",
+      "name": "Claude Desktop",
+      "vendor": "Anthropic",
+      "category": "desktop_app",
+      "ecosystem": "anthropic",
+      "description": "אפליקציית דסקטופ רשמית ל-Mac ו-Windows: גישה ל-Claude מה-dock, סנכרון שיחות/פרויקטים, MCP host לקבצים מקומיים.",
+      "surfaces": [
+        "desktop"
+      ],
+      "relations": [
+        {
+          "tool_id": "claude-ai-web",
+          "type": "sibling"
+        },
+        {
+          "tool_id": "mcp-protocol",
+          "type": "related",
+          "note": "Claude Desktop הוא MCP host רשמי"
+        },
+        {
+          "tool_id": "claude-projects",
+          "type": "related"
+        }
+      ],
+      "connectors": [
+        {
+          "tool_id": "mcp-protocol",
+          "connector_type": "mcp",
+          "description": "MCP host לקבצים מקומיים"
+        }
+      ],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי + חשבון Claude",
+          "access_key": "free",
+          "features": [
+            "Web equivalent",
+            "Local MCP"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$20/month",
+          "access_key": "web_sub",
+          "features": [
+            "All models",
+            "Projects",
+            "Cowork"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "desktop",
+        "local-access",
+        "mcp-host",
+        "beginner-friendly"
+      ],
+      "use_cases": [
+        "גישה מהירה ל-Claude",
+        "קבצים מקומיים",
+        "MCP integration",
+        "פרויקטים"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "done",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 85,
+        "freshness_score": 85
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "anthropic-console",
+      "name": "Anthropic Console",
+      "vendor": "Anthropic",
+      "category": "developer_tool",
+      "ecosystem": "anthropic",
+      "description": "ממשק ניהול ופיתוח (platform.claude.com): API keys, Workspaces, Workbench לניסוי prompts, usage analytics, הגבלות תקציב.",
+      "surfaces": [
+        "web"
+      ],
+      "relations": [
+        {
+          "tool_id": "anthropic-api",
+          "type": "parent"
+        },
+        {
+          "tool_id": "claude-code",
+          "type": "related"
+        }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "api_payg",
+          "price": "לפי שימוש",
+          "access_key": "api_key",
+          "features": [
+            "Workbench",
+            "API keys",
+            "Usage reports"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat",
+          "access_key": "api_key",
+          "features": [
+            "Workspaces",
+            "Team management"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "Custom",
+          "access_key": "api_key",
+          "features": [
+            "SCIM",
+            "SSO",
+            "Audit logs"
+          ]
+        }
+      ],
+      "primary_access_key": "api_key",
+      "tags": [
+        "developer-tool",
+        "admin",
+        "code-required",
+        "api-heavy"
+      ],
+      "use_cases": [
+        "ניהול API keys",
+        "prompt testing",
+        "usage analytics",
+        "Workspaces"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "done",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 90,
+        "freshness_score": 90
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-ios-app",
+      "name": "Claude iOS / iPadOS",
+      "vendor": "Anthropic",
+      "category": "mobile_app",
+      "ecosystem": "anthropic",
+      "description": "אפליקציית iOS/iPadOS רשמית של Anthropic: ממשק מלא כמו הווב, Projects, תמונות, הקשר ארוך, סנכרון בין מכשירים.",
+      "surfaces": [
+        "mobile"
+      ],
+      "relations": [
+        {
+          "tool_id": "claude-ai-web",
+          "type": "sibling"
+        },
+        {
+          "tool_id": "claude-projects",
+          "type": "related"
+        }
+      ],
+      "connectors": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "חינמי",
+          "access_key": "free",
+          "features": [
+            "Claude Haiku",
+            "Basic chat"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$20/month",
+          "access_key": "web_sub",
+          "features": [
+            "All models",
+            "Projects"
+          ]
+        }
+      ],
+      "primary_access_key": "free",
+      "tags": [
+        "mobile",
+        "beginner-friendly",
+        "ios"
+      ],
+      "use_cases": [
+        "גישה מניידים",
+        "שיחה",
+        "פרויקטים",
+        "ניתוח תמונות"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "done",
+      "youtube_video_ids": [],
+      "freshness": {
+        "last_verified": "2026-04-21",
+        "confidence": 85,
+        "freshness_score": 85
+      },
+      "research_status": "deep_research_complete",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
     }
   ],
   "backfill_queue": [
@@ -2727,14 +3221,14 @@
     }
   ],
   "stats": {
-    "total_tools": 36,
+    "total_tools": 42,
     "tools_with_wiki": 33,
     "tools_with_research": 5,
     "pending_backfill": 4,
     "last_wiki_sync": "2026-04-13",
     "total_ecosystems": 11,
-    "last_updated": "2026-04-13",
-    "tools_researched": 3,
+    "last_updated": "2026-04-21",
+    "tools_researched": 9,
     "tools_update_pending": 1,
     "tools_needs_review": 2,
     "tools_inventory_only": 24,
@@ -2808,6 +3302,39 @@
       "confidence": 95,
       "notebooklm_url": null,
       "version": 1
+    },
+    {
+      "id": "dr-004",
+      "tool_id": "anthropic",
+      "ecosystem_id": "anthropic",
+      "research_type": "ecosystem_mapping",
+      "research_date": "2026-04-21",
+      "researcher": "etay",
+      "sources_used": [
+        {
+          "type": "pdf",
+          "title": "חלק א — גבולות האקוסיסטם של Anthropic / Claude",
+          "url": null,
+          "notes": "PDF 36 עמ': ליבה, שכבות, connectors, inventory, coverage checklist, עדיפויות מחקר"
+        }
+      ],
+      "key_findings": [
+        "8+ שכבות עיקריות: מודלים, assistant apps, developer platform, automation, storage, connectors, marketplace, legacy",
+        "Claude Cowork: משימות ממושכות, scheduled tasks, file access, cross-app workflows (Max/Team/Ent)",
+        "Claude Projects: Knowledge Base, scoped memory, Artifacts (Pro+)",
+        "Claude Desktop: MCP host רשמי לקבצים מקומיים (Mac + Windows)",
+        "Claude in Chrome (Beta): browser automation, workflow recording, scheduled tasks",
+        "Anthropic Console (platform.claude.com): API keys, Workspaces, Workbench, usage analytics",
+        "Claude Marketplace: חנות שותפים חדשה (Snowflake, GitLab, Harvey, Replit, Lovable)",
+        "תכניות: Free / Pro $20 / Max ~$100 / Team $30/seat / Enterprise custom",
+        "50+ connectors: Google Workspace, Slack, Jira, Notion, Snowflake, Salesforce ועוד",
+        "Amazon Bedrock + Google Vertex AI: ערוצי distribution רשמיים למודלי Claude",
+        "Constitutional AI: מסגרת alignment, לא מוצר עצמאי",
+        "ענפים undercounted: connectors directory מלא, marketplace catalog, MCP servers, Enterprise-only features"
+      ],
+      "confidence": 0.85,
+      "version": "1.0",
+      "notes": "PDF מחקר מקיף מאת etay. חלקים ג-ו: שכבות עמוקות, coverage checklist, missing items, עדיפויות."
     }
   ],
   "update_records": [
