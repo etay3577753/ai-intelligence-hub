@@ -55,7 +55,37 @@
         "claude-plan-team",
         "claude-plan-enterprise",
         "constitutional-ai",
-        "claude-2-legacy"
+        "claude-2-legacy",
+        "connector-notion",
+        "connector-google-drive",
+        "connector-microsoft-365",
+        "connector-confluence",
+        "connector-asana",
+        "connector-linear",
+        "connector-monday",
+        "connector-hubspot",
+        "connector-bigquery",
+        "connector-databricks",
+        "connector-github",
+        "connector-zoom",
+        "connector-zendesk",
+        "connector-figma",
+        "connector-servicenow",
+        "marketplace-gitlab",
+        "marketplace-harvey",
+        "marketplace-rogo",
+        "marketplace-replit-partner",
+        "marketplace-lovable-partner",
+        "anthropic-sdk-java",
+        "anthropic-sdk-ruby",
+        "claude-computer-use",
+        "claude-plan-mode",
+        "claude-checkpoints",
+        "claude-zero-retention",
+        "claude-enterprise-sso",
+        "anthropic-academy",
+        "claude-plan-free",
+        "claude-claude-md"
       ]
     },
     {
@@ -67,7 +97,6 @@
       "tool_ids": [
         "google-gemini-full",
         "google-ai-studio",
-        "gemma4-local",
         "gemini-advanced",
         "gemini-android-app",
         "gemini-extensions",
@@ -96,7 +125,69 @@
         "google-search",
         "youtube-google",
         "google-maps",
-        "google-analytics-suite"
+        "google-analytics-suite",
+        "firebase-authentication",
+        "cloud-firestore",
+        "firebase-realtime-database",
+        "firebase-cloud-functions",
+        "firebase-hosting",
+        "firebase-cloud-messaging",
+        "firebase-crashlytics",
+        "firebase-performance-monitoring",
+        "firebase-remote-config",
+        "firebase-ab-testing",
+        "firebase-app-distribution",
+        "firebase-test-lab",
+        "firebase-app-check",
+        "firebase-extensions",
+        "firebase-analytics",
+        "gmail",
+        "google-drive",
+        "google-docs",
+        "google-sheets",
+        "google-slides",
+        "google-chat",
+        "google-calendar",
+        "google-forms",
+        "google-keep",
+        "google-tasks",
+        "google-sites",
+        "google-vault",
+        "google-vids",
+        "google-cloud-platform",
+        "cloud-sdk-gcloud",
+        "google-cloud-console",
+        "google-cloud-shell",
+        "cloud-code-ide",
+        "bigquery",
+        "google-colab",
+        "kaggle",
+        "vertex-automl",
+        "vision-ai-api",
+        "cloud-translation-api",
+        "speech-to-text-api",
+        "text-to-speech-api",
+        "google-earth",
+        "google-photos",
+        "youtube-music",
+        "google-ads",
+        "google-adsense",
+        "google-analytics-4",
+        "google-tag-manager",
+        "google-merchant-center",
+        "google-news",
+        "workspace-admin-console",
+        "android-os",
+        "chrome-browser",
+        "chromeos",
+        "pixel-phones",
+        "nest-devices",
+        "flow-google",
+        "whisk-google",
+        "google-experiments-portal",
+        "google-labs-hub",
+        "vertex-workbench",
+        "vertex-mlops"
       ]
     },
     {
@@ -7518,6 +7609,3746 @@
       "research_record_ids": [
         "dr-005"
       ]
+    },
+    {
+      "id": "connector-notion",
+      "name": "Claude ↔ Notion Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור רשמי של Claude ל-Notion — מאפשר לקרוא ולכתוב דפים, databases ו-blocks ישירות מ-Claude Assistant ו-Cowork.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:knowledge-base",
+        "capability:workspace-integration",
+        "audience:developer",
+        "audience:enterprise",
+        "compare:notion-ai"
+      ],
+      "use_cases": [
+        "קריאת wiki ארגוני מתוך Claude",
+        "יצירת דפי Notion אוטומטיים",
+        "סנכרון tasks בין Claude Projects ל-Notion"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-google-drive",
+      "name": "Claude ↔ Google Drive Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Google Drive — שליפה וקריאת קבצים (Docs, Sheets, PDFs) כהקשר לשיחה, ותמיכה ב-RAG על תיקיות.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:document-analysis",
+        "capability:knowledge-base",
+        "capability:workspace-integration",
+        "audience:enterprise",
+        "compare:google-drive"
+      ],
+      "use_cases": [
+        "ניתוח מסמכי Drive",
+        "חיפוש בקבצים",
+        "שליפת הקשר מ-Drive לפרויקטים"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-microsoft-365",
+      "name": "Claude ↔ Microsoft 365 Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Microsoft 365 — Outlook, OneDrive, SharePoint, Teams. גישה לאימיילים, קבצים ואוטומציה.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:workspace-integration",
+        "capability:document-analysis",
+        "audience:enterprise",
+        "compare:microsoft-copilot"
+      ],
+      "use_cases": [
+        "סיכום אימיילים ב-Outlook",
+        "קריאת קבצי SharePoint",
+        "חיפוש ב-OneDrive"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-confluence",
+      "name": "Claude ↔ Confluence Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Atlassian Confluence — שליפת תיעוד, wiki ארגוני ודפי ידע כהקשר לשיחות.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:knowledge-base",
+        "capability:document-analysis",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "חיפוש בתיעוד ארגוני",
+        "ניתוח wiki מוצר",
+        "תשובות מבוססות Confluence"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-asana",
+      "name": "Claude ↔ Asana Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Asana — קריאת tasks, projects ו-timelines, יצירת משימות חדשות, ועדכון סטטוסים.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:scheduling",
+        "capability:workspace-integration",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "ניהול פרויקטים מ-Claude",
+        "יצירת משימות אוטומטית",
+        "דיווח על סטטוס פרויקט"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-linear",
+      "name": "Claude ↔ Linear Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Linear — ניהול issues, sprints ו-roadmaps לצוותי פיתוח.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:agents",
+        "capability:workspace-integration",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "יצירת bug reports מ-Claude Code",
+        "סנכרון issues עם GitHub",
+        "תכנון sprint"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-monday",
+      "name": "Claude ↔ Monday.com Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Monday.com — קריאה ועדכון של boards, items ו-automations.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:scheduling",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "עדכון סטטוס פרויקטים",
+        "יצירת board items",
+        "ניתוח הקצאת משאבים"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-hubspot",
+      "name": "Claude ↔ HubSpot Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-HubSpot CRM — גישה לנתוני לידים, contacts, deals ופיפליינים.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:workspace-integration",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "ניסוח אימיילים שיווקיים",
+        "ניתוח פייפליין מכירות",
+        "יצירת סיכומי CRM"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-bigquery",
+      "name": "Claude ↔ BigQuery Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Google BigQuery — שאילתות SQL, ניתוח נתונים ושליפת insight מ-data warehouse.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:data-analysis",
+        "capability:knowledge-base",
+        "audience:data-scientist",
+        "audience:enterprise",
+        "compare:gemini-api"
+      ],
+      "use_cases": [
+        "שאילתות SQL טבעיות",
+        "ניתוח נתוני מכירות",
+        "יצירת דוחות מ-BigQuery"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-databricks",
+      "name": "Claude ↔ Databricks Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Databricks Lakehouse — גישה לנתונים, notebooks ו-ML workflows.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:data-analysis",
+        "audience:data-scientist"
+      ],
+      "use_cases": [
+        "ניתוח Delta Lake",
+        "שאילתות Spark",
+        "ניהול ML experiments"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-github",
+      "name": "Claude ↔ GitHub Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-GitHub — קריאת repos, issues, PRs ו-code, ואינטגרציה עם Claude Code.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Pro",
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude account",
+      "tags": [
+        "type:connector",
+        "capability:code-generation",
+        "capability:agents",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "ניתוח PRs",
+        "יצירת issues",
+        "code review מתוך Claude"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-zoom",
+      "name": "Claude ↔ Zoom Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Zoom — גישה לתמלולי פגישות, סיכומים ופעולות follow-up.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:real-time-streaming",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "סיכום פגישות Zoom",
+        "יצירת action items",
+        "ניתוח תמלולים"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-zendesk",
+      "name": "Claude ↔ Zendesk Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Zendesk — קריאה ועדכון של tickets, ניתוח תמיכה ואוטומציה של תהליכי customer service.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Team/Enterprise account",
+      "tags": [
+        "type:connector",
+        "capability:agents",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "מענה אוטומטי לticketstxt",
+        "ניתוח customer sentiment",
+        "ניסוח תשובות תמיכה"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-figma",
+      "name": "Claude ↔ Figma Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-Figma — ניתוח designs, קריאת layers ויצירת קוד מ-designs.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pro",
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Pro+ account",
+      "tags": [
+        "type:connector",
+        "capability:image-analysis",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "קוד מ-Figma design",
+        "ניתוח design systems",
+        "תיאור קומפוננטות"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "connector-servicenow",
+      "name": "Claude ↔ ServiceNow Connector",
+      "vendor": "Anthropic",
+      "category": "connector",
+      "ecosystem": "anthropic",
+      "description": "חיבור Claude ל-ServiceNow ITSM — ניהול incidents, change requests ו-CMDB.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Enterprise account",
+      "tags": [
+        "type:connector",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "ניתוח incidents",
+        "יצירת change requests",
+        "שאילתות CMDB"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "marketplace-gitlab",
+      "name": "GitLab × Claude Marketplace App",
+      "vendor": "GitLab/Anthropic",
+      "category": "marketplace-app",
+      "ecosystem": "anthropic",
+      "description": "אפליקציית Marketplace רשמית של GitLab ב-Claude Marketplace — שילוב CI/CD, code review ו-merge requests עם Claude.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Enterprise account",
+      "tags": [
+        "type:marketplace",
+        "capability:code-generation",
+        "capability:agents",
+        "audience:developer",
+        "compare:claude-marketplace"
+      ],
+      "use_cases": [
+        "code review אוטומטי ב-GitLab",
+        "ניתוח pipeline failures",
+        "יצירת commit messages"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "marketplace-harvey",
+      "name": "Harvey × Claude Marketplace App",
+      "vendor": "Harvey AI/Anthropic",
+      "category": "marketplace-app",
+      "ecosystem": "anthropic",
+      "description": "Harvey AI — פלטפורמת AI משפטית המשתמשת ב-Claude. ב-Claude Marketplace כאפליקציית enterprise לצוותים משפטיים.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Enterprise account",
+      "tags": [
+        "type:marketplace",
+        "audience:enterprise",
+        "capability:document-analysis"
+      ],
+      "use_cases": [
+        "ניסוח חוזים",
+        "ניתוח מסמכים משפטיים",
+        "מחקר פסיקה"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "marketplace-rogo",
+      "name": "Rogo × Claude Marketplace App",
+      "vendor": "Rogo/Anthropic",
+      "category": "marketplace-app",
+      "ecosystem": "anthropic",
+      "description": "Rogo — כלי AI לניתוח פיננסי המשתמש ב-Claude. ב-Marketplace לצוותי investment וfinance.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Enterprise account",
+      "tags": [
+        "type:marketplace",
+        "capability:data-analysis",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "ניתוח דוחות פיננסיים",
+        "מחקר השקעות",
+        "יצירת financial models"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "marketplace-replit-partner",
+      "name": "Replit × Claude Marketplace",
+      "vendor": "Replit/Anthropic",
+      "category": "marketplace-app",
+      "ecosystem": "anthropic",
+      "description": "שותפות Replit ב-Claude Marketplace — פיתוח ו-deployment של אפליקציות ישירות מ-Claude, עם hosting מובנה.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pro",
+        "Max",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Pro+ account",
+      "tags": [
+        "type:marketplace",
+        "capability:code-generation",
+        "capability:agents",
+        "audience:developer",
+        "compare:replit-agent"
+      ],
+      "use_cases": [
+        "build & deploy apps מ-Claude",
+        "prototype מהיר",
+        "no-code/code hybrid development"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "marketplace-lovable-partner",
+      "name": "Lovable × Claude Marketplace",
+      "vendor": "Lovable/Anthropic",
+      "category": "marketplace-app",
+      "ecosystem": "anthropic",
+      "description": "שותפות Lovable ב-Claude Marketplace — בניית full-stack apps עם UI, backend ו-database מ-prompt.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pro",
+        "Max",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Pro+ account",
+      "tags": [
+        "type:marketplace",
+        "capability:code-generation",
+        "no-code-platform",
+        "audience:developer",
+        "compare:lovable-dev"
+      ],
+      "use_cases": [
+        "בניית SaaS apps",
+        "פרוטוטייפינג מהיר",
+        "deployment ל-production"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "anthropic-sdk-java",
+      "name": "Anthropic Java SDK",
+      "vendor": "Anthropic",
+      "category": "sdk",
+      "ecosystem": "anthropic",
+      "description": "SDK רשמי ל-Java עם תמיכה מלאה ב-Messages API, Tool Use, Batch API ו-streaming. מיועד לsystems enterprise ו-Android.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "API"
+      ],
+      "primary_access_key": "Anthropic API key",
+      "tags": [
+        "type:sdk",
+        "audience:developer",
+        "capability:function-calling",
+        "capability:batch-processing"
+      ],
+      "use_cases": [
+        "אינטגרציה ל-enterprise Java systems",
+        "Android apps",
+        "מיקרוסרוויסים"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "anthropic-sdk-ruby",
+      "name": "Anthropic Ruby SDK",
+      "vendor": "Anthropic",
+      "category": "sdk",
+      "ecosystem": "anthropic",
+      "description": "SDK רשמי ל-Ruby עם תמיכה ב-Messages API ו-Tool Use. מיועד ל-Rails apps ו-scripting.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "API"
+      ],
+      "primary_access_key": "Anthropic API key",
+      "tags": [
+        "type:sdk",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "Rails API integrations",
+        "scripting",
+        "Ruby microservices"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-computer-use",
+      "name": "Claude Computer Use",
+      "vendor": "Anthropic",
+      "category": "feature",
+      "ecosystem": "anthropic",
+      "description": "יכולת Claude לשלוט בממשקי GUI — לחיצות, ניווט בדפדפן, מילוי טפסים ועבודה עם אפליקציות desktop. פעיל ב-Cowork ו-Claude Desktop.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Max",
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Max+ account",
+      "tags": [
+        "type:desktop-app",
+        "capability:browser-automation",
+        "capability:agents",
+        "audience:developer",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "אוטומציה של תהליכי web",
+        "מילוי טפסים אוטומטי",
+        "ניהול אפליקציות desktop",
+        "RPA-style workflows"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-plan-mode",
+      "name": "Claude Code Plan Mode",
+      "vendor": "Anthropic",
+      "category": "feature",
+      "ecosystem": "anthropic",
+      "description": "מצב תכנון ב-Claude Code שבו Claude מציג תוכנית פעולה לפני ביצוע שינויים בקוד. שיפור שליטה ושקיפות.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Pro",
+        "Max",
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Code install",
+      "tags": [
+        "type:framework",
+        "capability:agents",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "code review לפני שינוי",
+        "תכנון refactoring",
+        "בדיקת תוכנית לפני merge"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-checkpoints",
+      "name": "Claude Code Checkpoints",
+      "vendor": "Anthropic",
+      "category": "feature",
+      "ecosystem": "anthropic",
+      "description": "Snapshots אוטומטיים של מצב הפרויקט לפני שינויים גדולים ב-Claude Code. מאפשר rollback.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Pro",
+        "Max",
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Code install",
+      "tags": [
+        "type:framework",
+        "capability:agents",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "rollback לאחר שינוי שגוי",
+        "השוואת גרסאות",
+        "safety net לagentic coding"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-zero-retention",
+      "name": "Claude Zero Data Retention (ZDR)",
+      "vendor": "Anthropic",
+      "category": "feature",
+      "ecosystem": "anthropic",
+      "description": "Endpoint mode שבו Anthropic לא שומרת שום prompt או תשובה. קריטי לארגונים עם דרישות compliance כמו HIPAA, SOC2, legal.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Enterprise account + legal agreement",
+      "tags": [
+        "type:api",
+        "audience:enterprise",
+        "access:enterprise-only"
+      ],
+      "use_cases": [
+        "compliance healthcare",
+        "legal AI",
+        "financial services",
+        "government AI"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-enterprise-sso",
+      "name": "Claude Enterprise SSO/SCIM",
+      "vendor": "Anthropic",
+      "category": "feature",
+      "ecosystem": "anthropic",
+      "description": "תמיכה ב-SSO (SAML/OIDC) ו-SCIM provisioning לניהול משתמשים enterprise. אינטגרציה עם Okta, Azure AD, Google Workspace.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Enterprise account",
+      "tags": [
+        "type:api",
+        "audience:enterprise",
+        "access:enterprise-only"
+      ],
+      "use_cases": [
+        "onboarding ארגוני",
+        "ניהול גישה מרכזי",
+        "compliance IT"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "anthropic-academy",
+      "name": "Anthropic Academy / Build with Claude",
+      "vendor": "Anthropic",
+      "category": "learning-resource",
+      "ecosystem": "anthropic",
+      "description": "פלטפורמת למידה רשמית של Anthropic — קורסים, מדריכים ו-tutorials לבניית אפליקציות עם Claude API.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "no account required",
+      "tags": [
+        "type:developer-platform",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "למידת Anthropic API",
+        "שיפור prompt engineering",
+        "בניית אפליקציות AI"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-plan-free",
+      "name": "Claude Free Plan",
+      "vendor": "Anthropic",
+      "category": "subscription",
+      "ecosystem": "anthropic",
+      "description": "תוכנית החינמית של Claude — גישה ל-Claude.ai עם מגבלות שימוש יומיות. כולל Projects ו-Artifacts בגרסה בסיסית.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "email signup",
+      "tags": [
+        "type:subscription",
+        "access:free-tier",
+        "audience:consumer"
+      ],
+      "use_cases": [
+        "כניסה ראשונה ל-Claude",
+        "שימוש ביתי",
+        "הכרת המערכת"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "claude-claude-md",
+      "name": "CLAUDE.md — Project Memory File",
+      "vendor": "Anthropic",
+      "category": "feature",
+      "ecosystem": "anthropic",
+      "description": "קובץ תצורה ב-root של כל repo שמספק הוראות קבועות ל-Claude Code — context ארגוני, conventions, rules.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Pro",
+        "Max",
+        "Team",
+        "Enterprise"
+      ],
+      "primary_access_key": "Claude Code install",
+      "tags": [
+        "type:framework",
+        "capability:memory-persistent",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "הגדרת coding style לפרויקט",
+        "כלת context אוטומטי",
+        "memory per-repo"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-004"
+      ]
+    },
+    {
+      "id": "firebase-authentication",
+      "name": "Firebase Authentication",
+      "vendor": "Google",
+      "category": "backend-service",
+      "ecosystem": "google",
+      "description": "שירות אימות מובנה של Firebase — Email/Password, OAuth (Google, GitHub, Apple), Phone Auth ו-anonymous. מנהל tokens אוטומטית.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Blaze"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:sdk",
+        "capability:agents",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "login/signup לאפליקציות",
+        "Social auth",
+        "phone verification",
+        "anonymous sessions"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "cloud-firestore",
+      "name": "Cloud Firestore",
+      "vendor": "Google",
+      "category": "database",
+      "ecosystem": "google",
+      "description": "מסד נתונים NoSQL מנוהל של Firebase — real-time sync, offline support, queries מורכבות, scalable ל-millions of users.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Blaze"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:storage-service",
+        "capability:real-time-streaming",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "אחסון נתוני אפליקציה",
+        "real-time updates",
+        "offline-first apps",
+        "multi-user sync"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-realtime-database",
+      "name": "Firebase Realtime Database",
+      "vendor": "Google",
+      "category": "database",
+      "ecosystem": "google",
+      "description": "מסד הנתונים המקורי של Firebase — JSON tree עם real-time sync. מיועד לdata פשוט עם latency נמוך מאוד.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Blaze"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:storage-service",
+        "capability:real-time-streaming",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "chat apps",
+        "live leaderboards",
+        "simple collaborative data"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-cloud-functions",
+      "name": "Cloud Functions for Firebase",
+      "vendor": "Google",
+      "category": "serverless",
+      "ecosystem": "google",
+      "description": "Functions serverless המופעלות על ידי events של Firebase — Firestore writes, Auth events, HTTP triggers. כתוב ב-JavaScript/TypeScript.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Blaze"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:framework",
+        "capability:scheduling",
+        "capability:batch-processing",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "לוגיקת backend לאפליקציות",
+        "event-driven automation",
+        "integrations מ-Firebase"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-hosting",
+      "name": "Firebase Hosting",
+      "vendor": "Google",
+      "category": "hosting",
+      "ecosystem": "google",
+      "description": "Hosting סטטי ו-SSR עם CDN גלובלי — deployment מהיר, SSL אוטומטי, preview channels ואינטגרציה עם Cloud Functions.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Blaze"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:developer-platform",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "deploy web apps",
+        "preview URLs לPRs",
+        "static site hosting"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-cloud-messaging",
+      "name": "Firebase Cloud Messaging (FCM)",
+      "vendor": "Google",
+      "category": "messaging-service",
+      "ecosystem": "google",
+      "description": "שירות push notifications חינמי ל-iOS, Android ו-Web. שולח הודעות למיליוני devices בו-זמנית.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:mobile-app",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "push notifications",
+        "re-engagement campaigns",
+        "real-time alerts"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-crashlytics",
+      "name": "Firebase Crashlytics",
+      "vendor": "Google",
+      "category": "monitoring",
+      "ecosystem": "google",
+      "description": "מעקב אחרי crashes ב-iOS ו-Android בזמן אמת. מספק stack traces, affected users ו-velocity alerts.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:mobile-app",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "crash monitoring",
+        "bug prioritization",
+        "release quality tracking"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-performance-monitoring",
+      "name": "Firebase Performance Monitoring",
+      "vendor": "Google",
+      "category": "monitoring",
+      "ecosystem": "google",
+      "description": "מדידת ביצועי אפליקציה — app startup, HTTP request latency, custom traces. ל-iOS, Android ו-Web.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:mobile-app",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "performance optimization",
+        "detecting bottlenecks",
+        "tracking app metrics"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-remote-config",
+      "name": "Firebase Remote Config",
+      "vendor": "Google",
+      "category": "configuration",
+      "ecosystem": "google",
+      "description": "שינוי behavior ו-appearance של האפליקציה ללא update — feature flags, A/B personalization, rollouts מדורגים.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:mobile-app",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "feature flags",
+        "gradual rollouts",
+        "personalization",
+        "kill switches"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-ab-testing",
+      "name": "Firebase A/B Testing",
+      "vendor": "Google",
+      "category": "experimentation",
+      "ecosystem": "google",
+      "description": "פלטפורמת ניסויים של Firebase המשלבת Remote Config ו-Notifications עם Google Analytics לניתוח תוצאות.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:experiment-lab",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "UX experiments",
+        "feature rollout testing",
+        "push notification optimization"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-app-distribution",
+      "name": "Firebase App Distribution",
+      "vendor": "Google",
+      "category": "distribution",
+      "ecosystem": "google",
+      "description": "הפצת build לbeta testers לפני production — iOS ו-Android. ניהול groups של testers ופידבק.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:mobile-app",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "beta testing",
+        "QA distribution",
+        "pre-launch testing"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-test-lab",
+      "name": "Firebase Test Lab",
+      "vendor": "Google",
+      "category": "testing",
+      "ecosystem": "google",
+      "description": "מעבדת בדיקות cloud — הרצת אוטומטית של tests ב-physical ו-virtual Android/iOS devices בשרתי Google.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Blaze"
+      ],
+      "primary_access_key": "Firebase Blaze plan",
+      "tags": [
+        "type:developer-platform",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "automated UI testing",
+        "cross-device compatibility",
+        "CI/CD testing"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-app-check",
+      "name": "Firebase App Check",
+      "vendor": "Google",
+      "category": "security",
+      "ecosystem": "google",
+      "description": "הגנה על backend resources של Firebase מפני שימוש לא מורשה — וידוא שהבקשות מגיעות רק מהאפליקציה שלך.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:api",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "protection against API abuse",
+        "backend security",
+        "bot prevention"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-extensions",
+      "name": "Firebase Extensions",
+      "vendor": "Google",
+      "category": "marketplace-app",
+      "ecosystem": "google",
+      "description": "פתרונות מוכנים מראש לFirebase — resize images, send emails, translate text, search with Algolia. מותקנים בלחיצה.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Blaze"
+      ],
+      "primary_access_key": "Firebase Blaze plan",
+      "tags": [
+        "type:connector",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "image resize pipeline",
+        "email sending",
+        "search integration",
+        "payment processing"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "firebase-analytics",
+      "name": "Google Analytics for Firebase",
+      "vendor": "Google",
+      "category": "analytics",
+      "ecosystem": "google",
+      "description": "Analytics מובנה לאפליקציות mobile ו-web — events, funnels, retention, audience ו-A/B. מחובר ל-Google Analytics 4.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Firebase project",
+      "tags": [
+        "type:mobile-app",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "user behavior analytics",
+        "conversion funnels",
+        "retention analysis",
+        "audience segmentation"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "gmail",
+      "name": "Gmail",
+      "vendor": "Google",
+      "category": "email",
+      "ecosystem": "google",
+      "description": "שירות האימייל של Google — אינטגרציה עם Gemini (Smart Compose, Smart Reply, summarization), Workspace ו-Claude connector.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "capability:real-time-streaming",
+        "audience:consumer",
+        "audience:enterprise",
+        "access:free-tier",
+        "compare:connector-google-workspace-claude"
+      ],
+      "use_cases": [
+        "אימיילים מקצועיים",
+        "ניהול inbox",
+        "אוטומציה עם Apps Script",
+        "Gemini AI features"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-drive",
+      "name": "Google Drive",
+      "vendor": "Google",
+      "category": "storage",
+      "ecosystem": "google",
+      "description": "שירות אחסון ענן של Google — שיתוף קבצים, sync, חיפוש AI, אינטגרציה עם NotebookLM ו-Claude.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Google One",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:storage-service",
+        "capability:knowledge-base",
+        "audience:consumer",
+        "audience:enterprise",
+        "access:free-tier",
+        "compare:connector-google-drive"
+      ],
+      "use_cases": [
+        "אחסון קבצים",
+        "שיתוף עם צוות",
+        "מקור NotebookLM",
+        "Claude Knowledge Base"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-docs",
+      "name": "Google Docs",
+      "vendor": "Google",
+      "category": "word-processor",
+      "ecosystem": "google",
+      "description": "מעבד תמלילים ענן של Google — כתיבה שיתופית, Gemini AI (Help me write), ייצוא ל-PDF/Word, אינטגרציה עם Claude.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "capability:text-generation",
+        "audience:consumer",
+        "audience:enterprise",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "כתיבה שיתופית",
+        "ניסוח מסמכים",
+        "Gemini writing assistant",
+        "מקור NotebookLM"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-sheets",
+      "name": "Google Sheets",
+      "vendor": "Google",
+      "category": "spreadsheet",
+      "ecosystem": "google",
+      "description": "גיליון אלקטרוני ענן של Google — functions, charts, pivot tables, Gemini AI, אינטגרציה עם Apps Script ו-BigQuery.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "capability:data-analysis",
+        "audience:consumer",
+        "audience:enterprise",
+        "access:free-tier",
+        "compare:connector-bigquery"
+      ],
+      "use_cases": [
+        "ניהול נתונים",
+        "דשבורדים",
+        "automation עם Apps Script",
+        "ניתוח עם Gemini"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-slides",
+      "name": "Google Slides",
+      "vendor": "Google",
+      "category": "presentations",
+      "ecosystem": "google",
+      "description": "כלי מצגות ענן של Google — שיתוף פעולה בזמן אמת, Gemini AI (image generation, text), ייצוא ל-PowerPoint.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "capability:image-generation",
+        "audience:consumer",
+        "audience:enterprise",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "מצגות מקצועיות",
+        "שיתוף פעולה",
+        "Gemini slide generation",
+        "NotebookLM source"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-chat",
+      "name": "Google Chat",
+      "vendor": "Google",
+      "category": "messaging",
+      "ecosystem": "google",
+      "description": "מסנג'ר ארגוני של Google Workspace — Spaces, DMs, Bots, Gemini AI ב-chat, אינטגרציה עם Meet ו-Drive.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "capability:real-time-streaming",
+        "audience:enterprise",
+        "compare:connector-slack-claude"
+      ],
+      "use_cases": [
+        "תקשורת צוות",
+        "Gemini chatbot בChat",
+        "automations עם Bots",
+        "אינטגרציה עם Meet"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-calendar",
+      "name": "Google Calendar",
+      "vendor": "Google",
+      "category": "calendar",
+      "ecosystem": "google",
+      "description": "לוח שנה ענן של Google — scheduling, Gemini AI (smart suggestions), אינטגרציה עם Meet, Gmail ו-Workspace.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "capability:scheduling",
+        "audience:consumer",
+        "audience:enterprise",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "תיאום פגישות",
+        "Gemini scheduling",
+        "reminder automation",
+        "workspace calendar"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-forms",
+      "name": "Google Forms",
+      "vendor": "Google",
+      "category": "forms",
+      "ecosystem": "google",
+      "description": "כלי יצירת טפסים וסקרים של Google — analysis אוטומטי, Gemini AI, אינטגרציה עם Sheets.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "capability:data-analysis",
+        "audience:consumer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "סקרי לקוחות",
+        "שאלוני עובדים",
+        "data collection",
+        "event registration"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-keep",
+      "name": "Google Keep",
+      "vendor": "Google",
+      "category": "notes",
+      "ecosystem": "google",
+      "description": "אפליקציית פתקיות של Google — רשימות, תמונות, reminders ו-labels. מסונכרן עם Workspace.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "audience:consumer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "רשימות מהירות",
+        "reminders",
+        "capture ideas",
+        "shopping lists"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-tasks",
+      "name": "Google Tasks",
+      "vendor": "Google",
+      "category": "task-manager",
+      "ecosystem": "google",
+      "description": "כלי ניהול משימות פשוט של Google — מחובר ל-Gmail, Calendar ו-Workspace.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:workspace-app",
+        "capability:scheduling",
+        "audience:consumer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "to-do lists",
+        "task tracking",
+        "email to task",
+        "calendar integration"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-sites",
+      "name": "Google Sites",
+      "vendor": "Google",
+      "category": "website-builder",
+      "ecosystem": "google",
+      "description": "כלי בניית אתרים פנימיים של Google — intranet, project sites, wikis ללא צורך בקוד.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Workspace"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:no-code-platform",
+        "audience:enterprise",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "intranet pages",
+        "project microsites",
+        "team wikis"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-vault",
+      "name": "Google Vault",
+      "vendor": "Google",
+      "category": "compliance",
+      "ecosystem": "google",
+      "description": "כלי eDiscovery ו-archiving של Google Workspace — retention policies, legal holds, audit exports.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Business Plus",
+        "Enterprise"
+      ],
+      "primary_access_key": "Google Workspace admin",
+      "tags": [
+        "type:api",
+        "audience:enterprise",
+        "access:enterprise-only"
+      ],
+      "use_cases": [
+        "legal hold",
+        "compliance archiving",
+        "email discovery",
+        "audit trail"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-vids",
+      "name": "Google Vids",
+      "vendor": "Google",
+      "category": "video-creation",
+      "ecosystem": "google",
+      "description": "כלי יצירת וידאו AI ב-Workspace — יצירת video recaps, summaries ו-presentations מתוך Docs ו-Slides עם Gemini.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Business Standard",
+        "Enterprise"
+      ],
+      "primary_access_key": "Google Workspace account",
+      "tags": [
+        "type:workspace-app",
+        "capability:video-generation",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "video meeting summaries",
+        "AI video creation",
+        "presentation videos"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-cloud-platform",
+      "name": "Google Cloud Platform (GCP)",
+      "vendor": "Google",
+      "category": "cloud-platform",
+      "ecosystem": "google",
+      "description": "פלטפורמת הענן של Google — Compute Engine, GKE, Cloud Storage, Networking. תשתית ל-Vertex AI, Firebase ו-Workspace.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go",
+        "Committed Use"
+      ],
+      "primary_access_key": "GCP billing account",
+      "tags": [
+        "type:api",
+        "audience:developer",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "deploy ML workloads",
+        "scalable compute",
+        "storage infrastructure",
+        "Vertex AI backend"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "cloud-sdk-gcloud",
+      "name": "Google Cloud SDK (gcloud)",
+      "vendor": "Google",
+      "category": "developer-tool",
+      "ecosystem": "google",
+      "description": "כלי CLI לניהול GCP — deploy, configure ו-interact עם כל שירותי Google Cloud ממסוף.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "GCP account",
+      "tags": [
+        "type:sdk",
+        "audience:developer",
+        "access:open-source"
+      ],
+      "use_cases": [
+        "deploy Cloud Functions",
+        "manage GKE clusters",
+        "automate GCP resources"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-cloud-console",
+      "name": "Google Cloud Console",
+      "vendor": "Google",
+      "category": "developer-tool",
+      "ecosystem": "google",
+      "description": "ממשק web לניהול GCP — כל השירותים, monitoring, billing, IAM. נקודת כניסה ראשית לענן גוגל.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "GCP account",
+      "tags": [
+        "type:developer-platform",
+        "audience:developer",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "GCP management",
+        "billing control",
+        "IAM configuration",
+        "monitoring dashboards"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-cloud-shell",
+      "name": "Google Cloud Shell",
+      "vendor": "Google",
+      "category": "developer-tool",
+      "ecosystem": "google",
+      "description": "Terminal מבוסס browser עם gcloud, kubectl ו-5GB storage. מוכן לשימוש מיידי בלי setup.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "GCP account",
+      "tags": [
+        "type:developer-platform",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "quick GCP scripting",
+        "kubectl access",
+        "development without local setup"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "cloud-code-ide",
+      "name": "Cloud Code (IDE Plugin)",
+      "vendor": "Google",
+      "category": "ide-plugin",
+      "ecosystem": "google",
+      "description": "Plugin ל-VS Code ו-JetBrains לפיתוח ב-GCP — Kubernetes YAML, Cloud Run deployment, Gemini Code Assist.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "GCP account",
+      "tags": [
+        "type:developer-platform",
+        "capability:code-generation",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "Kubernetes development",
+        "Cloud Run deploy",
+        "GCP-aware coding"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "bigquery",
+      "name": "Google BigQuery",
+      "vendor": "Google",
+      "category": "data-warehouse",
+      "ecosystem": "google",
+      "description": "Data warehouse serverless של Google — שאילתות SQL על petabytes, ML מובנה (BigQuery ML), Gemini AI לניתוח.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go",
+        "Flat-rate"
+      ],
+      "primary_access_key": "GCP billing account",
+      "tags": [
+        "type:storage-service",
+        "capability:data-analysis",
+        "audience:data-scientist",
+        "audience:enterprise",
+        "compare:connector-bigquery"
+      ],
+      "use_cases": [
+        "analytics at scale",
+        "BI dashboards",
+        "ML training data",
+        "Gemini SQL queries"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-colab",
+      "name": "Google Colab (Colaboratory)",
+      "vendor": "Google",
+      "category": "notebook",
+      "ecosystem": "google",
+      "description": "סביבת Jupyter notebooks ענן חינמית עם GPU — לימוד ML, מחקר, פרוטוטייפינג עם Gemma, PyTorch, TensorFlow.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Colab Pro"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:research-tool",
+        "capability:data-analysis",
+        "audience:researcher",
+        "audience:data-scientist",
+        "access:free-tier",
+        "compare:vertex-ai-google"
+      ],
+      "use_cases": [
+        "ML prototyping",
+        "Gemma model experimentation",
+        "data analysis",
+        "Python notebooks"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "kaggle",
+      "name": "Kaggle",
+      "vendor": "Google",
+      "category": "ml-platform",
+      "ecosystem": "google",
+      "description": "פלטפורמת ML community של Google — datasets, competitions, notebooks עם GPU חינמי, Gemma models.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Kaggle account",
+      "tags": [
+        "type:research-tool",
+        "capability:data-analysis",
+        "audience:researcher",
+        "access:free-tier",
+        "compare:google-colab"
+      ],
+      "use_cases": [
+        "ML competitions",
+        "dataset exploration",
+        "model fine-tuning",
+        "Gemma experimentation"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "vertex-automl",
+      "name": "Vertex AI AutoML",
+      "vendor": "Google",
+      "category": "automl",
+      "ecosystem": "google",
+      "description": "אימון מודלי ML אוטומטי ל-text, image, video, tabular data — ללא כתיבת קוד. חלק מ-Vertex AI.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go"
+      ],
+      "primary_access_key": "GCP billing account",
+      "tags": [
+        "type:api",
+        "capability:reasoning",
+        "audience:data-scientist"
+      ],
+      "use_cases": [
+        "custom image classifiers",
+        "text categorization",
+        "tabular predictions without code"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "vision-ai-api",
+      "name": "Cloud Vision AI API",
+      "vendor": "Google",
+      "category": "api",
+      "ecosystem": "google",
+      "description": "ניתוח תמונות מ-Google Cloud — OCR, object detection, face detection, explicit content. מוטמע בחלקו ב-Gemini API.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go"
+      ],
+      "primary_access_key": "GCP API key",
+      "tags": [
+        "type:api",
+        "capability:image-analysis",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "OCR documents",
+        "product image labeling",
+        "content moderation",
+        "logo detection"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "cloud-translation-api",
+      "name": "Cloud Translation API",
+      "vendor": "Google",
+      "category": "api",
+      "ecosystem": "google",
+      "description": "תרגום טקסט אוטומטי ל-100+ שפות — REST API, AutoML Translation לתרגום domain-specific.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go"
+      ],
+      "primary_access_key": "GCP API key",
+      "tags": [
+        "type:api",
+        "capability:text-generation",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "multilingual apps",
+        "website localization",
+        "content translation pipeline"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "speech-to-text-api",
+      "name": "Cloud Speech-to-Text API",
+      "vendor": "Google",
+      "category": "api",
+      "ecosystem": "google",
+      "description": "המרת דיבור לטקסט של Google Cloud — 125+ שפות, real-time streaming, דגמים מותאמים.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go"
+      ],
+      "primary_access_key": "GCP API key",
+      "tags": [
+        "type:api",
+        "capability:real-time-streaming",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "transcription",
+        "voice commands",
+        "meeting recording",
+        "call center analytics"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "text-to-speech-api",
+      "name": "Cloud Text-to-Speech API",
+      "vendor": "Google",
+      "category": "api",
+      "ecosystem": "google",
+      "description": "המרת טקסט לדיבור של Google Cloud — WaveNet voices, Neural2, 200+ קולות ב-50+ שפות.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go"
+      ],
+      "primary_access_key": "GCP API key",
+      "tags": [
+        "type:api",
+        "capability:real-time-streaming",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "voice assistants",
+        "audiobooks",
+        "accessibility",
+        "TTS in apps"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-earth",
+      "name": "Google Earth",
+      "vendor": "Google",
+      "category": "geo",
+      "ecosystem": "google",
+      "description": "ויזואליזציה גלובלית של Google — 3D terrain, historical imagery, Story maps, Google Earth Engine לניתוח גיאוגרפי.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account optional",
+      "tags": [
+        "type:research-tool",
+        "capability:image-analysis",
+        "audience:consumer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "geographic research",
+        "environmental analysis",
+        "3D visualization",
+        "historical imagery"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-photos",
+      "name": "Google Photos",
+      "vendor": "Google",
+      "category": "photo-management",
+      "ecosystem": "google",
+      "description": "אחסון וניהול תמונות AI של Google — זיהוי אוטומטי, חיפוש חכם, editing AI, אינטגרציה עם Gemini.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Google One"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:mobile-app",
+        "capability:image-analysis",
+        "audience:consumer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "photo storage",
+        "AI search",
+        "album creation",
+        "memory films"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "youtube-music",
+      "name": "YouTube Music",
+      "vendor": "Google",
+      "category": "music-streaming",
+      "ecosystem": "google",
+      "description": "שירות streaming מוזיקה של Google — 80M+ songs, personalized playlists, podcasts, אינטגרציה עם YouTube.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Premium"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:subscription",
+        "audience:consumer"
+      ],
+      "use_cases": [
+        "music streaming",
+        "playlist creation",
+        "podcast listening",
+        "offline download"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-ads",
+      "name": "Google Ads",
+      "vendor": "Google",
+      "category": "advertising",
+      "ecosystem": "google",
+      "description": "פלטפורמת הפרסום של Google — Search Ads, Display, YouTube, Shopping. מוניטיזציה וטרגוט בכל רשת Google.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-per-click"
+      ],
+      "primary_access_key": "Google Ads account",
+      "tags": [
+        "type:api",
+        "capability:data-analysis",
+        "audience:enterprise",
+        "audience:content-creator"
+      ],
+      "use_cases": [
+        "search advertising",
+        "product listings",
+        "YouTube ads",
+        "remarketing"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-adsense",
+      "name": "Google AdSense",
+      "vendor": "Google",
+      "category": "advertising",
+      "ecosystem": "google",
+      "description": "מוניטיזציה של אתרי web על ידי הצגת מודעות Google — Display, text, responsive ads.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Revenue Share"
+      ],
+      "primary_access_key": "Approved publisher account",
+      "tags": [
+        "type:api",
+        "audience:content-creator"
+      ],
+      "use_cases": [
+        "website monetization",
+        "publisher ads",
+        "revenue from content"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-analytics-4",
+      "name": "Google Analytics 4 (GA4)",
+      "vendor": "Google",
+      "category": "analytics",
+      "ecosystem": "google",
+      "description": "פלטפורמת analytics של Google — event-based tracking, funnel analysis, ML predictions, אינטגרציה עם Firebase ו-Ads.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free",
+        "Analytics 360"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:api",
+        "capability:data-analysis",
+        "audience:developer",
+        "audience:enterprise",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "website analytics",
+        "conversion tracking",
+        "user journeys",
+        "ML predictions"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-tag-manager",
+      "name": "Google Tag Manager (GTM)",
+      "vendor": "Google",
+      "category": "tag-management",
+      "ecosystem": "google",
+      "description": "ניהול tags וscripts של Google ו-third-party ללא code deployments — GA4, Ads, Pixels, custom scripts.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:no-code-platform",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "analytics tag deployment",
+        "marketing pixel management",
+        "A/B testing tags"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-merchant-center",
+      "name": "Google Merchant Center",
+      "vendor": "Google",
+      "category": "e-commerce",
+      "ecosystem": "google",
+      "description": "ניהול product feeds לGoogle Shopping, Search ו-YouTube — upload products, pricing, availability.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google Merchant Center account",
+      "tags": [
+        "type:api",
+        "audience:enterprise"
+      ],
+      "use_cases": [
+        "product listings on Google",
+        "shopping ads",
+        "inventory management"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-news",
+      "name": "Google News",
+      "vendor": "Google",
+      "category": "news",
+      "ecosystem": "google",
+      "description": "אגרגטור חדשות AI של Google — Full Coverage, personalized feed, Publisher Center.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:mobile-app",
+        "audience:consumer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "news aggregation",
+        "publisher distribution",
+        "personalized feed"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "workspace-admin-console",
+      "name": "Google Workspace Admin Console",
+      "vendor": "Google",
+      "category": "admin-tool",
+      "ecosystem": "google",
+      "description": "לוח בקרה ניהולי ל-Google Workspace — ניהול users, groups, devices, security, compliance ו-Gemini policies.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Business",
+        "Enterprise"
+      ],
+      "primary_access_key": "Workspace admin account",
+      "tags": [
+        "type:api",
+        "audience:enterprise",
+        "access:enterprise-only"
+      ],
+      "use_cases": [
+        "user management",
+        "device MDM",
+        "security policies",
+        "Gemini deployment"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "android-os",
+      "name": "Android OS",
+      "vendor": "Google",
+      "category": "operating-system",
+      "ecosystem": "google",
+      "description": "מערכת הפעלה mobile של Google — Gemini AI מובנה, Google Play Services, ML Kit GenAI APIs, Firebase SDKs.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Device-bundled"
+      ],
+      "primary_access_key": "Android device",
+      "tags": [
+        "type:mobile-app",
+        "capability:on-device",
+        "audience:developer",
+        "compare:gemini-nano"
+      ],
+      "use_cases": [
+        "mobile app development",
+        "on-device AI",
+        "Google services integration"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "chrome-browser",
+      "name": "Google Chrome",
+      "vendor": "Google",
+      "category": "browser",
+      "ecosystem": "google",
+      "description": "דפדפן Chrome עם Gemini AI מובנה — Help me write, AI summaries, שילוב עם Google Workspace ו-Claude extension.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account optional",
+      "tags": [
+        "type:browser-extension",
+        "capability:text-generation",
+        "audience:consumer",
+        "access:free-tier",
+        "compare:claude-in-chrome"
+      ],
+      "use_cases": [
+        "web browsing",
+        "Gemini write assist",
+        "AI summaries",
+        "extension ecosystem"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "chromeos",
+      "name": "ChromeOS",
+      "vendor": "Google",
+      "category": "operating-system",
+      "ecosystem": "google",
+      "description": "מערכת הפעלה desktop המבוססת Chrome — Workspace native, Gemini AI, Linux container support, Chromebook.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Device-bundled"
+      ],
+      "primary_access_key": "Chromebook device",
+      "tags": [
+        "type:desktop-app",
+        "audience:enterprise",
+        "audience:consumer"
+      ],
+      "use_cases": [
+        "education computing",
+        "enterprise laptops",
+        "web-first productivity",
+        "Gemini integration"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "pixel-phones",
+      "name": "Google Pixel Phones",
+      "vendor": "Google",
+      "category": "hardware",
+      "ecosystem": "google",
+      "description": "סמארטפונים של Google עם Gemini Nano on-device — Recorder summaries, Call Notes, Scam Detection, Pixel Screenshots.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Purchase"
+      ],
+      "primary_access_key": "Device purchase",
+      "tags": [
+        "type:mobile-app",
+        "capability:on-device",
+        "audience:consumer",
+        "compare:gemini-nano"
+      ],
+      "use_cases": [
+        "on-device AI",
+        "call screening",
+        "real-time translation",
+        "exclusive Gemini features"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "nest-devices",
+      "name": "Google Nest / Google Home Devices",
+      "vendor": "Google",
+      "category": "hardware",
+      "ecosystem": "google",
+      "description": "מכשירי Smart Home של Google — Nest Hub, Nest Thermostat, Nest Cam, Google Home speakers עם Gemini/Assistant.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Purchase"
+      ],
+      "primary_access_key": "Device purchase",
+      "tags": [
+        "type:mobile-app",
+        "capability:on-device",
+        "audience:consumer"
+      ],
+      "use_cases": [
+        "smart home automation",
+        "voice control",
+        "home security",
+        "energy management"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "flow-google",
+      "name": "Flow / Flow TV (Google Labs)",
+      "vendor": "Google",
+      "category": "creative-tool",
+      "ecosystem": "google",
+      "description": "כלי יצירת וידאו קולנועי ב-Google Labs המבוסס על Veo 3.x — אנימציה, cinematic video generation.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account + waitlist",
+      "tags": [
+        "type:experiment-lab",
+        "capability:video-generation",
+        "audience:content-creator",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "cinematic video generation",
+        "animation creation",
+        "creative AI video"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "whisk-google",
+      "name": "Whisk (Google Labs)",
+      "vendor": "Google",
+      "category": "creative-tool",
+      "ecosystem": "google",
+      "description": "כלי AI לקולינריה ומתכונים ב-Google Labs — יצירת תמונות וידאו של אוכל, מתכונים AI.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:experiment-lab",
+        "capability:image-generation",
+        "audience:consumer"
+      ],
+      "use_cases": [
+        "food image generation",
+        "recipe visualization",
+        "culinary AI"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-experiments-portal",
+      "name": "Experiments with Google",
+      "vendor": "Google",
+      "category": "showcase",
+      "ecosystem": "google",
+      "description": "פורטל ניסויים של Google מאז 2009 — אלפי experiments עם Chrome, WebVR, AI, Android. labs.google/experiments.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "no account required",
+      "tags": [
+        "type:experiment-lab",
+        "audience:developer",
+        "audience:researcher"
+      ],
+      "use_cases": [
+        "AI experiments",
+        "WebGL/WebXR demos",
+        "Chrome capabilities",
+        "educational tools"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "google-labs-hub",
+      "name": "Google Labs (AI Hub)",
+      "vendor": "Google",
+      "category": "labs-platform",
+      "ecosystem": "google",
+      "description": "פלטפורמת Google Labs — מרכז לניסויים AI ב-Search, Shopping, Workspace, Android. כ-35 experiments פעילים.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Free"
+      ],
+      "primary_access_key": "Google account",
+      "tags": [
+        "type:experiment-lab",
+        "audience:consumer",
+        "audience:developer"
+      ],
+      "use_cases": [
+        "early AI features",
+        "experimental products",
+        "AI research access"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "vertex-workbench",
+      "name": "Vertex AI Workbench",
+      "vendor": "Google",
+      "category": "notebook",
+      "ecosystem": "google",
+      "description": "סביבת Jupyter מנוהלת ב-Vertex AI — מחוברת ל-BigQuery, Dataproc, Google Cloud Storage. לניתוח נתונים ו-ML.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go"
+      ],
+      "primary_access_key": "GCP billing account",
+      "tags": [
+        "type:research-tool",
+        "capability:data-analysis",
+        "audience:data-scientist",
+        "compare:google-colab"
+      ],
+      "use_cases": [
+        "managed ML notebooks",
+        "BigQuery analysis",
+        "model training",
+        "data exploration"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
+    },
+    {
+      "id": "vertex-mlops",
+      "name": "Vertex AI MLOps (Pipelines/Registry)",
+      "vendor": "Google",
+      "category": "mlops",
+      "ecosystem": "google",
+      "description": "כלי MLOps ב-Vertex AI — Model Registry, Pipelines, Evaluation, Feature Store, Monitoring. ניהול מחזור חיי מודלים.",
+      "surfaces": [],
+      "relations": [],
+      "connectors": [],
+      "subscription_tiers": [
+        "Pay-as-you-go"
+      ],
+      "primary_access_key": "GCP billing account",
+      "tags": [
+        "type:developer-platform",
+        "capability:batch-processing",
+        "audience:data-scientist"
+      ],
+      "use_cases": [
+        "ML pipeline automation",
+        "model versioning",
+        "continuous training",
+        "model monitoring"
+      ],
+      "wiki_file": null,
+      "notebooklm_ref": null,
+      "deep_research_status": "inventory_only",
+      "youtube_video_ids": [],
+      "freshness": {
+        "score": 0.7,
+        "last_checked": "2026-04-21"
+      },
+      "research_status": "inventory_only",
+      "last_research_date": "2026-04-21",
+      "has_pending_updates": false,
+      "research_record_ids": [
+        "dr-005"
+      ]
     }
   ],
   "backfill_queue": [
@@ -7595,7 +11426,7 @@
     }
   ],
   "stats": {
-    "total_tools": 106,
+    "total_tools": 198,
     "tools_with_wiki": 33,
     "tools_with_research": 5,
     "pending_backfill": 4,

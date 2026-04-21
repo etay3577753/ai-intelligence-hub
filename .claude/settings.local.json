@@ -43,7 +43,8 @@
       "Bash(python -c \"import json; d=json.load\\(open\\('backend/data/knowledge-base/ecosystem-inventory.json',encoding='utf-8'\\)\\); print\\([t['id'] for t in d['tools']]\\)\")",
       "Bash(python -c ' *)",
       "Bash(python update_kb.py)",
-      "Bash(python import_full_kb.py)"
+      "Bash(python import_full_kb.py)",
+      "Bash(python import_kb_v2.py)"
     ]
   }
 }
