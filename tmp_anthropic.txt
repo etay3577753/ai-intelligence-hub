@@ -1,0 +1,76 @@
+claude-ai-web | Claude.ai
+anthropic-api | Anthropic API
+claude-code | Claude Code
+claude-agent-sdk | Claude Agent SDK
+mcp-protocol | MCP Protocol
+claude-cowork | Claude Cowork
+claude-in-chrome | Claude in Chrome (Beta)
+claude-projects | Claude Projects
+claude-desktop | Claude Desktop
+anthropic-console | Anthropic Console
+claude-ios-app | Claude iOS / iPadOS
+claude-3-opus | Claude 3 Opus
+claude-3-sonnet | Claude 3 Sonnet
+claude-3-haiku | Claude 3 Haiku
+claude-35-sonnet | Claude 3.5 Sonnet
+claude-workbench | Claude Workbench
+anthropic-sdk-python | Anthropic Python SDK
+anthropic-sdk-typescript | Anthropic TypeScript/JS SDK
+anthropic-sdk-go | Anthropic Go SDK
+message-batches-api | Message Batches API
+tool-use-api | Tool Use / Function Calling
+prompt-caching-api | Prompt Caching (API)
+claude-code-vscode | Claude Code for VS Code
+claude-code-chrome-integration | Claude Code Chrome Integration
+claude-workspaces | Claude Workspaces
+claude-for-excel | Claude for Excel
+claude-for-powerpoint | Claude for PowerPoint
+connector-jira | Jira Connector (Claude)
+connector-salesforce | Salesforce Connector (Claude)
+connector-snowflake | Snowflake Connector (Claude)
+connector-google-workspace-claude | Google Workspace Connector (Claude)
+connector-slack-claude | Slack Connector (Claude)
+claude-memory-enterprise | Claude Memory (Teams/Enterprise)
+claude-memory-consumer | Claude Memory (Personal)
+claude-artifacts | Artifacts (Claude)
+claude-knowledge-base | Claude Projects Knowledge Base
+contextual-retriever | Contextual Retriever
+claude-on-bedrock | Claude on Amazon Bedrock
+claude-on-vertex | Claude on Google Vertex AI
+claude-marketplace | Claude Marketplace
+claude-plan-pro | Claude Pro Plan
+claude-plan-max | Claude Max Plan
+claude-plan-team | Claude Team Plan
+claude-plan-enterprise | Claude Enterprise Plan
+constitutional-ai | Constitutional AI Framework
+claude-2-legacy | Claude 2 / 2.1 (Legacy)
+connector-notion | Claude ↔ Notion Connector
+connector-google-drive | Claude ↔ Google Drive Connector
+connector-microsoft-365 | Claude ↔ Microsoft 365 Connector
+connector-confluence | Claude ↔ Confluence Connector
+connector-asana | Claude ↔ Asana Connector
+connector-linear | Claude ↔ Linear Connector
+connector-monday | Claude ↔ Monday.com Connector
+connector-hubspot | Claude ↔ HubSpot Connector
+connector-bigquery | Claude ↔ BigQuery Connector
+connector-databricks | Claude ↔ Databricks Connector
+connector-github | Claude ↔ GitHub Connector
+connector-zoom | Claude ↔ Zoom Connector
+connector-zendesk | Claude ↔ Zendesk Connector
+connector-figma | Claude ↔ Figma Connector
+connector-servicenow | Claude ↔ ServiceNow Connector
+marketplace-gitlab | GitLab × Claude Marketplace App
+marketplace-harvey | Harvey × Claude Marketplace App
+marketplace-rogo | Rogo × Claude Marketplace App
+marketplace-replit-partner | Replit × Claude Marketplace
+marketplace-lovable-partner | Lovable × Claude Marketplace
+anthropic-sdk-java | Anthropic Java SDK
+anthropic-sdk-ruby | Anthropic Ruby SDK
+claude-computer-use | Claude Computer Use
+claude-plan-mode | Claude Code Plan Mode
+claude-checkpoints | Claude Code Checkpoints
+claude-zero-retention | Claude Zero Data Retention (ZDR)
+claude-enterprise-sso | Claude Enterprise SSO/SCIM
+anthropic-academy | Anthropic Academy / Build with Claude
+claude-plan-free | Claude Free Plan
+claude-claude-md | CLAUDE.md — Project Memory File

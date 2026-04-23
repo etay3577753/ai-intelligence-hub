@@ -165,6 +165,36 @@ function getToolBranch(tool: ToolRecord): string {
     return "🗂️ אחר";
   }
 
+  if (eco === "openai") {
+    if (["gpt-4o","gpt-4-1","gpt-4-1-mini","gpt-4-1-nano","o-series-reasoning",
+         "gpt-3-5-legacy","gpt-4-legacy","embeddings-api","embeddings-api-openai",
+         "dall-e","sora-model","whisper-api","tts-api","moderation-api","codex-legacy"].includes(id))
+      return "🧠 מודלים";
+    if (["chatgpt-web","chatgpt-mobile","chatgpt-deep-research","chatgpt-voice",
+         "chatgpt-search","chatgpt-memory","chatgpt-atlas","sora-ui",
+         "code-interpreter-openai"].includes(id))
+      return "💬 ChatGPT Apps";
+    if (["gpt-store","custom-gpts","gpt-builder","gpt-actions","chatgpt-plugins-legacy"].includes(id))
+      return "🏪 GPT Store & Custom GPTs";
+    if (id.startsWith("openai-plan-"))
+      return "💳 תוכניות & מחיר";
+    if (["openai-plan-free","openai-plan-plus","openai-plan-pro","openai-plan-team","openai-plan-enterprise","openai-plan-edu"].includes(id))
+      return "💳 תוכניות & מחיר";
+    if (["responses-api","realtime-api","assistants-api-legacy","images-api","audio-api",
+         "video-api-sora","fine-tuning-api","batch-api-openai","files-api-openai",
+         "vector-stores-openai","moderations-api-openai","models-api-openai",
+         "function-calling-openai","file-search-openai"].includes(id))
+      return "🔌 API & Endpoints";
+    if (["openai-platform","openai-playground","openai-dashboard","openai-agents-sdk",
+         "openai-mcp-support"].includes(id))
+      return "🛠️ Developer Platform";
+    if (["chatgpt-enterprise-analytics","chatgpt-admin-security"].includes(id))
+      return "🔒 Enterprise";
+    if (["openai-gym-legacy","openai-status"].includes(id))
+      return "🗂️ אחר";
+    return "🗂️ אחר";
+  }
+
   if (eco === "anthropic") {
     if (["claude-3-opus","claude-3-sonnet","claude-3-haiku","claude-35-sonnet","claude-2-legacy","constitutional-ai"].includes(id))
       return "🧠 מודלי Claude";

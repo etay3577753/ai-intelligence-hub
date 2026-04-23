@@ -1,0 +1,5 @@
+dr-001 | anthropic | ['id', 'tool_id', 'ecosystem_id', 'research_date', 'researcher', 'sources_used', 'summary', 'key_findings', 'confidence', 'notebooklm_url', 'version']
+dr-002 | anthropic | ['id', 'tool_id', 'ecosystem_id', 'research_date', 'researcher', 'sources_used', 'summary', 'key_findings', 'confidence', 'notebooklm_url', 'version']
+dr-003 | anthropic | ['id', 'tool_id', 'ecosystem_id', 'research_date', 'researcher', 'sources_used', 'summary', 'key_findings', 'confidence', 'notebooklm_url', 'version']
+dr-004 | anthropic | ['id', 'tool_id', 'ecosystem_id', 'research_type', 'research_date', 'researcher', 'sources_used', 'key_findings', 'confidence', 'version', 'notes']
+dr-005 | google | ['id', 'tool_id', 'ecosystem_id', 'research_type', 'research_date', 'researcher', 'sources_used', 'key_findings', 'confidence', 'version', 'notes']

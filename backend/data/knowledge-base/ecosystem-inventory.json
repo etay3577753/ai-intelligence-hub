@@ -193,12 +193,68 @@
     {
       "id": "openai",
       "name": "OpenAI Ecosystem",
-      "description": "ChatGPT, OpenAI API, DALL-E — מוצרי OpenAI",
+      "description": "ChatGPT, OpenAI API, GPT-4o, o-series reasoning models, DALL·E, Sora, Whisper — מוצרי AI של OpenAI",
       "color": "text-green-400",
       "vendor": "OpenAI",
       "tool_ids": [
-        "chatgpt",
-        "chatgpt-full"
+        "gpt-4o",
+        "gpt-4-1",
+        "gpt-4-1-mini",
+        "gpt-4-1-nano",
+        "o-series-reasoning",
+        "gpt-3-5-legacy",
+        "gpt-4-legacy",
+        "embeddings-api",
+        "dall-e",
+        "sora-model",
+        "whisper-api",
+        "tts-api",
+        "moderation-api",
+        "chatgpt-web",
+        "chatgpt-mobile",
+        "chatgpt-deep-research",
+        "chatgpt-voice",
+        "chatgpt-search",
+        "chatgpt-memory",
+        "chatgpt-atlas",
+        "gpt-store",
+        "custom-gpts",
+        "gpt-builder",
+        "gpt-actions",
+        "chatgpt-plugins-legacy",
+        "openai-plan-free",
+        "openai-plan-plus",
+        "openai-plan-pro",
+        "openai-plan-team",
+        "openai-plan-enterprise",
+        "openai-plan-edu",
+        "openai-platform",
+        "responses-api",
+        "realtime-api",
+        "assistants-api-legacy",
+        "images-api",
+        "audio-api",
+        "video-api-sora",
+        "fine-tuning-api",
+        "batch-api-openai",
+        "embeddings-api-openai",
+        "files-api-openai",
+        "vector-stores-openai",
+        "moderations-api-openai",
+        "models-api-openai",
+        "openai-playground",
+        "openai-dashboard",
+        "openai-agents-sdk",
+        "openai-mcp-support",
+        "function-calling-openai",
+        "code-interpreter-openai",
+        "file-search-openai",
+        "chatgpt-enterprise-analytics",
+        "chatgpt-admin-security",
+        "codex-legacy",
+        "openai-gym-legacy",
+        "sora-ui",
+        "openai-status"
       ]
     },
     {
@@ -877,147 +933,6 @@
       },
       "research_status": "research_in_progress",
       "last_research_date": "2026-04-01",
-      "has_pending_updates": false,
-      "research_record_ids": []
-    },
-    {
-      "id": "chatgpt",
-      "name": "ChatGPT",
-      "vendor": "OpenAI",
-      "category": "chat_assistant",
-      "ecosystem": "openai",
-      "description": "ממשק הצ'אט של OpenAI עם GPT-4o. כולל GPTs, DALL-E 3, Code Interpreter ב-Plus.",
-      "surfaces": [
-        "web",
-        "mobile",
-        "api",
-        "desktop_app"
-      ],
-      "relations": [
-        {
-          "tool_id": "claude-ai-web",
-          "type": "competing"
-        },
-        {
-          "tool_id": "google-gemini-full",
-          "type": "competing"
-        },
-        {
-          "tool_id": "github-copilot",
-          "type": "related",
-          "note": "GitHub Copilot מבוסס על GPT-4"
-        }
-      ],
-      "connectors": [],
-      "subscription_tiers": [
-        {
-          "level": "free",
-          "price": "חינמי",
-          "access_key": "free",
-          "features": [
-            "GPT-4o mini",
-            "DALL-E 3 (מוגבל)",
-            "GPTs"
-          ]
-        },
-        {
-          "level": "pro",
-          "price": "$20/חודש",
-          "access_key": "web_sub",
-          "features": [
-            "GPT-4o",
-            "o1",
-            "DALL-E 3 מלא",
-            "Code Interpreter",
-            "Sora"
-          ],
-          "unlocks": [
-            "dall-e-3"
-          ]
-        }
-      ],
-      "primary_access_key": "web_sub",
-      "tags": [
-        "beginner-friendly",
-        "free-tier-strong"
-      ],
-      "use_cases": [
-        "כתיבה",
-        "מחקר",
-        "תכנות",
-        "יצירת תמונות",
-        "ניתוח נתונים"
-      ],
-      "wiki_file": "chatgpt.md",
-      "notebooklm_ref": null,
-      "deep_research_status": "partial",
-      "youtube_video_ids": [],
-      "freshness": {
-        "last_verified": "2026-04-01",
-        "confidence": 90,
-        "freshness_score": 90
-      },
-      "research_status": "needs_review",
-      "last_research_date": null,
-      "has_pending_updates": true,
-      "research_record_ids": []
-    },
-    {
-      "id": "chatgpt-full",
-      "name": "ChatGPT (Full Reference)",
-      "vendor": "OpenAI",
-      "category": "chat_assistant",
-      "ecosystem": "openai",
-      "description": "תיעוד מורחב של ChatGPT כולל GPTs, Assistants API, ו-Fine-tuning.",
-      "surfaces": [
-        "web",
-        "mobile",
-        "api"
-      ],
-      "relations": [
-        {
-          "tool_id": "chatgpt",
-          "type": "parent",
-          "note": "גרסה מורחבת של אותו הכלי"
-        }
-      ],
-      "connectors": [],
-      "subscription_tiers": [
-        {
-          "level": "api_payg",
-          "price": "לפי שימוש",
-          "access_key": "api_key",
-          "features": [
-            "GPT-4o API",
-            "Assistants API",
-            "Fine-tuning",
-            "Embeddings"
-          ]
-        }
-      ],
-      "primary_access_key": "api_key",
-      "tags": [
-        "code-required",
-        "api-heavy",
-        "production-ready"
-      ],
-      "use_cases": [
-        "Assistants API",
-        "fine-tuning",
-        "embeddings",
-        "בניית אפליקציות"
-      ],
-      "wiki_file": "chatgpt-full.md",
-      "notebooklm_ref": null,
-      "deep_research_status": "none",
-      "youtube_video_ids": [],
-      "freshness": {
-        "last_verified": "2026-04-01",
-        "confidence": 85,
-        "freshness_score": 85
-      },
-      "research_status": "inventory_only",
-      "last_research_date": null,
       "has_pending_updates": false,
       "research_record_ids": []
     },
@@ -11349,6 +11264,3398 @@
       "research_record_ids": [
         "dr-005"
       ]
+    },
+    {
+      "id": "gpt-4o",
+      "name": "GPT-4o",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "מודל הדגל של OpenAI — מולטי-מודאלי (טקסט+תמונה+אודיו), מהיר, משמש כבסיס ל-ChatGPT ול-API. הצד המאוזן בין ביצועים למחיר.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:vision",
+        "capability:reasoning",
+        "audience:developer",
+        "audience:consumer",
+        "access:api-key",
+        "access:free-tier",
+        "compare:claude-3-sonnet",
+        "compare:gemini-pro"
+      ],
+      "use_cases": [
+        "שיחות חכמות",
+        "ניתוח תמונות",
+        "כתיבת קוד",
+        "סיכומי מסמכים",
+        "agents"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "gpt-4-1",
+      "name": "GPT-4.1 Family",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "משפחת GPT-4.1 — שיפור על GPT-4o עם הבנת קוד ארוכה יותר, הקשר ארוך יותר ותמחור מעודכן. כולל mini ו-nano.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:coding",
+        "audience:developer",
+        "access:api-key",
+        "compare:claude-3-5-sonnet"
+      ],
+      "use_cases": [
+        "tasks ארוכים",
+        "קוד מורכב",
+        "עיבוד מסמכים",
+        "RAG"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "gpt-4-1-mini",
+      "name": "GPT-4.1 Mini",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "גרסה מהירה וזולה של GPT-4.1 — מאוזן בין ביצועים לעלות, מתאים לשימושים בנפח גבוה.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:coding",
+        "audience:developer",
+        "access:api-key",
+        "access:free-tier",
+        "compare:claude-3-haiku"
+      ],
+      "use_cases": [
+        "batch processing",
+        "chatbots",
+        "classification",
+        "summarization"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "gpt-4-1-nano",
+      "name": "GPT-4.1 Nano",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "הגרסה הקטנה ביותר של GPT-4.1 — אולטרה-מהיר ואולטרה-זול, לשימושים עם latency נמוך.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "audience:developer",
+        "access:api-key",
+        "compare:claude-3-haiku"
+      ],
+      "use_cases": [
+        "real-time chat",
+        "classification",
+        "low-latency tasks"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "o-series-reasoning",
+      "name": "o-Series Reasoning Models (o1, o3, o3-mini)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "משפחת מודלי reasoning של OpenAI — o1, o3, o3-mini. מתמחים בהיסק לוגי, מתמטיקה ומחשבה שלב-אחר-שלב. מחליפים GPT-4o למשימות מורכבות.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:llm-model",
+        "capability:reasoning",
+        "capability:math",
+        "capability:coding",
+        "audience:developer",
+        "audience:enterprise",
+        "access:api-key",
+        "compare:claude-3-opus",
+        "compare:gemini-ultra"
+      ],
+      "use_cases": [
+        "מחקר",
+        "פתרון בעיות מורכבות",
+        "STEM",
+        "בדיקות לוגיות",
+        "Deep Research"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "gpt-3-5-legacy",
+      "name": "GPT-3.5 Family (Legacy)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "משפחת GPT-3.5 — גרסאות ישנות יותר, עדיין נגישות ב-API לשירות ותיק. מוחלפות בגדול על ידי GPT-4o.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "audience:developer",
+        "access:free-tier",
+        "compare:claude-2-legacy"
+      ],
+      "use_cases": [
+        "legacy integrations",
+        "cost-sensitive workloads"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "gpt-4-legacy",
+      "name": "GPT-4 Turbo / GPT-4 (Legacy)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "גרסאות GPT-4 הקודמות — GPT-4 Turbo וגרסאות מוקדמות. הוחלפו רובם על ידי GPT-4o ו-GPT-4.1.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:llm-model",
+        "capability:text-generation",
+        "capability:vision",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "legacy API integrations"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "embeddings-api",
+      "name": "Embeddings API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "מודלי embeddings (text-embedding-3-large, text-embedding-3-small) — יוצרים וקטורי ייצוג לטקסט לצורך RAG, חיפוש סמנטי ומיון.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:embedding-model",
+        "capability:semantic-search",
+        "capability:rag",
+        "audience:developer",
+        "access:api-key",
+        "compare:vertex-embeddings"
+      ],
+      "use_cases": [
+        "RAG",
+        "חיפוש סמנטי",
+        "מיון מסמכים",
+        "clustering"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "dall-e",
+      "name": "DALL·E (2 / 3)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "מודל יצירת תמונות של OpenAI — DALL·E 3 זמין ב-ChatGPT ו-API, תומך ביצירה ועריכה. DALL·E 2 legacy.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:image-model",
+        "capability:image-generation",
+        "capability:image-editing",
+        "audience:consumer",
+        "audience:developer",
+        "access:api-key",
+        "compare:imagen",
+        "compare:midjourney"
+      ],
+      "use_cases": [
+        "יצירת תמונות",
+        "עריכת תמונות",
+        "וריאציות",
+        "inpainting"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "sora-model",
+      "name": "Sora (Video Model)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "מודל יצירת וידאו טקסט-לוידאו של OpenAI. גישה ל-Plus/Pro ב-ChatGPT וכ-API. יוצר קליפים באורך עד דקה.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:video-model",
+        "capability:video-generation",
+        "audience:consumer",
+        "audience:developer",
+        "access:api-key",
+        "compare:veo"
+      ],
+      "use_cases": [
+        "יצירת וידאו שיווקי",
+        "אנימציה",
+        "storytelling",
+        "פרוטוטייפינג"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "whisper-api",
+      "name": "Whisper (Speech-to-Text API)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "מודל זיהוי דיבור ותמלול של OpenAI — רב-לשוני, תמיכה בתמלול ותרגום. זמין ב-API ומשולב ב-ChatGPT Voice.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:audio-model",
+        "capability:speech-to-text",
+        "capability:translation",
+        "audience:developer",
+        "access:api-key",
+        "compare:google-speech"
+      ],
+      "use_cases": [
+        "תמלול פגישות",
+        "כתוביות",
+        "תרגום דיבור",
+        "voice assistants"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "tts-api",
+      "name": "Text-to-Speech API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "ממיר טקסט לדיבור באיכות גבוהה, תומך בכמה קולות. זמין ב-API ומשולב ב-ChatGPT Voice Mode.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:audio-model",
+        "capability:text-to-speech",
+        "audience:developer",
+        "access:api-key",
+        "compare:google-tts"
+      ],
+      "use_cases": [
+        "voice assistants",
+        "audiobooks",
+        "accessibility",
+        "IVR"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "moderation-api",
+      "name": "Moderation API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Model",
+      "description": "מודל סינון תוכן של OpenAI — מסווג ומסנן תוכן לא הולם, זמין ב-API בחינם.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:safety-model",
+        "capability:content-moderation",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "פילטרים לתוכן",
+        "safety systems",
+        "CSAM detection"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-web",
+      "name": "ChatGPT (Web)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Application",
+      "description": "ממשק השיחה הראשי של OpenAI — web app ב-chatgpt.com. תומך ב-GPT-4o, o-series, Deep Research, Voice, DALL·E, File Analysis.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:assistant-app",
+        "capability:text-generation",
+        "capability:vision",
+        "capability:voice",
+        "capability:image-generation",
+        "audience:consumer",
+        "access:free-tier",
+        "compare:claude-ai-web",
+        "compare:gemini-web"
+      ],
+      "use_cases": [
+        "שיחות AI",
+        "ניתוח מסמכים",
+        "יצירת תמונות",
+        "מחקר מעמיק",
+        "קוד"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-mobile",
+      "name": "ChatGPT (Mobile App)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Application",
+      "description": "אפליקציית ChatGPT ל-iOS ו-Android — כולל voice mode, עבודה עם תמונות ועוד.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:mobile-app",
+        "capability:voice",
+        "capability:text-generation",
+        "audience:consumer",
+        "access:free-tier",
+        "compare:claude-ios-app"
+      ],
+      "use_cases": [
+        "שיחות קוליות",
+        "תמלול בניידים",
+        "עזרה מהירה"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-deep-research",
+      "name": "ChatGPT Deep Research",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Feature",
+      "description": "agent מחקרי של OpenAI מוטמע ב-ChatGPT — מחפש ומסנתז מידע ממקורות מרובים, מפיק דוחות מקיפים. מבוסס o-series.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:agent",
+        "capability:research",
+        "capability:web-search",
+        "audience:consumer",
+        "audience:enterprise",
+        "access:api-key",
+        "compare:claude-research",
+        "compare:gemini-deep-research"
+      ],
+      "use_cases": [
+        "מחקר שוק",
+        "due diligence",
+        "סיכומי נושא",
+        "מחקר אקדמי"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-voice",
+      "name": "ChatGPT Voice (Advanced Voice Mode)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Feature",
+      "description": "מצב שיחה קולית מתקדם ב-ChatGPT — שיחה דו-כיוונית בזמן אמת עם GPT-4o, תמיכה ברגשות ובאינטונציה.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:voice-interface",
+        "capability:voice",
+        "capability:real-time",
+        "audience:consumer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "שיחות טבעיות",
+        "שפות זרות",
+        "לימוד",
+        "נגישות"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-search",
+      "name": "ChatGPT Search",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Feature",
+      "description": "יכולת חיפוש מוטמעת ב-ChatGPT — מחפש ברשת ומסנתז תוצאות בזמן אמת.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:search",
+        "capability:web-search",
+        "audience:consumer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "חיפוש מידע עדכני",
+        "עובדות",
+        "חדשות"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-memory",
+      "name": "ChatGPT Memory",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Feature",
+      "description": "זיכרון אישי ב-ChatGPT — שומר עובדות על המשתמש ומשתמש בהן לשיפור תשובות עתידיות.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:memory",
+        "capability:personalization",
+        "audience:consumer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "התאמה אישית",
+        "עקביות בשיחות ארוכות"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-atlas",
+      "name": "ChatGPT Atlas (Education)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Application",
+      "description": "כלי לימוד מבית OpenAI מוטמע ב-ChatGPT — עוזר לסטודנטים ולמוסדות חינוכיים.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "edu",
+          "price": "custom",
+          "access_key": "edu"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:edu-app",
+        "capability:education",
+        "audience:consumer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "למידה",
+        "תרגול",
+        "שאלות ותשובות אקדמיות"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "gpt-store",
+      "name": "GPT Store",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Marketplace",
+      "description": "חנות ה-GPTs של OpenAI — פלטפורמת הפצה ל-Custom GPTs. גולשים יכולים לגלות, להשתמש ולפרסם GPTs.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:marketplace",
+        "capability:agents",
+        "audience:consumer",
+        "audience:developer",
+        "access:free-tier",
+        "compare:claude-marketplace"
+      ],
+      "use_cases": [
+        "גילוי GPTs",
+        "פרסום סוכנים",
+        "שיתוף chatbots"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "custom-gpts",
+      "name": "Custom GPTs",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "AI Agent",
+      "description": "GPTs מותאמים אישית — בנייה ללא קוד של assistant מותאם עם הוראות, קבצי ידע ו-Actions לחיבור ל-APIs חיצוניים.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:agent",
+        "capability:agents",
+        "capability:customization",
+        "audience:consumer",
+        "audience:developer",
+        "access:api-key",
+        "compare:claude-projects"
+      ],
+      "use_cases": [
+        "chatbots לעסקים",
+        "כלי פנימיים",
+        "עזר מומחה"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "gpt-builder",
+      "name": "GPT Builder",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Developer Tool",
+      "description": "כלי בנייה ב-ChatGPT לבניית Custom GPTs — ממשק no-code לייצור GPTs, הגדרת הוראות, העלאת קבצים וחיבור Actions.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:builder",
+        "capability:no-code",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "בניית בוטים ללא קוד",
+        "פרסום GPTs"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "gpt-actions",
+      "name": "GPT Actions",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Developer Tool",
+      "description": "Actions ל-Custom GPTs — מנגנון לחיבור GPTs ל-APIs חיצוניים, מחליף את ה-Plugins הישנים.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:connector",
+        "capability:integrations",
+        "audience:developer",
+        "access:api-key",
+        "compare:mcp-protocol"
+      ],
+      "use_cases": [
+        "חיבור ל-APIs",
+        "automations",
+        "integrations עסקיות"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-plugins-legacy",
+      "name": "ChatGPT Plugins (Legacy)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Legacy Product",
+      "description": "פלאגינים ישנים ל-ChatGPT — הוחלפו על ידי GPT Actions ו-GPT Store ב-2024.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:legacy",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "legacy integrations"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-plan-free",
+      "name": "ChatGPT Free Plan",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Subscription Plan",
+      "description": "תוכנית החינמית של ChatGPT — גישה ל-GPT-4o-mini, חיפוש, שיחות מוגבלות. ללא כרטיס אשראי.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:subscription",
+        "audience:consumer",
+        "access:free-tier",
+        "compare:claude-plan-free"
+      ],
+      "use_cases": [
+        "גישה ראשונה ל-AI",
+        "ניסוי"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-plan-plus",
+      "name": "ChatGPT Plus Plan",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Subscription Plan",
+      "description": "תוכנית Plus — $20/חודש. גישה ל-GPT-4o, DALL·E, Voice, Advanced Data Analysis, Deep Research (מוגבל).",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:subscription",
+        "audience:consumer",
+        "access:paid",
+        "compare:claude-plan-pro"
+      ],
+      "use_cases": [
+        "שימוש יומיומי",
+        "עבודה עם תמונות",
+        "מחקר"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-plan-pro",
+      "name": "ChatGPT Pro Plan",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Subscription Plan",
+      "description": "תוכנית Pro — ~$200/חודש. o3 ללא הגבלה, Deep Research ללא הגבלה, Sora Pro, גישה מוקדמת לפיצ'רים.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:subscription",
+        "audience:consumer",
+        "access:paid",
+        "compare:claude-plan-max"
+      ],
+      "use_cases": [
+        "שימוש אינטנסיבי",
+        "מחקר מתקדם",
+        "reasoning כבד"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-plan-team",
+      "name": "ChatGPT Team Plan",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Subscription Plan",
+      "description": "תוכנית Team — $30/seat/mo. workspace שיתופי, לוחות בקרה לאדמין, ללא שימוש בנתונים לאימון.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:subscription",
+        "audience:enterprise",
+        "access:paid",
+        "compare:claude-plan-team"
+      ],
+      "use_cases": [
+        "שיתוף פעולה בצוות",
+        "הגנת פרטיות",
+        "ניהול ארגוני"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-plan-enterprise",
+      "name": "ChatGPT Enterprise Plan",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Subscription Plan",
+      "description": "תוכנית Enterprise — תמחור מותאם. SSO/SCIM, DLP, compliance, יכולות API, SLA.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:subscription",
+        "audience:enterprise",
+        "access:enterprise-only",
+        "compare:claude-plan-enterprise"
+      ],
+      "use_cases": [
+        "ארגונים גדולים",
+        "דרישות compliance",
+        "integrations"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-plan-edu",
+      "name": "ChatGPT Edu Plan",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Subscription Plan",
+      "description": "תוכנית Edu — לאוניברסיטאות ומוסדות חינוך, מבוסס Enterprise עם הסכמי רישוי מיוחדים.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "edu",
+          "price": "custom",
+          "access_key": "edu"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:subscription",
+        "audience:consumer",
+        "access:paid"
+      ],
+      "use_cases": [
+        "הוראה",
+        "מחקר אקדמי"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-platform",
+      "name": "OpenAI Platform / API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Developer Platform",
+      "description": "פלטפורמת המפתחים של OpenAI — dashboard, API keys, usage analytics, Playground. שער הכניסה ל-API.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:developer-platform",
+        "capability:api-access",
+        "audience:developer",
+        "access:api-key",
+        "compare:anthropic-console",
+        "compare:google-ai-studio"
+      ],
+      "use_cases": [
+        "ניהול API",
+        "monitoring",
+        "billing"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "responses-api",
+      "name": "Responses API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "ה-API המרכזי החדש של OpenAI — מחליף את Completions ומשלב יכולות agents. נקרא גם Chat Completions.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:text-generation",
+        "capability:agents",
+        "audience:developer",
+        "access:api-key",
+        "compare:anthropic-api"
+      ],
+      "use_cases": [
+        "building apps",
+        "agents",
+        "streaming",
+        "multi-turn conversations"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "realtime-api",
+      "name": "Realtime API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API בזמן אמת — חיבור WebSocket דו-כיווני לשיחות קוליות ותגובות מיידיות עם GPT-4o.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:real-time",
+        "capability:voice",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "voice assistants",
+        "real-time transcription",
+        "live conversations"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "assistants-api-legacy",
+      "name": "Assistants API (Legacy v1)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "ה-Assistants API הישן — Threads, Runs, Assistant objects. עובר מעבר הדרגתי ל-Responses API החדש.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:agents",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "legacy agent apps",
+        "thread-based conversations"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "images-api",
+      "name": "Images API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API ליצירת ועריכת תמונות — DALL·E 3 ו-gpt-image-1, תומך ב-generation, editing ו-variations.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:image-generation",
+        "audience:developer",
+        "access:api-key",
+        "compare:imagen-api"
+      ],
+      "use_cases": [
+        "יצירת תמונות פרוגרמטית",
+        "עריכת תמונות",
+        "content creation"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "audio-api",
+      "name": "Audio API (Speech & Transcription)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API לאודיו — Whisper לתמלול, TTS לדיבור, תרגום, endpoints לדיבור→טקסט וטקסט→דיבור.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:speech-to-text",
+        "capability:text-to-speech",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "תמלול שיחות",
+        "voice synthesis",
+        "multilingual audio"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "video-api-sora",
+      "name": "Videos API (Sora API)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API ליצירת וידאו מ-Sora — גישה פרוגרמטית ליצירת קליפים, בשלבי rollout מדורג.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:video-generation",
+        "audience:developer",
+        "access:api-key",
+        "compare:veo-api"
+      ],
+      "use_cases": [
+        "יצירת וידאו פרוגרמטית",
+        "media production"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "fine-tuning-api",
+      "name": "Fine-tuning API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API לאימון מותאם אישית על מודלי GPT — Fine-tuning של GPT-4o-mini, GPT-3.5 ועוד על נתוני הלקוח.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:fine-tuning",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "התאמת מודל לדומיין ספציפי",
+        "שיפור דיוק",
+        "persona"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "batch-api-openai",
+      "name": "Batch API (OpenAI)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API לעיבוד batch — הרצת בקשות גדולות בהנחה של 50% על המחיר, תוך 24 שעות.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:batch-processing",
+        "audience:developer",
+        "access:api-key",
+        "compare:anthropic-batch"
+      ],
+      "use_cases": [
+        "עיבוד מסמכים בכמות",
+        "הערכת מודלים",
+        "עיבוד לילה"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "embeddings-api-openai",
+      "name": "Embeddings API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API לוקטורי embeddings — text-embedding-3-large, text-embedding-3-small. בסיס ל-RAG וחיפוש סמנטי.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:embeddings",
+        "capability:rag",
+        "audience:developer",
+        "access:api-key",
+        "compare:vertex-embeddings"
+      ],
+      "use_cases": [
+        "RAG",
+        "חיפוש סמנטי",
+        "similarity search"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "files-api-openai",
+      "name": "Files API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API לניהול קבצים ב-OpenAI Platform — העלאה, אחסון ושימוש בקבצים ב-Assistants, Fine-tuning ו-Batch.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:file-management",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "file storage",
+        "document processing",
+        "training data"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "vector-stores-openai",
+      "name": "Vector Stores (OpenAI)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "מאגרי וקטורים מנוהלים ב-OpenAI Platform — אחסון embeddings עם File Search מובנה.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:vector-db",
+        "capability:rag",
+        "capability:semantic-search",
+        "audience:developer",
+        "access:api-key",
+        "compare:vertex-vector-search"
+      ],
+      "use_cases": [
+        "RAG",
+        "document Q&A",
+        "knowledge bases"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "moderations-api-openai",
+      "name": "Moderations API (OpenAI)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API לסינון תוכן — בדיקת בקשות ותשובות מול מדיניות OpenAI, חינמי.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:content-moderation",
+        "audience:developer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "safety filtering",
+        "content policies",
+        "NSFW detection"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "models-api-openai",
+      "name": "Models API",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API",
+      "description": "API לרשימת ולוהינ מודלים זמינים ב-OpenAI Platform.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api",
+        "capability:admin",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "model discovery",
+        "version management"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-playground",
+      "name": "OpenAI Playground",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Developer Tool",
+      "description": "ממשק ויזואלי לניסוי ב-OpenAI API — בדיקת prompts, השוואת מודלים, Assistants playground.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:playground",
+        "capability:prototyping",
+        "audience:developer",
+        "access:api-key",
+        "compare:claude-workbench",
+        "compare:google-ai-studio"
+      ],
+      "use_cases": [
+        "ניסוי prompts",
+        "בדיקת מודלים",
+        "prototype agents"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-dashboard",
+      "name": "OpenAI Dashboard",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Developer Tool",
+      "description": "לוח הבקרה של OpenAI Platform — ניהול API keys, usage, billing, projects, organization settings.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:admin-console",
+        "capability:admin",
+        "audience:developer",
+        "access:api-key",
+        "compare:anthropic-console"
+      ],
+      "use_cases": [
+        "ניהול תקציב",
+        "API keys",
+        "usage monitoring"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-agents-sdk",
+      "name": "OpenAI Agents SDK",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Developer SDK",
+      "description": "ה-SDK הרשמי של OpenAI לבניית agents — Python/JS, orchestration, tool calling, MCP support. מבוסס Responses API.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "open-source",
+          "access_key": "free"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:sdk",
+        "capability:agents",
+        "capability:orchestration",
+        "audience:developer",
+        "access:free",
+        "compare:claude-agent-sdk",
+        "compare:langchain"
+      ],
+      "use_cases": [
+        "בניית agents",
+        "orchestration",
+        "multi-step workflows",
+        "tool use"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-mcp-support",
+      "name": "OpenAI MCP Support",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Developer Tool",
+      "description": "תמיכה ב-Model Context Protocol (MCP) של Anthropic ב-Agents SDK ו-Responses API של OpenAI — חיבור אחיד לכלים.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "open-source",
+          "access_key": "free"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:protocol",
+        "capability:integrations",
+        "capability:agents",
+        "audience:developer",
+        "access:free",
+        "compare:mcp-protocol"
+      ],
+      "use_cases": [
+        "חיבור כלים",
+        "server integration",
+        "cross-ecosystem tools"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "function-calling-openai",
+      "name": "Function Calling (OpenAI)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API Feature",
+      "description": "מנגנון קריאת פונקציות ב-API של OpenAI — מאפשר למודל לקרוא לפונקציות חיצוניות בצורה מובנית.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api-feature",
+        "capability:tool-use",
+        "audience:developer",
+        "access:api-key",
+        "compare:tool-use-api"
+      ],
+      "use_cases": [
+        "tool integrations",
+        "agents",
+        "structured outputs"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "code-interpreter-openai",
+      "name": "Code Interpreter / Advanced Data Analysis",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Feature",
+      "description": "כלי הרצת קוד מוטמע ב-ChatGPT — Python sandbox, ניתוח קבצים, גרפים, עיבוד נתונים. נקרא גם Data Analysis.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:embedded-tool",
+        "capability:coding",
+        "capability:data-analysis",
+        "audience:consumer",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "ניתוח נתונים",
+        "הרצת קוד",
+        "גרפים",
+        "עיבוד Excel"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "file-search-openai",
+      "name": "File Search / Retrieval (OpenAI)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "API Feature",
+      "description": "כלי חיפוש בקבצים עבור Assistants ו-Responses API — מנגנון RAG מובנה לשאילתות על מסמכים.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "pay-as-you-go",
+          "price": "per token",
+          "access_key": "api-key",
+          "features": [
+            "all endpoints",
+            "usage-based billing"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "higher limits",
+            "SLA",
+            "private deployment"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:api-feature",
+        "capability:rag",
+        "capability:semantic-search",
+        "audience:developer",
+        "access:api-key",
+        "compare:claude-knowledge-base"
+      ],
+      "use_cases": [
+        "document Q&A",
+        "RAG pipelines",
+        "knowledge retrieval"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-enterprise-analytics",
+      "name": "ChatGPT Enterprise Analytics",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Enterprise Feature",
+      "description": "כלי analytics לארגונים ב-ChatGPT Enterprise — דוחות שימוש, ניטור, insights לאדמינים.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:analytics",
+        "capability:admin",
+        "audience:enterprise",
+        "access:enterprise-only"
+      ],
+      "use_cases": [
+        "usage monitoring",
+        "compliance reporting",
+        "team insights"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "chatgpt-admin-security",
+      "name": "ChatGPT Admin & Security Controls",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Enterprise Feature",
+      "description": "בקרות אבטחה ו-compliance ב-ChatGPT Enterprise וTeam — SSO, DLP, rate limits, data policies.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:admin",
+        "capability:security",
+        "audience:enterprise",
+        "access:enterprise-only",
+        "compare:claude-enterprise-sso"
+      ],
+      "use_cases": [
+        "SSO",
+        "SCIM",
+        "DLP",
+        "compliance"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "codex-legacy",
+      "name": "Codex (Legacy Code Model)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Legacy Model",
+      "description": "מודל קוד ייעודי ישן של OpenAI — Codex, בסיס GitHub Copilot הראשוני. הוחלף על ידי GPT-4o עם יכולות קוד.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:legacy",
+        "capability:coding",
+        "audience:developer",
+        "access:api-key"
+      ],
+      "use_cases": [
+        "legacy code generation"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-gym-legacy",
+      "name": "OpenAI Gym (Legacy RL)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Legacy Product",
+      "description": "סביבת Reinforcement Learning ישנה של OpenAI — openai/gym ב-GitHub, כלי מחקר היסטורי ב-RL.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "open-source",
+          "access_key": "free"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:legacy",
+        "capability:reinforcement-learning",
+        "audience:developer",
+        "access:free"
+      ],
+      "use_cases": [
+        "RL research",
+        "simulation environments"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "sora-ui",
+      "name": "Sora UI (ChatGPT)",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Assistant Feature",
+      "description": "ממשק Sora המוטמע ב-ChatGPT — יצירת וידאו ישירות מהשיחה ל-Plus/Pro, ב-ארה\"ב וקנדה.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free",
+          "features": [
+            "גישה חינמית",
+            "מוגבל בהודעות"
+          ]
+        },
+        {
+          "level": "plus",
+          "price": "$20/mo",
+          "access_key": "plus",
+          "features": [
+            "GPT-4o",
+            "DALL·E",
+            "Advanced Voice"
+          ]
+        },
+        {
+          "level": "pro",
+          "price": "$200/mo",
+          "access_key": "pro",
+          "features": [
+            "unlimited o3",
+            "Deep Research",
+            "Sora Pro"
+          ]
+        },
+        {
+          "level": "team",
+          "price": "$30/seat/mo",
+          "access_key": "team",
+          "features": [
+            "admin controls",
+            "higher limits",
+            "no training"
+          ]
+        },
+        {
+          "level": "enterprise",
+          "price": "custom",
+          "access_key": "enterprise",
+          "features": [
+            "SSO",
+            "DLP",
+            "compliance",
+            "dedicated infra"
+          ]
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:embedded-tool",
+        "capability:video-generation",
+        "audience:consumer",
+        "access:paid"
+      ],
+      "use_cases": [
+        "יצירת וידאו מהשיחה",
+        "media production"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
+    },
+    {
+      "id": "openai-status",
+      "name": "OpenAI Status & Help Center",
+      "vendor": "OpenAI",
+      "ecosystem": "openai",
+      "category": "Infrastructure",
+      "description": "עמוד הסטטוס של OpenAI (status.openai.com) ומרכז העזרה — ניטור תקלות, תיעוד ותמיכה.",
+      "surfaces": [],
+      "relations": [],
+      "subscription_tiers": [
+        {
+          "level": "free",
+          "price": "$0",
+          "access_key": "free"
+        }
+      ],
+      "primary_access_key": "api-key",
+      "tags": [
+        "type:support",
+        "audience:developer",
+        "audience:consumer",
+        "access:free-tier"
+      ],
+      "use_cases": [
+        "monitoring",
+        "support",
+        "documentation"
+      ],
+      "wiki_file": null,
+      "research_status": "inventory_only",
+      "last_research_date": null,
+      "has_pending_updates": false,
+      "research_record_ids": [],
+      "deep_research_status": "not_started",
+      "freshness": {
+        "score": 0.7,
+        "confidence": 0.8,
+        "last_checked": "2026-04-23"
+      }
     }
   ],
   "backfill_queue": [
@@ -11426,7 +14733,7 @@
     }
   ],
   "stats": {
-    "total_tools": 198,
+    "total_tools": 254,
     "tools_with_wiki": 33,
     "tools_with_research": 5,
     "pending_backfill": 4,
@@ -11436,7 +14743,7 @@
     "tools_researched": 9,
     "tools_update_pending": 1,
     "tools_needs_review": 2,
-    "tools_inventory_only": 88,
+    "tools_inventory_only": 237,
     "open_review_items": 2,
     "active_sources": 4
   },
@@ -11573,6 +14880,32 @@
       "confidence": 0.83,
       "version": "1.0",
       "notes": "מבוסס על PDF מחקר מקיף. סקשן 3 מכיל 74-item inventory table מלאה."
+    },
+    {
+      "id": "dr-006",
+      "tool_id": "openai-platform",
+      "ecosystem_id": "openai",
+      "research_type": "ecosystem_overview",
+      "research_date": "2026-04-23",
+      "researcher": "manual",
+      "sources_used": [
+        "להלן חלק א — מיפוי גבולות האקוסיסטם ועץ היררכי OpenAI).pdf"
+      ],
+      "summary": "OpenAI Ecosystem — ChatGPT, GPT-4o, o-series, DALL·E, Sora, Whisper, Agents SDK, Responses API. מחקר breadth-first מ-PDF.",
+      "key_findings": [
+        "8+ שכבות: מודלים, consumer apps, GPT Store, API/Platform, developer tools, workspace, storage, legacy",
+        "GPT-4o — מודל הדגל: מולטי-מודאלי, ChatGPT + API, מחיר מאוזן",
+        "o-series (o1/o3) — reasoning models לבעיות מורכבות, Deep Research מבוסס עליהם",
+        "ChatGPT Deep Research — agent מחקרי מוטמע, מחפש ומסנתז ממקורות רבים",
+        "OpenAI Agents SDK — Python/JS SDK לבניית agents, תומך ב-MCP",
+        "GPT Store + Custom GPTs — marketplace עם Actions לחיבור ל-APIs חיצוניים",
+        "Responses API — מחליף Completions, בסיס לכל ה-agents החדשים",
+        "Realtime API — WebSocket דו-כיווני לשיחות קוליות בזמן אמת",
+        "5 תוכניות: Free/Plus($20)/Pro($200)/Team($30seat)/Enterprise(custom)"
+      ],
+      "confidence": 0.82,
+      "version": 1,
+      "notes": "חלק א בלבד — breadth-first. חסרים: embedded features מפורטים, partner integrations, pricing מדויק"
     }
   ],
   "update_records": [

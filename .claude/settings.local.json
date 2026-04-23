@@ -44,7 +44,17 @@
       "Bash(python -c ' *)",
       "Bash(python update_kb.py)",
       "Bash(python import_full_kb.py)",
-      "Bash(python import_kb_v2.py)"
+      "Bash(python import_kb_v2.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import json; data=json.load\\(open\\('backend/data/knowledge-base/ecosystem-inventory.json',encoding='utf-8'\\)\\); tools=[t for t in data['tools'] if t['ecosystem']=='anthropic']; [print\\(t['id'],'|',t['name']\\) for t in tools]\")",
+      "Bash(python3 backend/check_anthropic.py)",
+      "Bash(where python *)",
+      "Bash(python -c \"import json; data=json.load\\(open\\('backend/data/knowledge-base/ecosystem-inventory.json',encoding='utf-8'\\)\\); tools=[t for t in data['tools'] if t['ecosystem']=='anthropic']; print\\('\\\\n'.join\\([t['id']+' | '+t['name'] for t in tools]\\)\\)\")",
+      "Bash(python -c \"import json,sys,io; sys.stdout=io.TextIOWrapper\\(sys.stdout.buffer,encoding='utf-8'\\); data=json.load\\(open\\('backend/data/knowledge-base/ecosystem-inventory.json',encoding='utf-8'\\)\\); drs=data.get\\('deep_research_records',[]\\); [print\\(dr['id'],'|',dr.get\\('ecosystem_id','?'\\),'|',list\\(dr.keys\\(\\)\\)\\) for dr in drs]\")",
+      "Read(//tmp/**)",
+      "Bash(python -c \" import pdfplumber, sys, io sys.stdout=io.TextIOWrapper\\(sys.stdout.buffer,encoding='utf-8'\\) pdf_path = 'C:/Users/איתי/Downloads/חלק א — גבולות האקוסיסטם של Anthropic _ Claude.pdf' with pdfplumber.open\\(pdf_path\\) as pdf: for i, page in enumerate\\(pdf.pages[5:15], start=6\\): text = page.extract_text\\(\\) or '' print\\(f'=== PAGE {i} ==='\\) print\\(text[:1500]\\) print\\(\\) \")",
+      "Bash(python)",
+      "Bash(python import_openai_kb.py)"
     ]
   }
 }
