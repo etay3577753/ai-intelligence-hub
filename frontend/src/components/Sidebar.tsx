@@ -9,6 +9,7 @@ import {
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { HardwareGuard } from "@/components/HardwareGuard";
+import { NotificationBell } from "@/components/NotificationBell";
 import { getCurrentUser, USER_DISPLAY, type UserId } from "@/lib/user-profile";
 
 interface NavItem {
@@ -134,6 +135,11 @@ export function Sidebar({ activeView, onNavigate }: SidebarProps) {
           </button>
         ))}
       </nav>
+
+      {/* Notification Bell */}
+      <div className="px-2 pb-1">
+        <NotificationBell collapsed={collapsed} />
+      </div>
 
       {/* HardwareGuard — only when expanded */}
       {!collapsed && (
