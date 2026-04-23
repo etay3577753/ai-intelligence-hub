@@ -56,7 +56,9 @@
       "Bash(python)",
       "Bash(python import_openai_kb.py)",
       "Bash(python backend/youtube_pipeline.py)",
-      "Bash(echo \"PID: $!\")"
+      "Bash(echo \"PID: $!\")",
+      "Bash(python -c \"import whisper; print\\('whisper ok'\\)\")",
+      "Bash(python -c \"import torch; print\\('torch:', torch.__version__, '| cuda:', torch.cuda.is_available\\(\\)\\)\")"
     ]
   }
 }
