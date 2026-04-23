@@ -1,0 +1,10 @@
+{
+  "total": 308,
+  "processed": 306,
+  "with_captions": 274,
+  "need_whisper": 32,
+  "errors": 2,
+  "whisper_queue": [
+    "DzhWkG_fd-M"
+  ]
+}
