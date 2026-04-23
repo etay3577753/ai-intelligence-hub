@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from routers import process, health, chat, notifications
+from routers import process, health, chat, notifications, wiki
 
 load_dotenv()
 
@@ -31,6 +31,7 @@ app.include_router(health.router, tags=["Health"])
 app.include_router(process.router, prefix="/api", tags=["AI Processing"])
 app.include_router(chat.router, prefix="/api", tags=["Chat & Projects"])
 app.include_router(notifications.router, prefix="/api", tags=["Notifications"])
+app.include_router(wiki.router, prefix="/api", tags=["Wiki"])
 
 
 @app.get("/")

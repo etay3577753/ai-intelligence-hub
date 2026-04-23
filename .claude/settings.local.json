@@ -69,7 +69,18 @@
       "Bash(python -c \"from faster_whisper import WhisperModel; print\\('ok, no cuda check'\\)\")",
       "Bash(yt-dlp -x --audio-format mp3 --audio-quality 5 --no-playlist --quiet -o \"backend/data/yt_temp/DzhWkG_fd-M.%\\(ext\\)s\" \"https://www.youtube.com/shorts/DzhWkG_fd-M\")",
       "Bash(echo \"exit: $?\")",
-      "Bash(python -c \"import imageio_ffmpeg; print\\('ffmpeg at:', imageio_ffmpeg.get_ffmpeg_exe\\(\\)\\)\")"
+      "Bash(python -c \"import imageio_ffmpeg; print\\('ffmpeg at:', imageio_ffmpeg.get_ffmpeg_exe\\(\\)\\)\")",
+      "Bash(curl -s \"http://localhost:8000/api/wiki?limit=3\")",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('total:', d.get\\('total'\\)\\); [print\\('-', f['id'], '|', f['ecosystem'][:20]\\) for f in d.get\\('files', []\\)[:3]]\")",
+      "Bash(python main.py)",
+      "Bash(curl -s \"http://localhost:8000/api/wiki?limit=3&category=youtube\")",
+      "Bash(python -c \" import json,sys d=json.load\\(sys.stdin\\) print\\('total:', d.get\\('total'\\)\\) for f in d.get\\('files', []\\)[:3]: print\\('-', f['id'], '|', f['title'][:40]\\) \")",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('scripts',{}\\), indent=2, ensure_ascii=False\\)\\)\")",
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(k,':', v\\) for k,v in d.get\\('scripts',{}\\).items\\(\\)]\")",
+      "Bash(pip show *)",
+      "Bash(python -m uvicorn --version)",
+      "Bash(python -m uvicorn main:app --port 8000)",
+      "Bash(python -c \"import sys; print\\(sys.executable\\)\")"
     ]
   }
 }
