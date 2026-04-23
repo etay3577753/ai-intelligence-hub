@@ -82,7 +82,15 @@
       "Bash(python -m uvicorn main:app --port 8000)",
       "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
       "Bash(python backend/facebook_import.py --help)",
-      "Bash(python backend/facebook_import.py import --help)"
+      "Bash(python backend/facebook_import.py import --help)",
+      "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\t%\\(description\\)s\" --no-warnings --ignore-errors --playlist-end 5 \"https://www.facebook.com/eliron.giny/\")",
+      "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --ignore-errors --playlist-end 3 \"https://www.facebook.com/eliron.giny/videos/\")",
+      "Bash(yt-dlp --version)",
+      "Bash(yt-dlp --list-extractors)",
+      "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --ignore-errors --playlist-end 3 --cookies-from-browser chrome \"https://www.facebook.com/eliron.giny/videos/\")",
+      "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --ignore-errors --playlist-end 3 --cookies-from-browser edge \"https://www.facebook.com/eliron.giny/videos/\")",
+      "Bash(yt-dlp \"https://www.facebook.com/reel/1234567890\")",
+      "Bash(yt-dlp --cookies-from-browser firefox \"https://www.facebook.com/eliron.giny/videos/\" --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --playlist-end 3)"
     ]
   }
 }
