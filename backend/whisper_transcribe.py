@@ -35,15 +35,17 @@ if not queue:
 
 # ── Load whisper model once ────────────────────────────────────────────────
 try:
-    import whisper
-    import torch
-    device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"[whisper] Loading large-v3 on {device}...", flush=True)
-    model = whisper.load_model("large-v3", device=device)
+    from faster_whisper import WhisperModel
+    import ctranslate2
+    cuda_ok = bool(ctranslate2.get_supported_compute_types("cuda"))
+    device = "cuda" if cuda_ok else "cpu"
+    compute = "int8" if device == "cuda" else "int8"
+    print(f"[whisper] Loading large-v3 on {device} ({compute})...", flush=True)
+    model = WhisperModel("large-v3", device=device, compute_type=compute)
     print(f"[whisper] Model loaded.", flush=True)
 except ImportError:
-    print("[whisper] ERROR: openai-whisper not installed.", flush=True)
-    print("  Run: pip install openai-whisper torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118", flush=True)
+    print("[whisper] ERROR: faster-whisper not installed.", flush=True)
+    print("  Run: pip install faster-whisper", flush=True)
     sys.exit(1)
 
 
@@ -72,15 +74,15 @@ def download_audio(video_id: str) -> Path | None:
 
 
 def transcribe(audio_path: Path) -> str:
-    """Run Whisper transcription, return Hebrew text."""
-    result = model.transcribe(
+    """Run faster-whisper transcription, return Hebrew text."""
+    segments, _ = model.transcribe(
         str(audio_path),
         language="he",
         task="transcribe",
-        fp16=True,
-        verbose=False,
+        beam_size=5,
+        vad_filter=True,
     )
-    return result["text"].strip()
+    return " ".join(seg.text.strip() for seg in segments)
 
 
 def update_wiki(video_id: str, transcript: str):
