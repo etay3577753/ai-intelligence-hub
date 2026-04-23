@@ -62,7 +62,10 @@
       "Bash(python -c \"import torch; print\\('CUDA:', torch.cuda.is_available\\(\\)\\); print\\('GPU:', torch.cuda.get_device_name\\(0\\) if torch.cuda.is_available\\(\\) else 'none'\\)\")",
       "Bash(python -c \"import whisper; print\\('whisper: ok'\\)\")",
       "Bash(nvidia-smi)",
-      "Bash(python -c \"import torch; print\\(torch.__version__\\); print\\(torch.version.cuda\\)\")"
+      "Bash(python -c \"import torch; print\\(torch.__version__\\); print\\(torch.version.cuda\\)\")",
+      "Bash(python -c \"import torch; print\\(torch.__version__\\); print\\('CUDA:', torch.cuda.is_available\\(\\)\\); print\\('GPU:', torch.cuda.get_device_name\\(0\\) if torch.cuda.is_available\\(\\) else 'none'\\)\")",
+      "Bash(pip uninstall *)",
+      "Bash(python -c \"import torch; print\\(torch.__version__, '| CUDA:', torch.cuda.is_available\\(\\)\\)\")"
     ]
   }
 }
