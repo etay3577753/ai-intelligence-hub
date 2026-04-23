@@ -90,7 +90,9 @@
       "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --ignore-errors --playlist-end 3 --cookies-from-browser chrome \"https://www.facebook.com/eliron.giny/videos/\")",
       "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --ignore-errors --playlist-end 3 --cookies-from-browser edge \"https://www.facebook.com/eliron.giny/videos/\")",
       "Bash(yt-dlp \"https://www.facebook.com/reel/1234567890\")",
-      "Bash(yt-dlp --cookies-from-browser firefox \"https://www.facebook.com/eliron.giny/videos/\" --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --playlist-end 3)"
+      "Bash(yt-dlp --cookies-from-browser firefox \"https://www.facebook.com/eliron.giny/videos/\" --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --playlist-end 3)",
+      "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\t%\\(description\\)s\" --no-warnings --ignore-errors --playlist-end 3 --cookies-from-browser chrome \"https://www.instagram.com/eliron.giny/reels/\")",
+      "Bash(yt-dlp -U)"
     ]
   }
 }
