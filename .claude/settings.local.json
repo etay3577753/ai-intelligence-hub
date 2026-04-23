@@ -80,7 +80,9 @@
       "Bash(pip show *)",
       "Bash(python -m uvicorn --version)",
       "Bash(python -m uvicorn main:app --port 8000)",
-      "Bash(python -c \"import sys; print\\(sys.executable\\)\")"
+      "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(python backend/facebook_import.py --help)",
+      "Bash(python backend/facebook_import.py import --help)"
     ]
   }
 }
