@@ -92,7 +92,13 @@
       "Bash(yt-dlp \"https://www.facebook.com/reel/1234567890\")",
       "Bash(yt-dlp --cookies-from-browser firefox \"https://www.facebook.com/eliron.giny/videos/\" --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\" --no-warnings --playlist-end 3)",
       "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\t%\\(description\\)s\" --no-warnings --ignore-errors --playlist-end 3 --cookies-from-browser chrome \"https://www.instagram.com/eliron.giny/reels/\")",
-      "Bash(yt-dlp -U)"
+      "Bash(yt-dlp -U)",
+      "Bash(python make_cookies.py \"62250764207%3AhKVZqleCK6nh5p%3A12%3AAYgTlpiwxbq80HNkDpGufLAJ7IW4NqR_tKdAa_5FCg\")",
+      "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\t%\\(description\\)s\t%\\(webpage_url\\)s\" --no-warnings --ignore-errors --playlist-end 5 --cookies cookies.txt \"https://www.instagram.com/eliron.giny/reels/\")",
+      "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\t%\\(description\\)s\" --no-warnings --ignore-errors --playlist-end 5 --cookies cookies.txt \"https://www.facebook.com/eliron.giny/videos/\")",
+      "Bash(yt-dlp --help)",
+      "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\t%\\(description\\)s\t%\\(webpage_url\\)s\" --no-warnings --ignore-errors --playlist-end 5 --cookies cookies.txt \"https://www.instagram.com/eliron.giny/\")",
+      "Bash(yt-dlp --dump-json --no-warnings --cookies cookies.txt \"https://www.instagram.com/reel/DINUOqVyq04/\")"
     ]
   }
 }
