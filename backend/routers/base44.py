@@ -148,6 +148,61 @@ def b44_search(
     return {"query": q, "total": len(results), "results": results}
 
 
+@router.get("/b44/export")
+def b44_export(
+    category:  str        = Query("all"),
+    x_api_key: str | None = Header(None),
+):
+    """
+    ייצוא כל הנתונים כ-JSON מוכן לייבוא ל-Base44 Entities.
+    שמור את הפלט כ-knowledge_base_export.json ויבא ב-Base44.
+    """
+    _check_key(x_api_key)
+    paths: list[Path] = []
+    if category in ("all", "research"):
+        paths += sorted(WIKI_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if category in ("all", "youtube") and YT_DIR.exists():
+        paths += sorted(YT_DIR.glob("*.md"), key=lambda p: p.stat().st_mtime, reverse=True)
+
+    records = []
+    for p in paths:
+        text    = p.read_text(encoding="utf-8", errors="replace")
+        meta    = _parse_file(p)
+        # חלץ כל section
+        desc_m  = re.search(r"## תיאור.*?\n\n(.*?)(?=\n##|\Z)", text, re.DOTALL)
+        trans_m = re.search(r"## תמליל.*?\n\n(.*?)(?=\n##|\Z)", text, re.DOTALL)
+        url_m   = re.search(r"\*\*קישור\*\*:\s*(.+)", text)
+        dur_m   = re.search(r"\*\*משך\*\*:\s*(.+)", text)
+        views_m = re.search(r"\*\*צפיות\*\*:\s*(.+)", text)
+
+        records.append({
+            # שדות Base44 Entity סטנדרטיים
+            "name":        meta["title"],
+            "type":        "youtube_video" if meta["is_youtube"] else "research_article",
+            "ecosystem":   meta["ecosystem"],
+            "date":        meta["date"],
+            "source_id":   meta["id"],
+            "url":         url_m.group(1).strip() if url_m else "",
+            "duration":    dur_m.group(1).strip() if dur_m else "",
+            "views":       views_m.group(1).strip() if views_m else "",
+            "description": desc_m.group(1).strip()[:1000] if desc_m else "",
+            "transcript":  trans_m.group(1).strip()[:2000] if trans_m else "",
+            "preview":     meta["preview"],
+            "tags":        ["AI", "Rails", "אלירן גיני"] if meta["is_youtube"] else ["מחקר", meta["ecosystem"]],
+            # metadata
+            "has_description": meta["has_description"],
+            "has_transcript":  meta["has_transcript"],
+            "char_count":      meta["size"],
+        })
+
+    return {
+        "exported_at": datetime.now().isoformat(),
+        "total":       len(records),
+        "entity_type": "KnowledgeBaseItem",
+        "records":     records,
+    }
+
+
 @router.post("/b44/webhook")
 async def b44_webhook(
     request: Request,
