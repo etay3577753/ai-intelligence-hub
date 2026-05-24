@@ -109,7 +109,8 @@
       "Bash(curl -s \"http://localhost:8000/api/b44/export?category=youtube\" -H \"X-Api-Key: b44-hub-secret-2024\")",
       "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, ensure_ascii=False\\)[:300]\\)\")",
       "Bash(python -c \"from routers.base44 import router; print\\('OK', [r.path for r in router.routes]\\)\")",
-      "Bash(curl -s \"http://localhost:8000/api/b44/export?category=research\" -H \"X-Api-Key: b44-hub-secret-2024\")"
+      "Bash(curl -s \"http://localhost:8000/api/b44/export?category=research\" -H \"X-Api-Key: b44-hub-secret-2024\")",
+      "Bash(curl -s \"http://localhost:8000/api/b44/export\" -H \"X-Api-Key: b44-hub-secret-2024\" -o \"base44_integration/knowledge_base_export.json\")"
     ]
   }
 }
