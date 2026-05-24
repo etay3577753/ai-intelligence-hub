@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from routers import process, health, chat, notifications, wiki
+from routers import process, health, chat, notifications, wiki, base44
 
 load_dotenv()
 
@@ -19,9 +19,18 @@ app = FastAPI(
     version="0.1.0",
 )
 
+ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "https://*.base44.com",
+    "https://*.base44.app",
+    "https://base44.com",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],
+    allow_origins=ALLOWED_ORIGINS,
+    allow_origin_regex=r"https://.*\.base44\.(com|app)",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,6 +41,7 @@ app.include_router(process.router, prefix="/api", tags=["AI Processing"])
 app.include_router(chat.router, prefix="/api", tags=["Chat & Projects"])
 app.include_router(notifications.router, prefix="/api", tags=["Notifications"])
 app.include_router(wiki.router, prefix="/api", tags=["Wiki"])
+app.include_router(base44.router, prefix="/api", tags=["Base44 Integration"])
 
 
 @app.get("/")

@@ -2,7 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import path from "path";
 import fs from "fs";
 
-const WIKI_DIR = path.join(process.cwd(), "..", "backend", "data", "wiki");
+// Local dev: cwd = /frontend  → ../backend/data/wiki
+// Vercel:    cwd = /var/task  → backend/data/wiki (whole repo is included)
+const WIKI_DIR = process.env.VERCEL
+  ? path.join(process.cwd(), "backend", "data", "wiki")
+  : path.join(process.cwd(), "..", "backend", "data", "wiki");
 const YT_DIR   = path.join(WIKI_DIR, "youtube");
 
 function parseMeta(filePath: string, isYoutube = false): Record<string, string | number | boolean> {
