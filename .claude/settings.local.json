@@ -98,7 +98,10 @@
       "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\t%\\(description\\)s\" --no-warnings --ignore-errors --playlist-end 5 --cookies cookies.txt \"https://www.facebook.com/eliron.giny/videos/\")",
       "Bash(yt-dlp --help)",
       "Bash(yt-dlp --flat-playlist --print \"%\\(id\\)s\t%\\(title\\)s\t%\\(description\\)s\t%\\(webpage_url\\)s\" --no-warnings --ignore-errors --playlist-end 5 --cookies cookies.txt \"https://www.instagram.com/eliron.giny/\")",
-      "Bash(yt-dlp --dump-json --no-warnings --cookies cookies.txt \"https://www.instagram.com/reel/DINUOqVyq04/\")"
+      "Bash(yt-dlp --dump-json --no-warnings --cookies cookies.txt \"https://www.instagram.com/reel/DINUOqVyq04/\")",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
