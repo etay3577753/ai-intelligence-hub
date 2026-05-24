@@ -72,7 +72,7 @@ def b44_request(method: str, url: str, api_key: str, data: dict | None = None) -
         url, data=body, method=method,
         headers={
             "Content-Type":  "application/json",
-            "Authorization": f"Bearer {api_key}",
+            "api_key": api_key,
         }
     )
     try:
@@ -86,7 +86,7 @@ def b44_request(method: str, url: str, api_key: str, data: dict | None = None) -
 def push_records(records: list[dict], api_key: str, app_id: str,
                  entity: str, dry_run: bool) -> tuple[int, int]:
     """Upsert records into Base44 entity. Returns (ok, errors)."""
-    base = f"https://api.base44.com/v1/apps/{app_id}/entities/{entity}"
+    base = f"https://base44.app/api/apps/{app_id}/entities/{entity}"
     ok = errors = 0
 
     for i, rec in enumerate(records):
