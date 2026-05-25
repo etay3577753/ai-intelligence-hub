@@ -16,6 +16,7 @@ interface Message {
   content: string;
   images?: string[];
   model?: string;
+  wiki_sources?: string[];   // קבצי wiki ששימשו לתשובה
 }
 
 type Mode = "advisor" | "research";
@@ -140,8 +141,18 @@ function MessageBubble({ msg, mode }: { msg: Message; mode: Mode }) {
         </div>
 
         {!isUser && (
-          <div className="ms-1">
+          <div className="ms-1 flex items-center gap-2 flex-wrap">
             <CopyButton text={msg.content} />
+            {msg.wiki_sources && msg.wiki_sources.length > 0 && (
+              <div className="flex items-center gap-1 flex-wrap">
+                <span className="text-[9px] text-muted-foreground/50">מקורות:</span>
+                {msg.wiki_sources.map((src) => (
+                  <span key={src} className="text-[9px] bg-primary/10 text-primary/70 px-1.5 py-0.5 rounded border border-primary/20">
+                    {src.replace(".md", "").replace(/-/g, " ")}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
@@ -255,7 +266,12 @@ function ChatPanel({ mode }: { mode: Mode }) {
         setMessages((prev) => [...prev, { role: "assistant", content: `❌ שגיאה: ${data.error}` }]);
       } else {
         if (data.model) setActiveModel(data.model);
-        setMessages((prev) => [...prev, { role: "assistant", content: data.response, model: data.model }]);
+        setMessages((prev) => [...prev, {
+          role: "assistant",
+          content: data.response,
+          model: data.model,
+          wiki_sources: data.wiki_sources ?? [],
+        }]);
       }
     } catch (err) {
       setMessages((prev) => [...prev, { role: "assistant", content: `❌ שגיאת רשת: ${String(err)}` }]);
