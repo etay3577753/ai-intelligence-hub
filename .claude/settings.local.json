@@ -113,7 +113,14 @@
       "Bash(curl -s \"http://localhost:8000/api/b44/export\" -H \"X-Api-Key: b44-hub-secret-2024\" -o \"base44_integration/knowledge_base_export.json\")",
       "Bash(npm install *)",
       "Bash(git ls-remote *)",
-      "WebFetch(domain:raw.githubusercontent.com)"
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(python -c \"import json; data=json.load\\(open\\('backend/data/tools_master.json', encoding='utf-8'\\)\\); tools=[t for t in data['tools'] if 'ai-studio' in t.get\\('id',''\\).lower\\(\\) or 'google' in t.get\\('id',''\\).lower\\(\\)]; print\\(json.dumps\\(tools, ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(python -c \"import json; data=json.load\\(open\\('backend/data/tools_master.json', encoding='utf-8'\\)\\); [print\\(t.get\\('id'\\)\\) for t in data['tools']]\")",
+      "Bash(python -c \"import json; data=json.load\\(open\\('backend/data/tools_master.json', encoding='utf-8'\\)\\); print\\(json.dumps\\(data['tools'][0], ensure_ascii=False, indent=2\\)\\)\")",
+      "Bash(python deep_researcher.py --tool google-ai-studio --v2 --dry-run)",
+      "Bash(set PYTHONIOENCODING=utf-8)",
+      "Bash(python -c \"import sys; sys.stdout.reconfigure\\(encoding='utf-8'\\); exec\\(open\\('deep_researcher.py', encoding='utf-8'\\).read\\(\\)\\)\" -- --tool google-ai-studio --v2 --dry-run)",
+      "PowerShell(cd \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\backend\\\\scripts\"; $env:PYTHONIOENCODING=\"utf-8\"; python deep_researcher.py --tool google-ai-studio --v2 --dry-run)"
     ]
   }
 }

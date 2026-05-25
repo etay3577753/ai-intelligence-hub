@@ -36,6 +36,19 @@
       "verified": false
     },
     {
+      "id": "google-ai-studio",
+      "category": "מודלי שפה / צ'אטבוטים",
+      "name": "Google AI Studio",
+      "link": "https://aistudio.google.com",
+      "description": "פלטפורמת הפיתוח של Google ל-Gemini — playground, API, ניהול prompts ובנייה מהירה של אפליקציות AI עם מודלי Gemini 2.5 Pro/Flash. context window עד 1M tokens חינמי.",
+      "hebrew_support": "חלקי",
+      "cost": "חינם + API",
+      "rating": "⭐⭐⭐⭐⭐",
+      "ecosystem": "Google",
+      "source": "manual",
+      "verified": false
+    },
+    {
       "id": "chatgpt",
       "category": "מודלי שפה / צ'אטבוטים",
       "name": "ChatGPT",
