@@ -1078,6 +1078,34 @@ async function startAnalysis(){
     addLog(`📤 מכין: ${file.name} (${(file.size/1024).toFixed(0)} KB)`);
   }
 
+  prog.style.width = '5%';
+
+  // Validate key before sending large files
+  if(STATE.apiKey){
+    addLog('🔑 בודק תקינות API Key...');
+    try{
+      const vr = await fetch(`${SERVER_URL}/credit/validate-key`, {
+        method:'POST',
+        headers:{
+          'X-AI-Provider': STATE.provider,
+          'X-AI-Key': STATE.apiKey,
+          'X-AI-Model': STATE.model,
+        }
+      });
+      const vd = await vr.json();
+      if(!vd.valid){
+        addLog(`❌ ${vd.error}`);
+        document.getElementById('process-title').textContent = 'שגיאת API Key';
+        document.getElementById('process-sub').textContent = vd.error;
+        setTimeout(()=>showView('setup-view'), 3000);
+        return;
+      }
+      addLog(`✅ Key תקין (${STATE.provider})`);
+    }catch(e){
+      addLog('⚠️ לא ניתן לאמת key — ממשיך בכל זאת');
+    }
+  }
+
   prog.style.width = '10%';
 
   try{

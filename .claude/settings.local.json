@@ -124,7 +124,8 @@
       "Bash(dir \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\backend\")",
       "Bash(python -c \"from routers.credit import router; print\\('credit router OK'\\)\")",
       "Bash(python -c \"import fitz; print\\('PyMuPDF', fitz.version[0], 'OK'\\)\")",
-      "Bash(curl -s http://localhost:8000/api/credit/health)"
+      "Bash(curl -s http://localhost:8000/api/credit/health)",
+      "Bash(python -c \"from routers.credit import router; print\\('OK'\\)\")"
     ]
   }
 }

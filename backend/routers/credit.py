@@ -204,39 +204,56 @@ async def _call_vision_openai(b64: str, api_key: str, model: str, client: httpx.
     return resp.json()["choices"][0]["message"]["content"]
 
 
+async def test_api_key(provider: str, api_key: str, model: str, client: httpx.AsyncClient) -> str | None:
+    """Quick key validation — returns error string or None if OK."""
+    try:
+        dummy_b64 = base64.b64encode(b"\xff\xd8\xff\xe0" + b"\x00" * 100).decode()
+        if provider == "gemini":
+            await _call_vision_gemini(dummy_b64, api_key, model, client)
+        elif provider == "claude":
+            await _call_vision_claude(dummy_b64, api_key, model, client)
+        else:
+            await _call_vision_openai(dummy_b64, api_key, model, client)
+        return None
+    except httpx.HTTPStatusError as e:
+        if e.response.status_code in (401, 403, 404):
+            return f"API Key שגוי או מודל לא נמצא: {e.response.status_code}. בדוק שה-Key מגיע מ-aistudio.google.com ומתחיל ב-AIza..."
+        return None  # other errors are transient
+    except Exception:
+        return None
+
+
 async def ocr_page(
     page: fitz.Page,
     provider: str,
     api_key: str,
     model: str,
     client: httpx.AsyncClient,
-    retries: int = 2,
 ) -> list[dict]:
-    """OCR one page → list of raw transaction dicts."""
+    """OCR one page → list of raw transaction dicts. No retry on auth errors."""
     b64 = _page_to_jpeg_b64(page)
+    try:
+        if provider == "gemini":
+            text = await _call_vision_gemini(b64, api_key, model, client)
+        elif provider == "claude":
+            text = await _call_vision_claude(b64, api_key, model, client)
+        else:
+            text = await _call_vision_openai(b64, api_key, model, client)
 
-    for attempt in range(retries + 1):
-        try:
-            if provider == "gemini":
-                text = await _call_vision_gemini(b64, api_key, model, client)
-            elif provider == "claude":
-                text = await _call_vision_claude(b64, api_key, model, client)
-            else:
-                text = await _call_vision_openai(b64, api_key, model, client)
+        m = re.search(r"\[[\s\S]*\]", text)
+        if not m:
+            return []
+        return _parse_ai_rows(m.group())
 
-            # Extract JSON array from response
-            m = re.search(r"\[[\s\S]*\]", text)
-            if not m:
-                return []
-            return _parse_ai_rows(m.group())
-
-        except Exception as e:
-            if attempt == retries:
-                logger.warning(f"Vision OCR failed after {retries+1} attempts: {e}")
-                return []
-            await asyncio.sleep(1.5 * (attempt + 1))
-
-    return []
+    except httpx.HTTPStatusError as e:
+        # 4xx = auth/config error — raise so caller can abort entire file
+        if e.response.status_code in (401, 403, 404):
+            raise
+        logger.warning(f"Vision OCR page error {e.response.status_code}, skipping page")
+        return []
+    except Exception as e:
+        logger.warning(f"Vision OCR page error: {e}")
+        return []
 
 
 def _parse_ai_rows(json_str: str) -> list[dict]:
@@ -448,24 +465,48 @@ async def parse_credit_pdfs(
             if image_pages:
                 if not x_ai_key:
                     warnings.append(
-                        f"{len(image_pages)} עמודי תמונה — נדרש AI Key לעיבוד. "
-                        f"הכנס מפתח בהגדרות."
+                        f"⚠️ {len(image_pages)} עמודי תמונה — הכנס AI Key בהגדרות."
                     )
                 else:
                     method = "vision" if not text_pages else "mixed"
 
-                    # Process in batches of MAX_CONCURRENT_PAGES
-                    for batch_start in range(0, len(image_pages), MAX_CONCURRENT_PAGES):
-                        batch = image_pages[batch_start: batch_start + MAX_CONCURRENT_PAGES]
-                        tasks = [
-                            ocr_page(doc[i], x_ai_provider, x_ai_key, x_ai_model, client)
-                            for i in batch
-                        ]
-                        batch_results = await asyncio.gather(*tasks)
-                        for ai_rows in batch_results:
-                            transactions.extend(
-                                ai_rows_to_transactions(ai_rows, upload.filename)
+                    # Validate key on first page before processing everything
+                    key_error = False
+                    try:
+                        first_rows = await ocr_page(
+                            doc[image_pages[0]], x_ai_provider, x_ai_key, x_ai_model, client
+                        )
+                        transactions.extend(
+                            ai_rows_to_transactions(first_rows, upload.filename)
+                        )
+                    except httpx.HTTPStatusError as e:
+                        if e.response.status_code in (401, 403, 404):
+                            key_error = True
+                            warnings.append(
+                                f"❌ API Key שגוי (HTTP {e.response.status_code}). "
+                                f"Gemini Key חייב להתחיל ב-AIza — "
+                                f"קבל ב: aistudio.google.com/app/apikey"
                             )
+                            logger.error(f"Auth error for {upload.filename}: {e}")
+
+                    if not key_error:
+                        # Process remaining pages in batches
+                        remaining = image_pages[1:]
+                        for batch_start in range(0, len(remaining), MAX_CONCURRENT_PAGES):
+                            batch = remaining[batch_start: batch_start + MAX_CONCURRENT_PAGES]
+                            tasks = [
+                                ocr_page(doc[i], x_ai_provider, x_ai_key, x_ai_model, client)
+                                for i in batch
+                            ]
+                            try:
+                                batch_results = await asyncio.gather(*tasks)
+                                for ai_rows in batch_results:
+                                    transactions.extend(
+                                        ai_rows_to_transactions(ai_rows, upload.filename)
+                                    )
+                            except httpx.HTTPStatusError:
+                                warnings.append("⚠️ שגיאת API — עיבוד הופסק")
+                                break
 
             doc.close()
 
@@ -498,7 +539,34 @@ async def parse_credit_pdfs(
 
 @router.get("/credit/health")
 def credit_health():
-    return {
-        "status": "ok",
-        "pymupdf_version": fitz.version[0],
-    }
+    return {"status": "ok", "pymupdf_version": fitz.version[0]}
+
+
+@router.post("/credit/validate-key")
+async def validate_key(
+    x_ai_provider: str = Header(default="gemini"),
+    x_ai_key: str = Header(default=""),
+    x_ai_model: str = Header(default="gemini-1.5-flash"),
+):
+    """Quick check that the API key works before uploading large files."""
+    if not x_ai_key:
+        return {"valid": False, "error": "לא הוזן API Key"}
+
+    # Provider-specific key format checks
+    if x_ai_provider == "gemini" and not x_ai_key.startswith("AIza"):
+        return {
+            "valid": False,
+            "error": "Gemini API Key חייב להתחיל ב-AIza. קבל ב: aistudio.google.com/app/apikey",
+        }
+    if x_ai_provider == "claude" and not x_ai_key.startswith("sk-ant"):
+        return {
+            "valid": False,
+            "error": "Claude API Key חייב להתחיל ב-sk-ant. קבל ב: console.anthropic.com",
+        }
+    if x_ai_provider == "openai" and not x_ai_key.startswith("sk-"):
+        return {
+            "valid": False,
+            "error": "OpenAI API Key חייב להתחיל ב-sk-. קבל ב: platform.openai.com/api-keys",
+        }
+
+    return {"valid": True, "provider": x_ai_provider, "model": x_ai_model}
