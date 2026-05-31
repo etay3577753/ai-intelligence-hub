@@ -283,9 +283,27 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 
   <div class="upload-actions">
     <button class="btn btn-secondary" onclick="clearFiles()">🗑️ נקה הכל</button>
+    <button class="btn btn-secondary" id="debug-btn" onclick="debugPDF()" disabled>
+      🔍 בדוק PDF (דיבאג)
+    </button>
     <button class="btn btn-primary" id="analyze-btn" onclick="startAnalysis()" disabled>
       🧠 נתח עם AI
     </button>
+  </div>
+
+  <!-- DEBUG PANEL -->
+  <div id="debug-panel" class="hidden" style="max-width:700px;margin:20px auto 0">
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+        <h3 style="font-size:.95rem">🔍 אבחון PDF — טקסט גולמי שחולץ</h3>
+        <button class="btn btn-sm btn-secondary" onclick="document.getElementById('debug-panel').classList.add('hidden')">✕</button>
+      </div>
+      <div id="debug-info" style="background:var(--card2);border-radius:8px;padding:10px;font-size:.78rem;color:var(--muted);margin-bottom:12px"></div>
+      <div id="debug-lines" style="background:#000;border-radius:8px;padding:12px;font-size:.75rem;color:#00ff88;max-height:350px;overflow-y:auto;direction:ltr;text-align:left;white-space:pre-wrap;font-family:monospace"></div>
+      <div style="margin-top:12px;padding:10px;background:#7c6fff15;border-radius:8px;font-size:.82rem;color:var(--muted)">
+        💡 <strong>אם הטקסט ריק או מבולבל</strong> — ה-PDF שלך סרוק (תמונה). יש לייצא מחדש כ-PDF עם טקסט מאתר הבנק/חברת האשראי, או להעתיק-הדבק את הנתונים ידנית.
+      </div>
+    </div>
   </div>
 </div>
 
@@ -560,7 +578,47 @@ function addFiles(files){
   const pdfs = files.filter(f=>f.name.toLowerCase().endsWith('.pdf'));
   STATE.pendingFiles.push(...pdfs);
   renderFileList();
-  document.getElementById('analyze-btn').disabled = STATE.pendingFiles.length === 0;
+  const hasFiles = STATE.pendingFiles.length > 0;
+  document.getElementById('analyze-btn').disabled = !hasFiles;
+  document.getElementById('debug-btn').disabled = !hasFiles;
+}
+
+async function debugPDF(){
+  if(!STATE.pendingFiles.length) return;
+  const file = STATE.pendingFiles[0];
+  const panel = document.getElementById('debug-panel');
+  const info  = document.getElementById('debug-info');
+  const lines = document.getElementById('debug-lines');
+  panel.classList.remove('hidden');
+  info.textContent  = `⏳ קורא: ${file.name} (${(file.size/1024).toFixed(0)} KB)...`;
+  lines.textContent = '';
+
+  try {
+    const rawLines = await parsePDF(file);
+    const txs = extractTransactions(rawLines, file.name);
+
+    info.innerHTML = `
+      📄 <strong>${file.name}</strong> — ${(file.size/1024).toFixed(0)} KB<br>
+      📝 שורות טקסט שחולצו: <strong style="color:var(--teal)">${rawLines.length}</strong><br>
+      💳 עסקאות שזוהו: <strong style="color:${txs.length>0?'var(--teal)':'var(--red)'}">${txs.length}</strong>
+      ${txs.length===0?'<br>⚠️ <strong style="color:var(--orange)">אפס עסקאות — ראה הסבר למטה</strong>':''}
+    `;
+
+    if(rawLines.length === 0){
+      lines.textContent = '⛔ לא חולץ טקסט מהקובץ.\nייתכן שה-PDF סרוק (תמונה בלבד) ואין בו שכבת טקסט.\n\nפתרון: הכנס לאתר חברת האשראי → הורד פירוט → ודא שניתן לסמן טקסט בקובץ.';
+    } else {
+      // Show first 80 lines + detected transactions
+      const preview = rawLines.slice(0,80).join('\n');
+      const txPreview = txs.length > 0
+        ? '\n\n── עסקאות שזוהו (ראשונות 10) ──\n' +
+          txs.slice(0,10).map(t=>`${t.rawDate}  |  ${t.business}  |  ₪${t.amount}`).join('\n')
+        : '\n\n── לא זוהו עסקאות ──\nהפורמט לא תאם לדפוסים הנתמכים.\nשלח לי דוגמה של 3-4 שורות מהקובץ.';
+      lines.textContent = preview + txPreview;
+    }
+  } catch(e) {
+    info.innerHTML = `❌ שגיאה בקריאת ה-PDF: <strong>${e.message}</strong>`;
+    lines.textContent = e.stack || '';
+  }
 }
 
 function clearFiles(){
