@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from routers import process, health, chat, notifications, wiki, base44
+from routers import process, health, chat, notifications, wiki, base44, credit
 
 load_dotenv()
 
@@ -22,6 +22,8 @@ app = FastAPI(
 ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
+    "http://localhost:5050",
+    "http://127.0.0.1:5050",
     "https://*.base44.com",
     "https://*.base44.app",
     "https://base44.com",
@@ -42,6 +44,7 @@ app.include_router(chat.router, prefix="/api", tags=["Chat & Projects"])
 app.include_router(notifications.router, prefix="/api", tags=["Notifications"])
 app.include_router(wiki.router, prefix="/api", tags=["Wiki"])
 app.include_router(base44.router, prefix="/api", tags=["Base44 Integration"])
+app.include_router(credit.router, prefix="/api", tags=["Credit Card Parser"])
 
 
 @app.get("/")

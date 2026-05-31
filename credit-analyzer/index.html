@@ -1047,14 +1047,16 @@ async function classifyOpenAI(prompt){
 // ║                  ANALYSIS PIPELINE                           ║
 // ╚══════════════════════════════════════════════════════════════╝
 
+const SERVER_URL = 'http://localhost:8000/api';
+
 async function startAnalysis(){
   if(STATE.pendingFiles.length === 0) return;
   showView('processing-view');
 
-  const log = document.getElementById('process-log');
+  const log  = document.getElementById('process-log');
   const title = document.getElementById('process-title');
-  const sub = document.getElementById('process-sub');
-  const prog = document.getElementById('progress-fill');
+  const sub   = document.getElementById('process-sub');
+  const prog  = document.getElementById('progress-fill');
 
   function addLog(msg){
     const d = document.createElement('div');
@@ -1065,40 +1067,56 @@ async function startAnalysis(){
   }
 
   let allTxs = [];
-  let step = 0;
-  const totalSteps = STATE.pendingFiles.length + 2;
 
-  // 1. Parse PDFs — text first, vision fallback
+  // ── 1. Send PDFs to Python server ──────────────────────────
+  title.textContent = 'שולח לשרת לעיבוד...';
+  sub.textContent = 'השרת מחלץ עסקאות מה-PDF';
+
+  const formData = new FormData();
   for(const file of STATE.pendingFiles){
-    title.textContent = `מחלץ: ${file.name}`;
-    addLog(`📄 מעבד ${file.name}...`);
-    try{
-      const lines = await parsePDF(file);
-      addLog(`   שורות טקסט: ${lines.length}`);
+    formData.append('files', file);
+    addLog(`📤 מכין: ${file.name} (${(file.size/1024).toFixed(0)} KB)`);
+  }
 
-      if(lines.length > 5){
-        // Normal text-based parsing
-        const txs = extractTransactions(lines, file.name);
-        addLog(`   ✅ חולצו ${txs.length} עסקאות (מצב טקסט)`);
-        allTxs.push(...txs);
-      } else {
-        // Scanned PDF → Vision OCR
-        if(!STATE.apiKey){
-          addLog(`   ⚠️ PDF סרוק — נדרש API Key לקריאת תמונות`);
-        } else {
-          addLog(`   📷 PDF סרוק — עובר למצב Vision OCR...`);
-          title.textContent = `📷 Vision OCR: ${file.name}`;
-          const txs = await extractWithVision(file, addLog, prog, step, totalSteps);
-          addLog(`   ✅ חולצו ${txs.length} עסקאות (Vision OCR)`);
-          allTxs.push(...txs);
-        }
-      }
-    }catch(e){
-      addLog(`   ❌ שגיאה: ${e.message}`);
-      console.error(e);
+  prog.style.width = '10%';
+
+  try{
+    const resp = await fetch(`${SERVER_URL}/credit/parse`, {
+      method: 'POST',
+      headers: {
+        'X-AI-Provider': STATE.provider,
+        'X-AI-Key':      STATE.apiKey,
+        'X-AI-Model':    STATE.model,
+      },
+      body: formData,
+    });
+
+    if(!resp.ok){
+      const err = await resp.json().catch(()=>({detail:'שגיאת שרת'}));
+      throw new Error(err.detail || `HTTP ${resp.status}`);
     }
-    step++;
-    prog.style.width = `${(step/totalSteps)*100}%`;
+
+    const results = await resp.json();
+    prog.style.width = '60%';
+
+    for(const result of results){
+      addLog(`✅ ${result.filename}: ${result.pages} עמודים, ${result.transactions.length} עסקאות (${result.method})`);
+      if(result.warnings?.length){
+        result.warnings.forEach(w => addLog(`   ⚠️ ${w}`));
+      }
+      allTxs.push(...result.transactions);
+    }
+
+  }catch(e){
+    if(e.message.includes('Failed to fetch') || e.message.includes('NetworkError')){
+      addLog('❌ השרת לא פועל! הפעל את הbackend:');
+      addLog('   cd backend && uvicorn main:app --reload --port 8000');
+      setTimeout(()=>showView('upload-view'), 3000);
+      return;
+    }
+    addLog(`❌ שגיאה: ${e.message}`);
+    setTimeout(()=>showView('upload-view'), 3000);
+    return;
   }
 
   // Deduplicate: merge with existing

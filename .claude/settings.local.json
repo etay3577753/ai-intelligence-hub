@@ -120,7 +120,11 @@
       "Bash(python deep_researcher.py --tool google-ai-studio --v2 --dry-run)",
       "Bash(set PYTHONIOENCODING=utf-8)",
       "Bash(python -c \"import sys; sys.stdout.reconfigure\\(encoding='utf-8'\\); exec\\(open\\('deep_researcher.py', encoding='utf-8'\\).read\\(\\)\\)\" -- --tool google-ai-studio --v2 --dry-run)",
-      "PowerShell(cd \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\backend\\\\scripts\"; $env:PYTHONIOENCODING=\"utf-8\"; python deep_researcher.py --tool google-ai-studio --v2 --dry-run)"
+      "PowerShell(cd \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\backend\\\\scripts\"; $env:PYTHONIOENCODING=\"utf-8\"; python deep_researcher.py --tool google-ai-studio --v2 --dry-run)",
+      "Bash(dir \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\backend\")",
+      "Bash(python -c \"from routers.credit import router; print\\('credit router OK'\\)\")",
+      "Bash(python -c \"import fitz; print\\('PyMuPDF', fitz.version[0], 'OK'\\)\")",
+      "Bash(curl -s http://localhost:8000/api/credit/health)"
     ]
   }
 }
