@@ -36,6 +36,9 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 .btn-danger{background:#ff475720;color:var(--red);border:1px solid #ff475740}
 .btn-danger:hover{background:#ff475740}
 .warning-box{background:#ff6b3515;border:1px solid #ff6b3540;border-radius:10px;padding:12px;font-size:.82rem;color:#ffb08a;margin-top:16px;text-align:right}
+.provider-btn{background:var(--card2);border:2px solid var(--border);border-radius:12px;padding:12px 8px;text-align:center;cursor:pointer;transition:all .2s}
+.provider-btn:hover{border-color:var(--purple)}
+.provider-btn.active{border-color:var(--purple);background:#7c6fff18}
 
 /* ── UPLOAD ── */
 #upload-view{min-height:100vh;padding:40px 20px}
@@ -204,25 +207,47 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
   <div class="setup-card">
     <div style="font-size:3rem;margin-bottom:12px">💳</div>
     <h1>ניתוח אשראי חכם</h1>
-    <p>הכנס מפתח Claude API כדי לאפשר זיהוי חכם של עסקים וסיווג מדויק של עסקאות בעברית ואנגלית</p>
-    <div class="input-group">
-      <label>Claude API Key</label>
-      <input type="password" id="api-key-input" placeholder="sk-ant-api03-..." autocomplete="off">
+    <p style="margin-bottom:20px">בחר ספק AI לסיווג חכם של עסקים ועסקאות בעברית ואנגלית</p>
+
+    <!-- Provider selector -->
+    <div class="provider-tabs" style="display:flex;gap:8px;margin-bottom:20px;justify-content:center;flex-wrap:wrap">
+      <div class="provider-btn active" data-provider="gemini" onclick="selectProvider('gemini',this)" style="flex:1;min-width:120px">
+        <div style="font-size:1.4rem">🔵</div>
+        <div style="font-weight:700;font-size:.9rem">Google Gemini</div>
+        <div style="font-size:.72rem;color:var(--teal);margin-top:2px">הכי זול ✓</div>
+      </div>
+      <div class="provider-btn" data-provider="claude" onclick="selectProvider('claude',this)" style="flex:1;min-width:120px">
+        <div style="font-size:1.4rem">🟠</div>
+        <div style="font-weight:700;font-size:.9rem">Claude</div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px">Anthropic</div>
+      </div>
+      <div class="provider-btn" data-provider="openai" onclick="selectProvider('openai',this)" style="flex:1;min-width:120px">
+        <div style="font-size:1.4rem">⚫</div>
+        <div style="font-weight:700;font-size:.9rem">OpenAI</div>
+        <div style="font-size:.72rem;color:var(--muted);margin-top:2px">GPT-4o-mini</div>
+      </div>
     </div>
+
+    <!-- Dynamic provider info -->
+    <div id="provider-info" style="background:var(--card2);border-radius:10px;padding:12px;margin-bottom:16px;font-size:.82rem;text-align:right"></div>
+
     <div class="input-group">
-      <label>מודל AI לסיווג</label>
-      <select id="model-select">
-        <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 — מהיר וחסכוני (מומלץ)</option>
-        <option value="claude-sonnet-4-6">Claude Sonnet 4.6 — חכם יותר, איטי יותר</option>
-      </select>
+      <label id="key-label">API Key</label>
+      <input type="password" id="api-key-input" placeholder="" autocomplete="off">
     </div>
+
+    <div class="input-group" id="model-group">
+      <label>מודל</label>
+      <select id="model-select"></select>
+    </div>
+
     <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="initApp()">
       🚀 התחל
     </button>
     <div class="warning-box">
       ⚠️ המפתח נשמר רק בדפדפן שלך (localStorage) ולא נשלח לשום שרת חיצוני. כל עיבוד PDF מתבצע מקומית.
     </div>
-    <button class="btn btn-secondary" style="margin-top:12px;font-size:.82rem" onclick="skipApiKey()">המשך בלי AI (סיווג ידני בלבד)</button>
+    <button class="btn btn-secondary" style="margin-top:12px;font-size:.82rem;width:100%;justify-content:center" onclick="skipApiKey()">המשך בלי AI (סיווג ידני בלבד)</button>
   </div>
 </div>
 
@@ -349,7 +374,44 @@ const CATEGORIES = [
 const CAT_MAP = Object.fromEntries(CATEGORIES.map(c=>[c.id,c]));
 
 const STORAGE_KEY = 'credit_analyzer_v3';
+// ── PROVIDER CONFIGS ──
+const PROVIDERS = {
+  gemini: {
+    name: 'Google Gemini',
+    keyPlaceholder: 'AIza...',
+    keyLabel: 'Google AI Studio API Key',
+    info: '🔵 Google Gemini Flash — הכי זול ($0.075/M טוקן), עברית מצוינת, מכיר עסקים ישראלים. <a href="https://aistudio.google.com/app/apikey" target="_blank" style="color:var(--teal)">קבל מפתח חינמי ←</a>',
+    models: [
+      {id:'gemini-1.5-flash',    label:'Gemini 1.5 Flash — מהיר וזול מאוד (מומלץ)'},
+      {id:'gemini-1.5-flash-8b', label:'Gemini 1.5 Flash-8B — הכי זול'},
+      {id:'gemini-1.5-pro',      label:'Gemini 1.5 Pro — הכי חכם'},
+    ],
+  },
+  claude: {
+    name: 'Claude (Anthropic)',
+    keyPlaceholder: 'sk-ant-api03-...',
+    keyLabel: 'Anthropic API Key',
+    info: '🟠 Claude — סיווג מדויק מאוד בעברית. <a href="https://console.anthropic.com/" target="_blank" style="color:var(--teal)">קבל מפתח ←</a>',
+    models: [
+      {id:'claude-haiku-4-5-20251001', label:'Haiku 4.5 — מהיר וחסכוני (מומלץ)'},
+      {id:'claude-sonnet-4-6',         label:'Sonnet 4.6 — חכם יותר'},
+    ],
+  },
+  openai: {
+    name: 'OpenAI',
+    keyPlaceholder: 'sk-...',
+    keyLabel: 'OpenAI API Key',
+    info: '⚫ OpenAI GPT-4o-mini — זול ומהיר. <a href="https://platform.openai.com/api-keys" target="_blank" style="color:var(--teal)">קבל מפתח ←</a>',
+    models: [
+      {id:'gpt-4o-mini', label:'GPT-4o-mini — זול ומהיר (מומלץ)'},
+      {id:'gpt-4o',      label:'GPT-4o — הכי חכם'},
+    ],
+  },
+};
+
 const CLAUDE_URL = 'https://api.anthropic.com/v1/messages';
+const GEMINI_URL = (model, key) => `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`;
+const OPENAI_URL = 'https://api.openai.com/v1/chat/completions';
 
 // ╔══════════════════════════════════════════════════════════════╗
 // ║                    STATE                                     ║
@@ -357,7 +419,8 @@ const CLAUDE_URL = 'https://api.anthropic.com/v1/messages';
 
 let STATE = {
   apiKey: '',
-  model: 'claude-haiku-4-5-20251001',
+  provider: 'gemini',
+  model: 'gemini-1.5-flash',
   transactions: [],      // all parsed transactions
   classCache: {},        // business_key → {category, businessClean, isRecurring}
   pendingFiles: [],      // File objects queued for upload
@@ -393,6 +456,24 @@ function loadData(){
   return false;
 }
 
+// ── PROVIDER UI ──
+function selectProvider(id, el){
+  document.querySelectorAll('.provider-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  STATE.provider = id;
+  const p = PROVIDERS[id];
+  document.getElementById('key-label').textContent = p.keyLabel;
+  document.getElementById('api-key-input').placeholder = p.keyPlaceholder;
+  document.getElementById('provider-info').innerHTML = p.info;
+  const sel = document.getElementById('model-select');
+  sel.innerHTML = p.models.map(m=>`<option value="${m.id}">${m.label}</option>`).join('');
+  STATE.model = p.models[0].id;
+  // restore saved key for this provider
+  const saved = localStorage.getItem('ca_apikey_'+id);
+  if(saved) document.getElementById('api-key-input').value = saved;
+  else document.getElementById('api-key-input').value = '';
+}
+
 // ╔══════════════════════════════════════════════════════════════╗
 // ║                  INIT                                        ║
 // ╚══════════════════════════════════════════════════════════════╝
@@ -403,7 +484,8 @@ function initApp(){
   if(!key){alert('נא להכניס API Key'); return;}
   STATE.apiKey = key;
   STATE.model = model;
-  localStorage.setItem('ca_apikey', key);
+  localStorage.setItem('ca_apikey_'+STATE.provider, key);
+  localStorage.setItem('ca_provider', STATE.provider);
   localStorage.setItem('ca_model', model);
   startFlow();
 }
@@ -423,10 +505,12 @@ function startFlow(){
 }
 
 window.onload = function(){
-  // Restore keys
-  const savedKey = localStorage.getItem('ca_apikey');
+  // Init provider UI first
+  const savedProvider = localStorage.getItem('ca_provider') || 'gemini';
   const savedModel = localStorage.getItem('ca_model');
-  if(savedKey) document.getElementById('api-key-input').value = savedKey;
+  STATE.provider = savedProvider;
+  const provBtn = document.querySelector(`.provider-btn[data-provider="${savedProvider}"]`);
+  if(provBtn) selectProvider(savedProvider, provBtn);
   if(savedModel) document.getElementById('model-select').value = savedModel;
 
   // Setup pdf.js worker
@@ -436,8 +520,8 @@ window.onload = function(){
 
   // Check if data exists → jump to dashboard
   if(loadData() && STATE.transactions.length > 0){
-    STATE.apiKey = savedKey || '';
-    STATE.model = savedModel || 'claude-haiku-4-5-20251001';
+    STATE.apiKey = localStorage.getItem('ca_apikey_'+savedProvider) || '';
+    STATE.model = savedModel || 'gemini-1.5-flash';
     showView('dashboard-view');
     renderDashboard();
   }
@@ -660,29 +744,15 @@ async function classifyBatch(businesses){
   const prompt = `סווג את העסקים הבאים:\n${businesses.map((b,i)=>`${i+1}. "${b}"`).join('\n')}`;
 
   try{
-    const resp = await fetch(CLAUDE_URL, {
-      method:'POST',
-      headers:{
-        'x-api-key': STATE.apiKey,
-        'anthropic-version': '2023-06-01',
-        'anthropic-dangerous-direct-browser-access': 'true',
-        'content-type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: STATE.model,
-        max_tokens: 2000,
-        system: SYSTEM_PROMPT,
-        messages:[{role:'user', content: prompt}],
-      })
-    });
-    if(!resp.ok){
-      const err = await resp.json();
-      console.error('Claude error:', err);
-      return null;
+    let text = '';
+    if(STATE.provider === 'gemini'){
+      text = await classifyGemini(prompt);
+    } else if(STATE.provider === 'claude'){
+      text = await classifyClaude(prompt);
+    } else if(STATE.provider === 'openai'){
+      text = await classifyOpenAI(prompt);
     }
-    const data = await resp.json();
-    const text = data.content[0].text.trim();
-    // Extract JSON array from response
+    if(!text) return null;
     const jsonMatch = text.match(/\[[\s\S]*\]/);
     if(!jsonMatch) return null;
     return JSON.parse(jsonMatch[0]);
@@ -690,6 +760,64 @@ async function classifyBatch(businesses){
     console.error('Classification error:', e);
     return null;
   }
+}
+
+async function classifyGemini(prompt){
+  const url = GEMINI_URL(STATE.model, STATE.apiKey);
+  const resp = await fetch(url, {
+    method:'POST',
+    headers:{'content-type':'application/json'},
+    body: JSON.stringify({
+      contents:[{parts:[{text: SYSTEM_PROMPT + '\n\n' + prompt}]}],
+      generationConfig:{temperature:0.1, maxOutputTokens:2000},
+    })
+  });
+  if(!resp.ok){const e=await resp.json();console.error('Gemini error:',e);return null;}
+  const d = await resp.json();
+  return d.candidates?.[0]?.content?.parts?.[0]?.text || null;
+}
+
+async function classifyClaude(prompt){
+  const resp = await fetch(CLAUDE_URL, {
+    method:'POST',
+    headers:{
+      'x-api-key': STATE.apiKey,
+      'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true',
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: STATE.model,
+      max_tokens: 2000,
+      system: SYSTEM_PROMPT,
+      messages:[{role:'user', content: prompt}],
+    })
+  });
+  if(!resp.ok){const e=await resp.json();console.error('Claude error:',e);return null;}
+  const d = await resp.json();
+  return d.content?.[0]?.text || null;
+}
+
+async function classifyOpenAI(prompt){
+  const resp = await fetch(OPENAI_URL, {
+    method:'POST',
+    headers:{
+      'authorization': 'Bearer '+STATE.apiKey,
+      'content-type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: STATE.model,
+      max_tokens: 2000,
+      temperature: 0.1,
+      messages:[
+        {role:'system', content: SYSTEM_PROMPT},
+        {role:'user', content: prompt},
+      ],
+    })
+  });
+  if(!resp.ok){const e=await resp.json();console.error('OpenAI error:',e);return null;}
+  const d = await resp.json();
+  return d.choices?.[0]?.message?.content || null;
 }
 
 // ╔══════════════════════════════════════════════════════════════╗
