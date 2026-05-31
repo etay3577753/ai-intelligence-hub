@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💳 ניתוח אשראי חכם</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0f;--card:#12121f;--card2:#1a1a2e;--border:#2a2a3e;
+  --purple:#7c6fff;--teal:#00d4aa;--orange:#ff6b35;--pink:#ff4f9a;
+  --yellow:#ffd93d;--blue:#45b7d1;--green:#96e6a1;--red:#ff4757;
+  --text:#e2e8f0;--muted:#8892a4;--white:#ffffff;
+}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;direction:rtl}
+.hidden{display:none!important}
+
+/* ── SETUP ── */
+#setup-view{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.setup-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;max-width:480px;width:100%;text-align:center}
+.setup-card h1{font-size:2rem;margin-bottom:8px}
+.setup-card p{color:var(--muted);margin-bottom:30px;line-height:1.6}
+.input-group{text-align:right;margin-bottom:16px}
+.input-group label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.input-group input{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-size:.95rem;outline:none;direction:ltr;text-align:left}
+.input-group input:focus{border-color:var(--purple)}
+.input-group select{width:100%;background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-size:.95rem;outline:none}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;border:none;cursor:pointer;font-size:.95rem;font-weight:600;transition:all .2s}
+.btn-primary{background:var(--purple);color:#fff}
+.btn-primary:hover{background:#6a5ef0;transform:translateY(-1px)}
+.btn-secondary{background:var(--card2);color:var(--text);border:1px solid var(--border)}
+.btn-secondary:hover{border-color:var(--purple)}
+.btn-sm{padding:6px 14px;font-size:.82rem}
+.btn-danger{background:#ff475720;color:var(--red);border:1px solid #ff475740}
+.btn-danger:hover{background:#ff475740}
+.warning-box{background:#ff6b3515;border:1px solid #ff6b3540;border-radius:10px;padding:12px;font-size:.82rem;color:#ffb08a;margin-top:16px;text-align:right}
+
+/* ── UPLOAD ── */
+#upload-view{min-height:100vh;padding:40px 20px}
+.upload-header{text-align:center;margin-bottom:40px}
+.upload-header h1{font-size:2.2rem;margin-bottom:8px}
+.upload-header p{color:var(--muted)}
+.drop-zone{border:2px dashed var(--border);border-radius:20px;padding:60px 40px;text-align:center;cursor:pointer;transition:all .3s;background:var(--card);max-width:700px;margin:0 auto 30px}
+.drop-zone:hover,.drop-zone.drag-over{border-color:var(--purple);background:#7c6fff10}
+.drop-zone .icon{font-size:4rem;margin-bottom:16px}
+.drop-zone h2{font-size:1.4rem;margin-bottom:8px}
+.drop-zone p{color:var(--muted);font-size:.9rem}
+.file-list{max-width:700px;margin:0 auto 30px;display:flex;flex-direction:column;gap:10px}
+.file-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+.file-item .file-info{display:flex;align-items:center;gap:12px}
+.file-item .file-icon{font-size:1.5rem}
+.file-item .file-name{font-weight:600;font-size:.9rem}
+.file-item .file-size{color:var(--muted);font-size:.8rem}
+.file-item .file-status{font-size:.8rem;padding:4px 10px;border-radius:20px}
+.status-pending{background:#7c6fff20;color:var(--purple)}
+.status-done{background:#00d4aa20;color:var(--teal)}
+.status-error{background:#ff475720;color:var(--red)}
+.upload-actions{max-width:700px;margin:0 auto;display:flex;gap:12px;justify-content:center}
+.card-selector{max-width:700px;margin:0 auto 20px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px}
+.card-selector h3{margin-bottom:12px;font-size:.95rem;color:var(--muted)}
+.card-selector .format-options{display:flex;flex-wrap:wrap;gap:8px}
+.format-badge{padding:6px 14px;border-radius:20px;border:1px solid var(--border);font-size:.82rem;cursor:pointer;transition:all .2s;background:var(--card2)}
+.format-badge.active{background:var(--purple);border-color:var(--purple);color:#fff}
+
+/* ── PROCESSING ── */
+#processing-view{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:20px}
+.processing-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:40px;max-width:550px;width:100%;text-align:center}
+.spinner{width:60px;height:60px;border:4px solid var(--border);border-top:4px solid var(--purple);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 24px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.progress-bar{background:var(--card2);border-radius:20px;height:8px;margin:20px 0;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--teal));border-radius:20px;transition:width .4s ease}
+.process-log{background:var(--card2);border-radius:10px;padding:16px;text-align:right;max-height:200px;overflow-y:auto;font-size:.82rem;color:var(--muted);margin-top:16px}
+.log-line{padding:3px 0;border-bottom:1px solid var(--border)}
+.log-line:last-child{color:var(--teal)}
+
+/* ── DASHBOARD ── */
+#dashboard-view{min-height:100vh}
+.topbar{background:var(--card);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.topbar-logo{font-size:1.2rem;font-weight:700}
+.topbar-actions{display:flex;gap:10px;align-items:center}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:.9rem;color:var(--muted);padding:0 24px;margin:16px 0}
+.breadcrumb .crumb{cursor:pointer;transition:color .2s}
+.breadcrumb .crumb:hover{color:var(--purple)}
+.breadcrumb .crumb.active{color:var(--text);font-weight:600;cursor:default}
+.breadcrumb .sep{color:var(--border)}
+.main-content{padding:0 24px 40px}
+
+/* ── SUMMARY CARDS ── */
+.summary-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:24px}
+.summary-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.summary-card .label{font-size:.8rem;color:var(--muted);margin-bottom:8px}
+.summary-card .value{font-size:1.8rem;font-weight:700}
+.summary-card .sub{font-size:.8rem;color:var(--muted);margin-top:4px}
+.summary-card.highlight{border-color:var(--purple);background:linear-gradient(135deg,#7c6fff15,var(--card))}
+.summary-card.travel-card{border-color:var(--blue);background:linear-gradient(135deg,#45b7d115,var(--card))}
+
+/* ── CHARTS ── */
+.charts-row{display:grid;grid-template-columns:3fr 2fr;gap:16px;margin-bottom:24px}
+.chart-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px}
+.chart-card h3{font-size:.95rem;font-weight:600;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between}
+.chart-card canvas{max-height:280px}
+.chart-toggles{display:flex;gap:8px}
+.toggle-btn{padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-size:.78rem;cursor:pointer;transition:all .2s}
+.toggle-btn.active{background:var(--purple);border-color:var(--purple);color:#fff}
+
+/* ── TABLES ── */
+.section-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px}
+.section-card h3{font-size:.95rem;font-weight:600;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.data-table{width:100%;border-collapse:collapse}
+.data-table th{text-align:right;padding:10px 14px;font-size:.78rem;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border);white-space:nowrap}
+.data-table td{padding:12px 14px;font-size:.88rem;border-bottom:1px solid #ffffff08}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr.clickable{cursor:pointer;transition:background .2s}
+.data-table tr.clickable:hover{background:var(--card2)}
+.data-table tr.clickable:hover td:first-child{color:var(--purple)}
+.cat-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:.8rem;font-weight:600;white-space:nowrap}
+.amount-cell{font-weight:700;font-family:'Segoe UI',monospace}
+.positive{color:var(--teal)}
+.negative{color:var(--red)}
+.travel-tag{display:inline-block;background:#45b7d120;color:var(--blue);border-radius:20px;padding:2px 8px;font-size:.75rem;margin-right:6px}
+.recurring-tag{display:inline-block;background:#7c6fff20;color:var(--purple);border-radius:20px;padding:2px 8px;font-size:.75rem}
+.peak-indicator{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--orange);margin-left:6px;vertical-align:middle}
+
+/* ── BUSINESS DETAIL ── */
+.business-header{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px;display:flex;align-items:center;gap:20px}
+.business-avatar{width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0}
+.business-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:16px}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.stat-box .stat-label{font-size:.75rem;color:var(--muted);margin-bottom:4px}
+.stat-box .stat-val{font-size:1.4rem;font-weight:700}
+
+/* ── MONTH DETAIL ── */
+.month-header{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;margin-bottom:16px}
+.tx-list{display:flex;flex-direction:column;gap:8px}
+.tx-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;align-items:center;justify-content:space-between}
+.tx-item .tx-date{color:var(--muted);font-size:.82rem;width:90px;flex-shrink:0}
+.tx-item .tx-name{flex:1;font-size:.9rem;font-weight:500}
+.tx-item .tx-amount{font-weight:700;font-size:1rem;color:var(--orange)}
+.tx-item .tx-tags{display:flex;gap:4px;flex-shrink:0;margin-right:12px}
+
+/* ── TRAVEL SECTION ── */
+.trips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.trip-card{background:var(--card);border:1px solid var(--blue)40;border-radius:14px;padding:20px;cursor:pointer;transition:all .2s}
+.trip-card:hover{border-color:var(--blue);transform:translateY(-2px)}
+.trip-card .trip-dest{font-size:1.2rem;font-weight:700;margin-bottom:4px}
+.trip-card .trip-dates{color:var(--muted);font-size:.82rem;margin-bottom:12px}
+.trip-card .trip-total{font-size:1.8rem;font-weight:700;color:var(--blue)}
+.trip-card .trip-sub{color:var(--muted);font-size:.8rem}
+
+/* ── TABS ── */
+.tabs{display:flex;gap:4px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:4px;margin-bottom:20px;width:fit-content}
+.tab{padding:8px 20px;border-radius:8px;cursor:pointer;font-size:.88rem;font-weight:500;color:var(--muted);transition:all .2s}
+.tab.active{background:var(--purple);color:#fff}
+
+/* ── FILTERS ── */
+.filter-bar{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
+.filter-bar input{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px 14px;color:var(--text);font-size:.88rem;outline:none;width:220px}
+.filter-bar input:focus{border-color:var(--purple)}
+.filter-bar select{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px 14px;color:var(--text);font-size:.88rem;outline:none}
+
+/* ── RECOMMENDATIONS ── */
+.rec-list{display:flex;flex-direction:column;gap:12px}
+.rec-item{background:var(--card2);border-radius:12px;padding:16px;border-right:3px solid var(--purple)}
+.rec-item.warning{border-color:var(--orange)}
+.rec-item.danger{border-color:var(--red)}
+.rec-item.positive{border-color:var(--teal)}
+.rec-item h4{font-size:.9rem;font-weight:600;margin-bottom:4px}
+.rec-item p{font-size:.82rem;color:var(--muted);line-height:1.5}
+
+/* ── EDIT MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:#00000090;z-index:1000;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;max-width:480px;width:100%}
+.modal h3{margin-bottom:20px;font-size:1.1rem}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:24px}
+
+/* ── MISC ── */
+.empty-state{text-align:center;padding:60px 20px;color:var(--muted)}
+.empty-state .icon{font-size:3rem;margin-bottom:12px}
+.tooltip{position:relative;cursor:help}
+.badge-count{display:inline-block;background:var(--purple);color:#fff;border-radius:20px;padding:1px 8px;font-size:.72rem;font-weight:700;margin-right:6px}
+.heatmap{display:grid;grid-template-columns:repeat(12,1fr);gap:4px;margin-top:12px}
+.heat-cell{border-radius:4px;padding:8px 4px;text-align:center;font-size:.72rem;color:var(--text);font-weight:600;transition:transform .2s;cursor:pointer}
+.heat-cell:hover{transform:scale(1.05)}
+.bar-mini{height:4px;border-radius:2px;margin-top:4px;background:var(--purple);opacity:.7}
+
+@media(max-width:768px){
+  .charts-row{grid-template-columns:1fr}
+  .business-stats{grid-template-columns:repeat(2,1fr)}
+  .summary-row{grid-template-columns:repeat(2,1fr)}
+  .topbar{padding:12px 16px}
+  .main-content{padding:0 12px 40px}
+  .breadcrumb{padding:0 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     VIEW 1: SETUP
+═══════════════════════════════════════════════════════════ -->
+<div id="setup-view">
+  <div class="setup-card">
+    <div style="font-size:3rem;margin-bottom:12px">💳</div>
+    <h1>ניתוח אשראי חכם</h1>
+    <p>הכנס מפתח Claude API כדי לאפשר זיהוי חכם של עסקים וסיווג מדויק של עסקאות בעברית ואנגלית</p>
+    <div class="input-group">
+      <label>Claude API Key</label>
+      <input type="password" id="api-key-input" placeholder="sk-ant-api03-..." autocomplete="off">
+    </div>
+    <div class="input-group">
+      <label>מודל AI לסיווג</label>
+      <select id="model-select">
+        <option value="claude-haiku-4-5-20251001">Claude Haiku 4.5 — מהיר וחסכוני (מומלץ)</option>
+        <option value="claude-sonnet-4-6">Claude Sonnet 4.6 — חכם יותר, איטי יותר</option>
+      </select>
+    </div>
+    <button class="btn btn-primary" style="width:100%;justify-content:center;margin-top:8px" onclick="initApp()">
+      🚀 התחל
+    </button>
+    <div class="warning-box">
+      ⚠️ המפתח נשמר רק בדפדפן שלך (localStorage) ולא נשלח לשום שרת חיצוני. כל עיבוד PDF מתבצע מקומית.
+    </div>
+    <button class="btn btn-secondary" style="margin-top:12px;font-size:.82rem" onclick="skipApiKey()">המשך בלי AI (סיווג ידני בלבד)</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     VIEW 2: UPLOAD
+═══════════════════════════════════════════════════════════ -->
+<div id="upload-view" class="hidden">
+  <div class="upload-header">
+    <h1>📂 העלאת פירוטי אשראי</h1>
+    <p>תומך בקבצי PDF מכאל, ישראכרט, מקס, אמריקן אקספרס ועוד</p>
+  </div>
+
+  <div class="card-selector">
+    <h3>סוג כרטיס / בנק (לסיוע בפרסינג)</h3>
+    <div class="format-options">
+      <div class="format-badge active" data-format="auto">🔍 זיהוי אוטומטי</div>
+      <div class="format-badge" data-format="cal">כאל / ויזה כאל</div>
+      <div class="format-badge" data-format="isracard">ישראכרט</div>
+      <div class="format-badge" data-format="max">מקס (לאומי)</div>
+      <div class="format-badge" data-format="amex">אמריקן אקספרס</div>
+      <div class="format-badge" data-format="discount">דיסקונט</div>
+    </div>
+  </div>
+
+  <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+    <div class="icon">📄</div>
+    <h2>גרור קבצי PDF לכאן</h2>
+    <p>או לחץ לבחירת קבצים — ניתן לבחור מספר קבצים בבת אחת</p>
+    <input type="file" id="file-input" multiple accept=".pdf" style="display:none">
+  </div>
+
+  <div class="file-list" id="file-list"></div>
+
+  <div class="upload-actions">
+    <button class="btn btn-secondary" onclick="clearFiles()">🗑️ נקה הכל</button>
+    <button class="btn btn-primary" id="analyze-btn" onclick="startAnalysis()" disabled>
+      🧠 נתח עם AI
+    </button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     VIEW 3: PROCESSING
+═══════════════════════════════════════════════════════════ -->
+<div id="processing-view" class="hidden">
+  <div class="processing-card">
+    <div class="spinner"></div>
+    <h2 id="process-title">מחלץ נתונים מה-PDF...</h2>
+    <p id="process-sub" style="color:var(--muted);margin-top:8px;font-size:.88rem">אנא המתן</p>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div id="process-log" class="process-log"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     VIEW 4: DASHBOARD
+═══════════════════════════════════════════════════════════ -->
+<div id="dashboard-view" class="hidden">
+
+  <div class="topbar">
+    <div class="topbar-logo">💳 ניתוח אשראי</div>
+    <div class="topbar-actions">
+      <button class="btn btn-sm btn-secondary" onclick="showUpload()">+ הוסף קבצים</button>
+      <button class="btn btn-sm btn-danger" onclick="clearAll()">🗑️ נקה הכל</button>
+    </div>
+  </div>
+
+  <div class="breadcrumb" id="breadcrumb"></div>
+
+  <div class="main-content" id="main-content">
+    <!-- Rendered dynamically -->
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     EDIT MODAL
+═══════════════════════════════════════════════════════════ -->
+<div class="modal-overlay hidden" id="edit-modal">
+  <div class="modal">
+    <h3>✏️ ערוך סיווג עסקה</h3>
+    <div class="input-group">
+      <label>שם עסק (ניקוי)</label>
+      <input type="text" id="edit-business" style="width:100%;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px;color:var(--text);outline:none">
+    </div>
+    <div class="input-group" style="margin-top:12px">
+      <label>קטגוריה</label>
+      <select id="edit-category" style="width:100%;background:var(--card2);border:1px solid var(--border);border-radius:8px;padding:10px;color:var(--text);outline:none"></select>
+    </div>
+    <div class="input-group" style="margin-top:12px">
+      <label>
+        <input type="checkbox" id="edit-recurring" style="margin-left:8px">
+        תשלום קבוע / מנוי
+      </label>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-secondary btn-sm" onclick="closeModal()">ביטול</button>
+      <button class="btn btn-primary btn-sm" onclick="saveEdit()">שמור</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                    CONFIGURATION                             ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+const CATEGORIES = [
+  {id:'food',       name:'מסעדות ואוכל',         icon:'🍔', color:'#ff6b35'},
+  {id:'supermarket',name:'סופרמרקט / מזון',      icon:'🛒', color:'#00d4aa'},
+  {id:'transport',  name:'תחבורה ורכב',           icon:'🚗', color:'#4ecdc4'},
+  {id:'insurance',  name:'ביטוח',                 icon:'🛡️', color:'#45b7d1'},
+  {id:'health',     name:'בריאות ורפואה',         icon:'💊', color:'#96e6a1'},
+  {id:'subscriptions',name:'מנויים דיגיטליים',   icon:'📱', color:'#7c6fff'},
+  {id:'entertainment',name:'בידור ותרבות',        icon:'🎭', color:'#ffd93d'},
+  {id:'fashion',    name:'ביגוד ואופנה',          icon:'👗', color:'#ff8cc8'},
+  {id:'education',  name:'חינוך',                 icon:'📚', color:'#a8edea'},
+  {id:'home',       name:'בית ושיפוץ',            icon:'🏠', color:'#ffa07a'},
+  {id:'travel',     name:'טיולים וחו"ל',          icon:'✈️', color:'#87ceeb'},
+  {id:'investment', name:'השקעות / מסחר',         icon:'📈', color:'#90ee90'},
+  {id:'other',      name:'אחר / שונות',           icon:'📦', color:'#b0b0b0'},
+];
+
+const CAT_MAP = Object.fromEntries(CATEGORIES.map(c=>[c.id,c]));
+
+const STORAGE_KEY = 'credit_analyzer_v3';
+const CLAUDE_URL = 'https://api.anthropic.com/v1/messages';
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                    STATE                                     ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+let STATE = {
+  apiKey: '',
+  model: 'claude-haiku-4-5-20251001',
+  transactions: [],      // all parsed transactions
+  classCache: {},        // business_key → {category, businessClean, isRecurring}
+  pendingFiles: [],      // File objects queued for upload
+  cardFormat: 'auto',
+  nav: [],              // navigation stack [{type, id, label}]
+  charts: {},
+  editingTxId: null,
+};
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  PERSISTENCE                                 ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function saveData(){
+  try{
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      transactions: STATE.transactions,
+      classCache: STATE.classCache,
+    }));
+  }catch(e){console.warn('Storage full',e)}
+}
+
+function loadData(){
+  try{
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      const d = JSON.parse(raw);
+      STATE.transactions = d.transactions || [];
+      STATE.classCache = d.classCache || {};
+      return STATE.transactions.length > 0;
+    }
+  }catch(e){}
+  return false;
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  INIT                                        ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function initApp(){
+  const key = document.getElementById('api-key-input').value.trim();
+  const model = document.getElementById('model-select').value;
+  if(!key){alert('נא להכניס API Key'); return;}
+  STATE.apiKey = key;
+  STATE.model = model;
+  localStorage.setItem('ca_apikey', key);
+  localStorage.setItem('ca_model', model);
+  startFlow();
+}
+
+function skipApiKey(){
+  STATE.apiKey = '';
+  startFlow();
+}
+
+function startFlow(){
+  if(loadData() && STATE.transactions.length > 0){
+    showView('dashboard-view');
+    renderDashboard();
+  } else {
+    showView('upload-view');
+  }
+}
+
+window.onload = function(){
+  // Restore keys
+  const savedKey = localStorage.getItem('ca_apikey');
+  const savedModel = localStorage.getItem('ca_model');
+  if(savedKey) document.getElementById('api-key-input').value = savedKey;
+  if(savedModel) document.getElementById('model-select').value = savedModel;
+
+  // Setup pdf.js worker
+  if(typeof pdfjsLib !== 'undefined'){
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+
+  // Check if data exists → jump to dashboard
+  if(loadData() && STATE.transactions.length > 0){
+    STATE.apiKey = savedKey || '';
+    STATE.model = savedModel || 'claude-haiku-4-5-20251001';
+    showView('dashboard-view');
+    renderDashboard();
+  }
+
+  // Format badge selection
+  document.querySelectorAll('.format-badge').forEach(b=>{
+    b.addEventListener('click',()=>{
+      document.querySelectorAll('.format-badge').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      STATE.cardFormat = b.dataset.format;
+    });
+  });
+
+  // Drop zone
+  const dz = document.getElementById('drop-zone');
+  dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag-over')});
+  dz.addEventListener('dragleave',()=>dz.classList.remove('drag-over'));
+  dz.addEventListener('drop',e=>{
+    e.preventDefault();dz.classList.remove('drag-over');
+    addFiles([...e.dataTransfer.files]);
+  });
+  document.getElementById('file-input').addEventListener('change',e=>addFiles([...e.target.files]));
+};
+
+function showView(id){
+  ['setup-view','upload-view','processing-view','dashboard-view'].forEach(v=>{
+    document.getElementById(v).classList.toggle('hidden', v!==id);
+  });
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  FILE MANAGEMENT                             ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function addFiles(files){
+  const pdfs = files.filter(f=>f.name.toLowerCase().endsWith('.pdf'));
+  STATE.pendingFiles.push(...pdfs);
+  renderFileList();
+  document.getElementById('analyze-btn').disabled = STATE.pendingFiles.length === 0;
+}
+
+function clearFiles(){
+  STATE.pendingFiles = [];
+  renderFileList();
+  document.getElementById('analyze-btn').disabled = true;
+}
+
+function renderFileList(){
+  const list = document.getElementById('file-list');
+  list.innerHTML = STATE.pendingFiles.map((f,i)=>`
+    <div class="file-item">
+      <div class="file-info">
+        <div class="file-icon">📄</div>
+        <div>
+          <div class="file-name">${f.name}</div>
+          <div class="file-size">${(f.size/1024).toFixed(0)} KB</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <span class="file-status status-pending">ממתין</span>
+        <button class="btn btn-sm btn-danger" onclick="removeFile(${i})">✕</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function removeFile(i){
+  STATE.pendingFiles.splice(i,1);
+  renderFileList();
+  document.getElementById('analyze-btn').disabled = STATE.pendingFiles.length === 0;
+}
+
+function showUpload(){
+  showView('upload-view');
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  PDF PARSING ENGINE                          ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+async function parsePDF(file){
+  const ab = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({data: ab}).promise;
+  let allLines = [];
+
+  for(let p=1; p<=pdf.numPages; p++){
+    const page = await pdf.getPage(p);
+    const content = await page.getTextContent();
+    // Group items by Y position (same line)
+    const byY = {};
+    for(const item of content.items){
+      const y = Math.round(item.transform[5]);
+      if(!byY[y]) byY[y]=[];
+      byY[y].push(item.str);
+    }
+    const sorted = Object.entries(byY).sort((a,b)=>Number(b[0])-Number(a[0]));
+    for(const [,words] of sorted){
+      const line = words.join(' ').replace(/\s+/g,' ').trim();
+      if(line) allLines.push(line);
+    }
+  }
+  return allLines;
+}
+
+// Regex patterns for Israeli credit card statements
+const TX_PATTERNS = [
+  // Pattern: DD/MM/YYYY ... amount (most formats)
+  /^(\d{2}\/\d{2}\/\d{4})\s+(.+?)\s+([\d,]+\.?\d*)\s*([₪$€£]?)\s*$/,
+  // DD/MM/YY
+  /^(\d{2}\/\d{2}\/\d{2})\s+(.+?)\s+([\d,]+\.?\d*)\s*([₪$€£]?)\s*$/,
+  // DD.MM.YYYY
+  /^(\d{2}\.\d{2}\.\d{4})\s+(.+?)\s+([\d,]+\.?\d*)\s*([₪$€£]?)\s*$/,
+  // DD.MM.YY
+  /^(\d{2}\.\d{2}\.\d{2})\s+(.+?)\s+([\d,]+\.?\d*)\s*([₪$€£]?)\s*$/,
+  // Amount first: amount date business
+  /^([\d,]+\.?\d*)\s+(\d{2}[\/\.]\d{2}[\/\.]\d{2,4})\s+(.+?)\s*$/,
+];
+
+function parseDate(str){
+  const clean = str.replace(/\./g,'/');
+  const parts = clean.split('/');
+  if(parts.length<3) return null;
+  let [d,m,y] = parts;
+  if(y.length===2) y='20'+y;
+  return new Date(`${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`);
+}
+
+function extractTransactions(lines, filename){
+  const txs = [];
+  const SKIP = /^(תאריך|date|פירוט|סוג|חיוב|אשראי|יתרה|עמוד|page|סה"כ|total|חשבון|כרטיס|תקופה|חודש|שם|card|balance|amount|debit|credit|\*{3}|={3}|-{3})/i;
+  const MIN_AMOUNT = 0.5;
+
+  for(const line of lines){
+    if(SKIP.test(line.trim())) continue;
+    if(line.trim().length < 6) continue;
+
+    let matched = false;
+    for(const pat of TX_PATTERNS){
+      const m = line.match(pat);
+      if(!m) continue;
+
+      let date, business, amountStr, currency='₪';
+      if(pat === TX_PATTERNS[4]){
+        // amount-first pattern
+        amountStr = m[1]; date = m[2]; business = m[3];
+      } else {
+        date = m[1]; business = m[2]; amountStr = m[3];
+        if(m[4]) currency = m[4] || '₪';
+      }
+
+      const amount = parseFloat(amountStr.replace(/,/g,''));
+      if(isNaN(amount) || amount < MIN_AMOUNT) continue;
+
+      const parsedDate = parseDate(date);
+      if(!parsedDate || parsedDate.getFullYear() < 2018) continue;
+
+      // Detect foreign currency
+      const upper = line.toUpperCase();
+      if(upper.includes('USD') || upper.includes('$') || currency==='$') currency='USD';
+      else if(upper.includes('EUR') || upper.includes('€') || currency==='€') currency='EUR';
+      else if(upper.includes('GBP') || currency==='£') currency='GBP';
+
+      const isTravel = (currency !== '₪') ||
+        /\b(HOTEL|AIRBNB|BOOKING|EXPEDIA|DELTA|UNITED|RYANAIR|EASYJET|WIZZAIR|FLY|AIRPORT|DUTY FREE|MARRIOTT|HILTON|HYATT|SHERATON)\b/i.test(business);
+
+      txs.push({
+        id: `tx_${Date.now()}_${Math.random().toString(36).slice(2,8)}`,
+        date: parsedDate.toISOString(),
+        rawDate: date,
+        business: business.trim(),
+        businessClean: business.trim(),
+        amount,
+        currency,
+        amountILS: amount, // will be approximated for foreign
+        category: 'other',
+        isRecurring: false,
+        isTravel,
+        source: filename,
+        month: `${parsedDate.getFullYear()}-${String(parsedDate.getMonth()+1).padStart(2,'0')}`,
+      });
+      matched = true;
+      break;
+    }
+  }
+  return txs;
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  CLAUDE AI CLASSIFIER                        ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+const SYSTEM_PROMPT = `אתה מומחה לסיווג עסקים ישראלים מפירוטי אשראי.
+קטגוריות זמינות: food, supermarket, transport, insurance, health, subscriptions, entertainment, fashion, education, home, travel, investment, other
+
+חוקים:
+- אוכל/מסעדות: GETT FOOD, עסקי מסעדות, קפה, פיצה, מאפייה, מסעדות → food
+- סופר: שופרסל, רמי לוי, מגה, סיטי, ויקטורי, מחסני השוק → supermarket
+- תחבורה: GETT, יינון, דלק, פז, סונול, תחנת דלק, YELLOW, Lime, רכבת ישראל, מטרו, UBER → transport
+- ביטוח: הראל, מגדל, כלל, ביטוח, Menora, AIG, Harel → insurance
+- בריאות: מכבי, קופת חולים, בית מרקחת, רופא, שיניים, אופטיקה, תרופות → health
+- מנויים: Netflix, Spotify, Apple, Google, Microsoft, ChatGPT, Claude, Amazon Prime, HOT, YES, Walla, Adobe, BASE44 → subscriptions
+- בידור: קולנוע, תיאטרון, ספורט, CAPPELLA, ספרים, משחקים → entertainment
+- אופנה: זארה, H&M, Zara, Foot Locker, Adidas, Nike, בגדים → fashion
+- חינוך: אוניברסיטה, קורסים, ספרי לימוד, Coursera, Udemy → education
+- בית: איקאה, ACE, Home Center, כלי בית, חשמל → home
+- טיול: AIRBNB, BOOKING, EXPEDIA, Hotels, מלון, טיסה, El Al, DUTY FREE, מסעדה בחו"ל → travel
+- השקעות: BIT (השקעות), PAYBOX, MYSTOCK, Bit Pay, בורסה → investment
+
+עסקים חשובים לזכור:
+- GETT = מונית → transport (אלא אם כן GETT FOOD → food)
+- CVS = בית מרקחת אמריקאי → health
+- ALIEXPRESS, Amazon (ללא Prime) → other
+- BIT/PAYBOX כהעברת כסף → other; BIT להשקעה → investment
+
+החזר JSON מערך בלבד, ללא טקסט נוסף:
+[{"key":"שם עסק מקורי","category":"id","businessClean":"שם נקי בעברית/אנגלית","isRecurring":true/false}]`;
+
+async function classifyBatch(businesses){
+  if(!STATE.apiKey) return null;
+  const prompt = `סווג את העסקים הבאים:\n${businesses.map((b,i)=>`${i+1}. "${b}"`).join('\n')}`;
+
+  try{
+    const resp = await fetch(CLAUDE_URL, {
+      method:'POST',
+      headers:{
+        'x-api-key': STATE.apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: STATE.model,
+        max_tokens: 2000,
+        system: SYSTEM_PROMPT,
+        messages:[{role:'user', content: prompt}],
+      })
+    });
+    if(!resp.ok){
+      const err = await resp.json();
+      console.error('Claude error:', err);
+      return null;
+    }
+    const data = await resp.json();
+    const text = data.content[0].text.trim();
+    // Extract JSON array from response
+    const jsonMatch = text.match(/\[[\s\S]*\]/);
+    if(!jsonMatch) return null;
+    return JSON.parse(jsonMatch[0]);
+  }catch(e){
+    console.error('Classification error:', e);
+    return null;
+  }
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  ANALYSIS PIPELINE                           ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+async function startAnalysis(){
+  if(STATE.pendingFiles.length === 0) return;
+  showView('processing-view');
+
+  const log = document.getElementById('process-log');
+  const title = document.getElementById('process-title');
+  const sub = document.getElementById('process-sub');
+  const prog = document.getElementById('progress-fill');
+
+  function addLog(msg){
+    const d = document.createElement('div');
+    d.className = 'log-line';
+    d.textContent = msg;
+    log.appendChild(d);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  let allTxs = [];
+  let step = 0;
+  const totalSteps = STATE.pendingFiles.length + 2;
+
+  // 1. Parse PDFs
+  for(const file of STATE.pendingFiles){
+    title.textContent = `מחלץ: ${file.name}`;
+    addLog(`📄 מעבד ${file.name}...`);
+    try{
+      const lines = await parsePDF(file);
+      addLog(`   נמצאו ${lines.length} שורות טקסט`);
+      const txs = extractTransactions(lines, file.name);
+      addLog(`   ✅ חולצו ${txs.length} עסקאות`);
+      allTxs.push(...txs);
+    }catch(e){
+      addLog(`   ❌ שגיאה: ${e.message}`);
+    }
+    step++;
+    prog.style.width = `${(step/totalSteps)*100}%`;
+  }
+
+  // Deduplicate: merge with existing
+  const existingIds = new Set(STATE.transactions.map(t=>t.date+'|'+t.business+'|'+t.amount));
+  const newTxs = allTxs.filter(t=>!existingIds.has(t.date+'|'+t.business+'|'+t.amount));
+  addLog(`\n🔄 ${newTxs.length} עסקאות חדשות (כפילויות הוסרו)`);
+
+  STATE.transactions.push(...newTxs);
+  STATE.transactions.sort((a,b)=>new Date(a.date)-new Date(b.date));
+
+  // 2. AI Classification
+  if(STATE.apiKey && STATE.transactions.length > 0){
+    title.textContent = '🧠 מסווג עסקים עם AI...';
+    sub.textContent = 'שולח לClaude לזיהוי חכם';
+
+    // Unique businesses not yet cached
+    const uncached = [...new Set(
+      STATE.transactions
+        .filter(t=>!STATE.classCache[t.business])
+        .map(t=>t.business)
+    )];
+
+    addLog(`\n🧠 מסווג ${uncached.length} עסקים ייחודיים...`);
+
+    const BATCH = 30;
+    for(let i=0; i<uncached.length; i+=BATCH){
+      const batch = uncached.slice(i, i+BATCH);
+      addLog(`   שולח קבוצה ${Math.floor(i/BATCH)+1}/${Math.ceil(uncached.length/BATCH)}...`);
+      const results = await classifyBatch(batch);
+      if(results){
+        for(const r of results){
+          STATE.classCache[r.key] = {
+            category: r.category,
+            businessClean: r.businessClean,
+            isRecurring: r.isRecurring,
+          };
+        }
+        addLog(`   ✅ ${results.length} עסקים סווגו`);
+      }
+      prog.style.width = `${((step + (i/uncached.length))/totalSteps)*100}%`;
+    }
+    step++;
+  }
+
+  // 3. Apply classifications
+  for(const tx of STATE.transactions){
+    const cached = STATE.classCache[tx.business];
+    if(cached){
+      tx.category = cached.category || 'other';
+      tx.businessClean = cached.businessClean || tx.business;
+      tx.isRecurring = cached.isRecurring || false;
+    }
+    // Force travel category if detected as travel
+    if(tx.isTravel && tx.category !== 'travel'){
+      // Only override if not subscriptions/health etc.
+      const keep = ['subscriptions','health','insurance'];
+      if(!keep.includes(tx.category)) tx.category = 'travel';
+    }
+  }
+
+  addLog(`\n✅ ניתוח הושלם! ${STATE.transactions.length} עסקאות סה"כ`);
+  prog.style.width = '100%';
+
+  STATE.pendingFiles = [];
+  saveData();
+
+  setTimeout(()=>{
+    showView('dashboard-view');
+    renderDashboard();
+  }, 800);
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  DATA ANALYSIS                               ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function getMonthlyTotals(txs){
+  const months = {};
+  for(const tx of txs){
+    if(!months[tx.month]) months[tx.month] = {total:0, withoutTravel:0, byCategory:{}};
+    months[tx.month].total += tx.amountILS;
+    if(tx.category !== 'travel') months[tx.month].withoutTravel += tx.amountILS;
+    months[tx.month].byCategory[tx.category] = (months[tx.month].byCategory[tx.category]||0) + tx.amountILS;
+  }
+  return months;
+}
+
+function getCategoryTotals(txs){
+  const cats = {};
+  for(const tx of txs){
+    if(!cats[tx.category]) cats[tx.category] = {total:0, count:0, businesses:new Set()};
+    cats[tx.category].total += tx.amountILS;
+    cats[tx.category].count++;
+    cats[tx.category].businesses.add(tx.businessClean);
+  }
+  return cats;
+}
+
+function getBusinessTotals(txs){
+  const biz = {};
+  for(const tx of txs){
+    const key = tx.businessClean;
+    if(!biz[key]){
+      biz[key]={
+        name:key, original:tx.business, category:tx.category,
+        total:0, count:0, byMonth:{}, isRecurring:tx.isRecurring
+      };
+    }
+    biz[key].total += tx.amountILS;
+    biz[key].count++;
+    if(!biz[key].byMonth[tx.month]) biz[key].byMonth[tx.month]={total:0,count:0,txs:[]};
+    biz[key].byMonth[tx.month].total += tx.amountILS;
+    biz[key].byMonth[tx.month].count++;
+    biz[key].byMonth[tx.month].txs.push(tx);
+  }
+  return biz;
+}
+
+function detectRecurring(txs){
+  const biz = getBusinessTotals(txs);
+  const recurring = [];
+  for(const [name, b] of Object.entries(biz)){
+    const months = Object.keys(b.byMonth).length;
+    const totalMonths = getMonthRange(txs);
+    if(months >= 3 || b.isRecurring){
+      recurring.push({
+        name, category: b.category, monthlyAvg: b.total/months,
+        months, total: b.total, isRecurring: true,
+      });
+    }
+  }
+  return recurring.sort((a,b)=>b.monthlyAvg-a.monthlyAvg);
+}
+
+function getMonthRange(txs){
+  if(!txs.length) return 1;
+  const months = [...new Set(txs.map(t=>t.month))];
+  return months.length || 1;
+}
+
+function detectPeakMonths(monthly){
+  const entries = Object.entries(monthly);
+  if(entries.length < 2) return new Set();
+  const avg = entries.reduce((s,[,v])=>s+v.withoutTravel,0)/entries.length;
+  const std = Math.sqrt(entries.reduce((s,[,v])=>s+(v.withoutTravel-avg)**2,0)/entries.length);
+  return new Set(entries.filter(([,v])=>v.withoutTravel > avg + std*0.7).map(([k])=>k));
+}
+
+function detectTrips(txs){
+  const travelTxs = txs.filter(t=>t.category==='travel' || t.isTravel).sort((a,b)=>new Date(a.date)-new Date(b.date));
+  if(!travelTxs.length) return [];
+  const trips = [];
+  let current = [travelTxs[0]];
+  for(let i=1;i<travelTxs.length;i++){
+    const prev = new Date(travelTxs[i-1].date);
+    const curr = new Date(travelTxs[i].date);
+    const diff = (curr-prev)/(1000*60*60*24);
+    if(diff <= 14){
+      current.push(travelTxs[i]);
+    } else {
+      trips.push(current);
+      current=[travelTxs[i]];
+    }
+  }
+  trips.push(current);
+  return trips.filter(t=>t.length>0).map(group=>{
+    const start = new Date(group[0].date);
+    const end = new Date(group[group.length-1].date);
+    const total = group.reduce((s,t)=>s+t.amountILS,0);
+    const names = [...new Set(group.map(t=>t.businessClean))].slice(0,4).join(', ');
+    return {start, end, total, count:group.length, txs:group, destinations:names,
+      label: formatDate(start) + (start.getTime()!==end.getTime() ? ' – '+formatDate(end) : '')};
+  });
+}
+
+function fmtAmount(n){
+  return '₪'+Math.round(n).toLocaleString('he-IL');
+}
+function formatDate(d){
+  if(!d) return '';
+  const dt = d instanceof Date ? d : new Date(d);
+  return dt.toLocaleDateString('he-IL',{day:'numeric',month:'short',year:'2-digit'});
+}
+function monthLabel(m){
+  const [y,mo] = m.split('-');
+  return new Date(y, mo-1).toLocaleDateString('he-IL',{month:'long',year:'numeric'});
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  NAVIGATION                                  ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function navTo(type, id, label){
+  STATE.nav.push({type, id, label});
+  renderCurrentView();
+}
+
+function navBack(idx){
+  STATE.nav = STATE.nav.slice(0, idx);
+  renderCurrentView();
+}
+
+function renderBreadcrumb(){
+  const bc = document.getElementById('breadcrumb');
+  const crumbs = [{label:'דשבורד', idx:0}, ...STATE.nav.map((n,i)=>({label:n.label, idx:i+1}))];
+  bc.innerHTML = crumbs.map((c,i)=>{
+    const isLast = i===crumbs.length-1;
+    return `<span class="crumb ${isLast?'active':''}" ${!isLast?`onclick="navBack(${c.idx})"`:''}>
+      ${c.label}
+    </span>${!isLast?'<span class="sep">›</span>':''}`;
+  }).join('');
+}
+
+function renderCurrentView(){
+  renderBreadcrumb();
+  const content = document.getElementById('main-content');
+  const last = STATE.nav[STATE.nav.length-1];
+  destroyCharts();
+
+  if(!last){
+    renderDashboardContent(content);
+  } else if(last.type==='category'){
+    renderCategoryView(content, last.id);
+  } else if(last.type==='business'){
+    renderBusinessView(content, last.id);
+  } else if(last.type==='month-business'){
+    renderMonthBusinessView(content, last.id);
+  } else if(last.type==='trip'){
+    renderTripView(content, last.id);
+  } else if(last.type==='tab'){
+    if(last.id==='travel') renderTravelTab(content);
+    else if(last.id==='recurring') renderRecurringTab(content);
+    else if(last.id==='months') renderMonthsTab(content);
+  }
+}
+
+function renderDashboard(){
+  STATE.nav = [];
+  renderCurrentView();
+}
+
+function destroyCharts(){
+  for(const k of Object.keys(STATE.charts)){
+    try{STATE.charts[k].destroy();}catch(e){}
+  }
+  STATE.charts = {};
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║               DASHBOARD MAIN VIEW                            ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function renderDashboardContent(container){
+  const txs = STATE.transactions;
+  if(!txs.length){
+    container.innerHTML = `<div class="empty-state"><div class="icon">📂</div><p>אין נתונים. העלה קבצי PDF.</p></div>`;
+    return;
+  }
+
+  const monthly = getMonthlyTotals(txs);
+  const catTotals = getCategoryTotals(txs);
+  const totalAll = txs.reduce((s,t)=>s+t.amountILS,0);
+  const totalTravel = txs.filter(t=>t.category==='travel').reduce((s,t)=>s+t.amountILS,0);
+  const totalDaily = totalAll - totalTravel;
+  const months = getMonthRange(txs);
+  const peakMonths = detectPeakMonths(monthly);
+
+  container.innerHTML = `
+    <!-- SUMMARY CARDS -->
+    <div class="summary-row">
+      <div class="summary-card highlight">
+        <div class="label">סה"כ הוצאות</div>
+        <div class="value">${fmtAmount(totalAll)}</div>
+        <div class="sub">על פני ${months} חודשים</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">ממוצע חודשי (ללא טיולים)</div>
+        <div class="value">${fmtAmount(totalDaily/months)}</div>
+        <div class="sub">שגרה בלבד</div>
+      </div>
+      <div class="summary-card travel-card">
+        <div class="label">טיולים וחו"ל</div>
+        <div class="value">${fmtAmount(totalTravel)}</div>
+        <div class="sub">${(totalTravel/totalAll*100).toFixed(1)}% מסך הכל</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">עסקאות</div>
+        <div class="value">${txs.length.toLocaleString()}</div>
+        <div class="sub">${[...new Set(txs.map(t=>t.businessClean))].length} עסקים ייחודיים</div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('categories',this)">📊 קטגוריות</div>
+      <div class="tab" onclick="switchTab('months',this)">📅 חודשים</div>
+      <div class="tab" onclick="switchTab('recurring',this)">🔄 חיובים קבועים</div>
+      <div class="tab" onclick="switchTab('travel',this)">✈️ טיולים</div>
+    </div>
+
+    <!-- CHARTS -->
+    <div class="charts-row" id="charts-row">
+      <div class="chart-card">
+        <h3>
+          הוצאות חודשיות
+          <div class="chart-toggles">
+            <button class="toggle-btn active" onclick="toggleMonthlyChart('all',this)">הכל</button>
+            <button class="toggle-btn" onclick="toggleMonthlyChart('daily',this)">ללא טיולים</button>
+          </div>
+        </h3>
+        <canvas id="chart-monthly"></canvas>
+      </div>
+      <div class="chart-card">
+        <h3>פילוח לפי קטגוריה</h3>
+        <canvas id="chart-category"></canvas>
+      </div>
+    </div>
+
+    <!-- HEATMAP -->
+    <div class="section-card" id="heatmap-section">
+      <h3>🗓️ מפת חום חודשית</h3>
+      <div class="heatmap" id="heatmap"></div>
+    </div>
+
+    <!-- MAIN TABLE -->
+    <div class="section-card" id="main-table-section">
+      <h3>הוצאות לפי קטגוריה <span class="badge-count">${CATEGORIES.length}</span></h3>
+      <div class="filter-bar">
+        <input type="text" id="cat-search" placeholder="🔍 חפש קטגוריה..." oninput="filterCatTable(this.value)">
+      </div>
+      <table class="data-table" id="cat-table">
+        <thead>
+          <tr>
+            <th onclick="sortCatTable('name')">קטגוריה ▲▼</th>
+            <th onclick="sortCatTable('total')">הוצאה כוללת ▲▼</th>
+            <th onclick="sortCatTable('avg')">ממוצע/חודש ▲▼</th>
+            <th onclick="sortCatTable('pct')">% מסך הכל ▲▼</th>
+            <th>עסקים בולטים</th>
+          </tr>
+        </thead>
+        <tbody id="cat-tbody"></tbody>
+      </table>
+    </div>
+
+    <!-- RECOMMENDATIONS -->
+    <div class="section-card" id="recs-section">
+      <h3>💡 המלצות ייעוציות</h3>
+      <div class="rec-list" id="rec-list"></div>
+    </div>
+  `;
+
+  renderMonthlyChart(monthly, peakMonths);
+  renderCategoryChart(catTotals, totalAll);
+  renderHeatmap(monthly, peakMonths);
+  renderCatTable(catTotals, monthly, totalAll);
+  renderRecommendations(txs, catTotals, monthly, totalTravel, totalAll);
+}
+
+function switchTab(tab, el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  if(tab==='categories'){
+    document.getElementById('charts-row').classList.remove('hidden');
+    document.getElementById('heatmap-section').classList.remove('hidden');
+    document.getElementById('main-table-section').classList.remove('hidden');
+    document.getElementById('recs-section').classList.remove('hidden');
+  } else {
+    document.getElementById('charts-row').classList.add('hidden');
+    document.getElementById('heatmap-section').classList.add('hidden');
+    document.getElementById('main-table-section').classList.add('hidden');
+    document.getElementById('recs-section').classList.add('hidden');
+    const container = document.getElementById('main-content');
+    if(tab==='travel') navTo('tab','travel','טיולים');
+    else if(tab==='recurring') navTo('tab','recurring','חיובים קבועים');
+    else if(tab==='months') navTo('tab','months','ניתוח חודשי');
+  }
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                   CHARTS                                     ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+let _monthlyData = null;
+
+function renderMonthlyChart(monthly, peakMonths, mode='all'){
+  _monthlyData = {monthly, peakMonths};
+  const canvas = document.getElementById('chart-monthly');
+  if(!canvas) return;
+  if(STATE.charts['monthly']) STATE.charts['monthly'].destroy();
+
+  const sortedMonths = Object.keys(monthly).sort();
+  const labels = sortedMonths.map(monthLabel);
+  const values = sortedMonths.map(m=> mode==='all' ? monthly[m].total : monthly[m].withoutTravel);
+  const travelVals = mode==='all' ? sortedMonths.map(m=> monthly[m].byCategory['travel']||0) : null;
+
+  const datasets = mode==='all' ? [
+    {
+      label:'שגרה',
+      data: sortedMonths.map(m=>(monthly[m].byCategory['travel']||0) > monthly[m].total*0.1
+        ? monthly[m].total - (monthly[m].byCategory['travel']||0)
+        : monthly[m].total),
+      backgroundColor: sortedMonths.map(m=>peakMonths.has(m)?'#ff6b3580':'#7c6fff80'),
+      borderColor: sortedMonths.map(m=>peakMonths.has(m)?'#ff6b35':'#7c6fff'),
+      borderWidth:2, borderRadius:6,
+    },
+    {
+      label:'טיולים',
+      data: sortedMonths.map(m=>monthly[m].byCategory['travel']||0),
+      backgroundColor:'#45b7d150',
+      borderColor:'#45b7d1',
+      borderWidth:2, borderRadius:6,
+    }
+  ] : [{
+    label:'הוצאות שגרה',
+    data: values,
+    backgroundColor: sortedMonths.map(m=>peakMonths.has(m)?'#ff6b3580':'#7c6fff80'),
+    borderColor: sortedMonths.map(m=>peakMonths.has(m)?'#ff6b35':'#7c6fff'),
+    borderWidth:2, borderRadius:6,
+  }];
+
+  STATE.charts['monthly'] = new Chart(canvas, {
+    type:'bar',
+    data:{labels, datasets},
+    options:{
+      responsive:true, maintainAspectRatio:true,
+      plugins:{
+        legend:{labels:{color:'#e2e8f0',font:{size:11}}},
+        tooltip:{callbacks:{label:c=>'₪'+Math.round(c.raw).toLocaleString('he-IL')}},
+      },
+      scales:{
+        x:{stacked:true, ticks:{color:'#8892a4',maxRotation:45,font:{size:10}}, grid:{color:'#ffffff10'}},
+        y:{stacked:true, ticks:{color:'#8892a4',callback:v=>'₪'+v.toLocaleString('he-IL'),font:{size:10}}, grid:{color:'#ffffff10'}},
+      }
+    }
+  });
+}
+
+function toggleMonthlyChart(mode, el){
+  document.querySelectorAll('.toggle-btn').forEach(b=>b.classList.remove('active'));
+  el.classList.add('active');
+  if(_monthlyData) renderMonthlyChart(_monthlyData.monthly, _monthlyData.peakMonths, mode);
+}
+
+function renderCategoryChart(catTotals, totalAll){
+  const canvas = document.getElementById('chart-category');
+  if(!canvas) return;
+  if(STATE.charts['category']) STATE.charts['category'].destroy();
+
+  const sorted = Object.entries(catTotals).sort((a,b)=>b[1].total-a[1].total).slice(0,10);
+  const labels = sorted.map(([id])=>CAT_MAP[id]?.name||id);
+  const values = sorted.map(([,v])=>v.total);
+  const colors = sorted.map(([id])=>CAT_MAP[id]?.color||'#888');
+
+  STATE.charts['category'] = new Chart(canvas, {
+    type:'doughnut',
+    data:{labels, datasets:[{data:values, backgroundColor:colors.map(c=>c+'cc'), borderColor:colors, borderWidth:2}]},
+    options:{
+      responsive:true, maintainAspectRatio:true,
+      cutout:'65%',
+      plugins:{
+        legend:{position:'right', labels:{color:'#e2e8f0',font:{size:10},padding:8}},
+        tooltip:{callbacks:{label:c=>`${c.label}: ₪${Math.round(c.raw).toLocaleString('he-IL')} (${(c.raw/totalAll*100).toFixed(1)}%)`}},
+      }
+    }
+  });
+}
+
+function renderHeatmap(monthly, peakMonths){
+  const hm = document.getElementById('heatmap');
+  if(!hm) return;
+  const sorted = Object.keys(monthly).sort();
+  if(!sorted.length) return;
+  const max = Math.max(...sorted.map(m=>monthly[m].withoutTravel));
+  hm.style.gridTemplateColumns = `repeat(${Math.min(sorted.length,12)},1fr)`;
+  hm.innerHTML = sorted.map(m=>{
+    const v = monthly[m].withoutTravel;
+    const intensity = max > 0 ? v/max : 0;
+    const isPeak = peakMonths.has(m);
+    const bg = isPeak ? `rgba(255,107,53,${0.3+intensity*0.6})` : `rgba(124,111,255,${0.2+intensity*0.6})`;
+    const label = new Date(m+'-01').toLocaleDateString('he-IL',{month:'short'});
+    return `<div class="heat-cell" style="background:${bg}" onclick="navToMonth('${m}')" title="${monthLabel(m)}: ${fmtAmount(v)}">
+      ${label}<div class="bar-mini" style="width:${intensity*100}%;background:${isPeak?'#ff6b35':'#7c6fff'}"></div>
+    </div>`;
+  }).join('');
+}
+
+function navToMonth(month){
+  navTo('tab','months',`חודשים`);
+  // Will render months tab - could also directly show the month
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║               CATEGORY TABLE                                 ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+let _catSort = {key:'total', dir:-1};
+let _catData = [];
+
+function renderCatTable(catTotals, monthly, totalAll){
+  const months = getMonthRange(STATE.transactions);
+  _catData = Object.entries(catTotals).map(([id, v])=>{
+    const cat = CAT_MAP[id] || {name:id, icon:'📦', color:'#888'};
+    const businesses = getBusinessTotals(STATE.transactions.filter(t=>t.category===id));
+    const topBiz = Object.values(businesses).sort((a,b)=>b.total-a.total).slice(0,3).map(b=>b.name);
+    return {id, cat, total:v.total, count:v.count, avg:v.total/months, pct:(v.total/totalAll*100), topBiz};
+  });
+  renderCatTableRows();
+}
+
+function renderCatTableRows(){
+  const tbody = document.getElementById('cat-tbody');
+  if(!tbody) return;
+  const sorted = [..._catData].sort((a,b)=>_catSort.dir*(a[_catSort.key]<b[_catSort.key]?-1:1));
+  tbody.innerHTML = sorted.map(row=>`
+    <tr class="clickable" onclick="navTo('category','${row.id}','${row.cat.name}')">
+      <td><span class="cat-badge" style="background:${row.cat.color}30;color:${row.cat.color}">${row.cat.icon} ${row.cat.name}</span></td>
+      <td class="amount-cell">${fmtAmount(row.total)}</td>
+      <td class="amount-cell">${fmtAmount(row.avg)}</td>
+      <td><span style="color:${row.pct>20?'var(--orange)':row.pct>10?'var(--yellow)':'var(--muted)'}">
+        ${row.pct.toFixed(1)}%
+        ${row.pct>15?'<span class="peak-indicator"></span>':''}
+      </span></td>
+      <td style="color:var(--muted);font-size:.82rem">${row.topBiz.join(', ')}</td>
+    </tr>
+  `).join('');
+}
+
+function sortCatTable(key){
+  if(_catSort.key===key) _catSort.dir *= -1;
+  else {_catSort.key=key; _catSort.dir=-1;}
+  renderCatTableRows();
+}
+
+function filterCatTable(q){
+  const rows = document.querySelectorAll('#cat-tbody tr');
+  rows.forEach(r=>{
+    r.style.display = r.textContent.toLowerCase().includes(q.toLowerCase()) ? '' : 'none';
+  });
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║               CATEGORY DRILL-DOWN                           ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function renderCategoryView(container, catId){
+  const cat = CAT_MAP[catId] || {name:catId, icon:'📦', color:'#888'};
+  const txs = STATE.transactions.filter(t=>t.category===catId);
+  const businesses = getBusinessTotals(txs);
+  const sorted = Object.values(businesses).sort((a,b)=>b.total-a.total);
+  const totalCat = txs.reduce((s,t)=>s+t.amountILS,0);
+
+  container.innerHTML = `
+    <div class="section-card" style="border-color:${cat.color}40">
+      <h3>${cat.icon} ${cat.name} — ${fmtAmount(totalCat)} סה"כ</h3>
+    </div>
+    <div class="filter-bar">
+      <input type="text" placeholder="🔍 חפש עסק..." oninput="filterTable('biz-tbody',this.value)">
+    </div>
+    <div class="section-card">
+      <h3>עסקים בקטגוריה <span class="badge-count">${sorted.length}</span></h3>
+      <table class="data-table">
+        <thead><tr>
+          <th>עסק</th><th>סה"כ</th><th>עסקאות</th><th>ממוצע לעסקה</th><th>חודשים פעיל</th><th>סטטוס</th>
+        </tr></thead>
+        <tbody id="biz-tbody">
+          ${sorted.map(b=>`
+            <tr class="clickable" onclick="navTo('business','${encodeURIComponent(b.name)}','${b.name}')">
+              <td style="font-weight:600">${b.name}</td>
+              <td class="amount-cell">${fmtAmount(b.total)}</td>
+              <td>${b.count}</td>
+              <td class="amount-cell">${fmtAmount(b.total/b.count)}</td>
+              <td>${Object.keys(b.byMonth).length}</td>
+              <td>${b.isRecurring?'<span class="recurring-tag">🔄 קבוע</span>':''}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║               BUSINESS DRILL-DOWN                           ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function renderBusinessView(container, encodedName){
+  const name = decodeURIComponent(encodedName);
+  const txs = STATE.transactions.filter(t=>t.businessClean===name);
+  if(!txs.length){container.innerHTML='<div class="empty-state">לא נמצאו עסקאות</div>';return;}
+
+  const biz = getBusinessTotals(txs)[name];
+  const cat = CAT_MAP[biz?.category||'other'];
+  const months = Object.keys(biz.byMonth).sort();
+  const totalAmount = txs.reduce((s,t)=>s+t.amountILS,0);
+  const avgPerTx = totalAmount/txs.length;
+  const avgPerMonth = totalAmount/months.length;
+
+  container.innerHTML = `
+    <div class="business-header">
+      <div class="business-avatar" style="background:${cat.color}20;color:${cat.color}">${cat.icon}</div>
+      <div>
+        <h2 style="font-size:1.5rem">${name}</h2>
+        <div style="color:var(--muted);font-size:.85rem;margin-top:4px">
+          <span class="cat-badge" style="background:${cat.color}25;color:${cat.color}">${cat.icon} ${cat.name}</span>
+          ${biz.isRecurring?'<span class="recurring-tag" style="margin-right:8px">🔄 תשלום קבוע</span>':''}
+        </div>
+      </div>
+    </div>
+
+    <div class="business-stats">
+      <div class="stat-box"><div class="stat-label">סה"כ שולם</div><div class="stat-val">${fmtAmount(totalAmount)}</div></div>
+      <div class="stat-box"><div class="stat-label">עסקאות</div><div class="stat-val">${txs.length}</div></div>
+      <div class="stat-box"><div class="stat-label">ממוצע לחודש</div><div class="stat-val">${fmtAmount(avgPerMonth)}</div></div>
+      <div class="stat-box"><div class="stat-label">ממוצע לעסקה</div><div class="stat-val">${fmtAmount(avgPerTx)}</div></div>
+    </div>
+
+    <div class="chart-card" style="margin-bottom:16px">
+      <h3>היסטוריה חודשית — ${name}</h3>
+      <canvas id="chart-biz-monthly"></canvas>
+    </div>
+
+    <div class="section-card">
+      <h3>פירוט לפי חודש</h3>
+      <table class="data-table">
+        <thead><tr><th>חודש</th><th>סכום</th><th>עסקאות</th><th>ממוצע</th></tr></thead>
+        <tbody>
+          ${months.map(m=>{
+            const md = biz.byMonth[m];
+            return `<tr class="clickable" onclick="navTo('month-business','${encodeURIComponent(name)}|${m}','${monthLabel(m)}')">
+              <td>${monthLabel(m)}</td>
+              <td class="amount-cell">${fmtAmount(md.total)}</td>
+              <td>${md.count}</td>
+              <td class="amount-cell">${fmtAmount(md.total/md.count)}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+
+  // Render business monthly chart
+  const canvas = document.getElementById('chart-biz-monthly');
+  if(canvas){
+    const cat2 = CAT_MAP[biz?.category||'other'];
+    STATE.charts['biz'] = new Chart(canvas, {
+      type:'bar',
+      data:{
+        labels: months.map(monthLabel),
+        datasets:[{
+          label:'סכום',
+          data: months.map(m=>biz.byMonth[m].total),
+          backgroundColor: cat2.color+'80',
+          borderColor: cat2.color,
+          borderWidth:2, borderRadius:6,
+        }]
+      },
+      options:{
+        responsive:true, maintainAspectRatio:true,
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{label:c=>'₪'+Math.round(c.raw).toLocaleString('he-IL')}},
+        },
+        scales:{
+          x:{ticks:{color:'#8892a4',font:{size:10}}, grid:{color:'#ffffff10'}},
+          y:{ticks:{color:'#8892a4',callback:v=>'₪'+v.toLocaleString('he-IL'),font:{size:10}}, grid:{color:'#ffffff10'}},
+        }
+      }
+    });
+  }
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║           MONTH-BUSINESS DRILL-DOWN (DEEPEST)               ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function renderMonthBusinessView(container, id){
+  const [encodedName, month] = id.split('|');
+  const name = decodeURIComponent(encodedName);
+  const txs = STATE.transactions.filter(t=>t.businessClean===name && t.month===month);
+  const total = txs.reduce((s,t)=>s+t.amountILS,0);
+
+  container.innerHTML = `
+    <div class="month-header">
+      <h2>${name} — ${monthLabel(month)}</h2>
+      <div style="color:var(--muted);margin-top:4px">${txs.length} עסקאות · סה"כ ${fmtAmount(total)}</div>
+    </div>
+    <div class="tx-list">
+      ${txs.sort((a,b)=>new Date(a.date)-new Date(b.date)).map(tx=>`
+        <div class="tx-item">
+          <div class="tx-date">${formatDate(tx.date)}</div>
+          <div class="tx-name">
+            ${tx.businessClean}
+            ${tx.isTravel?'<span class="travel-tag">✈️ חו"ל</span>':''}
+            ${tx.isRecurring?'<span class="recurring-tag">🔄</span>':''}
+          </div>
+          <div class="tx-tags">
+            <button class="btn btn-sm btn-secondary" onclick="openEdit('${tx.id}')" style="font-size:.72rem;padding:3px 8px">✏️</button>
+          </div>
+          <div class="tx-amount">${tx.currency!=='₪'?tx.currency+' ':''} ${fmtAmount(tx.amountILS)}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                   TRAVEL TAB                                 ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function renderTravelTab(container){
+  const trips = detectTrips(STATE.transactions);
+  const totalTravel = STATE.transactions.filter(t=>t.category==='travel').reduce((s,t)=>s+t.amountILS,0);
+
+  container.innerHTML = `
+    <div class="summary-row">
+      <div class="summary-card travel-card">
+        <div class="label">סה"כ טיולים</div>
+        <div class="value">${fmtAmount(totalTravel)}</div>
+      </div>
+      <div class="summary-card travel-card">
+        <div class="label">מספר טיולים שזוהו</div>
+        <div class="value">${trips.length}</div>
+      </div>
+    </div>
+    ${trips.length ? `
+    <div class="section-card">
+      <h3>✈️ טיולים שזוהו</h3>
+      <div class="trips-grid">
+        ${trips.map((trip,i)=>`
+          <div class="trip-card" onclick="navTo('trip','${i}','טיול ${i+1}')">
+            <div class="trip-dest">${trip.destinations}</div>
+            <div class="trip-dates">${trip.label}</div>
+            <div class="trip-total">${fmtAmount(trip.total)}</div>
+            <div class="trip-sub">${trip.count} עסקאות</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>` : `<div class="empty-state"><div class="icon">✈️</div><p>לא זוהו טיולים בנתונים</p></div>`}
+
+    <div class="section-card">
+      <h3>📋 כל עסקאות הטיול</h3>
+      <div class="tx-list">
+        ${STATE.transactions.filter(t=>t.category==='travel'||t.isTravel)
+          .sort((a,b)=>new Date(b.date)-new Date(a.date))
+          .slice(0,50)
+          .map(tx=>`
+            <div class="tx-item">
+              <div class="tx-date">${formatDate(tx.date)}</div>
+              <div class="tx-name">${tx.businessClean}</div>
+              <div class="tx-amount">${tx.currency!=='₪'?tx.currency+' ':''} ${fmtAmount(tx.amountILS)}</div>
+            </div>
+          `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderTripView(container, tripIdx){
+  const trips = detectTrips(STATE.transactions);
+  const trip = trips[parseInt(tripIdx)];
+  if(!trip){container.innerHTML='<div class="empty-state">טיול לא נמצא</div>';return;}
+
+  container.innerHTML = `
+    <div class="month-header">
+      <h2>✈️ ${trip.destinations}</h2>
+      <div style="color:var(--muted);margin-top:4px">${trip.label} · ${trip.count} עסקאות · ${fmtAmount(trip.total)}</div>
+    </div>
+    <div class="tx-list">
+      ${trip.txs.sort((a,b)=>new Date(a.date)-new Date(b.date)).map(tx=>`
+        <div class="tx-item">
+          <div class="tx-date">${formatDate(tx.date)}</div>
+          <div class="tx-name">${tx.businessClean}</div>
+          <div class="tx-amount">${tx.currency!=='₪'?tx.currency+' ':''} ${fmtAmount(tx.amountILS)}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║               RECURRING PAYMENTS TAB                        ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function renderRecurringTab(container){
+  const recurring = detectRecurring(STATE.transactions);
+  const totalMonthly = recurring.reduce((s,r)=>s+r.monthlyAvg,0);
+
+  container.innerHTML = `
+    <div class="summary-row">
+      <div class="summary-card highlight">
+        <div class="label">סה"כ חיובים קבועים (חודשי)</div>
+        <div class="value">${fmtAmount(totalMonthly)}</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">מספר מנויים/חיובים</div>
+        <div class="value">${recurring.length}</div>
+      </div>
+    </div>
+    <div class="section-card">
+      <h3>🔄 חיובים קבועים ומנויים</h3>
+      <table class="data-table">
+        <thead><tr>
+          <th>עסק</th><th>קטגוריה</th><th>ממוצע חודשי</th><th>חודשים פעיל</th><th>סה"כ שולם</th>
+        </tr></thead>
+        <tbody>
+          ${recurring.map(r=>{
+            const cat = CAT_MAP[r.category]||CAT_MAP['other'];
+            return `<tr class="clickable" onclick="navTo('business','${encodeURIComponent(r.name)}','${r.name}')">
+              <td style="font-weight:600">${r.name}</td>
+              <td><span class="cat-badge" style="background:${cat.color}25;color:${cat.color}">${cat.icon} ${cat.name}</span></td>
+              <td class="amount-cell">${fmtAmount(r.monthlyAvg)}</td>
+              <td>${r.months}</td>
+              <td class="amount-cell">${fmtAmount(r.total)}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║               MONTHS ANALYSIS TAB                           ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function renderMonthsTab(container){
+  const monthly = getMonthlyTotals(STATE.transactions);
+  const peakMonths = detectPeakMonths(monthly);
+  const sorted = Object.keys(monthly).sort().reverse();
+
+  container.innerHTML = `
+    <div class="section-card">
+      <h3>📅 ניתוח לפי חודש</h3>
+      <table class="data-table">
+        <thead><tr>
+          <th>חודש</th><th>סה"כ</th><th>ללא טיולים</th><th>הקטגוריה הגדולה</th><th>סטטוס</th>
+        </tr></thead>
+        <tbody>
+          ${sorted.map(m=>{
+            const md = monthly[m];
+            const topCatId = Object.entries(md.byCategory).sort((a,b)=>b[1]-a[1])[0]?.[0];
+            const topCat = CAT_MAP[topCatId]||CAT_MAP['other'];
+            const isPeak = peakMonths.has(m);
+            return `<tr class="clickable" onclick="navToMonthFull('${m}')">
+              <td style="font-weight:600">${monthLabel(m)} ${isPeak?'<span class="peak-indicator"></span>':''}</td>
+              <td class="amount-cell">${fmtAmount(md.total)}</td>
+              <td class="amount-cell">${fmtAmount(md.withoutTravel)}</td>
+              <td><span class="cat-badge" style="background:${topCat.color}25;color:${topCat.color}">${topCat.icon} ${topCat.name}</span></td>
+              <td>${isPeak?'<span style="color:var(--orange);font-size:.82rem">📈 חודש שיא</span>':'<span style="color:var(--muted);font-size:.82rem">רגיל</span>'}</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+function navToMonthFull(month){
+  navTo('tab','month-full|'+month, monthLabel(month));
+  // Render all transactions for this month
+  const container = document.getElementById('main-content');
+  const txs = STATE.transactions.filter(t=>t.month===month).sort((a,b)=>new Date(a.date)-new Date(b.date));
+  const total = txs.reduce((s,t)=>s+t.amountILS,0);
+  const catTotals = getCategoryTotals(txs);
+
+  container.innerHTML = `
+    <div class="month-header">
+      <h2>${monthLabel(month)}</h2>
+      <div style="color:var(--muted);margin-top:4px">${txs.length} עסקאות · סה"כ ${fmtAmount(total)}</div>
+    </div>
+    <div class="section-card">
+      <h3>פילוח קטגוריות</h3>
+      <table class="data-table">
+        <thead><tr><th>קטגוריה</th><th>סכום</th><th>%</th></tr></thead>
+        <tbody>
+          ${Object.entries(catTotals).sort((a,b)=>b[1].total-a[1].total).map(([id,v])=>{
+            const cat=CAT_MAP[id]||CAT_MAP['other'];
+            return `<tr class="clickable" onclick="navTo('category','${id}','${cat.name}')">
+              <td><span class="cat-badge" style="background:${cat.color}25;color:${cat.color}">${cat.icon} ${cat.name}</span></td>
+              <td class="amount-cell">${fmtAmount(v.total)}</td>
+              <td style="color:var(--muted)">${(v.total/total*100).toFixed(1)}%</td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    </div>
+    <div class="section-card">
+      <h3>כל העסקאות</h3>
+      <div class="filter-bar">
+        <input type="text" placeholder="🔍 חפש..." oninput="filterTxList(this.value)">
+      </div>
+      <div class="tx-list" id="month-tx-list">
+        ${txs.map(tx=>{
+          const cat=CAT_MAP[tx.category]||CAT_MAP['other'];
+          return `<div class="tx-item" data-search="${tx.businessClean.toLowerCase()} ${tx.rawDate}">
+            <div class="tx-date">${formatDate(tx.date)}</div>
+            <div class="tx-name">
+              ${tx.businessClean}
+              <span class="cat-badge" style="font-size:.7rem;background:${cat.color}20;color:${cat.color};margin-right:6px">${cat.icon}</span>
+              ${tx.isTravel?'<span class="travel-tag">✈️</span>':''}
+            </div>
+            <div class="tx-tags">
+              <button class="btn btn-sm btn-secondary" onclick="openEdit('${tx.id}')" style="font-size:.72rem;padding:3px 8px">✏️</button>
+            </div>
+            <div class="tx-amount">${fmtAmount(tx.amountILS)}</div>
+          </div>`;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function filterTxList(q){
+  document.querySelectorAll('#month-tx-list .tx-item').forEach(el=>{
+    el.style.display = (el.dataset.search||'').includes(q.toLowerCase()) ? '' : 'none';
+  });
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║               RECOMMENDATIONS ENGINE                        ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function renderRecommendations(txs, catTotals, monthly, totalTravel, totalAll){
+  const rec = document.getElementById('rec-list');
+  if(!rec) return;
+  const items = [];
+  const months = getMonthRange(txs);
+  const recurring = detectRecurring(txs);
+  const peakMonths = detectPeakMonths(monthly);
+
+  // Subscription analysis
+  const subs = recurring.filter(r=>r.category==='subscriptions');
+  if(subs.length > 0){
+    const totalSubs = subs.reduce((s,r)=>s+r.monthlyAvg,0);
+    items.push({type:'warning', title:`📱 ${subs.length} מנויים דיגיטליים — ${fmtAmount(totalSubs)}/חודש`,
+      desc:`${subs.map(s=>s.name).join(', ')}. שקול לבטל מנויים שאינך משתמש בהם באופן יומיומי.`});
+  }
+
+  // Food heavy
+  const food = catTotals['food'];
+  if(food && food.total/months > 2000){
+    items.push({type:'warning', title:`🍔 הוצאות מסעדות גבוהות — ${fmtAmount(food.total/months)}/חודש`,
+      desc:'הוצאות מזון מחוץ לבית גבוהות משמעותית. שקול להגדיל בישול ביתי כדי לחסוך.'});
+  }
+
+  // Travel % of total
+  if(totalTravel/totalAll > 0.2){
+    items.push({type:'positive', title:`✈️ ${(totalTravel/totalAll*100).toFixed(0)}% מהוצאות הם טיולים — ${fmtAmount(totalTravel)}`,
+      desc:'הפרדנו את הוצאות הטיולים מהניתוח השגרתי. ממוצע החיים היומיומיים שלך נמוך יותר.'});
+  }
+
+  // Peak months
+  if(peakMonths.size > 0){
+    const peakList = [...peakMonths].map(monthLabel).join(', ');
+    items.push({type:'danger', title:`📈 חודשי שיא: ${peakList}`,
+      desc:'בחודשים אלה הוצאת משמעותית מעל הממוצע. לחץ על חודשים בטאב "חודשים" לניתוח מפורט.'});
+  }
+
+  // Insurance duplicates
+  const ins = recurring.filter(r=>r.category==='insurance');
+  if(ins.length >= 3){
+    items.push({type:'danger', title:`🛡️ ${ins.length} ביטוחים זוהו — בדוק כפילויות`,
+      desc:`${ins.map(i=>i.name).join(', ')}. ייתכן שיש כיסוי כפול. מומלץ לבדוק עם יועץ ביטוח.`});
+  }
+
+  // Good habits
+  const invest = catTotals['investment'];
+  if(invest && invest.total > 0){
+    items.push({type:'positive', title:`📈 זיהינו הוצאות השקעה — ${fmtAmount(invest.total/months)}/חודש`,
+      desc:'כל הכבוד על השקעה קבועה! הפרדנו אותן מהוצאות השגרה.'});
+  }
+
+  if(!items.length){
+    items.push({type:'positive', title:'✅ הוצאות נראות סבירות', desc:'לא זוהו דגלים אדומים בהוצאות שלך.'});
+  }
+
+  rec.innerHTML = items.map(i=>`
+    <div class="rec-item ${i.type}">
+      <h4>${i.title}</h4>
+      <p>${i.desc}</p>
+    </div>
+  `).join('');
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                   EDIT MODAL                                 ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function openEdit(txId){
+  const tx = STATE.transactions.find(t=>t.id===txId);
+  if(!tx) return;
+  STATE.editingTxId = txId;
+  document.getElementById('edit-business').value = tx.businessClean;
+  document.getElementById('edit-recurring').checked = tx.isRecurring;
+
+  const catSel = document.getElementById('edit-category');
+  catSel.innerHTML = CATEGORIES.map(c=>`<option value="${c.id}" ${c.id===tx.category?'selected':''}>${c.icon} ${c.name}</option>`).join('');
+
+  document.getElementById('edit-modal').classList.remove('hidden');
+}
+
+function closeModal(){
+  document.getElementById('edit-modal').classList.add('hidden');
+  STATE.editingTxId = null;
+}
+
+function saveEdit(){
+  const tx = STATE.transactions.find(t=>t.id===STATE.editingTxId);
+  if(!tx){closeModal();return;}
+  const newBiz = document.getElementById('edit-business').value.trim();
+  const newCat = document.getElementById('edit-category').value;
+  const newRec = document.getElementById('edit-recurring').checked;
+
+  // Update this transaction
+  tx.businessClean = newBiz;
+  tx.category = newCat;
+  tx.isRecurring = newRec;
+
+  // Update cache for all transactions with same original business
+  STATE.classCache[tx.business] = {
+    category: newCat,
+    businessClean: newBiz,
+    isRecurring: newRec,
+  };
+
+  // Apply to all transactions with same original business
+  STATE.transactions.filter(t=>t.business===tx.business).forEach(t=>{
+    t.businessClean = newBiz;
+    t.category = newCat;
+    t.isRecurring = newRec;
+  });
+
+  saveData();
+  closeModal();
+  renderCurrentView(); // refresh
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
+// ║                  HELPERS                                     ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+function filterTable(tbodyId, q){
+  const rows = document.querySelectorAll(`#${tbodyId} tr`);
+  rows.forEach(r=>{
+    r.style.display = r.textContent.toLowerCase().includes(q.toLowerCase()) ? '' : 'none';
+  });
+}
+
+function clearAll(){
+  if(!confirm('למחוק את כל הנתונים?')) return;
+  STATE.transactions = [];
+  STATE.classCache = {};
+  saveData();
+  showView('upload-view');
+}
+</script>
+</body>
+</html>
