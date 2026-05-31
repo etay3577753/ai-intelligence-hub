@@ -605,7 +605,26 @@ async function debugPDF(){
     `;
 
     if(rawLines.length === 0){
-      lines.textContent = '⛔ לא חולץ טקסט מהקובץ.\nייתכן שה-PDF סרוק (תמונה בלבד) ואין בו שכבת טקסט.\n\nפתרון: הכנס לאתר חברת האשראי → הורד פירוט → ודא שניתן לסמן טקסט בקובץ.';
+      // Try to render first page as image to confirm it's a scanned PDF
+      const ab2 = await file.arrayBuffer();
+      const pdfDoc = await pdfjsLib.getDocument({data:ab2}).promise;
+      const b64 = await renderPageToBase64(pdfDoc, 1, 1.0);
+
+      info.innerHTML = `
+        📄 <strong>${file.name}</strong><br>
+        📝 שורות טקסט: <strong style="color:var(--red)">0</strong> — PDF סרוק (תמונה)<br>
+        📑 עמודים: <strong>${pdfDoc.numPages}</strong><br>
+        ✅ <strong style="color:var(--teal)">Vision OCR זמין!</strong> לחץ "נתח עם AI" — ה-AI יקרא את התמונות ישירות
+      `;
+      lines.textContent = '';
+      const img = document.createElement('img');
+      img.src = 'data:image/jpeg;base64,'+b64;
+      img.style.cssText = 'max-width:100%;border-radius:8px;margin-top:8px;border:1px solid var(--border)';
+      document.getElementById('debug-lines').appendChild(img);
+      document.getElementById('debug-lines').insertAdjacentHTML('beforeend',
+        `<div style="color:var(--teal);font-size:.82rem;margin-top:8px;direction:rtl">
+          👆 כך ה-AI רואה את הדף שלך. אם הטקסט קריא — Vision OCR יעבוד מצוין.
+        </div>`);
     } else {
       // Show first 80 lines + detected transactions
       const preview = rawLines.slice(0,80).join('\n');
@@ -768,6 +787,152 @@ function extractTransactions(lines, filename){
 }
 
 // ╔══════════════════════════════════════════════════════════════╗
+// ║                  VISION OCR ENGINE                           ║
+// ╚══════════════════════════════════════════════════════════════╝
+
+const VISION_PROMPT = `זהו עמוד מפירוט אשראי ישראלי (כאל / מקס / ישראכרט / אמריקן אקספרס).
+חלץ את כל שורות העסקאות ממנו.
+
+החזר JSON בלבד, ללא כל טקסט אחר, בפורמט הזה:
+[
+  {"date":"DD/MM/YY","business":"שם העסק","amount":123.45,"currency":"ILS"},
+  ...
+]
+
+חוקים:
+- currency: "ILS" לשקלים, "USD" לדולר, "EUR" לאירו, "GBP" לפאונד
+- amount: מספר חיובי בלבד (סכום החיוב)
+- אל תכלול שורות כותרת, סכומי ביניים, יתרות
+- אם אין עסקאות בעמוד הזה, החזר מערך ריק []`;
+
+async function renderPageToBase64(pdfDoc, pageNum, scale=2.0){
+  const page = await pdfDoc.getPage(pageNum);
+  const viewport = page.getViewport({scale});
+  const canvas = document.createElement('canvas');
+  canvas.width  = viewport.width;
+  canvas.height = viewport.height;
+  const ctx = canvas.getContext('2d');
+  await page.render({canvasContext: ctx, viewport}).promise;
+  // Return as JPEG base64 (smaller than PNG)
+  return canvas.toDataURL('image/jpeg', 0.85).split(',')[1];
+}
+
+async function extractWithVision(file, addLog, prog, stepStart, totalSteps){
+  const ab  = await file.arrayBuffer();
+  const pdf = await pdfjsLib.getDocument({data: ab}).promise;
+  const allTxs = [];
+  addLog(`   📑 ${pdf.numPages} עמודים — מעבד עם Vision...`);
+
+  for(let p = 1; p <= pdf.numPages; p++){
+    addLog(`   🔍 עמוד ${p}/${pdf.numPages}...`);
+    if(prog) prog.style.width = `${((stepStart + p/pdf.numPages)/totalSteps)*100}%`;
+
+    try{
+      const b64 = await renderPageToBase64(pdf, p);
+      const raw = await callVisionAPI(b64, VISION_PROMPT);
+      if(!raw){ addLog(`   ⚠️ עמוד ${p}: אין תגובה מה-AI`); continue; }
+
+      const match = raw.match(/\[[\s\S]*\]/);
+      if(!match){ addLog(`   ⚠️ עמוד ${p}: JSON לא נמצא`); continue; }
+
+      const rows = JSON.parse(match[0]);
+      addLog(`   ✅ עמוד ${p}: ${rows.length} עסקאות`);
+
+      for(const r of rows){
+        const parsedDate = parseDate(r.date);
+        if(!parsedDate || parsedDate.getFullYear() < 2018) continue;
+        const amount = parseFloat(r.amount);
+        if(isNaN(amount) || amount <= 0) continue;
+        const currency = r.currency || 'ILS';
+        const isTravel = currency !== 'ILS' ||
+          /\b(HOTEL|AIRBNB|BOOKING|EXPEDIA|DELTA|UNITED|RYANAIR|EASYJET|WIZZAIR|FLY|AIRPORT|DUTY FREE|MARRIOTT|HILTON|HYATT|SHERATON)\b/i.test(r.business||'');
+
+        allTxs.push({
+          id: `tx_${Date.now()}_${Math.random().toString(36).slice(2,8)}`,
+          date: parsedDate.toISOString(),
+          rawDate: r.date,
+          business: (r.business||'').trim(),
+          businessClean: (r.business||'').trim(),
+          amount,
+          currency: currency === 'ILS' ? '₪' : currency,
+          amountILS: amount,
+          category: 'other',
+          isRecurring: false,
+          isTravel,
+          source: file.name,
+          month: `${parsedDate.getFullYear()}-${String(parsedDate.getMonth()+1).padStart(2,'0')}`,
+        });
+      }
+    } catch(e){
+      addLog(`   ❌ עמוד ${p}: ${e.message}`);
+    }
+    // Small delay to avoid rate limiting
+    if(p < pdf.numPages) await new Promise(r=>setTimeout(r,300));
+  }
+  return allTxs;
+}
+
+async function callVisionAPI(base64Img, prompt){
+  if(STATE.provider === 'gemini'){
+    const url = GEMINI_URL(STATE.model, STATE.apiKey);
+    const resp = await fetch(url,{
+      method:'POST',
+      headers:{'content-type':'application/json'},
+      body: JSON.stringify({
+        contents:[{parts:[
+          {text: prompt},
+          {inline_data:{mime_type:'image/jpeg', data: base64Img}},
+        ]}],
+        generationConfig:{temperature:0.1, maxOutputTokens:2000},
+      })
+    });
+    if(!resp.ok){const e=await resp.json();console.error('Gemini vision error:',e);return null;}
+    const d = await resp.json();
+    return d.candidates?.[0]?.content?.parts?.[0]?.text || null;
+
+  } else if(STATE.provider === 'claude'){
+    const resp = await fetch(CLAUDE_URL,{
+      method:'POST',
+      headers:{
+        'x-api-key': STATE.apiKey,
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true',
+        'content-type':'application/json',
+      },
+      body: JSON.stringify({
+        model: STATE.model,
+        max_tokens: 2000,
+        messages:[{role:'user', content:[
+          {type:'text', text: prompt},
+          {type:'image', source:{type:'base64', media_type:'image/jpeg', data: base64Img}},
+        ]}],
+      })
+    });
+    if(!resp.ok){const e=await resp.json();console.error('Claude vision error:',e);return null;}
+    const d = await resp.json();
+    return d.content?.[0]?.text || null;
+
+  } else if(STATE.provider === 'openai'){
+    const resp = await fetch(OPENAI_URL,{
+      method:'POST',
+      headers:{'authorization':'Bearer '+STATE.apiKey,'content-type':'application/json'},
+      body: JSON.stringify({
+        model: STATE.model === 'gpt-4o-mini' ? 'gpt-4o-mini' : 'gpt-4o',
+        max_tokens:2000, temperature:0.1,
+        messages:[{role:'user', content:[
+          {type:'text', text: prompt},
+          {type:'image_url', image_url:{url:`data:image/jpeg;base64,${base64Img}`}},
+        ]}],
+      })
+    });
+    if(!resp.ok){const e=await resp.json();console.error('OpenAI vision error:',e);return null;}
+    const d = await resp.json();
+    return d.choices?.[0]?.message?.content || null;
+  }
+  return null;
+}
+
+// ╔══════════════════════════════════════════════════════════════╗
 // ║                  CLAUDE AI CLASSIFIER                        ║
 // ╚══════════════════════════════════════════════════════════════╝
 
@@ -903,18 +1068,34 @@ async function startAnalysis(){
   let step = 0;
   const totalSteps = STATE.pendingFiles.length + 2;
 
-  // 1. Parse PDFs
+  // 1. Parse PDFs — text first, vision fallback
   for(const file of STATE.pendingFiles){
     title.textContent = `מחלץ: ${file.name}`;
     addLog(`📄 מעבד ${file.name}...`);
     try{
       const lines = await parsePDF(file);
-      addLog(`   נמצאו ${lines.length} שורות טקסט`);
-      const txs = extractTransactions(lines, file.name);
-      addLog(`   ✅ חולצו ${txs.length} עסקאות`);
-      allTxs.push(...txs);
+      addLog(`   שורות טקסט: ${lines.length}`);
+
+      if(lines.length > 5){
+        // Normal text-based parsing
+        const txs = extractTransactions(lines, file.name);
+        addLog(`   ✅ חולצו ${txs.length} עסקאות (מצב טקסט)`);
+        allTxs.push(...txs);
+      } else {
+        // Scanned PDF → Vision OCR
+        if(!STATE.apiKey){
+          addLog(`   ⚠️ PDF סרוק — נדרש API Key לקריאת תמונות`);
+        } else {
+          addLog(`   📷 PDF סרוק — עובר למצב Vision OCR...`);
+          title.textContent = `📷 Vision OCR: ${file.name}`;
+          const txs = await extractWithVision(file, addLog, prog, step, totalSteps);
+          addLog(`   ✅ חולצו ${txs.length} עסקאות (Vision OCR)`);
+          allTxs.push(...txs);
+        }
+      }
     }catch(e){
       addLog(`   ❌ שגיאה: ${e.message}`);
+      console.error(e);
     }
     step++;
     prog.style.width = `${(step/totalSteps)*100}%`;
