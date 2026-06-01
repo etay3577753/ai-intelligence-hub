@@ -33,7 +33,21 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Anthropic",
+      "plan_free": "50 הודעות/יום, context 32K",
+      "plan_pro": "$20/חודש — 250 הודעות/יום, context 200K, Projects",
+      "best_for": [
+        "כתיבה ארוכה",
+        "ניתוח קבצים",
+        "קידוד",
+        "שאלות מורכבות",
+        "עברית"
+      ],
+      "not_for": [
+        "יצירת תמונות",
+        "חיפוש בזמן אמת ללא plugin"
+      ]
     },
     {
       "id": "google-ai-studio",
@@ -46,7 +60,19 @@
       "rating": "⭐⭐⭐⭐⭐",
       "ecosystem": "Google",
       "source": "manual",
-      "verified": false
+      "verified": false,
+      "plan_free": "Gemini 2.5 Flash ללא הגבלה, context עד 1M tokens",
+      "plan_pro": "API בתשלום לפי שימוש — Flash $0.075/1M input, Pro $1.25/1M input",
+      "best_for": [
+        "פיתוח AI",
+        "Prompt playground",
+        "APIs",
+        "context ארוך"
+      ],
+      "not_for": [
+        "משתמשים לא-טכניים",
+        "פרודוקטיביות יומיומית"
+      ]
     },
     {
       "id": "chatgpt",
@@ -58,7 +84,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "OpenAI",
+      "plan_free": "GPT-4o mini ללא הגבלה, GPT-4o מוגבל",
+      "plan_pro": "$20/חודש — GPT-4o ללא הגבלה, DALL-E, קבצים, web browsing",
+      "best_for": [
+        "שימוש יומיומי כללי",
+        "תמונות",
+        "plugins",
+        "קידוד",
+        "סיכומים"
+      ],
+      "not_for": [
+        "context ארוך מאוד (מעל 128K)"
+      ]
     },
     {
       "id": "gemini",
@@ -70,7 +109,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Google",
+      "plan_free": "Gemini 2.0 Flash ללא הגבלה",
+      "plan_pro": "$19.99/חודש — Gemini Advanced, 1M context, Google Workspace",
+      "best_for": [
+        "מחקר",
+        "יצירת תמונות",
+        "אינטגרציה עם Google Workspace",
+        "context ארוך"
+      ],
+      "not_for": [
+        "עברית ברמה גבוהה",
+        "קידוד מורכב"
+      ]
     },
     {
       "id": "gemma4",
@@ -82,7 +134,21 @@
       "cost": "חינם (מקומי)",
       "rating": "⭐⭐⭐⭐",
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Google",
+      "plan_free": "חינם לגמרי (מודל מקומי)",
+      "plan_pro": "אין — open source",
+      "best_for": [
+        "פרטיות מלאה",
+        "שימוש ללא אינטרנט",
+        "מפתחים",
+        "GTX 1070 Ti"
+      ],
+      "not_for": [
+        "משתמשים לא-טכניים",
+        "multimodal מתקדם",
+        "שיחה שוטפת ארוכה"
+      ]
     },
     {
       "id": "grok",
@@ -94,7 +160,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "xAI",
+      "plan_free": "גישה בסיסית דרך X (טוויטר)",
+      "plan_pro": "$30/חודש — Grok 3, זיכרון, ניתוח קבצים, יצירת תמונות",
+      "best_for": [
+        "חיפוש בזמן אמת",
+        "תוכן פחות מצונזר",
+        "עברית",
+        "X/Twitter integration"
+      ],
+      "not_for": [
+        "משימות office",
+        "קידוד מורכב"
+      ]
     },
     {
       "id": "microsoft-copilot",
@@ -106,7 +185,20 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Microsoft",
+      "plan_free": "חינם לגמרי — GPT-4o + DALL-E + Bing search",
+      "plan_pro": "$20/חודש — Copilot Pro, עדיפות מהירות, Office integration",
+      "best_for": [
+        "שימוש חינמי כללי",
+        "תמונות",
+        "חיפוש",
+        "Microsoft 365"
+      ],
+      "not_for": [
+        "context ארוך",
+        "קידוד מעמיק"
+      ]
     },
     {
       "id": "perplexity",
@@ -118,7 +210,21 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חיפוש AI ללא הגבלה, 5 שאילתות Pro/יום",
+      "plan_pro": "$20/חודש — Sonar Pro, GPT-4o, Claude, 600 Pro queries/יום",
+      "best_for": [
+        "מחקר עם מקורות",
+        "חיפוש עם ציטוטים",
+        "fact-checking",
+        "חדשות"
+      ],
+      "not_for": [
+        "יצירת תוכן",
+        "קידוד",
+        "עיצוב"
+      ]
     },
     {
       "id": "poe",
@@ -130,7 +236,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "גישה למודלים בסיסיים, ניקוד מוגבל",
+      "plan_pro": "$19.99/חודש — ניקוד ללא הגבלה, כל המודלים (Claude, GPT-4, Gemini)",
+      "best_for": [
+        "ניסוי מודלים שונים",
+        "השוואת תגובות",
+        "מחיר אחיד לכל המודלים"
+      ],
+      "not_for": [
+        "שימוש ממוקד בברנד אחד",
+        "API"
+      ]
     },
     {
       "id": "deepseek",
@@ -142,7 +260,21 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Chinese",
+      "plan_free": "חינם לגמרי — DeepSeek V3/R1",
+      "plan_pro": "API בתשלום נמוך מאוד ($0.27/1M input)",
+      "best_for": [
+        "קידוד",
+        "ביצועים גבוהים בחינם",
+        "reasoning",
+        "מתמטיקה"
+      ],
+      "not_for": [
+        "פרטיות (שרתים סיניים)",
+        "עברית",
+        "שיחה יומיומית"
+      ]
     },
     {
       "id": "qwen",
@@ -154,7 +286,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Chinese",
+      "plan_free": "Qwen2.5 בחינם, יצירת וידאו מוגבלת",
+      "plan_pro": "API בתשלום — Qwen-Max $2.4/1M tokens",
+      "best_for": [
+        "שפות אסיאתיות",
+        "קידוד",
+        "יצירת וידאו",
+        "multimodal"
+      ],
+      "not_for": [
+        "פרטיות",
+        "עברית ברמה גבוהה"
+      ]
     },
     {
       "id": "mistral",
@@ -166,7 +311,21 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "Le Chat חינם עם Mistral Large",
+      "plan_pro": "$14.99/חודש — Mistral Pro, ניקוד מוגבל",
+      "best_for": [
+        "אירופאים (שרתים בצרפת)",
+        "פרטיות",
+        "open source",
+        "API זול"
+      ],
+      "not_for": [
+        "עברית",
+        "יצירת תמונות",
+        "כלים מתקדמים"
+      ]
     },
     {
       "id": "huggingchat",
@@ -178,7 +337,20 @@
       "cost": "חינם",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם לגמרי — מספר מודלים open source",
+      "plan_pro": "אין תוכנית Pro — open source בלבד",
+      "best_for": [
+        "ניסוי מודלים open source",
+        "פרטיות",
+        "מפתחים"
+      ],
+      "not_for": [
+        "שימוש מסחרי",
+        "ביצועים גבוהים",
+        "עברית"
+      ]
     },
     {
       "id": "manychat",
@@ -190,7 +362,21 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "עד 1,000 contacts בחינם",
+      "plan_pro": "$15+/חודש — contacts ללא הגבלה, analytics, API",
+      "best_for": [
+        "בוטים ל-Instagram/WhatsApp",
+        "שיווק",
+        "lead generation",
+        "e-commerce"
+      ],
+      "not_for": [
+        "אוטומציה כללית לא-שיווקית",
+        "קידוד",
+        "מחקר"
+      ]
     },
     {
       "id": "zapier",
@@ -202,7 +388,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "100 tasks/חודש, 5 Zaps",
+      "plan_pro": "$19.99/חודש — 750 tasks, multi-step Zaps",
+      "best_for": [
+        "אוטומציה ללא קוד",
+        "חיבור אפליקציות",
+        "מתחילים",
+        "workflows פשוטים"
+      ],
+      "not_for": [
+        "לוגיקה מורכבת",
+        "volume גבוה (יקר)"
+      ]
     },
     {
       "id": "make",
@@ -214,7 +413,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "1,000 operations/חודש, 5 scenarios",
+      "plan_pro": "$9/חודש — 10K operations, ממשק ויזואלי מלא",
+      "best_for": [
+        "לוגיקה מורכבת",
+        "אוטומציה ויזואלית",
+        "חיבור APIs",
+        "ארגונים"
+      ],
+      "not_for": [
+        "מתחילים מוחלטים (עקומת למידה)"
+      ]
     },
     {
       "id": "n8n",
@@ -226,7 +437,21 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "self-hosted חינם לגמרי (open source)",
+      "plan_pro": "$20/חודש cloud — workflows מנוהלים, תמיכה",
+      "best_for": [
+        "מפתחים",
+        "אוטומציה מתקדמת",
+        "AI agents",
+        "self-hosting",
+        "פרטיות"
+      ],
+      "not_for": [
+        "לא-טכניים",
+        "ממשק פשוט"
+      ]
     },
     {
       "id": "monday",
@@ -238,7 +463,20 @@
       "cost": "תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Israeli",
+      "plan_free": "אין תוכנית חינמית (רק trial)",
+      "plan_pro": "$9-16/משתמש/חודש — ניהול פרויקטים, automations, dashboards",
+      "best_for": [
+        "ניהול צוותים",
+        "פרויקטים",
+        "ארגונים ישראליים",
+        "אוטומציה עסקית"
+      ],
+      "not_for": [
+        "יחידים ללא צוות",
+        "שימוש AI מתקדם"
+      ]
     },
     {
       "id": "browse-ai",
@@ -250,7 +488,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "50 credits/חודש",
+      "plan_pro": "$19/חודש — 2K credits, מעקב אוטומטי",
+      "best_for": [
+        "web scraping ללא קוד",
+        "מעקב מחירים",
+        "ניטור תחרות"
+      ],
+      "not_for": [
+        "קידוד",
+        "עיבוד נתונים מורכב"
+      ]
     },
     {
       "id": "genspark",
@@ -262,7 +512,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "שימוש מוגבל — כמה sparks/יום",
+      "plan_pro": "$9.99/חודש — sparks ללא הגבלה, מחקר AI מלא",
+      "best_for": [
+        "מחקר עמוק",
+        "מצגות",
+        "ניתוח שוק",
+        "דוחות מקצועיים"
+      ],
+      "not_for": [
+        "שיחה יומיומית",
+        "קידוד"
+      ]
     },
     {
       "id": "gamma",
@@ -274,7 +537,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "400 AI credits (כ-8-10 מצגות)",
+      "plan_pro": "$10/חודש — unlimited AI credits, export, custom branding",
+      "best_for": [
+        "מצגות מהירות ויפות",
+        "תיאורי טקסט לשקופיות",
+        "הרצאות",
+        "מכירות"
+      ],
+      "not_for": [
+        "PowerPoint compatibility מלא",
+        "עריכה מאוד ספציפית"
+      ]
     },
     {
       "id": "manus",
@@ -286,7 +562,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "credits מוגבלים",
+      "plan_pro": "$39/חודש — credits גבוהים, web access, multi-agent",
+      "best_for": [
+        "מחקר + מצגת אוטומטי",
+        "tasks מורכבות",
+        "agents"
+      ],
+      "not_for": [
+        "שימוש בסיסי יומיומי",
+        "מחיר נגיש"
+      ]
     },
     {
       "id": "beautiful-ai",
@@ -298,7 +586,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "trial בלבד",
+      "plan_pro": "$12/חודש — Smart Slides, עיצוב אוטומטי, export",
+      "best_for": [
+        "מצגות עסקיות מקצועיות",
+        "auto-layout",
+        "צוותים"
+      ],
+      "not_for": [
+        "משתמשים חינמיים",
+        "RTL/עברית"
+      ]
     },
     {
       "id": "canva",
@@ -310,7 +610,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "עיצוב בסיסי, templates, Magic Design מוגבל",
+      "plan_pro": "$13/חודש — Magic Studio, Brand Kit, background remover, resize",
+      "best_for": [
+        "עיצוב גרפי",
+        "סושיאל מדיה",
+        "מצגות",
+        "מתחילים"
+      ],
+      "not_for": [
+        "עריכת תמונות מקצועית (Photoshop רמה)"
+      ]
     },
     {
       "id": "plus-ai",
@@ -322,7 +634,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "10 slides/חודש",
+      "plan_pro": "$10/חודש — presentations ללא הגבלה בתוך Google Slides/PowerPoint",
+      "best_for": [
+        "Google Slides",
+        "PowerPoint",
+        "אינטגרציה ישירה"
+      ],
+      "not_for": [
+        "ממשק עצמאי",
+        "עיצוב חופשי"
+      ]
     },
     {
       "id": "slides-ai",
@@ -334,7 +658,18 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "3 presentations/חודש",
+      "plan_pro": "$10/חודש — presentations ללא הגבלה",
+      "best_for": [
+        "המרת טקסט למצגת",
+        "Google Slides",
+        "PowerPoint"
+      ],
+      "not_for": [
+        "מצגות מורכבות עם אנימציות"
+      ]
     },
     {
       "id": "napkin",
@@ -346,7 +681,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם לגמרי כעת (beta)",
+      "plan_pro": "צפוי לתשלום — תמחור לא ידוע",
+      "best_for": [
+        "אינפוגרפיקות",
+        "דיאגרמות מטקסט",
+        "הסברים ויזואליים"
+      ],
+      "not_for": [
+        "מצגות מלאות",
+        "עריכת תמונות"
+      ]
     },
     {
       "id": "kimi",
@@ -358,7 +705,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Chinese",
+      "plan_free": "שימוש בסיסי חינם",
+      "plan_pro": "unknown",
+      "best_for": [
+        "מצגות",
+        "עריכה אונליין",
+        "שפה סינית"
+      ],
+      "not_for": [
+        "פרטיות",
+        "עברית"
+      ]
     },
     {
       "id": "notebooklm",
@@ -370,7 +729,20 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Google",
+      "plan_free": "חינם לגמרי — עד 50 notebooks, 20 מקורות כל אחד",
+      "plan_pro": "NotebookLM Plus — $20/חודש (דרך Google One AI Premium)",
+      "best_for": [
+        "לימוד מחומרים אישיים",
+        "פודקאסט AI",
+        "סיכום מסמכים",
+        "מחקר"
+      ],
+      "not_for": [
+        "מידע שלא הועלה",
+        "חיפוש אינטרנט"
+      ]
     },
     {
       "id": "notion",
@@ -382,7 +754,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "pages ללא הגבלה, Notion AI מוגבל (20 שאילתות)",
+      "plan_pro": "$10/חודש — Notion AI ללא הגבלה, guests ללא הגבלה",
+      "best_for": [
+        "ניהול ידע",
+        "תיעוד",
+        "ניהול משימות",
+        "צוותים"
+      ],
+      "not_for": [
+        "ניתוח קבצים כבדים",
+        "מחשבון/נוסחאות מורכבות"
+      ]
     },
     {
       "id": "timeos",
@@ -394,7 +779,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "5 שעות תמלול/חודש",
+      "plan_pro": "$19/חודש — ללא הגבלה, עברית, סיכומים, Slack",
+      "best_for": [
+        "ישיבות Zoom/Meet בעברית",
+        "תמלול שיחות",
+        "סיכומי פגישות"
+      ],
+      "not_for": [
+        "שיחות ללא אינטרנט",
+        "עריכת אודיו"
+      ]
     },
     {
       "id": "arc",
@@ -406,7 +803,20 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם לגמרי — כל הפיצ'רים",
+      "plan_pro": "אין תוכנית Pro",
+      "best_for": [
+        "גלישה חכמה",
+        "ארגון tabs",
+        "AI sidebar",
+        "פרודוקטיביות"
+      ],
+      "not_for": [
+        "Windows (Mac only כרגע)",
+        "extensions Chrome"
+      ]
     },
     {
       "id": "reclaim",
@@ -418,7 +828,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "לוח זמנים בסיסי, Google Calendar",
+      "plan_pro": "$8/חודש — Smart 1:1s, Habits, Scheduling links",
+      "best_for": [
+        "ניהול לוח זמנים AI",
+        "הרגלים",
+        "פגישות חכמות"
+      ],
+      "not_for": [
+        "Outlook standalone",
+        "ניהול צוות גדול"
+      ]
     },
     {
       "id": "chatpdf",
@@ -430,7 +852,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "2 PDFs/יום, 50 שאלות/יום",
+      "plan_pro": "$5/חודש — PDFs ללא הגבלה, 1000 שאלות/יום",
+      "best_for": [
+        "שאלות על PDF",
+        "סיכומי מסמכים",
+        "מחקר אקדמי"
+      ],
+      "not_for": [
+        "Word/Excel files",
+        "יצירת תוכן"
+      ]
     },
     {
       "id": "whisperflow",
@@ -442,7 +876,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "דקות מוגבלות",
+      "plan_pro": "$9/חודש — תמלול ללא הגבלה",
+      "best_for": [
+        "כתיבה קולית",
+        "תמלול מהיר",
+        "עברית",
+        "נגישות"
+      ],
+      "not_for": [
+        "עריכת טקסט",
+        "שיחות מרובות משתתפים"
+      ]
     },
     {
       "id": "tome",
@@ -454,7 +901,20 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "500 AI tokens",
+      "plan_pro": "$8/חודש — tokens ללא הגבלה",
+      "best_for": [
+        "מצגות מהירות",
+        "storytelling",
+        "הנפשות"
+      ],
+      "not_for": [
+        "עברית",
+        "PowerPoint export",
+        "עריכה מפורטת"
+      ]
     },
     {
       "id": "super-reply",
@@ -466,7 +926,18 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "limited replies",
+      "plan_pro": "$9/חודש — replies ללא הגבלה",
+      "best_for": [
+        "מענה מהיר למיילים",
+        "זמן חיסכון"
+      ],
+      "not_for": [
+        "עברית",
+        "מיילים ארוכים ומורכבים"
+      ]
     },
     {
       "id": "gptexel",
@@ -478,7 +949,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "10 formulas/חודש",
+      "plan_pro": "$6.99/חודש — ללא הגבלה, VBA, Google Sheets",
+      "best_for": [
+        "נוסחאות Excel/Sheets",
+        "VBA",
+        "לא-טכניים"
+      ],
+      "not_for": [
+        "ניתוח נתונים",
+        "visualization"
+      ]
     },
     {
       "id": "suno",
@@ -490,7 +973,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "50 credits/יום (~10 שירים)",
+      "plan_pro": "$8/חודש — 2,500 credits, שימוש מסחרי",
+      "best_for": [
+        "יצירת שירים מלאים",
+        "כל ז'אנר",
+        "מהירות",
+        "קליפים"
+      ],
+      "not_for": [
+        "שליטה על נגינה מדויקת",
+        "stem separation"
+      ]
     },
     {
       "id": "elevenlabs",
@@ -502,7 +998,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "10,000 characters/חודש, 3 קולות מותאמים",
+      "plan_pro": "$22/חודש — 100K chars, 30 קולות, שיבוט קול",
+      "best_for": [
+        "קריינות מקצועית",
+        "שיבוט קול",
+        "audiobooks",
+        "פודקאסטים"
+      ],
+      "not_for": [
+        "עברית ברמה גבוהה",
+        "מחיר נגיש לשימוש גבוה"
+      ]
     },
     {
       "id": "kits-ai",
@@ -514,7 +1023,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "credits מוגבלים",
+      "plan_pro": "$9.99/חודש — שיבוט קולות, Stem separation",
+      "best_for": [
+        "הפקה מוזיקלית",
+        "שיבוט קולות",
+        "בידוד ערוצים"
+      ],
+      "not_for": [
+        "קריינות",
+        "podcast"
+      ]
     },
     {
       "id": "udio",
@@ -526,7 +1047,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "100 credits/חודש (~25 שירים)",
+      "plan_pro": "$10/חודש — 1,200 credits, שימוש מסחרי",
+      "best_for": [
+        "מוזיקה איכותית",
+        "ז'אנרים מגוונים",
+        "יצירת stems"
+      ],
+      "not_for": [
+        "עברית",
+        "שליטה מדויקת על מילות שיר"
+      ]
     },
     {
       "id": "adobe-podcast",
@@ -538,7 +1071,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Adobe",
+      "plan_free": "Enhance Speech חינם (מוגבל)",
+      "plan_pro": "Adobe Creative Cloud $54.99/חודש",
+      "best_for": [
+        "שיפור איכות אודיו",
+        "הסרת רעשים",
+        "הקלטות פודקאסט"
+      ],
+      "not_for": [
+        "יצירת מוזיקה",
+        "TTS"
+      ]
     },
     {
       "id": "murf-ai",
@@ -550,7 +1095,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "10 דקות קריינות, 60 שפות",
+      "plan_pro": "$19/חודש — 2 שעות, 120+ קולות, הורדה",
+      "best_for": [
+        "קריינות מסחרית",
+        "e-learning",
+        "סרטוני מוצר"
+      ],
+      "not_for": [
+        "שיבוט קול אישי",
+        "מוזיקה"
+      ]
     },
     {
       "id": "lalal-ai",
@@ -562,7 +1119,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "90 שניות לקובץ",
+      "plan_pro": "$15 one-time (90 דקות) או $44/חודש",
+      "best_for": [
+        "stem separation",
+        "הפקה מוזיקלית",
+        "karaoke tracks"
+      ],
+      "not_for": [
+        "TTS",
+        "יצירת מוזיקה"
+      ]
     },
     {
       "id": "boomy",
@@ -574,7 +1143,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "25 שירים/חודש",
+      "plan_pro": "$2.99/חודש — 200 שירים, streaming revenue",
+      "best_for": [
+        "יצירת שירים מהירה",
+        "background music",
+        "creators"
+      ],
+      "not_for": [
+        "איכות גבוהה",
+        "שליטה מוזיקלית"
+      ]
     },
     {
       "id": "sonauto",
@@ -586,7 +1167,18 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "30 credits/חודש",
+      "plan_pro": "$9.99/חודש — credits מוגברים, קולות אמנים",
+      "best_for": [
+        "שירים עם קולות אמנים מוכרים",
+        "pop/hip-hop"
+      ],
+      "not_for": [
+        "עברית",
+        "שליטה מוסיקלית"
+      ]
     },
     {
       "id": "vocal-remover",
@@ -598,7 +1190,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם לגמרי (עם פרסומות)",
+      "plan_pro": "$9.99/חודש — ללא פרסומות, עיבוד מהיר",
+      "best_for": [
+        "הפרדה מיידית קול/מוזיקה",
+        "karaoke",
+        "remix"
+      ],
+      "not_for": [
+        "איכות שיא",
+        "stems מרובים"
+      ]
     },
     {
       "id": "riverside",
@@ -610,7 +1214,18 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "2 שעות הקלטה/חודש",
+      "plan_pro": "$15/חודש — הקלטה ללא הגבלה, תמלול, עריכה",
+      "best_for": [
+        "הקלטת פודקאסטים ואינטרוויאוז",
+        "תמלול עברית",
+        "איכות גבוהה"
+      ],
+      "not_for": [
+        "עריכת וידאו מורכב"
+      ]
     },
     {
       "id": "play-ht",
@@ -622,7 +1237,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "12,500 chars/חודש",
+      "plan_pro": "$29/חודש — 500K chars, ultra-realistic voices",
+      "best_for": [
+        "שיבוט קול",
+        "TTS ישראלי",
+        "podcast",
+        "audiobooks"
+      ],
+      "not_for": [
+        "מוזיקה",
+        "שימוש חינמי מרובה"
+      ]
     },
     {
       "id": "openai-fm",
@@ -634,7 +1262,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "OpenAI",
+      "plan_free": "חינם כרגע (demo)",
+      "plan_pro": "API בתשלום — $15/1M chars",
+      "best_for": [
+        "קריינות מהירה",
+        "עברית",
+        "demo ופיתוח"
+      ],
+      "not_for": [
+        "שיבוט קול אישי",
+        "podcast ארוך"
+      ]
     },
     {
       "id": "runway",
@@ -646,7 +1286,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "125 credits (כ-5 שניות וידאו)",
+      "plan_pro": "$15/חודש — 625 credits, Gen-3 Alpha, 10 שניות/קליפ",
+      "best_for": [
+        "יצירת וידאו מתמונה/טקסט",
+        "אפקטים מתקדמים",
+        "עריכה AI"
+      ],
+      "not_for": [
+        "וידאו ארוך >30 שניות",
+        "מחיר נגיש"
+      ]
     },
     {
       "id": "higgsfield",
@@ -658,7 +1310,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "credits מוגבלים",
+      "plan_pro": "$29/חודש — מספר מודלים, אפקטים מתקדמים",
+      "best_for": [
+        "אפקטים ויזואליים",
+        "מעברים קולנועיים",
+        "content creators"
+      ],
+      "not_for": [
+        "עברית",
+        "מחיר נגיש"
+      ]
     },
     {
       "id": "heygen",
@@ -670,7 +1334,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "1 דקת וידאו/חודש",
+      "plan_pro": "$24/חודש — 15 דקות, avatars מותאמים",
+      "best_for": [
+        "אוואטרים וירטואליים",
+        "סרטוני הדרכה",
+        "רב-לשוניות",
+        "עברית"
+      ],
+      "not_for": [
+        "וידאו ארוך זול",
+        "creative video"
+      ]
     },
     {
       "id": "pika",
@@ -682,7 +1359,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "30 credits/חודש",
+      "plan_pro": "$8/חודש — 700 credits, HD, 10 שניות",
+      "best_for": [
+        "וידאו מתמונה",
+        "אפקטים מהירים",
+        "social media"
+      ],
+      "not_for": [
+        "וידאו ארוך",
+        "שליטה מפורטת"
+      ]
     },
     {
       "id": "kling",
@@ -694,7 +1383,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Chinese",
+      "plan_free": "66 credits/יום",
+      "plan_pro": "$9.99/חודש — 660 credits/חודש, HD",
+      "best_for": [
+        "וידאו קולנועי",
+        "תנועה פיזיקלית מדויקת",
+        "איכות גבוהה"
+      ],
+      "not_for": [
+        "פרטיות",
+        "עברית"
+      ]
     },
     {
       "id": "synthesia",
@@ -706,7 +1407,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "3 דקות וידאו/חודש",
+      "plan_pro": "$22/חודש — 10 דקות, 125+ avatars, 120 שפות",
+      "best_for": [
+        "e-learning",
+        "corporate videos",
+        "avatars מקצועיים"
+      ],
+      "not_for": [
+        "creative video",
+        "עברית"
+      ]
     },
     {
       "id": "veed",
@@ -718,7 +1431,18 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "מגבלת watermark ואורך",
+      "plan_pro": "$18/חודש — ללא watermark, תמלול, תרגום",
+      "best_for": [
+        "עריכת וידאו אונליין",
+        "כתוביות אוטומטיות",
+        "תרגום"
+      ],
+      "not_for": [
+        "עריכה מקצועית מורכבת"
+      ]
     },
     {
       "id": "descript",
@@ -730,7 +1454,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "1 שעת תמלול/חודש, watermark",
+      "plan_pro": "$24/חודש — ללא הגבלה, Overdub (שיבוט קול)",
+      "best_for": [
+        "עריכה לפי טקסט",
+        "podcast",
+        "screen recording"
+      ],
+      "not_for": [
+        "VFX",
+        "וידאו ארוך"
+      ]
     },
     {
       "id": "capcut",
@@ -742,7 +1478,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Chinese",
+      "plan_free": "רוב הפיצ'רים חינם (עם watermark בחלק)",
+      "plan_pro": "$7.99/חודש — AI features מלאים, ללא watermark",
+      "best_for": [
+        "TikTok/Reels",
+        "AI templates",
+        "mobile editing"
+      ],
+      "not_for": [
+        "פרטיות (ByteDance)",
+        "professional broadcast"
+      ]
     },
     {
       "id": "spotlightr",
@@ -754,7 +1502,19 @@
       "cost": "תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "trial בלבד",
+      "plan_pro": "$9/חודש — וידאו מאובטח, analytics, DRM",
+      "best_for": [
+        "קורסים דיגיטליים",
+        "הגנת וידאו",
+        "LMS"
+      ],
+      "not_for": [
+        "צפייה ציבורית",
+        "streaming"
+      ]
     },
     {
       "id": "hera",
@@ -766,7 +1526,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Israeli",
+      "plan_free": "limited credits",
+      "plan_pro": "unknown",
+      "best_for": [
+        "אנימציות הסבר",
+        "אינפוגרפיקות",
+        "עברית",
+        "שיווק"
+      ],
+      "not_for": [
+        "עריכת וידאו מורכב"
+      ]
     },
     {
       "id": "kapwing",
@@ -778,7 +1550,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "5GB storage, watermark",
+      "plan_pro": "$16/חודש — ללא watermark, 100GB, transcription",
+      "best_for": [
+        "עריכת וידאו אונליין",
+        "כתוביות",
+        "מחיקת קטעים שקטים",
+        "memes"
+      ],
+      "not_for": [
+        "professional broadcast",
+        "4K"
+      ]
     },
     {
       "id": "filmora",
@@ -790,7 +1575,18 @@
       "cost": "תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "watermark בלבד",
+      "plan_pro": "$49.99/שנה — AI tools, effects, ללא watermark",
+      "best_for": [
+        "עריכה מקצועית AI",
+        "YouTubers",
+        "effects עשירים"
+      ],
+      "not_for": [
+        "עריכה מהירה אונליין"
+      ]
     },
     {
       "id": "veo3",
@@ -802,7 +1598,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Google",
+      "plan_free": "דרך Google Gemini (מוגבל)",
+      "plan_pro": "$19.99/חודש Gemini Advanced + VideoFX",
+      "best_for": [
+        "וידאו עם סאונד",
+        "עברית",
+        "איכות קולנועית",
+        "סביבות מציאותיות"
+      ],
+      "not_for": [
+        "שימוש חינמי נרחב",
+        "עריכת וידאו"
+      ]
     },
     {
       "id": "luma",
@@ -814,7 +1623,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "30 generations/חודש",
+      "plan_pro": "$29.99/חודש — 100 generations/חודש, 4K, longer clips",
+      "best_for": [
+        "text-to-video",
+        "תמונה-לוידאו",
+        "smooth motion"
+      ],
+      "not_for": [
+        "עברית",
+        "וידאו ארוך"
+      ]
     },
     {
       "id": "sora",
@@ -826,7 +1647,19 @@
       "cost": "תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "OpenAI",
+      "plan_free": "ChatGPT Plus בלבד",
+      "plan_pro": "ChatGPT Pro $200/חודש — 500 וידאוs, HD, 20 שניות",
+      "best_for": [
+        "וידאו ברמה גבוהה",
+        "OpenAI ecosystem",
+        "20 שניות+ clips"
+      ],
+      "not_for": [
+        "מחיר נגיש",
+        "עברית"
+      ]
     },
     {
       "id": "minimax",
@@ -838,7 +1671,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Chinese",
+      "plan_free": "ייצור חינם עם watermark",
+      "plan_pro": "unknown",
+      "best_for": [
+        "פיזיקה מציאותית",
+        "חינם ללא קרדיטים",
+        "חיות/אנימציה"
+      ],
+      "not_for": [
+        "פרטיות",
+        "עברית"
+      ]
     },
     {
       "id": "midjourney",
@@ -850,7 +1695,21 @@
       "cost": "תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "אין — חייב מנוי",
+      "plan_pro": "$10/חודש — 200 images/חודש, Discord bot",
+      "best_for": [
+        "אמנות דיגיטלית",
+        "פנטזיה",
+        "hyper-realistic",
+        "branding"
+      ],
+      "not_for": [
+        "חינמי",
+        "prompt עברית ישיר",
+        "text בתמונות"
+      ]
     },
     {
       "id": "pikzels",
@@ -862,7 +1721,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "כמה thumbnails/חודש",
+      "plan_pro": "$29/חודש — ללא הגבלה, face consistency",
+      "best_for": [
+        "YouTube thumbnails",
+        "face-swap לתמונות",
+        "CTR גבוה"
+      ],
+      "not_for": [
+        "עיצוב כללי",
+        "לא-YouTubers"
+      ]
     },
     {
       "id": "leonardo",
@@ -874,7 +1745,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "150 tokens/יום",
+      "plan_pro": "$10/חודש — 8,500 tokens/חודש, fine-tuning, API",
+      "best_for": [
+        "fine-tuning סגנון אישי",
+        "game assets",
+        "concept art"
+      ],
+      "not_for": [
+        "אנשים לא-טכניים",
+        "מהירות גבוהה"
+      ]
     },
     {
       "id": "krea",
@@ -886,7 +1769,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "limited generations",
+      "plan_pro": "$24/חודש — real-time generation, video, upscale",
+      "best_for": [
+        "ציורים לתמונה בזמן אמת",
+        "אשליות אופטיות",
+        "upscaling"
+      ],
+      "not_for": [
+        "מחיר נגיש",
+        "prompt פשוט"
+      ]
     },
     {
       "id": "magnific",
@@ -898,7 +1793,19 @@
       "cost": "תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "אין",
+      "plan_pro": "$39/חודש — upscaling ללא הגבלה, hallucination details",
+      "best_for": [
+        "שיפור רזולוציה קיצוני",
+        "e-commerce images",
+        "printing"
+      ],
+      "not_for": [
+        "חינמי",
+        "יצירת תמונות חדשות"
+      ]
     },
     {
       "id": "freepik-ai",
@@ -910,7 +1817,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "20 AI generations/חודש",
+      "plan_pro": "$9/חודש — 100 generations, stock assets",
+      "best_for": [
+        "stock images",
+        "AI generation + assets",
+        "מעצבים"
+      ],
+      "not_for": [
+        "fine-tuning",
+        "אמנות ייחודית"
+      ]
     },
     {
       "id": "dalle",
@@ -922,7 +1841,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "OpenAI",
+      "plan_free": "דרך ChatGPT Free (מוגבל)",
+      "plan_pro": "ChatGPT Plus $20/חודש — תמונות ללא הגבלה",
+      "best_for": [
+        "תמונות מדויקות לפי תיאור",
+        "OpenAI ecosystem",
+        "עברית"
+      ],
+      "not_for": [
+        "אמנות מורכבת",
+        "fine-tuning"
+      ]
     },
     {
       "id": "ideogram",
@@ -934,7 +1865,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "25 generations/יום",
+      "plan_pro": "$7/חודש — generations ללא הגבלה, high quality",
+      "best_for": [
+        "טקסט בתמונות",
+        "לוגואים",
+        "פוסטרים"
+      ],
+      "not_for": [
+        "עברית",
+        "תמונות אנשים"
+      ]
     },
     {
       "id": "clipdrop",
@@ -946,7 +1889,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "מוגבל",
+      "plan_pro": "$9/חודש — tools ללא הגבלה",
+      "best_for": [
+        "עריכת תמונות מהירה",
+        "background removal",
+        "אשליות"
+      ],
+      "not_for": [
+        "יצירה מאפס",
+        "fine-tuning"
+      ]
     },
     {
       "id": "human-generator",
@@ -958,7 +1913,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "limited free generations",
+      "plan_pro": "$29/חודש — דוגמנים ללא הגבלה, face swapping",
+      "best_for": [
+        "e-commerce",
+        "fashion",
+        "דוגמנים וירטואליים",
+        "face swap"
+      ],
+      "not_for": [
+        "אמנות",
+        "landscapes"
+      ]
     },
     {
       "id": "skybox",
@@ -970,7 +1938,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "limited skyboxes",
+      "plan_pro": "$12/חודש — skyboxes ללא הגבלה, remix",
+      "best_for": [
+        "360° environments",
+        "game design",
+        "VR/AR"
+      ],
+      "not_for": [
+        "תמונות רגילות",
+        "portraits"
+      ]
     },
     {
       "id": "artflow",
@@ -982,7 +1962,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "limited generations",
+      "plan_pro": "$12/חודש — character consistency, multiple poses",
+      "best_for": [
+        "דמויות עקביות",
+        "קומיקסים",
+        "storytelling"
+      ],
+      "not_for": [
+        "landscapes",
+        "product photography"
+      ]
     },
     {
       "id": "getimg",
@@ -994,7 +1986,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "100 images/חודש",
+      "plan_pro": "$12/חודש — 3,000 images, כל המודלים",
+      "best_for": [
+        "ניסוי מודלים מרובים",
+        "fine-tuning",
+        "API"
+      ],
+      "not_for": [
+        "מהירות",
+        "ממשק פשוט"
+      ]
     },
     {
       "id": "mixboard",
@@ -1006,7 +2010,20 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Google",
+      "plan_free": "חינם לגמרי (Google Labs)",
+      "plan_pro": "אין",
+      "best_for": [
+        "ציור + תמונה",
+        "קנבס אין-סופי",
+        "ניסוי",
+        "creativity"
+      ],
+      "not_for": [
+        "ייצור מסחרי",
+        "רזולוציה גבוהה"
+      ]
     },
     {
       "id": "brandmark",
@@ -1018,7 +2035,19 @@
       "cost": "תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "אין",
+      "plan_pro": "$25 חד-פעמי — לוגו + brand assets",
+      "best_for": [
+        "לוגואים עסקיים",
+        "branding מהיר",
+        "startups"
+      ],
+      "not_for": [
+        "עיצוב מורכב",
+        "RTL"
+      ]
     },
     {
       "id": "logo-diffusion",
@@ -1030,7 +2059,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "10 logos/חודש",
+      "plan_pro": "$15/חודש — logos ללא הגבלה, vector export",
+      "best_for": [
+        "לוגואים וקטוריאליים",
+        "סגנונות מגוונים",
+        "SVG export"
+      ],
+      "not_for": [
+        "ממשק מורכב",
+        "עברית"
+      ]
     },
     {
       "id": "kartiv",
@@ -1042,7 +2083,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "credits מוגבלים",
+      "plan_pro": "unknown",
+      "best_for": [
+        "עריכת תמונות מטקסט",
+        "עיצוב",
+        "שינויים מהירים"
+      ],
+      "not_for": [
+        "יצירה מאפס",
+        "prompts מורכבים"
+      ]
     },
     {
       "id": "microsoft-designer",
@@ -1054,7 +2107,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Microsoft",
+      "plan_free": "חינם לגמרי — כולל DALL-E, templates",
+      "plan_pro": "Microsoft 365 $6.99/חודש",
+      "best_for": [
+        "עיצוב חינמי",
+        "social media",
+        "Microsoft ecosystem"
+      ],
+      "not_for": [
+        "מצגות מורכבות",
+        "brand assets מקצועיים"
+      ]
     },
     {
       "id": "infography",
@@ -1066,7 +2131,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "3 infographics/חודש",
+      "plan_pro": "$19/חודש — infographics ללא הגבלה",
+      "best_for": [
+        "אינפוגרפיקות מהירות",
+        "עברית",
+        "מצגות",
+        "שיווק"
+      ],
+      "not_for": [
+        "תמונות כלליות",
+        "וידאו"
+      ]
     },
     {
       "id": "astria",
@@ -1078,7 +2156,19 @@
       "cost": "תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "אין",
+      "plan_pro": "$30+ חד-פעמי — אימון מודל אישי + generations",
+      "best_for": [
+        "תמונות תדמית",
+        "דמויות עקביות",
+        "fashion AI"
+      ],
+      "not_for": [
+        "חינמי",
+        "ממשק פשוט"
+      ]
     },
     {
       "id": "headshotpro",
@@ -1090,7 +2180,19 @@
       "cost": "תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "אין",
+      "plan_pro": "$29-49 חד-פעמי — 40-120 headshots",
+      "best_for": [
+        "תמונות תדמית מקצועיות",
+        "LinkedIn",
+        "עסקים"
+      ],
+      "not_for": [
+        "creative art",
+        "לא לפורטרטים"
+      ]
     },
     {
       "id": "fotor-avatar",
@@ -1102,7 +2204,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "limited avatars",
+      "plan_pro": "$8.99/חודש — avatars ללא הגבלה, styles",
+      "best_for": [
+        "profile pictures",
+        "avatars מגוונים",
+        "gaming"
+      ],
+      "not_for": [
+        "professional headshots",
+        "consistent characters"
+      ]
     },
     {
       "id": "photo-ai",
@@ -1114,7 +2228,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "אין",
+      "plan_pro": "$29/חודש — 100 photos, custom models",
+      "best_for": [
+        "מודל אישי מורכב",
+        "scenarios מגוונים",
+        "fashion"
+      ],
+      "not_for": [
+        "מהירות",
+        "עלות נמוכה"
+      ]
     },
     {
       "id": "consensus",
@@ -1126,7 +2252,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "20 חיפושים/חודש",
+      "plan_pro": "$8.99/חודש — ללא הגבלה, AI summaries, GPT-4",
+      "best_for": [
+        "מחקר אקדמי",
+        "evidence-based answers",
+        "הפרכת מיתוסים"
+      ],
+      "not_for": [
+        "מחקר עסקי",
+        "עברית"
+      ]
     },
     {
       "id": "scispace",
@@ -1138,7 +2276,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "20 שאלות/יום",
+      "plan_pro": "$12/חודש — ללא הגבלה, PDF explanations",
+      "best_for": [
+        "הסבר מאמרים מדעיים",
+        "literature review",
+        "students"
+      ],
+      "not_for": [
+        "מחקר עסקי",
+        "עברית"
+      ]
     },
     {
       "id": "elicit",
@@ -1150,7 +2300,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "מוגבל",
+      "plan_pro": "$10/חודש — מחקר אוטומטי, ניתוח papers",
+      "best_for": [
+        "literature review",
+        "research synthesis",
+        "מחקר רפואי"
+      ],
+      "not_for": [
+        "עברית",
+        "שיחה כללית"
+      ]
     },
     {
       "id": "explainpaper",
@@ -1162,7 +2324,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "10 papers/חודש",
+      "plan_pro": "$6/חודש — papers ללא הגבלה",
+      "best_for": [
+        "הסבר מאמרים קשים",
+        "PhD students",
+        "researchers"
+      ],
+      "not_for": [
+        "שאלות כלליות",
+        "עברית"
+      ]
     },
     {
       "id": "humata",
@@ -1174,7 +2348,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "60 pages/חודש",
+      "plan_pro": "$9.99/חודש — pages ללא הגבלה",
+      "best_for": [
+        "שאלות על PDF ארוכים",
+        "חוזים",
+        "מסמכים טכניים"
+      ],
+      "not_for": [
+        "Word/Excel",
+        "חיפוש אינטרנט"
+      ]
     },
     {
       "id": "wisdolia",
@@ -1186,7 +2372,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "מוגבל",
+      "plan_pro": "$10/חודש — flashcards ללא הגבלה",
+      "best_for": [
+        "למידה",
+        "בחינות",
+        "spaced repetition"
+      ],
+      "not_for": [
+        "מחקר עמוק",
+        "כתיבה"
+      ]
     },
     {
       "id": "globe-explorer",
@@ -1198,7 +2396,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם לגמרי",
+      "plan_pro": "אין",
+      "best_for": [
+        "ויזואליזציה של קשרים",
+        "mind maps",
+        "לימוד נושאים"
+      ],
+      "not_for": [
+        "עבודת צוות",
+        "שמירת מסמכים"
+      ]
     },
     {
       "id": "typeset",
@@ -1210,7 +2420,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "5 searches/חודש",
+      "plan_pro": "$14/חודש — research ללא הגבלה, citation export",
+      "best_for": [
+        "מחקר אקדמי",
+        "ציטוטים",
+        "עברית חלקית"
+      ],
+      "not_for": [
+        "מחקר עסקי",
+        "אין גישה לכל המאמרים"
+      ]
     },
     {
       "id": "sizzle",
@@ -1222,7 +2444,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם לגמרי",
+      "plan_pro": "אין",
+      "best_for": [
+        "פתרון שיעורי בית",
+        "STEM",
+        "צילום שאלות"
+      ],
+      "not_for": [
+        "עברית",
+        "humanities"
+      ]
     },
     {
       "id": "storm",
@@ -1234,7 +2468,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם לגמרי (Stanford research)",
+      "plan_pro": "אין",
+      "best_for": [
+        "מאמרים אקדמיים",
+        "Wikipedia-style articles",
+        "מקורות"
+      ],
+      "not_for": [
+        "עברית",
+        "עיצוב"
+      ]
     },
     {
       "id": "alphaxiv",
@@ -1246,7 +2492,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם לגמרי",
+      "plan_pro": "אין",
+      "best_for": [
+        "מחקר AI/ML",
+        "arXiv papers",
+        "עדכוני מחקר"
+      ],
+      "not_for": [
+        "עברית",
+        "מחקר לא-טכני"
+      ]
     },
     {
       "id": "adcreative",
@@ -1258,7 +2516,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "7 ימי trial",
+      "plan_pro": "$21/חודש — 10 downloads, A/B testing",
+      "best_for": [
+        "מודעות גרפיות",
+        "Facebook/Google ads",
+        "A/B testing"
+      ],
+      "not_for": [
+        "עיצוב כללי",
+        "social organic"
+      ]
     },
     {
       "id": "jasper",
@@ -1270,7 +2540,19 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "7 ימי trial",
+      "plan_pro": "$39/חודש — כתיבה שיווקית, 50+ templates, Brand Voice",
+      "best_for": [
+        "כתיבה שיווקית",
+        "enterprise content",
+        "SEO"
+      ],
+      "not_for": [
+        "מחיר נגיש",
+        "משתמשים בסיסיים"
+      ]
     },
     {
       "id": "rytr",
@@ -1282,7 +2564,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "10,000 chars/חודש",
+      "plan_pro": "$9/חודש — chars ללא הגבלה, 40+ use cases",
+      "best_for": [
+        "copywriting זול",
+        "מאמרים",
+        "עברית",
+        "קטלוגים"
+      ],
+      "not_for": [
+        "long-form quality",
+        "brand voice מורכב"
+      ]
     },
     {
       "id": "smartwriter",
@@ -1294,7 +2589,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "trial בלבד",
+      "plan_pro": "$49/חודש — cold emails, personalization",
+      "best_for": [
+        "cold email campaigns",
+        "B2B sales",
+        "LinkedIn outreach"
+      ],
+      "not_for": [
+        "marketing content",
+        "עברית"
+      ]
     },
     {
       "id": "surfer-seo",
@@ -1306,7 +2613,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "trial בלבד",
+      "plan_pro": "$69/חודש — content editor, keywords, NLP",
+      "best_for": [
+        "SEO content",
+        "blog posts",
+        "keyword research"
+      ],
+      "not_for": [
+        "עברית",
+        "social media"
+      ]
     },
     {
       "id": "lavender",
@@ -1318,7 +2637,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "3 emails/חודש",
+      "plan_pro": "$27/חודש — emails ללא הגבלה, coaching",
+      "best_for": [
+        "email שיפור",
+        "B2B sales",
+        "SDR teams"
+      ],
+      "not_for": [
+        "עברית",
+        "marketing emails"
+      ]
     },
     {
       "id": "predis",
@@ -1330,7 +2661,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "15 posts/חודש",
+      "plan_pro": "$29/חודש — ללא הגבלה, analytics, competitor analysis",
+      "best_for": [
+        "social media posts",
+        "competitor analysis",
+        "ריבוי platforms"
+      ],
+      "not_for": [
+        "עברית",
+        "long-form content"
+      ]
     },
     {
       "id": "taplio",
@@ -1342,7 +2685,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "trial בלבד",
+      "plan_pro": "$39/חודש — LinkedIn content, scheduling, analytics",
+      "best_for": [
+        "LinkedIn growth",
+        "personal branding",
+        "thought leadership"
+      ],
+      "not_for": [
+        "platforms אחרות",
+        "עברית"
+      ]
     },
     {
       "id": "lovable",
@@ -1354,7 +2709,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "5 projects, 30 AI edits",
+      "plan_pro": "$20/חודש — projects ללא הגבלה, custom domain, AI edits",
+      "best_for": [
+        "full-stack apps ללא קוד",
+        "startup MVPs",
+        "עברית",
+        "React apps"
+      ],
+      "not_for": [
+        "apps מורכבות מאוד",
+        "native mobile"
+      ]
     },
     {
       "id": "claude-code",
@@ -1366,7 +2734,21 @@
       "cost": "תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Anthropic",
+      "plan_free": "אין — API בלבד",
+      "plan_pro": "API usage — ~$3-15/1M tokens (Sonnet/Opus)",
+      "best_for": [
+        "full-repo refactoring",
+        "agentic coding",
+        "automation",
+        "large codebases"
+      ],
+      "not_for": [
+        "מתחילים",
+        "ממשק גרפי",
+        "מחיר נמוך"
+      ]
     },
     {
       "id": "cursor",
@@ -1378,7 +2760,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "A+B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "2000 completions/חודש, 50 slow requests",
+      "plan_pro": "$20/חודש — completions ללא הגבלה, fast requests, Claude/GPT",
+      "best_for": [
+        "כתיבת קוד יומיומית",
+        "IDE integration",
+        "autocomplete",
+        "debug"
+      ],
+      "not_for": [
+        "non-coders",
+        "full agentic automation"
+      ]
     },
     {
       "id": "base44",
@@ -1390,7 +2785,18 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Israeli",
+      "plan_free": "מוגבל",
+      "plan_pro": "unknown",
+      "best_for": [
+        "apps ישראליות",
+        "API integration",
+        "no-code מורכב"
+      ],
+      "not_for": [
+        "מתחילים מוחלטים"
+      ]
     },
     {
       "id": "builder-io",
@@ -1402,7 +2808,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "limited pages",
+      "plan_pro": "$19/חודש — pages ללא הגבלה, A/B testing",
+      "best_for": [
+        "landing pages",
+        "visual editor",
+        "React/Next.js integration"
+      ],
+      "not_for": [
+        "full apps",
+        "backend"
+      ]
     },
     {
       "id": "dora-ai",
@@ -1414,7 +2832,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "1 site",
+      "plan_pro": "$24/חודש — sites ללא הגבלה, 3D, custom domain",
+      "best_for": [
+        "אתרי 3D",
+        "אינטראקטיביות",
+        "portfolios"
+      ],
+      "not_for": [
+        "e-commerce",
+        "עברית"
+      ]
     },
     {
       "id": "bolt",
@@ -1426,7 +2856,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "150K tokens/חודש",
+      "plan_pro": "$20/חודש — tokens מוגברים, deploy",
+      "best_for": [
+        "פרוטוטייפ מהיר",
+        "full-stack",
+        "StackBlitz integration"
+      ],
+      "not_for": [
+        "apps גדולות",
+        "performance-critical"
+      ]
     },
     {
       "id": "replit",
@@ -1438,7 +2880,20 @@
       "cost": "חינם + תשלום",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "3 projects, AI limited",
+      "plan_pro": "$25/חודש — Replit AI ללא הגבלה, hosting, bounties",
+      "best_for": [
+        "קידוד מהיר",
+        "learning",
+        "hosting פשוט",
+        "collaboration"
+      ],
+      "not_for": [
+        "עברית",
+        "production apps"
+      ]
     },
     {
       "id": "windsurf",
@@ -1450,7 +2905,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "200 user credits/חודש",
+      "plan_pro": "$15/חודש — credits מוגברים, all models",
+      "best_for": [
+        "IDE מבוסס VS Code",
+        "agentic coding",
+        "מחיר נמוך מ-Cursor"
+      ],
+      "not_for": [
+        "non-coders",
+        "full automation"
+      ]
     },
     {
       "id": "typedream",
@@ -1462,7 +2929,19 @@
       "cost": "חינם + תשלום",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "1 site, מוגבל",
+      "plan_pro": "$12/חודש — sites ללא הגבלה, custom domain",
+      "best_for": [
+        "אתרי Notion-style",
+        "landing pages",
+        "blogs"
+      ],
+      "not_for": [
+        "e-commerce",
+        "עברית"
+      ]
     },
     {
       "id": "comet",
@@ -1474,7 +2953,19 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "חינם כרגע (beta)",
+      "plan_pro": "עתידי — unknown",
+      "best_for": [
+        "גלישה עם AI agent",
+        "tasks אוטומטיים באינטרנט",
+        "Perplexity integration"
+      ],
+      "not_for": [
+        "עבודה offline",
+        "privacy-sensitive"
+      ]
     },
     {
       "id": "atlas",
@@ -1486,7 +2977,18 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "OpenAI",
+      "plan_free": "חינם כרגע",
+      "plan_pro": "unknown",
+      "best_for": [
+        "ChatGPT ישיר בדפדפן",
+        "AI-first browsing"
+      ],
+      "not_for": [
+        "extensions",
+        "privacy"
+      ]
     },
     {
       "id": "donotpay",
@@ -1498,7 +3000,20 @@
       "cost": "תשלום",
       "rating": "⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Independent",
+      "plan_free": "אין",
+      "plan_pro": "$36/שנה — חוזים, ביטולים, מכתבים משפטיים",
+      "best_for": [
+        "חוזים פשוטים",
+        "consumer rights",
+        "ביטולי מנויים"
+      ],
+      "not_for": [
+        "עברית",
+        "עצות משפטיות רציניות",
+        "תביעות מורכבות"
+      ]
     },
     {
       "id": "whatsapp-transcriber",
@@ -1510,7 +3025,19 @@
       "cost": "חינם",
       "rating": null,
       "source": "A",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Israeli",
+      "plan_free": "חינם לגמרי",
+      "plan_pro": "אין",
+      "best_for": [
+        "תמלול הקלטות וואטסאפ",
+        "עברית",
+        "מהירות"
+      ],
+      "not_for": [
+        "תמלול שיחות ארוכות",
+        "דיוק גבוה"
+      ]
     },
     {
       "id": "android-keyboard",
@@ -1522,7 +3049,20 @@
       "cost": "חינם",
       "rating": "⭐⭐⭐⭐⭐",
       "source": "B",
-      "verified": false
+      "verified": false,
+      "ecosystem": "Israeli",
+      "plan_free": "חינם",
+      "plan_pro": "אין",
+      "best_for": [
+        "ChatGPT ישיר מהמקלדת",
+        "הודעות וואטסאפ",
+        "מהירות",
+        "עברית"
+      ],
+      "not_for": [
+        "iOS",
+        "desktop"
+      ]
     }
   ]
 }
