@@ -89,14 +89,14 @@ function loadWikiForQuestion(lastUserMessage: string): { ctx: string; usedFiles:
 
   // If nothing matched — use general top files
   const toLoad = scores.length > 0
-    ? scores.slice(0, 6).map(s => s.file)
-    : ["claude-code.md", "cursor-ide.md", "google-gemini-full.md", "chatgpt.md", "lovable-dev.md"];
+    ? scores.slice(0, 8).map(s => s.file)
+    : ["claude-code.md", "cursor-ide.md", "google-gemini-full.md", "chatgpt.md", "lovable-dev.md", "perplexity-ai.md", "notion-ai.md", "n8n-automation.md"];
 
   // Build context
   let ctx = "";
   let totalChars = 0;
-  const MAX_TOTAL = 22000;
-  const MAX_PER_FILE = 3500;
+  const MAX_TOTAL = 80000;
+  const MAX_PER_FILE = 15000;
   const usedFiles: string[] = [];
 
   for (const fname of toLoad) {
