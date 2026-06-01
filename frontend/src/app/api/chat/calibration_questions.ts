@@ -166,7 +166,7 @@ const TASK_KEYWORDS: Record<CalibrationResult["taskType"], string[]> = {
 
 // ─── מילות מפתח לזיהוי עדיפות ────────────────────────────────────────────────
 const PRIORITY_KEYWORDS: Record<CalibrationResult["priority"], string[]> = {
-  price:    ["חינם", "זול", "בלי לשלם", "תקציב נמוך", "free", "cheap", "budget", "ללא עלות", "בחינם"],
+  price:    ["חינם", "חינמי", "חינמית", "זול", "זולה", "בלי לשלם", "תקציב נמוך", "free", "cheap", "budget", "ללא עלות", "בחינם"],
   quality:  ["הכי טוב", "מקצועי", "איכות", "מדויק", "best", "quality", "professional", "ללא פשרות"],
   speed:    ["מהיר", "מהירות", "עכשיו", "מיד", "quickly", "fast", "asap", "בהקדם", "דחוף"],
   balanced: [],  // fallback

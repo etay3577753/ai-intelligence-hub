@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import { loadProfile } from "@/lib/userProfile";
+import { detectCalibration, calibrationToPromptHint } from "../calibration_questions";
 
 const WIKI_DIR      = path.join(process.cwd(), "..", "backend", "data", "wiki");
 const GEMINI_KEY    = process.env.GEMINI_API_KEY ?? "";
@@ -218,9 +220,10 @@ const DECISION_METHODOLOGY = `
 `;
 
 // ─── Build advisor system prompt ──────────────────────────────────────────────
-function buildAdvisorPrompt(wikiCtx: string): string {
+function buildAdvisorPrompt(wikiCtx: string, hint: string = ""): string {
   return `אתה "יועץ AI" — מומחה בינה מלאכותית שנותן המלצות מדויקות ואמינות.
 אתה מבוסס על מחקרי עומק אמיתיים — תענה **קודם מהמחקרים**, ורק אחר כך מידע כללי.
+${hint ? `\n${hint}\n` : ""}
 ${DECISION_METHODOLOGY}
 ${ECOSYSTEM_ROUTING}
 
@@ -262,8 +265,9 @@ ${wikiCtx || "(אין קבצי wiki טעונים כרגע)"}`;
 }
 
 // ─── Build research system prompt ─────────────────────────────────────────────
-function buildResearchPrompt(wikiCtx: string): string {
+function buildResearchPrompt(wikiCtx: string, hint: string = ""): string {
   return `אתה "מסביר AI" — חבר שמסביר כלי AI בצורה פשוטה, על בסיס מחקרי עומק אמיתיים.
+${hint ? `\n${hint}\n` : ""}
 
 ## כלל ראשון: מחקרים קודמים לאינטרנט
 כשיש מידע ב-Wiki שסופק למטה — **השתמש בו ראשון**.
@@ -374,12 +378,19 @@ export async function POST(req: NextRequest) {
     // הוצא את השאלה האחרונה של המשתמש לניקוד wiki דינמי
     const lastUserMsg = [...messages].reverse().find(m => m.role === "user")?.content ?? "";
 
+    // טעינת פרופיל משתמש אוטומטית
+    const userProfile = await loadProfile();
+
+    // Calibration — זיהוי סוג משימה, עדיפות, פירוט, כלים קיימים
+    const calibration = detectCalibration(lastUserMsg, userProfile, messages);
+    const hint = calibrationToPromptHint(calibration);
+
     // RAG דינמי — טען wiki files רלוונטיות לשאלה
     const { ctx: wikiCtx, usedFiles } = loadWikiForQuestion(lastUserMsg);
 
     const systemPrompt = mode === "research"
-      ? buildResearchPrompt(wikiCtx)
-      : buildAdvisorPrompt(wikiCtx);
+      ? buildResearchPrompt(wikiCtx, hint)
+      : buildAdvisorPrompt(wikiCtx, hint);
 
     const enrichedMessages = messages.map((m, i) => ({
       ...m,
@@ -405,7 +416,21 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "לא הוגדר מפתח API. הוסף ANTHROPIC_API_KEY או GEMINI_API_KEY ל-.env" }, { status: 503 });
     }
 
-    return NextResponse.json({ response, model, wiki_sources: usedFiles });
+    return NextResponse.json({
+      response,
+      model,
+      wiki_sources: usedFiles,
+      calibration: {
+        taskType:    calibration.taskType,
+        detailLevel: calibration.detailLevel,
+        priority:    calibration.priority,
+        existingTools: calibration.existingTools,
+        relevantEcosystems: calibration.relevantEcosystems,
+        needsClarification: calibration.needsClarification,
+        clarificationQuestion: calibration.clarificationQuestion,
+        confidence:  calibration.confidence,
+      },
+    });
   } catch (err) {
     console.error("AI chat error:", err);
     return NextResponse.json(

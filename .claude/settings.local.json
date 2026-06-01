@@ -125,7 +125,8 @@
       "Bash(python -c \"from routers.credit import router; print\\('credit router OK'\\)\")",
       "Bash(python -c \"import fitz; print\\('PyMuPDF', fitz.version[0], 'OK'\\)\")",
       "Bash(curl -s http://localhost:8000/api/credit/health)",
-      "Bash(python -c \"from routers.credit import router; print\\('OK'\\)\")"
+      "Bash(python -c \"from routers.credit import router; print\\('OK'\\)\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\����\\\\The Master AI Architect\\\\frontend\\\\src\\\\app\\\\api\\\\user-profile\")"
     ]
   }
 }
