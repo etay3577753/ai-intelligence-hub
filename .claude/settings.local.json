@@ -128,7 +128,11 @@
       "Bash(python -c \"from routers.credit import router; print\\('OK'\\)\")",
       "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\����\\\\The Master AI Architect\\\\frontend\\\\src\\\\app\\\\api\\\\user-profile\")",
       "PowerShell(cd \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\frontend\"; npx tsc --noEmit 2>&1 | Where-Object { $_ -match \"settings|Sidebar|chat.page|userProfile\" })",
-      "PowerShell(cd \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\frontend\"; \\(npx tsc --noEmit 2>&1\\) -join \"`n\" | Out-File -FilePath \"tsc_out.txt\" -Encoding utf8; Get-Content \"tsc_out.txt\" | Select-String \"settings|Sidebar|chat\" ; Remove-Item \"tsc_out.txt\")"
+      "PowerShell(cd \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\frontend\"; \\(npx tsc --noEmit 2>&1\\) -join \"`n\" | Out-File -FilePath \"tsc_out.txt\" -Encoding utf8; Get-Content \"tsc_out.txt\" | Select-String \"settings|Sidebar|chat\" ; Remove-Item \"tsc_out.txt\")",
+      "Bash(python -c \"import chromadb; print\\('chromadb OK', chromadb.__version__\\)\")",
+      "Bash(python -c \"import json; data=json.load\\(open\\('data/tools_master.json','r',encoding='utf-8'\\)\\); ids=[t['id'] for t in data['tools']]; print\\(len\\(ids\\)\\); print\\('\\\\n'.join\\(ids\\)\\)\")",
+      "Bash(python scripts/add_task_scores.py)",
+      "Bash(python vector_store.py)"
     ]
   }
 }
