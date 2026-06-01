@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import {
   Send, Loader2, Brain, Sparkles, ChevronRight,
-  Paperclip, X, Zap, Copy, Check, Lightbulb, BookOpen,
+  Paperclip, X, Zap, Copy, Check, Lightbulb, BookOpen, SlidersHorizontal,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -487,9 +487,12 @@ export default function ChatPage() {
           </button>
         </div>
 
-        <div className="text-xs text-muted-foreground hidden sm:block">
-          {activeTab === "advisor" ? "ממליץ על כלי AI + פרומפטים" : "מסביר בשפה פשוטה"}
-        </div>
+        <Link href="/settings">
+          <Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:text-foreground hidden sm:flex">
+            <SlidersHorizontal className="h-3.5 w-3.5" />
+            הגדרות
+          </Button>
+        </Link>
       </header>
 
       {/* Tab description bar */}

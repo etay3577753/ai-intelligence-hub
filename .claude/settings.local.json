@@ -126,7 +126,9 @@
       "Bash(python -c \"import fitz; print\\('PyMuPDF', fitz.version[0], 'OK'\\)\")",
       "Bash(curl -s http://localhost:8000/api/credit/health)",
       "Bash(python -c \"from routers.credit import router; print\\('OK'\\)\")",
-      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\����\\\\The Master AI Architect\\\\frontend\\\\src\\\\app\\\\api\\\\user-profile\")"
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\����\\\\The Master AI Architect\\\\frontend\\\\src\\\\app\\\\api\\\\user-profile\")",
+      "PowerShell(cd \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\frontend\"; npx tsc --noEmit 2>&1 | Where-Object { $_ -match \"settings|Sidebar|chat.page|userProfile\" })",
+      "PowerShell(cd \"C:\\\\Users\\\\איתי\\\\The Master AI Architect\\\\frontend\"; \\(npx tsc --noEmit 2>&1\\) -join \"`n\" | Out-File -FilePath \"tsc_out.txt\" -Encoding utf8; Get-Content \"tsc_out.txt\" | Select-String \"settings|Sidebar|chat\" ; Remove-Item \"tsc_out.txt\")"
     ]
   }
 }

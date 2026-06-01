@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import {
   LayoutDashboard, GitCompare, Settings, Brain,
   ChevronLeft, ChevronRight, Plus, Wrench, BookOpen, MessageCircle, Workflow, ShieldCheck,
-  LogOut, Database,
+  LogOut, Database, SlidersHorizontal,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -96,11 +96,21 @@ export function Sidebar({ activeView, onNavigate }: SidebarProps) {
         <Link href="/settings" className="block">
           <button className={cn(
             "w-full flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium",
+            "border border-primary/30 text-primary hover:bg-primary/10 transition-colors",
+            collapsed && "justify-center"
+          )}>
+            <SlidersHorizontal className="h-4 w-4 shrink-0" />
+            {!collapsed && <span>הגדרות אישיות</span>}
+          </button>
+        </Link>
+        <Link href="/settings/tools" className="block">
+          <button className={cn(
+            "w-full flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium",
             "border border-border text-muted-foreground hover:bg-accent hover:text-foreground transition-colors",
             collapsed && "justify-center"
           )}>
             <Wrench className="h-4 w-4 shrink-0" />
-            {!collapsed && <span>הגדרות ארגז כלים</span>}
+            {!collapsed && <span>ארגז כלים</span>}
           </button>
         </Link>
         {LINK_ITEMS.map(({ icon: Icon, label, href, color }) => (

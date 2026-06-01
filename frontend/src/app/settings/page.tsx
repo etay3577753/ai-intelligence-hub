@@ -1,631 +1,673 @@
 "use client";
 
-import { useState, useEffect, useMemo, useRef } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import {
-  Settings, Save, CheckCircle, Brain, Sparkles,
-  ChevronRight, Loader2, Trophy, Search, ChevronDown,
-  ChevronUp, Info,
+  User, Wrench, MessageSquare, Save, RotateCcw,
+  CheckCircle, Loader2, ChevronRight, Brain, Sparkles,
+  SlidersHorizontal, Bell,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-// ── Types ──────────────────────────────────────────────────────────────────────
-type GenericTier = "free" | "pro" | "api";
+// ─────────────────────────────────────────────────────────────────────────────
+// Types
+// ─────────────────────────────────────────────────────────────────────────────
 
-interface BrandOption {
+type TechLevel  = "low" | "medium" | "high" | "dev";
+type Budget     = "free" | "low" | "medium" | "high";
+type Lang       = "he" | "en";
+type DetailPref = "quick" | "recommended" | "full_guide";
+type ClarifyPref= "always" | "complex_only" | "never";
+type ToolPlan   = "free" | "pro" | "api" | "enterprise";
+
+interface SubscribedTool {
   id: string;
-  label: string;
-  maps_to: GenericTier;
-  models: string[];
-  info_he: string;
-  unlocks: string[];
+  plan: ToolPlan;
 }
 
-interface BrandTierDef {
-  provider_label: string;
-  tool_ids: string[];
-  options: BrandOption[];
+interface ProfileState {
+  name:              string;
+  tech_level:        TechLevel;
+  monthly_budget:    Budget;
+  language:          Lang;
+  detail_level:      DetailPref;
+  ask_clarification: ClarifyPref;
+  include_prompts:   boolean;
+  subscriptions:     SubscribedTool[];
+  last_updated:      string;
 }
 
-interface ToolEntry {
-  id: string;
-  name: string;
-  category: string;
-  cost: string;
-  hebrew_support: string;
-  description: string;
-}
+// ─────────────────────────────────────────────────────────────────────────────
+// Popular tools per ecosystem
+// ─────────────────────────────────────────────────────────────────────────────
 
-// ── Category display order ─────────────────────────────────────────────────────
-const CATEGORY_ORDER = [
-  "מודלי שפה / צ'אטבוטים",
-  "וידאו ועריכה",
-  "אודיו ומוזיקה",
-  "יצירת תמונות",
-  "No-Code / פיתוח",
-  "אוטומציות",
-  "מצגות",
-  "פרודוקטיביות",
-  "עיצוב גרפי",
-  "למידה ומחקר",
-  "שיווק",
-  "סוכנים",
-  "דפדפני AI",
-  "כלים בוואטסאפ",
-  "אימון מודלים חזותיים",
-  "משפטי",
+const ECOSYSTEM_TOOLS: { ecosystem: string; color: string; dot: string; tools: { id: string; name: string; link: string }[] }[] = [
+  {
+    ecosystem: "Anthropic",
+    color: "border-orange-400/30 bg-orange-400/5",
+    dot: "bg-orange-400",
+    tools: [
+      { id: "claude",      name: "Claude",      link: "https://claude.ai" },
+      { id: "claude-code", name: "Claude Code", link: "https://claude.ai/claude-code" },
+    ],
+  },
+  {
+    ecosystem: "Google",
+    color: "border-blue-400/30 bg-blue-400/5",
+    dot: "bg-blue-400",
+    tools: [
+      { id: "gemini",           name: "Gemini",           link: "https://gemini.google.com" },
+      { id: "google-ai-studio", name: "Google AI Studio", link: "https://aistudio.google.com" },
+      { id: "notebooklm",       name: "NotebookLM",       link: "https://notebooklm.google.com" },
+      { id: "gemma4",           name: "Gemma (מקומי)",    link: "https://ai.google.dev/gemma" },
+    ],
+  },
+  {
+    ecosystem: "OpenAI",
+    color: "border-green-400/30 bg-green-400/5",
+    dot: "bg-green-400",
+    tools: [
+      { id: "chatgpt", name: "ChatGPT", link: "https://chatgpt.com" },
+      { id: "sora",    name: "Sora",    link: "https://sora.com" },
+    ],
+  },
+  {
+    ecosystem: "Microsoft",
+    color: "border-sky-400/30 bg-sky-400/5",
+    dot: "bg-sky-400",
+    tools: [
+      { id: "microsoft-copilot",  name: "Microsoft Copilot",  link: "https://copilot.microsoft.com" },
+    ],
+  },
+  {
+    ecosystem: "xAI / Other",
+    color: "border-purple-400/30 bg-purple-400/5",
+    dot: "bg-purple-400",
+    tools: [
+      { id: "grok",       name: "Grok",       link: "https://grok.com" },
+      { id: "perplexity", name: "Perplexity", link: "https://perplexity.ai" },
+      { id: "deepseek",   name: "DeepSeek",   link: "https://chat.deepseek.com" },
+    ],
+  },
+  {
+    ecosystem: "פיתוח / Coding",
+    color: "border-yellow-400/30 bg-yellow-400/5",
+    dot: "bg-yellow-400",
+    tools: [
+      { id: "cursor",   name: "Cursor",   link: "https://cursor.sh" },
+      { id: "windsurf", name: "Windsurf", link: "https://windsurf.ai" },
+      { id: "lovable",  name: "Lovable",  link: "https://lovable.dev" },
+      { id: "bolt",     name: "Bolt",     link: "https://bolt.new" },
+      { id: "replit",   name: "Replit",   link: "https://replit.com" },
+    ],
+  },
+  {
+    ecosystem: "אוטומציה",
+    color: "border-pink-400/30 bg-pink-400/5",
+    dot: "bg-pink-400",
+    tools: [
+      { id: "n8n",    name: "n8n",    link: "https://n8n.io" },
+      { id: "make",   name: "Make",   link: "https://make.com" },
+      { id: "zapier", name: "Zapier", link: "https://zapier.com" },
+    ],
+  },
+  {
+    ecosystem: "מדיה / יצירה",
+    color: "border-rose-400/30 bg-rose-400/5",
+    dot: "bg-rose-400",
+    tools: [
+      { id: "midjourney", name: "Midjourney",  link: "https://midjourney.com" },
+      { id: "elevenlabs", name: "ElevenLabs",  link: "https://elevenlabs.io" },
+      { id: "runway",     name: "Runway ML",   link: "https://runwayml.com" },
+      { id: "suno",       name: "Suno",        link: "https://suno.com" },
+      { id: "heygen",     name: "HeyGen",      link: "https://heygen.com" },
+    ],
+  },
+  {
+    ecosystem: "פרודוקטיביות",
+    color: "border-teal-400/30 bg-teal-400/5",
+    dot: "bg-teal-400",
+    tools: [
+      { id: "notion",   name: "Notion",   link: "https://notion.so" },
+      { id: "canva",    name: "Canva",    link: "https://canva.com" },
+      { id: "gamma",    name: "Gamma",    link: "https://gamma.app" },
+      { id: "genspark", name: "GenSpark", link: "https://genspark.ai" },
+    ],
+  },
 ];
 
-// Generic tier config for non-brand tools
-const GENERIC_TIER_CFG: Record<GenericTier, { label: string; color: string; dot: string }> = {
-  free: { label: "Free",  color: "border-border text-muted-foreground",       dot: "bg-muted-foreground" },
-  pro:  { label: "Pro",   color: "border-primary text-primary bg-primary/10", dot: "bg-primary"          },
-  api:  { label: "API",   color: "border-orange-400 text-orange-400 bg-orange-400/10", dot: "bg-orange-400" },
+const PLAN_OPTIONS: { value: ToolPlan; label: string; color: string }[] = [
+  { value: "free",       label: "חינם",       color: "text-muted-foreground" },
+  { value: "pro",        label: "Pro",        color: "text-primary" },
+  { value: "api",        label: "API",        color: "text-orange-400" },
+  { value: "enterprise", label: "Enterprise", color: "text-yellow-400" },
+];
+
+const DEFAULTS: ProfileState = {
+  name:              "Admin",
+  tech_level:        "low",
+  monthly_budget:    "low",
+  language:          "he",
+  detail_level:      "recommended",
+  ask_clarification: "complex_only",
+  include_prompts:   true,
+  subscriptions:     [],
+  last_updated:      "",
 };
 
-const TIER_SCORE: Record<GenericTier, number> = { free: 1, pro: 3, api: 5 };
+// ─────────────────────────────────────────────────────────────────────────────
+// Small helper components
+// ─────────────────────────────────────────────────────────────────────────────
 
-// ── Info Tooltip ───────────────────────────────────────────────────────────────
-function InfoTooltip({ text, models }: { text: string; models?: string[] }) {
-  const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!open) return;
-    function handler(e: MouseEvent) {
-      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
-    }
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, [open]);
-
-  return (
-    <div className="relative inline-block" ref={ref}>
-      <button
-        type="button"
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-        onClick={() => setOpen((o) => !o)}
-        className="text-muted-foreground hover:text-primary transition-colors"
-        aria-label="מידע נוסף"
-      >
-        <Info className="h-3.5 w-3.5" />
-      </button>
-      {open && (
-        <div className="absolute start-0 top-6 z-50 w-72 rounded-xl border border-border bg-popover shadow-xl p-3 space-y-2 text-xs">
-          <p className="text-foreground leading-relaxed">{text}</p>
-          {models && models.length > 0 && (
-            <div>
-              <p className="text-muted-foreground font-medium mb-1">מודלים זמינים:</p>
-              <div className="flex flex-wrap gap-1">
-                {models.map((m) => (
-                  <span key={m} className="bg-secondary rounded px-1.5 py-0.5 text-xs font-mono">{m}</span>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
-      )}
-    </div>
-  );
-}
-
-// ── Brand Tier Dropdown (for major providers) ──────────────────────────────────
-function BrandDropdown({
-  toolId,
-  brandDef,
-  selectedBrandTier,
-  onChange,
+function SegmentControl<T extends string>({
+  options, value, onChange, cols = 2,
 }: {
-  toolId: string;
-  brandDef: BrandTierDef;
-  selectedBrandTier: string;
-  onChange: (toolId: string, brandOptionId: string, mapsTo: GenericTier, unlocks: string[]) => void;
+  options: { value: T; label: string; desc?: string }[];
+  value: T;
+  onChange: (v: T) => void;
+  cols?: number;
 }) {
-  const selectedOption = brandDef.options.find((o) => o.id === selectedBrandTier) ?? brandDef.options[0];
-  const isPaid = selectedOption.maps_to !== "free";
-
   return (
-    <div className="flex items-center gap-2 shrink-0">
-      {/* Info about selected tier */}
-      <InfoTooltip text={selectedOption.info_he} models={selectedOption.models} />
-
-      {/* Brand-specific dropdown */}
-      <div className="relative">
-        <select
-          value={selectedBrandTier}
-          onChange={(e) => {
-            const opt = brandDef.options.find((o) => o.id === e.target.value)!;
-            onChange(toolId, opt.id, opt.maps_to, opt.unlocks);
-          }}
-          dir="ltr"
+    <div className={cn("grid gap-2", cols === 2 ? "grid-cols-2" : cols === 3 ? "grid-cols-3" : "grid-cols-4")}>
+      {options.map((o) => (
+        <button
+          key={o.value}
+          type="button"
+          onClick={() => onChange(o.value)}
           className={cn(
-            "appearance-none rounded-lg border px-3 py-1.5 pe-7 text-xs font-medium cursor-pointer transition-all",
-            "focus:outline-none focus:ring-2 focus:ring-ring bg-secondary",
-            isPaid
-              ? "border-primary text-primary"
-              : "border-border text-muted-foreground"
+            "rounded-xl border px-3 py-2.5 text-sm transition-all text-start",
+            value === o.value
+              ? "border-primary bg-primary/10 text-primary font-medium"
+              : "border-border text-muted-foreground hover:border-border/80 hover:bg-accent/40"
           )}
         >
-          {brandDef.options.map((opt) => (
-            <option key={opt.id} value={opt.id}>{opt.label}</option>
-          ))}
-        </select>
-        <ChevronDown className="pointer-events-none absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground" />
-      </div>
+          <div className="font-medium text-xs">{o.label}</div>
+          {o.desc && <div className="text-[11px] mt-0.5 opacity-70 leading-tight">{o.desc}</div>}
+        </button>
+      ))}
     </div>
   );
 }
 
-// ── Generic Tier Toggle (for non-brand tools) ──────────────────────────────────
-function GenericToggle({ value, onChange }: { value: GenericTier; onChange: (t: GenericTier) => void }) {
-  const tiers: GenericTier[] = ["free", "pro", "api"];
-  return (
-    <div className="flex gap-1 shrink-0">
-      {tiers.map((t) => {
-        const cfg = GENERIC_TIER_CFG[t];
-        const active = value === t;
-        return (
-          <button
-            key={t}
-            onClick={() => onChange(t)}
-            className={cn(
-              "px-2.5 py-1 rounded-md text-xs font-medium border transition-all",
-              active ? cfg.color : "border-border text-muted-foreground hover:bg-accent"
-            )}
-          >
-            {active && <span className={cn("inline-block h-1.5 w-1.5 rounded-full me-1.5", cfg.dot)} />}
-            {cfg.label}
-          </button>
-        );
-      })}
-    </div>
-  );
-}
-
-// ── Tool Row ───────────────────────────────────────────────────────────────────
-function ToolRow({
-  tool,
-  genericTier,
-  brandDef,
-  selectedBrandTier,
-  isMaster,
-  onGenericChange,
-  onBrandChange,
-}: {
-  tool: ToolEntry;
-  genericTier: GenericTier;
-  brandDef?: BrandTierDef;
-  selectedBrandTier?: string;
-  isMaster: boolean;
-  onGenericChange: (id: string, t: GenericTier) => void;
-  onBrandChange: (toolId: string, brandOptionId: string, mapsTo: GenericTier, unlocks: string[]) => void;
+function SectionCard({ icon: Icon, title, children, accent = "primary" }: {
+  icon: React.ElementType;
+  title: string;
+  children: React.ReactNode;
+  accent?: string;
 }) {
-  const isPaid = genericTier !== "free";
-  const hebBadge = tool.hebrew_support === "תומך";
-
+  const accentMap: Record<string, string> = {
+    primary: "text-primary border-primary/20",
+    orange:  "text-orange-400 border-orange-400/20",
+    blue:    "text-blue-400 border-blue-400/20",
+    teal:    "text-teal-400 border-teal-400/20",
+  };
+  const cls = accentMap[accent] ?? accentMap.primary;
   return (
-    <div className={cn(
-      "flex items-center gap-3 px-4 py-2.5 rounded-lg border transition-all",
-      isMaster
-        ? "border-yellow-400/40 bg-yellow-400/5"
-        : isPaid
-        ? "border-primary/20 bg-primary/5"
-        : "border-transparent hover:border-border hover:bg-accent/30"
-    )}>
-      {/* Name + badges */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-sm font-medium truncate">{tool.name}</span>
-          {isMaster && (
-            <span className="inline-flex items-center gap-1 text-xs text-yellow-400 shrink-0">
-              <Trophy className="h-3 w-3" />
-              Master Brain
-            </span>
-          )}
-          {hebBadge && (
-            <span className="text-xs text-green-400 shrink-0">✅ עברית</span>
-          )}
-        </div>
-        <p className="text-xs text-muted-foreground truncate mt-0.5">{tool.cost}</p>
+    <div className="rounded-2xl border border-border bg-card overflow-hidden">
+      <div className={cn("flex items-center gap-2 px-5 py-3.5 border-b border-border bg-secondary/30", cls.split(" ")[0])}>
+        <Icon className={cn("h-4 w-4 shrink-0", cls.split(" ")[0])} />
+        <h2 className="text-sm font-semibold">{title}</h2>
       </div>
-
-      {/* Controls */}
-      {brandDef && selectedBrandTier !== undefined ? (
-        <BrandDropdown
-          toolId={tool.id}
-          brandDef={brandDef}
-          selectedBrandTier={selectedBrandTier}
-          onChange={onBrandChange}
-        />
-      ) : (
-        <GenericToggle
-          value={genericTier}
-          onChange={(t) => onGenericChange(tool.id, t)}
-        />
-      )}
+      <div className="px-5 py-4 space-y-4">{children}</div>
     </div>
   );
 }
 
-// ── Category Section ───────────────────────────────────────────────────────────
-function CategorySection({
-  category,
-  tools,
-  genericTiers,
-  brandTierDefs,
-  userBrandTiers,
-  masterBrainId,
-  onGenericChange,
-  onBrandChange,
-}: {
-  category: string;
-  tools: ToolEntry[];
-  genericTiers: Record<string, GenericTier>;
-  brandTierDefs: Record<string, BrandTierDef>;
-  userBrandTiers: Record<string, string>;
-  masterBrainId: string | null;
-  onGenericChange: (id: string, t: GenericTier) => void;
-  onBrandChange: (toolId: string, brandOptionId: string, mapsTo: GenericTier, unlocks: string[]) => void;
-}) {
-  const [open, setOpen] = useState(category === "מודלי שפה / צ'אטבוטים");
-  const proCount = tools.filter((t) => genericTiers[t.id] !== "free").length;
-
+function FieldLabel({ label, hint }: { label: string; hint?: string }) {
   return (
-    <div className="rounded-xl border border-border overflow-hidden">
-      <button
-        onClick={() => setOpen((o) => !o)}
-        className="w-full flex items-center justify-between px-4 py-3 bg-card hover:bg-accent/50 transition-colors"
-      >
-        <div className="flex items-center gap-2">
-          <span className="font-semibold text-sm">{category}</span>
-          <Badge variant="secondary" className="text-xs">{tools.length}</Badge>
-          {proCount > 0 && (
-            <Badge className="text-xs bg-primary/10 text-primary border-primary/30">{proCount} פעילים</Badge>
-          )}
-        </div>
-        {open
-          ? <ChevronUp className="h-4 w-4 text-muted-foreground" />
-          : <ChevronDown className="h-4 w-4 text-muted-foreground" />}
-      </button>
-
-      {open && (
-        <div className="px-3 py-2 space-y-1 bg-background/40">
-          {tools.map((tool) => {
-            // Find if this tool has a brand def
-            const brandDefEntry = Object.entries(brandTierDefs).find(
-              ([, def]) => def.tool_ids.includes(tool.id)
-            );
-            const brandDef = brandDefEntry ? brandDefEntry[1] : undefined;
-            const brandKey = brandDefEntry ? brandDefEntry[0] : undefined;
-            const selectedBrandTier = brandKey ? (userBrandTiers[brandKey] ?? "free") : undefined;
-
-            return (
-              <ToolRow
-                key={tool.id}
-                tool={tool}
-                genericTier={genericTiers[tool.id] ?? "free"}
-                brandDef={brandDef}
-                selectedBrandTier={selectedBrandTier}
-                isMaster={masterBrainId === tool.id}
-                onGenericChange={onGenericChange}
-                onBrandChange={onBrandChange}
-              />
-            );
-          })}
-        </div>
-      )}
+    <div className="mb-1.5">
+      <p className="text-sm font-medium">{label}</p>
+      {hint && <p className="text-xs text-muted-foreground mt-0.5">{hint}</p>}
     </div>
   );
 }
 
-// ── Ecosystem Banner ───────────────────────────────────────────────────────────
-function EcosystemBanner({
-  brandTierDefs,
-  userBrandTiers,
-}: {
-  brandTierDefs: Record<string, BrandTierDef>;
-  userBrandTiers: Record<string, string>;
-}) {
-  const active = Object.entries(brandTierDefs).filter(([key, def]) => {
-    const sel = userBrandTiers[key] ?? "free";
-    const opt = def.options.find((o) => o.id === sel);
-    return opt && opt.maps_to !== "free";
-  });
+// ─────────────────────────────────────────────────────────────────────────────
+// Main Page
+// ─────────────────────────────────────────────────────────────────────────────
 
-  if (!active.length) return null;
-
-  return (
-    <div className="rounded-xl border border-blue-400/30 bg-blue-400/5 p-4 space-y-2">
-      <div className="flex items-center gap-2">
-        <Sparkles className="h-4 w-4 text-blue-400" />
-        <span className="text-sm font-semibold text-blue-400">כיסוי אקוסיסטם פעיל</span>
-      </div>
-      {active.map(([key, def]) => {
-        const sel = userBrandTiers[key] ?? "free";
-        const opt = def.options.find((o) => o.id === sel)!;
-        return (
-          <div key={key} className="flex items-start gap-2 text-xs">
-            <span className="text-foreground font-medium shrink-0">{def.provider_label}:</span>
-            <span className="text-muted-foreground">{opt.label}</span>
-            {opt.unlocks.length > 0 && (
-              <span className="text-green-400">→ מפעיל: {opt.unlocks.join(", ")}</span>
-            )}
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-// ── Main Page ──────────────────────────────────────────────────────────────────
 export default function SettingsPage() {
-  const [tools, setTools] = useState<ToolEntry[]>([]);
-  const [genericTiers, setGenericTiers] = useState<Record<string, GenericTier>>({});
-  const [brandTierDefs, setBrandTierDefs] = useState<Record<string, BrandTierDef>>({});
-  const [userBrandTiers, setUserBrandTiers] = useState<Record<string, string>>({});
-  const [loading, setLoading] = useState(true);
-  const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
-  const [search, setSearch] = useState("");
+  const [profile, setProfile] = useState<ProfileState>(DEFAULTS);
+  const [loading, setLoading]   = useState(true);
+  const [saveStatus, setSaveStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const isFirstLoad = useRef(true);
 
+  // ── Load profile on mount ────────────────────────────────────────────────
   useEffect(() => {
-    fetch("/api/settings")
+    fetch("/api/user-profile")
       .then((r) => r.json())
-      .then((d) => {
-        setTools(d.tools ?? []);
-        setGenericTiers(d.user_tiers ?? {});
-        setBrandTierDefs(d.brand_tiers ?? {});
-        setUserBrandTiers(d.user_brand_tiers ?? {});
+      .then((data) => {
+        setProfile({
+          name:              data.name              ?? DEFAULTS.name,
+          tech_level:        (data.tech_level as TechLevel)    ?? DEFAULTS.tech_level,
+          monthly_budget:    (data.monthly_budget as Budget)   ?? DEFAULTS.monthly_budget,
+          language:          (data.language as Lang)           ?? DEFAULTS.language,
+          detail_level:      (data.detail_level as DetailPref) ?? DEFAULTS.detail_level,
+          ask_clarification: (data.ask_clarification as ClarifyPref) ?? DEFAULTS.ask_clarification,
+          include_prompts:   data.include_prompts  !== false,
+          subscriptions:     Array.isArray(data.subscriptions)
+            ? (data.subscriptions as SubscribedTool[])
+            : [],
+          last_updated: data.last_updated ?? "",
+        });
         setLoading(false);
+        isFirstLoad.current = false;
       })
-      .catch(() => setLoading(false));
+      .catch(() => { setLoading(false); isFirstLoad.current = false; });
   }, []);
 
-  // Handle brand dropdown change — cascades unlocks
-  function handleBrandChange(toolId: string, brandOptionId: string, mapsTo: GenericTier, unlocks: string[]) {
-    // Map brand key from toolId
-    const brandKey = Object.keys(brandTierDefs).find(
-      (k) => brandTierDefs[k].tool_ids.includes(toolId)
-    ) ?? toolId;
-
-    setUserBrandTiers((prev) => ({ ...prev, [brandKey]: brandOptionId }));
-
-    // Update the generic tier for the primary tool
-    setGenericTiers((prev) => {
-      const next = { ...prev, [toolId]: mapsTo };
-      // Cascade to unlocked tools — only upgrade never downgrade
-      for (const uid of unlocks) {
-        const cur = TIER_SCORE[next[uid] ?? "free"];
-        if (TIER_SCORE[mapsTo] > cur) next[uid] = mapsTo;
+  // ── Autosave — debounced 1.5s after every change ─────────────────────────
+  const save = useCallback(async (state: ProfileState) => {
+    setSaveStatus("saving");
+    try {
+      const res = await fetch("/api/user-profile", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name:              state.name,
+          tech_level:        state.tech_level,
+          monthly_budget:    state.monthly_budget,
+          language:          state.language,
+          detail_level:      state.detail_level,
+          ask_clarification: state.ask_clarification,
+          include_prompts:   state.include_prompts,
+          subscriptions:     state.subscriptions,
+        }),
+      });
+      if (res.ok) {
+        const updated = await res.json();
+        setProfile((p) => ({ ...p, last_updated: updated.profile?.last_updated ?? p.last_updated }));
+        setSaveStatus("saved");
+        setTimeout(() => setSaveStatus("idle"), 2500);
+      } else {
+        setSaveStatus("error");
       }
+    } catch {
+      setSaveStatus("error");
+    }
+  }, []);
+
+  function update<K extends keyof ProfileState>(key: K, value: ProfileState[K]) {
+    setProfile((prev) => {
+      const next = { ...prev, [key]: value };
+      if (isFirstLoad.current) return next;
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      debounceRef.current = setTimeout(() => save(next), 1500);
       return next;
     });
   }
 
-  function handleGenericChange(id: string, t: GenericTier) {
-    setGenericTiers((prev) => ({ ...prev, [id]: t }));
+  // ── Subscription helpers ──────────────────────────────────────────────────
+  function isSubscribed(id: string) {
+    return profile.subscriptions.some((s) => s.id === id);
   }
 
-  // Master Brain — highest scoring tool among generic tiers
-  const masterBrainId = useMemo(() => {
-    let bestId: string | null = null;
-    let bestScore = 0;
-    for (const [id, tier] of Object.entries(genericTiers)) {
-      const score = TIER_SCORE[tier as GenericTier] ?? 0;
-      if (score > bestScore) { bestScore = score; bestId = id; }
-    }
-    return bestScore > 1 ? bestId : null;
-  }, [genericTiers]);
-
-  const masterBrainName = masterBrainId
-    ? (tools.find((t) => t.id === masterBrainId)?.name ?? masterBrainId)
-    : null;
-
-  // Filter & group
-  const filtered = useMemo(() => {
-    const q = search.toLowerCase();
-    return !q ? tools : tools.filter(
-      (t) => t.name.toLowerCase().includes(q) || t.category.includes(q)
-    );
-  }, [tools, search]);
-
-  const grouped = useMemo(() => {
-    const map: Record<string, ToolEntry[]> = {};
-    for (const t of filtered) {
-      if (!map[t.category]) map[t.category] = [];
-      map[t.category].push(t);
-    }
-    return CATEGORY_ORDER
-      .filter((cat) => map[cat]?.length)
-      .map((cat) => ({ category: cat, tools: map[cat] }));
-  }, [filtered]);
-
-  async function handleSave() {
-    setSaving(true);
-    setSaved(false);
-    try {
-      await fetch("/api/settings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_tiers: genericTiers, user_brand_tiers: userBrandTiers }),
-      });
-      setSaved(true);
-      setTimeout(() => setSaved(false), 3000);
-    } finally {
-      setSaving(false);
-    }
+  function getToolPlan(id: string): ToolPlan {
+    return profile.subscriptions.find((s) => s.id === id)?.plan ?? "free";
   }
 
-  const activeCount = Object.values(genericTiers).filter((t) => t !== "free").length;
+  function toggleTool(id: string) {
+    setProfile((prev) => {
+      let next: SubscribedTool[];
+      if (prev.subscriptions.some((s) => s.id === id)) {
+        next = prev.subscriptions.filter((s) => s.id !== id);
+      } else {
+        next = [...prev.subscriptions, { id, plan: "free" }];
+      }
+      const state = { ...prev, subscriptions: next };
+      if (isFirstLoad.current) return state;
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      debounceRef.current = setTimeout(() => save(state), 1500);
+      return state;
+    });
+  }
 
+  function setToolPlan(id: string, plan: ToolPlan) {
+    setProfile((prev) => {
+      const next = prev.subscriptions.map((s) =>
+        s.id === id ? { ...s, plan } : s
+      );
+      const state = { ...prev, subscriptions: next };
+      if (isFirstLoad.current) return state;
+      if (debounceRef.current) clearTimeout(debounceRef.current);
+      debounceRef.current = setTimeout(() => save(state), 1500);
+      return state;
+    });
+  }
+
+  function handleReset() {
+    setProfile(DEFAULTS);
+    save(DEFAULTS);
+  }
+
+  // ── Formatted date ────────────────────────────────────────────────────────
+  const lastUpdatedStr = profile.last_updated
+    ? new Date(profile.last_updated).toLocaleString("he-IL", {
+        day: "2-digit", month: "2-digit", year: "numeric",
+        hour: "2-digit", minute: "2-digit",
+      })
+    : "—";
+
+  const activeSubCount = profile.subscriptions.filter((s) => s.plan !== "free").length;
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // Render
+  // ─────────────────────────────────────────────────────────────────────────
   return (
-    <div className="flex flex-col h-screen w-full overflow-hidden bg-background">
-      {/* Top bar */}
-      <header className="flex items-center justify-between px-5 py-3 border-b border-border bg-card shrink-0 gap-3">
+    <div className="flex flex-col h-screen bg-background overflow-hidden" dir="rtl">
+
+      {/* ── Header ─────────────────────────────────────────────────────────── */}
+      <header className="flex items-center justify-between gap-3 px-5 py-3 border-b border-border bg-card shrink-0">
         <Link href="/">
-          <Button variant="ghost" size="sm" className="gap-2">
+          <Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:text-foreground">
             <ChevronRight className="h-4 w-4" />
-            חזרה לדשבורד
+            חזרה
           </Button>
         </Link>
+
         <div className="flex items-center gap-2">
-          <Settings className="h-5 w-5 text-primary" />
-          <h1 className="text-base font-semibold">הגדרות ארגז הכלים</h1>
-          {activeCount > 0 && (
-            <Badge className="bg-primary/10 text-primary border-primary/30 text-xs">
-              {activeCount} פעילים
-            </Badge>
+          <SlidersHorizontal className="h-5 w-5 text-primary" />
+          <h1 className="text-base font-semibold">הגדרות אישיות</h1>
+          {activeSubCount > 0 && (
+            <span className="bg-primary/10 text-primary border border-primary/30 text-xs px-2 py-0.5 rounded-full font-medium">
+              {activeSubCount} מנויים פעילים
+            </span>
           )}
         </div>
-        <Button
-          onClick={handleSave}
-          disabled={saving || loading}
-          size="sm"
-          className="gap-2 shrink-0 min-w-[130px]"
-        >
-          {saving ? (
-            <><Loader2 className="h-4 w-4 animate-spin" />שומר…</>
-          ) : saved ? (
-            <><CheckCircle className="h-4 w-4" />נשמר!</>
-          ) : (
-            <><Save className="h-4 w-4" />שמור הגדרות</>
+
+        {/* Save status indicator */}
+        <div className="flex items-center gap-2 min-w-[110px] justify-end">
+          {saveStatus === "saving" && (
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <Loader2 className="h-3.5 w-3.5 animate-spin" /> שומר…
+            </span>
           )}
-        </Button>
+          {saveStatus === "saved" && (
+            <span className="flex items-center gap-1.5 text-xs text-green-400 font-medium">
+              <CheckCircle className="h-3.5 w-3.5" /> נשמר ✓
+            </span>
+          )}
+          {saveStatus === "error" && (
+            <span className="text-xs text-red-400">שגיאה בשמירה</span>
+          )}
+          {saveStatus === "idle" && !loading && (
+            <span className="text-[11px] text-muted-foreground/50">autosave פעיל</span>
+          )}
+        </div>
       </header>
 
-      {/* Body */}
-      <div className="flex-1 overflow-auto">
-        <div className="max-w-3xl mx-auto px-4 py-6 space-y-5">
+      {/* ── Body ───────────────────────────────────────────────────────────── */}
+      {loading ? (
+        <div className="flex-1 flex items-center justify-center">
+          <Loader2 className="h-8 w-8 animate-spin text-primary" />
+        </div>
+      ) : (
+        <div className="flex-1 overflow-auto">
+          <div className="max-w-2xl mx-auto px-4 py-6 space-y-5">
 
-          {/* Intro */}
-          <div className="text-center space-y-1">
-            <div className="flex items-center justify-center gap-2">
-              <Brain className="h-8 w-8 text-primary" />
-              <h2 className="text-xl font-bold">ארגז הכלים שלי</h2>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              בחר את המנוי הפעיל שלך לכל ספק. לחץ על <Info className="h-3 w-3 inline" /> לפרטים על כל רמה.
-            </p>
-          </div>
-
-          {/* Master Brain */}
-          {!loading && masterBrainName && (
-            <div className="rounded-xl border border-yellow-400/40 bg-yellow-400/5 px-4 py-3 flex items-center gap-3">
-              <Trophy className="h-5 w-5 text-yellow-400 shrink-0" />
-              <div className="text-sm">
-                <span className="font-semibold text-yellow-400">Master Brain: </span>
-                <span className="text-foreground">{masterBrainName}</span>
-                <span className="text-xs text-muted-foreground block mt-0.5">
-                  הכלי הכי חזק שיש לך — ישמש כ"מוח" הראשי בכל הפרויקטים
-                </span>
+            {/* Intro */}
+            <div className="flex items-center gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-5 py-4">
+              <Brain className="h-7 w-7 text-primary shrink-0" />
+              <div>
+                <p className="text-sm font-semibold">פרופיל המשתמש שלך</p>
+                <p className="text-xs text-muted-foreground mt-0.5">
+                  כל שינוי נשמר אוטומטית • הגדרות אלו משפיעות על כל תשובות הצ׳אט
+                </p>
               </div>
             </div>
-          )}
 
-          {/* Ecosystem banner */}
-          {!loading && (
-            <EcosystemBanner brandTierDefs={brandTierDefs} userBrandTiers={userBrandTiers} />
-          )}
+            {/* ── SECTION 1: פרופיל בסיסי ──────────────────────────────────── */}
+            <SectionCard icon={User} title="סעיף 1 — פרופיל בסיסי" accent="primary">
 
-          {/* Legend */}
-          {!loading && (
-            <div className="flex items-center gap-4 text-xs text-muted-foreground px-1">
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-muted-foreground" />
-                Free — חינמי
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-primary" />
-                Pro — מנוי בתשלום
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="h-2 w-2 rounded-full bg-orange-400" />
-                API — גישה תכנותית
-              </span>
-              <span className="flex items-center gap-1.5">
-                <Info className="h-3 w-3" />
-                — פרטי מנוי
-              </span>
-            </div>
-          )}
-
-          {/* Search */}
-          <div className="relative">
-            <Search className="absolute end-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground pointer-events-none" />
-            <input
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              placeholder="חפש כלי, קטגוריה…"
-              className="w-full rounded-xl border border-input bg-card pe-10 ps-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-            />
-          </div>
-
-          {/* Tool grid */}
-          {loading ? (
-            <div className="flex justify-center py-16">
-              <Loader2 className="h-8 w-8 animate-spin text-primary" />
-            </div>
-          ) : grouped.length === 0 ? (
-            <p className="text-center text-muted-foreground text-sm py-8">לא נמצאו כלים</p>
-          ) : (
-            <div className="space-y-3">
-              {grouped.map(({ category, tools: catTools }) => (
-                <CategorySection
-                  key={category}
-                  category={category}
-                  tools={catTools}
-                  genericTiers={genericTiers}
-                  brandTierDefs={brandTierDefs}
-                  userBrandTiers={userBrandTiers}
-                  masterBrainId={masterBrainId}
-                  onGenericChange={handleGenericChange}
-                  onBrandChange={handleBrandChange}
+              {/* שם */}
+              <div>
+                <FieldLabel label="שם תצוגה" hint="כך יפנה אליך הצ׳אט" />
+                <input
+                  value={profile.name}
+                  onChange={(e) => update("name", e.target.value)}
+                  placeholder="הכנס שם…"
+                  className="w-full rounded-xl border border-input bg-secondary/50 px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
                 />
-              ))}
-            </div>
-          )}
+              </div>
 
-          {/* How tiers affect recommendations */}
-          <div className="rounded-xl border border-border bg-card p-4 space-y-3">
-            <div className="flex items-center gap-2">
-              <Sparkles className="h-4 w-4 text-primary" />
-              <h3 className="font-semibold text-sm">איך הרמה שבחרת משפיעה על ההמלצות?</h3>
+              {/* רמת טכניות */}
+              <div>
+                <FieldLabel label="רמת טכניות" hint="משפיעה על רמת ההסברים שתקבל" />
+                <SegmentControl
+                  cols={4}
+                  value={profile.tech_level}
+                  onChange={(v) => update("tech_level", v)}
+                  options={[
+                    { value: "low",    label: "מתחיל",   desc: "ללא קוד" },
+                    { value: "medium", label: "בינוני",  desc: "מעט טכני" },
+                    { value: "high",   label: "מתקדם",   desc: "מבין קוד" },
+                    { value: "dev",    label: "מפתח",    desc: "full-stack" },
+                  ]}
+                />
+              </div>
+
+              {/* תקציב */}
+              <div>
+                <FieldLabel label="תקציב חודשי לכלי AI" hint="המלצות יתאימו לרמה זו" />
+                <SegmentControl
+                  cols={4}
+                  value={profile.monthly_budget}
+                  onChange={(v) => update("monthly_budget", v)}
+                  options={[
+                    { value: "free",   label: "חינמי בלבד", desc: "$0" },
+                    { value: "low",    label: "עד $20",      desc: "Pro tier" },
+                    { value: "medium", label: "עד $50",      desc: "כמה מנויים" },
+                    { value: "high",   label: "גמיש",        desc: "API + Pro" },
+                  ]}
+                />
+              </div>
+
+              {/* שפה */}
+              <div>
+                <FieldLabel label="שפת ממשק" />
+                <SegmentControl
+                  cols={2}
+                  value={profile.language}
+                  onChange={(v) => update("language", v)}
+                  options={[
+                    { value: "he", label: "עברית 🇮🇱" },
+                    { value: "en", label: "English 🇺🇸" },
+                  ]}
+                />
+              </div>
+            </SectionCard>
+
+            {/* ── SECTION 2: מנויים קיימים ─────────────────────────────────── */}
+            <SectionCard icon={Wrench} title="סעיף 2 — מנויים קיימים" accent="orange">
+              <p className="text-xs text-muted-foreground -mt-1">
+                סמן כלים שיש לך גישה אליהם. הצ׳אט יתאים המלצות לפי מה שכבר יש לך.
+              </p>
+
+              <div className="space-y-3">
+                {ECOSYSTEM_TOOLS.map(({ ecosystem, color, dot, tools }) => (
+                  <div key={ecosystem} className={cn("rounded-xl border p-3 space-y-2", color)}>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className={cn("h-2 w-2 rounded-full shrink-0", dot)} />
+                      <span className="text-xs font-semibold text-foreground">{ecosystem}</span>
+                    </div>
+                    <div className="space-y-1.5">
+                      {tools.map((tool) => {
+                        const checked = isSubscribed(tool.id);
+                        return (
+                          <div key={tool.id} className="flex items-center gap-3">
+                            {/* Checkbox */}
+                            <button
+                              type="button"
+                              onClick={() => toggleTool(tool.id)}
+                              className={cn(
+                                "w-4.5 h-4.5 rounded-md border-2 flex items-center justify-center shrink-0 transition-all",
+                                checked
+                                  ? "bg-primary border-primary"
+                                  : "border-border hover:border-primary/60"
+                              )}
+                              style={{ width: 18, height: 18 }}
+                            >
+                              {checked && (
+                                <svg viewBox="0 0 10 8" fill="none" className="w-2.5 h-2.5">
+                                  <path d="M1 4l3 3 5-6" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+                                </svg>
+                              )}
+                            </button>
+
+                            {/* Name */}
+                            <span className={cn("text-sm flex-1", checked ? "text-foreground" : "text-muted-foreground")}>
+                              {tool.name}
+                            </span>
+
+                            {/* Plan dropdown — only when checked */}
+                            {checked && (
+                              <select
+                                value={getToolPlan(tool.id)}
+                                onChange={(e) => setToolPlan(tool.id, e.target.value as ToolPlan)}
+                                dir="ltr"
+                                className={cn(
+                                  "appearance-none rounded-lg border px-2.5 py-1 text-xs font-medium cursor-pointer transition-all",
+                                  "focus:outline-none focus:ring-1 focus:ring-ring bg-card",
+                                  getToolPlan(tool.id) === "free"
+                                    ? "border-border text-muted-foreground"
+                                    : getToolPlan(tool.id) === "pro"
+                                    ? "border-primary text-primary"
+                                    : getToolPlan(tool.id) === "api"
+                                    ? "border-orange-400 text-orange-400"
+                                    : "border-yellow-400 text-yellow-400"
+                                )}
+                              >
+                                {PLAN_OPTIONS.map((p) => (
+                                  <option key={p.value} value={p.value}>{p.label}</option>
+                                ))}
+                              </select>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {activeSubCount > 0 && (
+                <div className="rounded-xl border border-primary/20 bg-primary/5 px-4 py-3 flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-primary shrink-0" />
+                  <p className="text-xs text-foreground">
+                    <span className="font-semibold text-primary">{activeSubCount} כלים</span> ברמת Pro/API/Enterprise — הצ׳אט ינתב משימות לכלים אלו ראשון
+                  </p>
+                </div>
+              )}
+            </SectionCard>
+
+            {/* ── SECTION 3: העדפות תשובה ──────────────────────────────────── */}
+            <SectionCard icon={MessageSquare} title="סעיף 3 — העדפות תשובה" accent="teal">
+
+              {/* רמת פירוט */}
+              <div>
+                <FieldLabel label="רמת פירוט ברירת מחדל" hint="כמה עמוק תרצה שהצ׳אט יענה?" />
+                <SegmentControl
+                  cols={3}
+                  value={profile.detail_level}
+                  onChange={(v) => update("detail_level", v)}
+                  options={[
+                    { value: "quick",       label: "תשובה קצרה",      desc: "מהיר ותמציתי" },
+                    { value: "recommended", label: "מנומק",            desc: "עם השוואה" },
+                    { value: "full_guide",  label: "מדריך מלא",        desc: "צעד-אחר-צעד" },
+                  ]}
+                />
+              </div>
+
+              {/* שאלות דיוק */}
+              <div>
+                <FieldLabel label="שאלות דיוק לפני תשובה" hint="האם הצ׳אט ישאל שאלות לפני שיענה?" />
+                <SegmentControl
+                  cols={3}
+                  value={profile.ask_clarification}
+                  onChange={(v) => update("ask_clarification", v)}
+                  options={[
+                    { value: "always",       label: "תמיד",             desc: "לכל שאלה" },
+                    { value: "complex_only", label: "רק מורכבות",       desc: "ברירת מחדל" },
+                    { value: "never",        label: "לעולם לא",         desc: "ישיר לתשובה" },
+                  ]}
+                />
+              </div>
+
+              {/* פרומפטים */}
+              <div>
+                <FieldLabel label="פרומפטים מוכנים בתשובות" hint="האם לכלול תבניות copy-paste מוכנות?" />
+                <SegmentControl
+                  cols={2}
+                  value={profile.include_prompts ? "yes" : "no"}
+                  onChange={(v) => update("include_prompts", v === "yes")}
+                  options={[
+                    { value: "yes", label: "כן — כלול פרומפטים",  desc: "מומלץ" },
+                    { value: "no",  label: "לא — תשובות בלבד",    desc: "קומפקטי" },
+                  ]}
+                />
+              </div>
+            </SectionCard>
+
+            {/* ── SECTION 4: שמירה ─────────────────────────────────────────── */}
+            <SectionCard icon={Bell} title="סעיף 4 — שמירה ואיפוס" accent="blue">
+
+              <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                <CheckCircle className="h-3.5 w-3.5 text-green-400 shrink-0" />
+                <span>autosave פעיל — נשמר אוטומטית 1.5 שניות אחרי כל שינוי</span>
+              </div>
+
+              {/* Manual save */}
+              <Button
+                onClick={() => save(profile)}
+                disabled={saveStatus === "saving"}
+                className="w-full gap-2"
+                size="lg"
+              >
+                {saveStatus === "saving" ? (
+                  <><Loader2 className="h-4 w-4 animate-spin" />שומר…</>
+                ) : saveStatus === "saved" ? (
+                  <><CheckCircle className="h-4 w-4" />נשמר בהצלחה ✓</>
+                ) : (
+                  <><Save className="h-4 w-4" />שמור הגדרות</>
+                )}
+              </Button>
+
+              {/* Reset */}
+              <Button
+                variant="outline"
+                onClick={handleReset}
+                className="w-full gap-2 text-muted-foreground hover:text-foreground"
+                size="sm"
+              >
+                <RotateCcw className="h-3.5 w-3.5" />
+                אפס הכל לברירות מחדל
+              </Button>
+
+              {/* Last updated */}
+              <div className="text-center text-xs text-muted-foreground/60 pt-1 border-t border-border">
+                עודכן לאחרונה: {lastUpdatedStr}
+              </div>
+            </SectionCard>
+
+            {/* Link to toolbox settings */}
+            <div className="rounded-xl border border-border bg-card/50 px-5 py-3.5 flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium">הגדרות ארגז הכלים</p>
+                <p className="text-xs text-muted-foreground mt-0.5">רמות מנוי מפורטות, Master Brain, אקוסיסטמים</p>
+              </div>
+              <Link href="/settings/tools">
+                <Button variant="outline" size="sm" className="gap-1.5">
+                  <Wrench className="h-3.5 w-3.5" />
+                  פתח
+                </Button>
+              </Link>
             </div>
-            <ul className="space-y-2 text-xs text-muted-foreground">
-              <li className="flex gap-2">
-                <span className="text-primary font-bold shrink-0">1.</span>
-                <span><strong className="text-foreground">Gemini Advanced</strong> → המערכת יודעת שיש לך 1.5 Pro ו-Ultra. תמליץ ל"חיפוש + ניתוח" לפני Perplexity.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary font-bold shrink-0">2.</span>
-                <span><strong className="text-foreground">ChatGPT Plus</strong> → DALL-E 3 מופעל אוטומטית. משימות תמונה ינותבו דרך ChatGPT במקום Midjourney.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary font-bold shrink-0">3.</span>
-                <span><strong className="text-foreground">Claude Pro</strong> → לניתוח מסמכים ארוכים (200K tokens), כתיבה ואסטרטגיה — Claude יהיה ה-Master Brain.</span>
-              </li>
-              <li className="flex gap-2">
-                <span className="text-primary font-bold shrink-0">4.</span>
-                <span><strong className="text-foreground">Copilot Free</strong> → עדיין מומלץ לחיפוש רשת מהיר, אבל לא לניתוח עמוק שבו Claude מנצח.</span>
-              </li>
-            </ul>
+
           </div>
-
-          {/* Bottom save */}
-          <Button onClick={handleSave} disabled={saving || loading} className="w-full gap-2" size="lg">
-            {saving ? (
-              <><Loader2 className="h-4 w-4 animate-spin" />שומר הגדרות…</>
-            ) : saved ? (
-              <><CheckCircle className="h-4 w-4" />הגדרות נשמרו בהצלחה!</>
-            ) : (
-              <><Save className="h-4 w-4" />שמור הגדרות</>
-            )}
-          </Button>
         </div>
-      </div>
+      )}
     </div>
   );
 }
