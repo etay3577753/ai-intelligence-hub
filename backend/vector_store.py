@@ -107,7 +107,7 @@ def build_index(force_rebuild: bool = False) -> chromadb.Collection:
             col   = client.get_collection(COLLECTION_NAME, embedding_function=ef)
             count = col.count()
             if count > 0:
-                print(f"[VectorStore] Already indexed ({count} chunks) — skipping rebuild")
+                print(f"[VectorStore] Already indexed ({count} chunks) -- skipping rebuild")
                 return col
             client.delete_collection(COLLECTION_NAME)
 
@@ -149,7 +149,7 @@ def build_index(force_rebuild: bool = False) -> chromadb.Collection:
             metadatas = all_metas[i:i+batch],
         )
 
-    print(f"[VectorStore] ✓ Indexed {len(all_ids)} chunks from {len(wiki_files)} files")
+    print(f"[VectorStore] OK Indexed {len(all_ids)} chunks from {len(wiki_files)} files")
     return collection
 
 
@@ -263,7 +263,7 @@ if __name__ == "__main__":
     print("=" * 60)
 
     for query in TEST_QUERIES:
-        print(f"\n🔍  {query}")
+        print(f"\n>> {query}")
         hits = search(query, top_k=3)
         for i, h in enumerate(hits, 1):
             section = f" › {h['section_title']}" if h["section_title"] else ""
@@ -278,8 +278,8 @@ if __name__ == "__main__":
         doc = get_full_doc(stem)
         if doc:
             first_line = doc.splitlines()[0]
-            print(f"✓ {stem}.md — {len(doc):,} chars | {first_line}")
+            print(f"OK {stem}.md -- {len(doc):,} chars | {first_line}")
         else:
-            print(f"✗ {stem}.md — not found")
+            print(f"MISS {stem}.md -- not found")
 
-    print("\n✅  Done")
+    print("\nDone.")
