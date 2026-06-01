@@ -311,7 +311,7 @@ async function callGemini(
     body: JSON.stringify({
       system_instruction: { parts: [{ text: systemPrompt }] },
       contents,
-      generationConfig: { temperature: 0.6, maxOutputTokens: 4096 },
+      generationConfig: { temperature: 0.6, maxOutputTokens: 8000 },
     }),
   });
 
@@ -347,7 +347,7 @@ async function callClaude(
     },
     body: JSON.stringify({
       model: "claude-sonnet-4-6",
-      max_tokens: 4096,
+      max_tokens: 8000,
       system: systemPrompt,
       messages: anthropicMessages,
     }),
