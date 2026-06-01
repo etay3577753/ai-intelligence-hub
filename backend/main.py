@@ -9,7 +9,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from routers import process, health, chat, notifications, wiki, base44, credit
+from routers import process, health, chat, notifications, wiki, base44, credit, vector
 
 load_dotenv()
 
@@ -45,6 +45,7 @@ app.include_router(notifications.router, prefix="/api", tags=["Notifications"])
 app.include_router(wiki.router, prefix="/api", tags=["Wiki"])
 app.include_router(base44.router, prefix="/api", tags=["Base44 Integration"])
 app.include_router(credit.router, prefix="/api", tags=["Credit Card Parser"])
+app.include_router(vector.router, tags=["Vector Search"])
 
 
 @app.get("/")

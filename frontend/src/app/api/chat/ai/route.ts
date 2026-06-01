@@ -4,9 +4,10 @@ import path from "path";
 import { loadProfile } from "@/lib/userProfile";
 import { detectCalibration, calibrationToPromptHint } from "../calibration_questions";
 
-const WIKI_DIR      = path.join(process.cwd(), "..", "backend", "data", "wiki");
-const GEMINI_KEY    = process.env.GEMINI_API_KEY ?? "";
-const ANTHROPIC_KEY = process.env.ANTHROPIC_API_KEY ?? "";
+const WIKI_DIR        = path.join(process.cwd(), "..", "backend", "data", "wiki");
+const GEMINI_KEY      = process.env.GEMINI_API_KEY ?? "";
+const ANTHROPIC_KEY   = process.env.ANTHROPIC_API_KEY ?? "";
+const BACKEND_URL     = process.env.BACKEND_URL ?? "http://localhost:8000";
 
 // ─── Ecosystem routing map ─────────────────────────────────────────────────────
 // כל קובץ wiki ממופה לאקוסיסטם + מקלידי רלוונטיות
@@ -62,43 +63,87 @@ const WIKI_ECOSYSTEM_MAP: Record<string, { ecosystem: string; keywords: string[]
   "jasper-copyai.md":     { ecosystem: "Content", keywords: ["jasper", "copy.ai", "copywriting", "שיווק", "marketing"] },
 };
 
-// ─── Dynamic wiki loader — RAG based on actual question ───────────────────────
-function loadWikiForQuestion(lastUserMessage: string): { ctx: string; usedFiles: string[] } {
-  if (!fs.existsSync(WIKI_DIR)) return { ctx: "", usedFiles: [] };
+// ─── Vector Search RAG (primary) ──────────────────────────────────────────────
+// קורא ל-/vector-search בbackend, מקבל chunks סמנטיים רלוונטיים.
+// אם הbackend לא זמין — fallback לטעינת קבצים לפי keyword scoring.
+async function loadWikiForQuestion(
+  lastUserMessage: string
+): Promise<{ ctx: string; usedFiles: string[]; source: "vector" | "fallback" }> {
+
+  // ── Primary: semantic vector search ───────────────────────────────────────
+  try {
+    const resp = await fetch(`${BACKEND_URL}/vector-search`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: lastUserMessage, top_k: 8 }),
+      signal: AbortSignal.timeout(4000),   // 4s timeout so chat never hangs
+    });
+
+    if (resp.ok) {
+      const data = await resp.json() as {
+        chunks: {
+          text: string;
+          tool_name: string;
+          file_stem: string;
+          section_title: string;
+          ecosystem: string;
+          score: number;
+        }[];
+      };
+
+      if (data.chunks?.length) {
+        // Deduplicate by file_stem (keep best-scoring chunk per file)
+        const seen = new Map<string, typeof data.chunks[0]>();
+        for (const chunk of data.chunks) {
+          const stem = chunk.file_stem;
+          if (!seen.has(stem) || chunk.score > (seen.get(stem)!.score)) {
+            seen.set(stem, chunk);
+          }
+        }
+
+        let ctx = "";
+        const usedFiles: string[] = [];
+
+        for (const chunk of data.chunks) {
+          const header = `=== ${chunk.tool_name}${chunk.section_title ? " › " + chunk.section_title : ""} (${chunk.ecosystem}) [score: ${chunk.score}] ===`;
+          ctx += `\n\n${header}\n${chunk.text}`;
+          if (!usedFiles.includes(chunk.file_stem)) usedFiles.push(chunk.file_stem);
+        }
+
+        return { ctx, usedFiles, source: "vector" };
+      }
+    }
+  } catch {
+    // Backend offline or timeout → fall through to keyword fallback
+  }
+
+  // ── Fallback: keyword-based file scoring ───────────────────────────────────
+  if (!fs.existsSync(WIKI_DIR)) return { ctx: "", usedFiles: [], source: "fallback" };
 
   const q = lastUserMessage.toLowerCase();
-
-  // Score every wiki file against the user's question
   const scores: { file: string; score: number }[] = [];
 
   for (const [fname, meta] of Object.entries(WIKI_ECOSYSTEM_MAP)) {
     let score = 0;
     for (const kw of meta.keywords) {
-      if (q.includes(kw.toLowerCase())) {
-        // Multi-word keywords score higher
-        score += kw.includes(" ") ? 4 : 2;
-      }
+      if (q.includes(kw.toLowerCase())) score += kw.includes(" ") ? 4 : 2;
     }
-    // Boost if filename stem appears in query
     const stem = fname.replace(".md", "").replace(/-/g, " ");
     if (q.includes(stem)) score += 3;
-
     if (score > 0) scores.push({ file: fname, score });
   }
 
-  // Sort by score descending
   scores.sort((a, b) => b.score - a.score);
 
-  // If nothing matched — use general top files
   const toLoad = scores.length > 0
     ? scores.slice(0, 8).map(s => s.file)
-    : ["claude-code.md", "cursor-ide.md", "google-gemini-full.md", "chatgpt.md", "lovable-dev.md", "perplexity-ai.md", "notion-ai.md", "n8n-automation.md"];
+    : ["claude-code.md", "cursor-ide.md", "google-gemini-full.md", "chatgpt.md",
+       "lovable-dev.md", "perplexity-ai.md", "notion-ai.md", "n8n-automation.md"];
 
-  // Build context
   let ctx = "";
   let totalChars = 0;
-  const MAX_TOTAL = 80000;
-  const MAX_PER_FILE = 15000;
+  const MAX_TOTAL = 80_000;
+  const MAX_PER_FILE = 15_000;
   const usedFiles: string[] = [];
 
   for (const fname of toLoad) {
@@ -112,7 +157,7 @@ function loadWikiForQuestion(lastUserMessage: string): { ctx: string; usedFiles:
     usedFiles.push(fname);
   }
 
-  return { ctx, usedFiles };
+  return { ctx, usedFiles, source: "fallback" };
 }
 
 // ─── Ecosystem routing decision guide ─────────────────────────────────────────
@@ -385,8 +430,8 @@ export async function POST(req: NextRequest) {
     const calibration = detectCalibration(lastUserMsg, userProfile, messages);
     const hint = calibrationToPromptHint(calibration);
 
-    // RAG דינמי — טען wiki files רלוונטיות לשאלה
-    const { ctx: wikiCtx, usedFiles } = loadWikiForQuestion(lastUserMsg);
+    // RAG דינמי — Vector Search (primary) או keyword fallback
+    const { ctx: wikiCtx, usedFiles, source: wikiSource } = await loadWikiForQuestion(lastUserMsg);
 
     const systemPrompt = mode === "research"
       ? buildResearchPrompt(wikiCtx, hint)
@@ -420,6 +465,7 @@ export async function POST(req: NextRequest) {
       response,
       model,
       wiki_sources: usedFiles,
+      wiki_source_type: wikiSource,
       calibration: {
         taskType:    calibration.taskType,
         detailLevel: calibration.detailLevel,

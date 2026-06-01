@@ -132,7 +132,10 @@
       "Bash(python -c \"import chromadb; print\\('chromadb OK', chromadb.__version__\\)\")",
       "Bash(python -c \"import json; data=json.load\\(open\\('data/tools_master.json','r',encoding='utf-8'\\)\\); ids=[t['id'] for t in data['tools']]; print\\(len\\(ids\\)\\); print\\('\\\\n'.join\\(ids\\)\\)\")",
       "Bash(python scripts/add_task_scores.py)",
-      "Bash(python vector_store.py)"
+      "Bash(python vector_store.py)",
+      "Bash(python -c \"from dotenv import load_dotenv; load_dotenv\\(\\); import os; k=os.getenv\\('PERPLEXITY_API_KEY',''\\); print\\('PERPLEXITY_API_KEY:', k[:12]+'...' if k else 'MISSING'\\)\")",
+      "Bash(python scripts/fill_task_scores.py --batch 5)",
+      "Bash(python -c \"from dotenv import load_dotenv; import os; load_dotenv\\('backend/.env'\\); k=os.getenv\\('PERPLEXITY_API_KEY',''\\); print\\(repr\\(k[:15]\\)\\)\")"
     ]
   }
 }
