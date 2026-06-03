@@ -145,7 +145,12 @@
       "Bash(python scripts/research_engine.py --all)",
       "Bash(python -c \"from crawl4ai import AsyncWebCrawler; print\\('OK'\\)\")",
       "Bash(python -c \"import bs4, requests; print\\('bs4 OK, requests OK'\\)\")",
-      "Bash(python scripts/scrape_official_sites.py)"
+      "Bash(python scripts/scrape_official_sites.py)",
+      "Bash(python -m playwright install chromium)",
+      "Bash(python scripts/score_from_text.py)",
+      "Bash(python -c \"import google.generativeai; print\\('OK'\\)\")",
+      "Bash(python -c \"from google import genai; print\\('google-genai OK'\\)\")",
+      "Bash(python scripts/crawl_spa.py)"
     ]
   }
 }
