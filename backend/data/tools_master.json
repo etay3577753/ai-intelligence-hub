@@ -2563,30 +2563,30 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
-          "code_generation": null,
-          "code_review": null,
-          "debugging": null,
-          "refactoring": null,
-          "test_writing": null,
-          "multi_file_projects": null
+          "overall": 6,
+          "code_generation": 6,
+          "code_review": 4,
+          "debugging": 5,
+          "refactoring": 4,
+          "test_writing": 4,
+          "multi_file_projects": 5
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 7,
+          "long_form": 6,
+          "technical_writing": 5,
+          "creative_writing": 5,
+          "editing_proofreading": 5,
+          "summarization": 6,
+          "multilingual_writing": 6
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 7,
+          "web_search": 8,
+          "deep_analysis": 6,
+          "fact_checking": 5,
+          "synthesis": 6,
+          "academic_sources": 3
         },
         "media_creation": {
           "overall": null,
@@ -2598,59 +2598,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
-          "sql_queries": null,
-          "statistics": null,
-          "python_data_science": null
+          "overall": 5,
+          "csv_excel": 5,
+          "data_visualization": 4,
+          "sql_queries": 4,
+          "statistics": 4,
+          "python_data_science": 5
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 8,
+          "api_integrations": 7,
+          "workflow_automation": 8,
+          "webhooks": 6,
+          "no_code_automation": 7,
+          "scheduled_tasks": 6
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 5,
+          "native_ecosystem_depth": 5,
+          "cross_platform": 7,
+          "open_source_compat": 4,
+          "third_party_integrations": 6
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
-          "programming_languages": null
+          "overall": 7,
+          "hebrew": 4,
+          "english": 9,
+          "other_languages": 7,
+          "rtl_support": 3,
+          "programming_languages": 7
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 6,
+          "api_access": 5,
+          "enterprise_features": 5,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 5,
+          "rate_limits": 5
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 5,
+          "explanations_clarity": 5,
+          "tutoring": 4,
+          "quiz_generation": 3,
+          "curriculum_design": 3
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 9,
+          "tool_use": 9,
+          "multi_step_tasks": 9,
+          "memory": 7,
+          "autonomy": 9,
+          "multi_agent_orchestration": 6
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://manus.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.72)",
+        "fields_filled": 60,
+        "fields_null": 7
       }
     },
     {
@@ -3004,6 +3014,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -3118,6 +3136,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -3233,6 +3259,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -3260,30 +3294,30 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
-          "code_generation": null,
-          "code_review": null,
-          "debugging": null,
-          "refactoring": null,
-          "test_writing": null,
-          "multi_file_projects": null
+          "overall": 8,
+          "code_generation": 8,
+          "code_review": 7,
+          "debugging": 7,
+          "refactoring": 7,
+          "test_writing": 7,
+          "multi_file_projects": 8
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 7,
+          "long_form": 8,
+          "technical_writing": 7,
+          "creative_writing": 6,
+          "editing_proofreading": 7,
+          "summarization": 8,
+          "multilingual_writing": 9
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 8,
+          "web_search": 5,
+          "deep_analysis": 9,
+          "fact_checking": 6,
+          "synthesis": 8,
+          "academic_sources": 7
         },
         "media_creation": {
           "overall": null,
@@ -3295,59 +3329,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
-          "sql_queries": null,
-          "statistics": null,
-          "python_data_science": null
+          "overall": 7,
+          "csv_excel": 7,
+          "data_visualization": 5,
+          "sql_queries": 7,
+          "statistics": 7,
+          "python_data_science": 7
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 4,
+          "api_integrations": 5,
+          "workflow_automation": 3,
+          "webhooks": 3,
+          "no_code_automation": 3,
+          "scheduled_tasks": 3
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 6,
+          "native_ecosystem_depth": 6,
+          "cross_platform": 7,
+          "open_source_compat": 5,
+          "third_party_integrations": 5
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
-          "programming_languages": null
+          "overall": 10,
+          "hebrew": 3,
+          "english": 9,
+          "other_languages": 10,
+          "rtl_support": 3,
+          "programming_languages": 8
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 7,
+          "enterprise_features": 5,
+          "self_hosting": 2,
+          "cost_efficiency_at_scale": 9,
+          "rate_limits": 6
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 8,
+          "explanations_clarity": 8,
+          "tutoring": 8,
+          "quiz_generation": 7,
+          "curriculum_design": 6
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 6,
+          "tool_use": 6,
+          "multi_step_tasks": 6,
+          "memory": 8,
+          "autonomy": 5,
+          "multi_agent_orchestration": 4
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://kimi.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.75)",
+        "fields_filled": 60,
+        "fields_null": 7
       }
     },
     {
@@ -3695,6 +3739,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -3811,6 +3863,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -3838,7 +3898,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -3847,7 +3907,7 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
+          "overall": 2,
           "long_form": null,
           "technical_writing": null,
           "creative_writing": null,
@@ -3856,7 +3916,7 @@
           "multilingual_writing": null
         },
         "research": {
-          "overall": null,
+          "overall": 2,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
@@ -3864,7 +3924,7 @@
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
+          "overall": 1,
           "image_generation": null,
           "video_generation": null,
           "audio_generation": null,
@@ -3873,59 +3933,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
+          "overall": 5,
+          "csv_excel": 4,
+          "data_visualization": 6,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 5,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 9,
+          "api_integrations": 8,
+          "workflow_automation": 9,
+          "webhooks": 8,
+          "no_code_automation": 8,
+          "scheduled_tasks": 10
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 8,
+          "native_ecosystem_depth": 9,
+          "cross_platform": 7,
+          "open_source_compat": 2,
+          "third_party_integrations": 8
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 6,
+          "hebrew": 3,
+          "english": 9,
+          "other_languages": 5,
+          "rtl_support": 2,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 7,
+          "enterprise_features": 8,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 7,
+          "rate_limits": 8
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 3,
+          "explanations_clarity": 3,
+          "tutoring": 1,
+          "quiz_generation": 1,
+          "curriculum_design": 1
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 7,
+          "tool_use": 7,
+          "multi_step_tasks": 8,
+          "memory": 8,
+          "autonomy": 7,
+          "multi_agent_orchestration": 3
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://reclaim.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.80)",
+        "fields_filled": 41,
+        "fields_null": 26
       }
     },
     {
@@ -3953,7 +4023,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -3962,24 +4032,24 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 5,
+          "long_form": 3,
+          "technical_writing": 5,
+          "creative_writing": 2,
+          "editing_proofreading": 4,
+          "summarization": 7,
+          "multilingual_writing": 5
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 8,
+          "web_search": 2,
+          "deep_analysis": 8,
+          "fact_checking": 7,
+          "synthesis": 7,
+          "academic_sources": 8
         },
         "media_creation": {
-          "overall": null,
+          "overall": 1,
           "image_generation": null,
           "video_generation": null,
           "audio_generation": null,
@@ -3988,59 +4058,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
+          "overall": 6,
+          "csv_excel": 6,
+          "data_visualization": 3,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 5,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 3,
+          "api_integrations": 4,
+          "workflow_automation": 2,
+          "webhooks": 2,
+          "no_code_automation": 2,
+          "scheduled_tasks": 2
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 4,
+          "native_ecosystem_depth": 4,
+          "cross_platform": 6,
+          "open_source_compat": 2,
+          "third_party_integrations": 4
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 8,
+          "hebrew": 6,
+          "english": 10,
+          "other_languages": 8,
+          "rtl_support": 5,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 6,
+          "api_access": 5,
+          "enterprise_features": 5,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 8,
+          "rate_limits": 6
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 8,
+          "explanations_clarity": 7,
+          "tutoring": 6,
+          "quiz_generation": 5,
+          "curriculum_design": 5
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 3,
+          "tool_use": 3,
+          "multi_step_tasks": 3,
+          "memory": 5,
+          "autonomy": 2,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://chatpdf.com"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.82)",
+        "fields_filled": 52,
+        "fields_null": 15
       }
     },
     {
@@ -4157,6 +4237,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -4273,6 +4361,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -4387,6 +4483,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -4502,6 +4606,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -4849,6 +4961,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -5087,6 +5207,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -5325,6 +5453,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -5440,6 +5576,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -5554,6 +5698,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -5669,6 +5821,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -5695,7 +5855,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -5704,85 +5864,95 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
+          "overall": 4,
           "long_form": null,
           "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "creative_writing": 3,
+          "editing_proofreading": 4,
+          "summarization": 5,
+          "multilingual_writing": 4
         },
         "research": {
-          "overall": null,
+          "overall": 2,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
-          "synthesis": null,
+          "synthesis": 2,
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
+          "overall": 8,
           "image_generation": null,
-          "video_generation": null,
-          "audio_generation": null,
+          "video_generation": 7,
+          "audio_generation": 9,
           "avatar_creation": null,
           "music_generation": null,
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
+          "overall": 3,
           "csv_excel": null,
-          "data_visualization": null,
+          "data_visualization": 3,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 3,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 6,
+          "api_integrations": 7,
+          "workflow_automation": 5,
+          "webhooks": 6,
+          "no_code_automation": 5,
+          "scheduled_tasks": 4
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 6,
+          "native_ecosystem_depth": 7,
+          "cross_platform": 7,
+          "open_source_compat": 2,
+          "third_party_integrations": 7
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 7,
+          "hebrew": 4,
+          "english": 10,
+          "other_languages": 6,
+          "rtl_support": 3,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 6,
+          "enterprise_features": 7,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 6,
+          "rate_limits": 7
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 5,
+          "explanations_clarity": 3,
+          "tutoring": 2,
+          "quiz_generation": 2,
+          "curriculum_design": 2
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 3,
+          "tool_use": 3,
+          "multi_step_tasks": 3,
+          "memory": 2,
+          "autonomy": 2,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://riverside.fm"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.83)",
+        "fields_filled": 47,
+        "fields_null": 20
       }
     },
     {
@@ -5811,7 +5981,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -5820,16 +5990,16 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
+          "overall": 2,
           "long_form": null,
           "technical_writing": null,
-          "creative_writing": null,
+          "creative_writing": 3,
           "editing_proofreading": null,
           "summarization": null,
           "multilingual_writing": null
         },
         "research": {
-          "overall": null,
+          "overall": 1,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
@@ -5837,16 +6007,16 @@
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
+          "overall": 9,
           "image_generation": null,
           "video_generation": null,
-          "audio_generation": null,
+          "audio_generation": 9,
           "avatar_creation": null,
           "music_generation": null,
-          "voice_cloning": null
+          "voice_cloning": 9
         },
         "data_and_analysis": {
-          "overall": null,
+          "overall": 1,
           "csv_excel": null,
           "data_visualization": null,
           "sql_queries": null,
@@ -5854,51 +6024,61 @@
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 7,
+          "api_integrations": 9,
+          "workflow_automation": 5,
+          "webhooks": 6,
+          "no_code_automation": 5,
+          "scheduled_tasks": 4
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 5,
+          "native_ecosystem_depth": 5,
+          "cross_platform": 6,
+          "open_source_compat": 3,
+          "third_party_integrations": 6
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 9,
+          "hebrew": 7,
+          "english": 10,
+          "other_languages": 9,
+          "rtl_support": 6,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 8,
+          "api_access": 10,
+          "enterprise_features": 7,
+          "self_hosting": 2,
+          "cost_efficiency_at_scale": 7,
+          "rate_limits": 7
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 4,
+          "explanations_clarity": 2,
+          "tutoring": 2,
+          "quiz_generation": 1,
+          "curriculum_design": 2
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 4,
+          "tool_use": 5,
+          "multi_step_tasks": 4,
+          "memory": 2,
+          "autonomy": 3,
+          "multi_agent_orchestration": 2
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://play.ht"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.82)",
+        "fields_filled": 41,
+        "fields_null": 26
       }
     },
     {
@@ -6014,6 +6194,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -6244,6 +6432,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -6510,7 +6706,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -6519,16 +6715,16 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
+          "overall": 2,
           "long_form": null,
           "technical_writing": null,
-          "creative_writing": null,
+          "creative_writing": 3,
           "editing_proofreading": null,
           "summarization": null,
           "multilingual_writing": null
         },
         "research": {
-          "overall": null,
+          "overall": 1,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
@@ -6536,16 +6732,16 @@
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
-          "image_generation": null,
-          "video_generation": null,
+          "overall": 9,
+          "image_generation": 7,
+          "video_generation": 9,
           "audio_generation": null,
           "avatar_creation": null,
           "music_generation": null,
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
+          "overall": 1,
           "csv_excel": null,
           "data_visualization": null,
           "sql_queries": null,
@@ -6553,51 +6749,61 @@
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 4,
+          "api_integrations": 6,
+          "workflow_automation": 3,
+          "webhooks": 4,
+          "no_code_automation": 4,
+          "scheduled_tasks": 2
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 5,
+          "native_ecosystem_depth": 5,
+          "cross_platform": 5,
+          "open_source_compat": 3,
+          "third_party_integrations": 4
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 7,
+          "hebrew": 3,
+          "english": 8,
+          "other_languages": 8,
+          "rtl_support": 2,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 6,
+          "api_access": 7,
+          "enterprise_features": 5,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 6,
+          "rate_limits": 5
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 2,
+          "explanations_clarity": 2,
+          "tutoring": 1,
+          "quiz_generation": 1,
+          "curriculum_design": 1
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 2,
+          "tool_use": 2,
+          "multi_step_tasks": 2,
+          "memory": 1,
+          "autonomy": 2,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://klingai.com"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.78)",
+        "fields_filled": 41,
+        "fields_null": 26
       }
     },
     {
@@ -6747,7 +6953,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -6756,16 +6962,16 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 4,
+          "long_form": 2,
+          "technical_writing": 3,
+          "creative_writing": 3,
+          "editing_proofreading": 4,
+          "summarization": 4,
+          "multilingual_writing": 5
         },
         "research": {
-          "overall": null,
+          "overall": 1,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
@@ -6773,68 +6979,78 @@
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
-          "image_generation": null,
-          "video_generation": null,
-          "audio_generation": null,
-          "avatar_creation": null,
+          "overall": 9,
+          "image_generation": 5,
+          "video_generation": 9,
+          "audio_generation": 7,
+          "avatar_creation": 6,
           "music_generation": null,
-          "voice_cloning": null
+          "voice_cloning": 5
         },
         "data_and_analysis": {
-          "overall": null,
+          "overall": 2,
           "csv_excel": null,
-          "data_visualization": null,
+          "data_visualization": 2,
           "sql_queries": null,
           "statistics": null,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 6,
+          "api_integrations": 7,
+          "workflow_automation": 5,
+          "webhooks": 5,
+          "no_code_automation": 7,
+          "scheduled_tasks": 4
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 6,
+          "native_ecosystem_depth": 7,
+          "cross_platform": 8,
+          "open_source_compat": 2,
+          "third_party_integrations": 6
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 8,
+          "hebrew": 5,
+          "english": 10,
+          "other_languages": 7,
+          "rtl_support": 4,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 7,
+          "enterprise_features": 7,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 7,
+          "rate_limits": 7
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 5,
+          "explanations_clarity": 3,
+          "tutoring": 3,
+          "quiz_generation": 2,
+          "curriculum_design": 3
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 4,
+          "tool_use": 4,
+          "multi_step_tasks": 4,
+          "memory": 3,
+          "autonomy": 3,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://veed.io"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.83)",
+        "fields_filled": 50,
+        "fields_null": 17
       }
     },
     {
@@ -6985,7 +7201,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -6994,16 +7210,16 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
+          "overall": 4,
+          "long_form": 2,
           "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "creative_writing": 4,
+          "editing_proofreading": 3,
+          "summarization": 4,
+          "multilingual_writing": 5
         },
         "research": {
-          "overall": null,
+          "overall": 1,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
@@ -7011,16 +7227,16 @@
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
-          "image_generation": null,
-          "video_generation": null,
-          "audio_generation": null,
-          "avatar_creation": null,
-          "music_generation": null,
-          "voice_cloning": null
+          "overall": 9,
+          "image_generation": 6,
+          "video_generation": 9,
+          "audio_generation": 7,
+          "avatar_creation": 5,
+          "music_generation": 4,
+          "voice_cloning": 6
         },
         "data_and_analysis": {
-          "overall": null,
+          "overall": 1,
           "csv_excel": null,
           "data_visualization": null,
           "sql_queries": null,
@@ -7028,51 +7244,61 @@
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 4,
+          "api_integrations": 4,
+          "workflow_automation": 4,
+          "webhooks": 3,
+          "no_code_automation": 6,
+          "scheduled_tasks": 3
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 7,
+          "native_ecosystem_depth": 7,
+          "cross_platform": 9,
+          "open_source_compat": 3,
+          "third_party_integrations": 6
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 9,
+          "hebrew": 5,
+          "english": 9,
+          "other_languages": 9,
+          "rtl_support": 4,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 8,
+          "api_access": 4,
+          "enterprise_features": 7,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 9,
+          "rate_limits": 8
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 5,
+          "explanations_clarity": 3,
+          "tutoring": 2,
+          "quiz_generation": 2,
+          "curriculum_design": 2
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 3,
+          "tool_use": 3,
+          "multi_step_tasks": 3,
+          "memory": 2,
+          "autonomy": 2,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://capcut.com"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.85)",
+        "fields_filled": 49,
+        "fields_null": 18
       }
     },
     {
@@ -7188,6 +7414,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -7303,6 +7537,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -7419,6 +7661,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -7533,6 +7783,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -8259,6 +8517,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -8409,7 +8675,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -8418,16 +8684,16 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
+          "overall": 2,
           "long_form": null,
           "technical_writing": null,
-          "creative_writing": null,
+          "creative_writing": 3,
           "editing_proofreading": null,
           "summarization": null,
           "multilingual_writing": null
         },
         "research": {
-          "overall": null,
+          "overall": 1,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
@@ -8435,16 +8701,16 @@
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
-          "image_generation": null,
-          "video_generation": null,
+          "overall": 9,
+          "image_generation": 9,
+          "video_generation": 7,
           "audio_generation": null,
           "avatar_creation": null,
           "music_generation": null,
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
+          "overall": 1,
           "csv_excel": null,
           "data_visualization": null,
           "sql_queries": null,
@@ -8452,51 +8718,61 @@
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 5,
+          "api_integrations": 6,
+          "workflow_automation": 3,
+          "webhooks": 4,
+          "no_code_automation": 5,
+          "scheduled_tasks": 2
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 5,
+          "native_ecosystem_depth": 5,
+          "cross_platform": 6,
+          "open_source_compat": 3,
+          "third_party_integrations": 5
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 6,
+          "hebrew": 4,
+          "english": 9,
+          "other_languages": 6,
+          "rtl_support": 3,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 6,
+          "api_access": 6,
+          "enterprise_features": 5,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 7,
+          "rate_limits": 6
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 3,
+          "explanations_clarity": 2,
+          "tutoring": 1,
+          "quiz_generation": 1,
+          "curriculum_design": 2
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 2,
+          "tool_use": 2,
+          "multi_step_tasks": 2,
+          "memory": 2,
+          "autonomy": 2,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://krea.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.80)",
+        "fields_filled": 41,
+        "fields_null": 26
       }
     },
     {
@@ -8524,7 +8800,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -8533,16 +8809,16 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
+          "overall": 1,
           "long_form": null,
           "technical_writing": null,
-          "creative_writing": null,
+          "creative_writing": 2,
           "editing_proofreading": null,
           "summarization": null,
           "multilingual_writing": null
         },
         "research": {
-          "overall": null,
+          "overall": 1,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
@@ -8550,8 +8826,8 @@
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
-          "image_generation": null,
+          "overall": 8,
+          "image_generation": 9,
           "video_generation": null,
           "audio_generation": null,
           "avatar_creation": null,
@@ -8559,7 +8835,7 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
+          "overall": 1,
           "csv_excel": null,
           "data_visualization": null,
           "sql_queries": null,
@@ -8567,51 +8843,61 @@
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 4,
+          "api_integrations": 5,
+          "workflow_automation": 3,
+          "webhooks": 3,
+          "no_code_automation": 4,
+          "scheduled_tasks": 2
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 5,
+          "native_ecosystem_depth": 5,
+          "cross_platform": 5,
+          "open_source_compat": 3,
+          "third_party_integrations": 5
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 5,
+          "hebrew": 3,
+          "english": 8,
+          "other_languages": 5,
+          "rtl_support": 2,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 5,
+          "api_access": 5,
+          "enterprise_features": 4,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 5,
+          "rate_limits": 5
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 2,
+          "explanations_clarity": 2,
+          "tutoring": 1,
+          "quiz_generation": 1,
+          "curriculum_design": 1
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 1,
+          "tool_use": 1,
+          "multi_step_tasks": 1,
+          "memory": 1,
+          "autonomy": 1,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://magnific.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.80)",
+        "fields_filled": 40,
+        "fields_null": 27
       }
     },
     {
@@ -8727,6 +9013,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -9089,6 +9383,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -9205,6 +9507,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -9320,6 +9630,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -9435,6 +9753,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -9550,6 +9876,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -9666,6 +10000,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -9781,6 +10123,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -9896,6 +10246,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -10011,6 +10369,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -10038,7 +10404,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -10047,85 +10413,95 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 5,
+          "long_form": 3,
+          "technical_writing": 4,
+          "creative_writing": 5,
+          "editing_proofreading": 4,
+          "summarization": 4,
+          "multilingual_writing": 6
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 2,
+          "web_search": 2,
+          "deep_analysis": 1,
+          "fact_checking": 1,
+          "synthesis": 2,
+          "academic_sources": 1
         },
         "media_creation": {
-          "overall": null,
-          "image_generation": null,
-          "video_generation": null,
+          "overall": 8,
+          "image_generation": 8,
+          "video_generation": 5,
           "audio_generation": null,
           "avatar_creation": null,
           "music_generation": null,
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
+          "overall": 3,
+          "csv_excel": 3,
+          "data_visualization": 5,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 2,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 8,
+          "api_integrations": 7,
+          "workflow_automation": 7,
+          "webhooks": 6,
+          "no_code_automation": 8,
+          "scheduled_tasks": 6
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 9,
+          "native_ecosystem_depth": 10,
+          "cross_platform": 7,
+          "open_source_compat": 4,
+          "third_party_integrations": 8
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 9,
+          "hebrew": 8,
+          "english": 10,
+          "other_languages": 9,
+          "rtl_support": 8,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 8,
+          "api_access": 6,
+          "enterprise_features": 9,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 8,
+          "rate_limits": 8
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 5,
+          "explanations_clarity": 4,
+          "tutoring": 2,
+          "quiz_generation": 3,
+          "curriculum_design": 4
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 4,
+          "tool_use": 4,
+          "multi_step_tasks": 4,
+          "memory": 4,
+          "autonomy": 3,
+          "multi_agent_orchestration": 2
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://designer.microsoft.com"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.85)",
+        "fields_filled": 54,
+        "fields_null": 13
       }
     },
     {
@@ -10242,6 +10618,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -10357,6 +10741,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -10472,6 +10864,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -10587,6 +10987,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -10702,6 +11110,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -10852,8 +11268,8 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
-          "code_generation": null,
+          "overall": 2,
+          "code_generation": 1,
           "code_review": null,
           "debugging": null,
           "refactoring": null,
@@ -10861,24 +11277,24 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 7,
+          "long_form": 6,
+          "technical_writing": 8,
+          "creative_writing": 2,
+          "editing_proofreading": 6,
+          "summarization": 9,
+          "multilingual_writing": 6
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 10,
+          "web_search": 6,
+          "deep_analysis": 10,
+          "fact_checking": 9,
+          "synthesis": 9,
+          "academic_sources": 10
         },
         "media_creation": {
-          "overall": null,
+          "overall": 1,
           "image_generation": null,
           "video_generation": null,
           "audio_generation": null,
@@ -10887,59 +11303,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
+          "overall": 6,
+          "csv_excel": 4,
+          "data_visualization": 5,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 7,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 4,
+          "api_integrations": 5,
+          "workflow_automation": 3,
+          "webhooks": 3,
+          "no_code_automation": 3,
+          "scheduled_tasks": 2
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 5,
+          "native_ecosystem_depth": 6,
+          "cross_platform": 5,
+          "open_source_compat": 3,
+          "third_party_integrations": 5
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 7,
+          "hebrew": 3,
+          "english": 10,
+          "other_languages": 6,
+          "rtl_support": 2,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 7,
+          "enterprise_features": 8,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 8,
+          "rate_limits": 7
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 10,
+          "explanations_clarity": 10,
+          "tutoring": 8,
+          "quiz_generation": 7,
+          "curriculum_design": 6
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 4,
+          "tool_use": 4,
+          "multi_step_tasks": 4,
+          "memory": 5,
+          "autonomy": 3,
+          "multi_agent_orchestration": 2
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://typeset.io"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.83)",
+        "fields_filled": 53,
+        "fields_null": 14
       }
     },
     {
@@ -11178,6 +11604,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -11205,7 +11639,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -11214,24 +11648,24 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 5,
+          "long_form": 4,
+          "technical_writing": 5,
+          "creative_writing": 2,
+          "editing_proofreading": 4,
+          "summarization": 8,
+          "multilingual_writing": 5
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 9,
+          "web_search": 2,
+          "deep_analysis": 9,
+          "fact_checking": 8,
+          "synthesis": 8,
+          "academic_sources": 9
         },
         "media_creation": {
-          "overall": null,
+          "overall": 1,
           "image_generation": null,
           "video_generation": null,
           "audio_generation": null,
@@ -11240,59 +11674,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
+          "overall": 6,
+          "csv_excel": 6,
+          "data_visualization": 3,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 5,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 3,
+          "api_integrations": 4,
+          "workflow_automation": 2,
+          "webhooks": 2,
+          "no_code_automation": 2,
+          "scheduled_tasks": 2
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 4,
+          "native_ecosystem_depth": 4,
+          "cross_platform": 5,
+          "open_source_compat": 2,
+          "third_party_integrations": 4
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 7,
+          "hebrew": 4,
+          "english": 10,
+          "other_languages": 6,
+          "rtl_support": 3,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 6,
+          "api_access": 5,
+          "enterprise_features": 6,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 7,
+          "rate_limits": 6
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 8,
+          "explanations_clarity": 8,
+          "tutoring": 5,
+          "quiz_generation": 5,
+          "curriculum_design": 4
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 3,
+          "tool_use": 3,
+          "multi_step_tasks": 3,
+          "memory": 5,
+          "autonomy": 2,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://humata.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.80)",
+        "fields_filled": 52,
+        "fields_null": 15
       }
     },
     {
@@ -11408,6 +11852,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -11523,6 +11975,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -11638,6 +12098,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -11753,6 +12221,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -11993,6 +12469,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -12020,7 +12504,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -12029,85 +12513,95 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 7,
+          "long_form": 4,
+          "technical_writing": 3,
+          "creative_writing": 8,
+          "editing_proofreading": 5,
+          "summarization": 5,
+          "multilingual_writing": 7
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 3,
+          "web_search": 3,
+          "deep_analysis": 2,
+          "fact_checking": 2,
+          "synthesis": 2,
+          "academic_sources": 1
         },
         "media_creation": {
-          "overall": null,
-          "image_generation": null,
-          "video_generation": null,
+          "overall": 9,
+          "image_generation": 9,
+          "video_generation": 5,
           "audio_generation": null,
           "avatar_creation": null,
           "music_generation": null,
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
+          "overall": 5,
+          "csv_excel": 4,
+          "data_visualization": 6,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 5,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 7,
+          "api_integrations": 7,
+          "workflow_automation": 6,
+          "webhooks": 6,
+          "no_code_automation": 7,
+          "scheduled_tasks": 5
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 7,
+          "native_ecosystem_depth": 7,
+          "cross_platform": 7,
+          "open_source_compat": 2,
+          "third_party_integrations": 7
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 7,
+          "hebrew": 4,
+          "english": 10,
+          "other_languages": 7,
+          "rtl_support": 3,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 7,
+          "enterprise_features": 8,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 5,
+          "rate_limits": 7
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 4,
+          "explanations_clarity": 3,
+          "tutoring": 2,
+          "quiz_generation": 2,
+          "curriculum_design": 2
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 4,
+          "tool_use": 5,
+          "multi_step_tasks": 5,
+          "memory": 4,
+          "autonomy": 3,
+          "multi_agent_orchestration": 2
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://adcreative.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.80)",
+        "fields_filled": 54,
+        "fields_null": 13
       }
     },
     {
@@ -12259,7 +12753,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -12268,24 +12762,24 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 7,
+          "long_form": 6,
+          "technical_writing": 5,
+          "creative_writing": 8,
+          "editing_proofreading": 7,
+          "summarization": 6,
+          "multilingual_writing": 8
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 3,
+          "web_search": 2,
+          "deep_analysis": 2,
+          "fact_checking": 2,
+          "synthesis": 3,
+          "academic_sources": 1
         },
         "media_creation": {
-          "overall": null,
+          "overall": 1,
           "image_generation": null,
           "video_generation": null,
           "audio_generation": null,
@@ -12294,59 +12788,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
+          "overall": 2,
           "csv_excel": null,
           "data_visualization": null,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 2,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 6,
+          "api_integrations": 7,
+          "workflow_automation": 5,
+          "webhooks": 5,
+          "no_code_automation": 5,
+          "scheduled_tasks": 4
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 5,
+          "native_ecosystem_depth": 5,
+          "cross_platform": 6,
+          "open_source_compat": 2,
+          "third_party_integrations": 5
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 8,
+          "hebrew": 4,
+          "english": 10,
+          "other_languages": 8,
+          "rtl_support": 3,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 7,
+          "enterprise_features": 6,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 9,
+          "rate_limits": 8
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 4,
+          "explanations_clarity": 4,
+          "tutoring": 3,
+          "quiz_generation": 3,
+          "curriculum_design": 3
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 3,
+          "tool_use": 3,
+          "multi_step_tasks": 3,
+          "memory": 3,
+          "autonomy": 2,
+          "multi_agent_orchestration": 1
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://rytr.me"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.82)",
+        "fields_filled": 50,
+        "fields_null": 17
       }
     },
     {
@@ -12462,6 +12966,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -12612,7 +13124,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -12621,24 +13133,24 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 8,
+          "long_form": 5,
+          "technical_writing": 5,
+          "creative_writing": 6,
+          "editing_proofreading": 9,
+          "summarization": 7,
+          "multilingual_writing": 6
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 4,
+          "web_search": 4,
+          "deep_analysis": 3,
+          "fact_checking": 3,
+          "synthesis": 3,
+          "academic_sources": 1
         },
         "media_creation": {
-          "overall": null,
+          "overall": 1,
           "image_generation": null,
           "video_generation": null,
           "audio_generation": null,
@@ -12647,59 +13159,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
+          "overall": 5,
+          "csv_excel": 4,
+          "data_visualization": 5,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 5,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 7,
+          "api_integrations": 7,
+          "workflow_automation": 6,
+          "webhooks": 6,
+          "no_code_automation": 6,
+          "scheduled_tasks": 5
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 7,
+          "native_ecosystem_depth": 8,
+          "cross_platform": 6,
+          "open_source_compat": 2,
+          "third_party_integrations": 7
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 6,
+          "hebrew": 3,
+          "english": 10,
+          "other_languages": 5,
+          "rtl_support": 2,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 7,
+          "enterprise_features": 8,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 5,
+          "rate_limits": 7
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 4,
+          "explanations_clarity": 4,
+          "tutoring": 3,
+          "quiz_generation": 2,
+          "curriculum_design": 2
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 5,
+          "tool_use": 6,
+          "multi_step_tasks": 5,
+          "memory": 5,
+          "autonomy": 4,
+          "multi_agent_orchestration": 2
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://lavender.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.82)",
+        "fields_filled": 52,
+        "fields_null": 15
       }
     },
     {
@@ -12815,6 +13337,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -12930,6 +13460,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -13420,25 +13958,25 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
-          "code_generation": null,
-          "code_review": null,
-          "debugging": null,
-          "refactoring": null,
-          "test_writing": null,
-          "multi_file_projects": null
+          "overall": 7,
+          "code_generation": 7,
+          "code_review": 5,
+          "debugging": 5,
+          "refactoring": 5,
+          "test_writing": 4,
+          "multi_file_projects": 6
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 3,
+          "long_form": 2,
+          "technical_writing": 4,
+          "creative_writing": 2,
+          "editing_proofreading": 3,
+          "summarization": 3,
+          "multilingual_writing": 4
         },
         "research": {
-          "overall": null,
+          "overall": 1,
           "web_search": null,
           "deep_analysis": null,
           "fact_checking": null,
@@ -13446,8 +13984,8 @@
           "academic_sources": null
         },
         "media_creation": {
-          "overall": null,
-          "image_generation": null,
+          "overall": 4,
+          "image_generation": 3,
           "video_generation": null,
           "audio_generation": null,
           "avatar_creation": null,
@@ -13455,59 +13993,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
-          "sql_queries": null,
-          "statistics": null,
-          "python_data_science": null
+          "overall": 4,
+          "csv_excel": 3,
+          "data_visualization": 5,
+          "sql_queries": 4,
+          "statistics": 3,
+          "python_data_science": 3
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 9,
+          "api_integrations": 9,
+          "workflow_automation": 8,
+          "webhooks": 8,
+          "no_code_automation": 9,
+          "scheduled_tasks": 6
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 8,
+          "native_ecosystem_depth": 8,
+          "cross_platform": 9,
+          "open_source_compat": 7,
+          "third_party_integrations": 9
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
-          "programming_languages": null
+          "overall": 6,
+          "hebrew": 4,
+          "english": 9,
+          "other_languages": 6,
+          "rtl_support": 4,
+          "programming_languages": 8
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 8,
+          "api_access": 9,
+          "enterprise_features": 9,
+          "self_hosting": 5,
+          "cost_efficiency_at_scale": 6,
+          "rate_limits": 7
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 5,
+          "explanations_clarity": 5,
+          "tutoring": 3,
+          "quiz_generation": 2,
+          "curriculum_design": 2
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 5,
+          "tool_use": 5,
+          "multi_step_tasks": 6,
+          "memory": 4,
+          "autonomy": 4,
+          "multi_agent_orchestration": 3
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://builder.io"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.80)",
+        "fields_filled": 57,
+        "fields_null": 10
       }
     },
     {
@@ -13623,6 +14171,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -14084,6 +14640,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -14111,33 +14675,33 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
-          "code_generation": null,
-          "code_review": null,
-          "debugging": null,
-          "refactoring": null,
-          "test_writing": null,
-          "multi_file_projects": null
+          "overall": 8,
+          "code_generation": 8,
+          "code_review": 7,
+          "debugging": 7,
+          "refactoring": 7,
+          "test_writing": 6,
+          "multi_file_projects": 7
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 6,
+          "long_form": 5,
+          "technical_writing": 7,
+          "creative_writing": 4,
+          "editing_proofreading": 5,
+          "summarization": 7,
+          "multilingual_writing": 5
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 9,
+          "web_search": 10,
+          "deep_analysis": 8,
+          "fact_checking": 8,
+          "synthesis": 8,
+          "academic_sources": 6
         },
         "media_creation": {
-          "overall": null,
+          "overall": 2,
           "image_generation": null,
           "video_generation": null,
           "audio_generation": null,
@@ -14146,59 +14710,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
-          "sql_queries": null,
-          "statistics": null,
-          "python_data_science": null
+          "overall": 7,
+          "csv_excel": 6,
+          "data_visualization": 6,
+          "sql_queries": 7,
+          "statistics": 6,
+          "python_data_science": 7
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 7,
+          "api_integrations": 7,
+          "workflow_automation": 6,
+          "webhooks": 5,
+          "no_code_automation": 4,
+          "scheduled_tasks": 5
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 7,
+          "native_ecosystem_depth": 8,
+          "cross_platform": 6,
+          "open_source_compat": 5,
+          "third_party_integrations": 6
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
-          "programming_languages": null
+          "overall": 7,
+          "hebrew": 5,
+          "english": 10,
+          "other_languages": 7,
+          "rtl_support": 4,
+          "programming_languages": 9
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 7,
+          "api_access": 7,
+          "enterprise_features": 6,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 6,
+          "rate_limits": 6
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 8,
+          "explanations_clarity": 8,
+          "tutoring": 7,
+          "quiz_generation": 5,
+          "curriculum_design": 4
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 9,
+          "tool_use": 9,
+          "multi_step_tasks": 9,
+          "memory": 7,
+          "autonomy": 8,
+          "multi_agent_orchestration": 5
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://comet.perplexity.ai"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.70)",
+        "fields_filled": 61,
+        "fields_null": 6
       }
     },
     {
@@ -14313,6 +14887,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -14341,7 +14923,7 @@
       ],
       "task_scores": {
         "coding": {
-          "overall": null,
+          "overall": 1,
           "code_generation": null,
           "code_review": null,
           "debugging": null,
@@ -14350,24 +14932,24 @@
           "multi_file_projects": null
         },
         "writing": {
-          "overall": null,
-          "long_form": null,
-          "technical_writing": null,
-          "creative_writing": null,
-          "editing_proofreading": null,
-          "summarization": null,
-          "multilingual_writing": null
+          "overall": 7,
+          "long_form": 6,
+          "technical_writing": 8,
+          "creative_writing": 3,
+          "editing_proofreading": 6,
+          "summarization": 6,
+          "multilingual_writing": 5
         },
         "research": {
-          "overall": null,
-          "web_search": null,
-          "deep_analysis": null,
-          "fact_checking": null,
-          "synthesis": null,
-          "academic_sources": null
+          "overall": 6,
+          "web_search": 4,
+          "deep_analysis": 6,
+          "fact_checking": 5,
+          "synthesis": 5,
+          "academic_sources": 4
         },
         "media_creation": {
-          "overall": null,
+          "overall": 1,
           "image_generation": null,
           "video_generation": null,
           "audio_generation": null,
@@ -14376,59 +14958,69 @@
           "voice_cloning": null
         },
         "data_and_analysis": {
-          "overall": null,
-          "csv_excel": null,
-          "data_visualization": null,
+          "overall": 4,
+          "csv_excel": 3,
+          "data_visualization": 2,
           "sql_queries": null,
-          "statistics": null,
+          "statistics": 3,
           "python_data_science": null
         },
         "automation_and_integrations": {
-          "overall": null,
-          "api_integrations": null,
-          "workflow_automation": null,
-          "webhooks": null,
-          "no_code_automation": null,
-          "scheduled_tasks": null
+          "overall": 6,
+          "api_integrations": 5,
+          "workflow_automation": 6,
+          "webhooks": 4,
+          "no_code_automation": 6,
+          "scheduled_tasks": 6
         },
         "ecosystem_synergy": {
-          "overall": null,
-          "native_ecosystem_depth": null,
-          "cross_platform": null,
-          "open_source_compat": null,
-          "third_party_integrations": null
+          "overall": 4,
+          "native_ecosystem_depth": 5,
+          "cross_platform": 5,
+          "open_source_compat": 2,
+          "third_party_integrations": 4
         },
         "language_support": {
-          "overall": null,
-          "hebrew": null,
-          "english": null,
-          "other_languages": null,
-          "rtl_support": null,
+          "overall": 5,
+          "hebrew": 3,
+          "english": 9,
+          "other_languages": 4,
+          "rtl_support": 2,
           "programming_languages": null
         },
         "deployment_and_scale": {
-          "overall": null,
-          "api_access": null,
-          "enterprise_features": null,
-          "self_hosting": null,
-          "cost_efficiency_at_scale": null,
-          "rate_limits": null
+          "overall": 6,
+          "api_access": 4,
+          "enterprise_features": 5,
+          "self_hosting": 1,
+          "cost_efficiency_at_scale": 6,
+          "rate_limits": 6
         },
         "education_and_learning": {
-          "overall": null,
-          "explanations_clarity": null,
-          "tutoring": null,
-          "quiz_generation": null,
-          "curriculum_design": null
+          "overall": 6,
+          "explanations_clarity": 7,
+          "tutoring": 3,
+          "quiz_generation": 2,
+          "curriculum_design": 2
         },
         "agent_and_agentic": {
-          "overall": null,
-          "tool_use": null,
-          "multi_step_tasks": null,
-          "memory": null,
-          "autonomy": null,
-          "multi_agent_orchestration": null
+          "overall": 7,
+          "tool_use": 7,
+          "multi_step_tasks": 7,
+          "memory": 5,
+          "autonomy": 6,
+          "multi_agent_orchestration": 3
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [
+          "https://donotpay.com"
+        ],
+        "confidence": 0.9,
+        "last_updated": "2026-06-03",
+        "data_source": "L0-training(0.78)",
+        "fields_filled": 52,
+        "fields_null": 15
       }
     },
     {
@@ -14544,6 +15136,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     },
     {
@@ -14660,6 +15260,14 @@
           "autonomy": null,
           "multi_agent_orchestration": null
         }
+      },
+      "task_scores_meta": {
+        "source_urls": [],
+        "confidence": 0.3,
+        "last_updated": "2026-06-03",
+        "data_source": "unknown",
+        "fields_filled": 0,
+        "fields_null": 67
       }
     }
   ]
